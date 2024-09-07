@@ -3,4 +3,4 @@
 ### MANAGER API :
 https://drive.google.com/drive/folders/1r1Ed2fkxOdPk9D-JeJXvzvuOfu2ah-od?usp=drive_link
 ### MANAGER Diagrams :
-https://drive.google.com/drive/folders/1r1Ed2fkxOdPk9D-JeJXvzvuOfu2ah-od?usp=drive_link
+https://drive.google.com/drive/folders/1PyIYtZgl1KsmJBur5zgjZKclIA3XuR3h?usp=drive_link
