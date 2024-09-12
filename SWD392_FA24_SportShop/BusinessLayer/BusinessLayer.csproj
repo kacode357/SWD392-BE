@@ -10,6 +10,7 @@
     <Folder Include="Entities\" />
     <Folder Include="ResponseModel\" />
     <Folder Include="RequestModel\" />
+    <Folder Include="Service\Interface\" />
   </ItemGroup>
 
   <ItemGroup>

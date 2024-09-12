@@ -3,32 +3,44 @@
   "WorkspaceRootPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{527D2B3D-EAD2-47DC-92E3-794D641061C8}|SWD392_FA24_SportShop\\SWD392_FA24_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_fa24_sportshop\\appstarts\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{527D2B3D-EAD2-47DC-92E3-794D641061C8}|SWD392_FA24_SportShop\\SWD392_FA24_SportShop.csproj|solutionrelative:swd392_fa24_sportshop\\appstarts\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{527D2B3D-EAD2-47DC-92E3-794D641061C8}|SWD392_FA24_SportShop\\SWD392_FA24_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_fa24_sportshop\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{527D2B3D-EAD2-47DC-92E3-794D641061C8}|SWD392_FA24_SportShop\\SWD392_FA24_SportShop.csproj|solutionrelative:swd392_fa24_sportshop\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\swd392_sportshop.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\swd392_sportshop.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{527D2B3D-EAD2-47DC-92E3-794D641061C8}|SWD392_FA24_SportShop\\SWD392_FA24_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_fa24_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{527D2B3D-EAD2-47DC-92E3-794D641061C8}|SWD392_FA24_SportShop\\SWD392_FA24_SportShop.csproj|solutionrelative:swd392_fa24_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\swd392_sportshop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\swd392_sportshop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\unitofwork\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\unitofwork\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appstarts\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appstarts\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appstarts\\dependencyinjectioncontainers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appstarts\\dependencyinjectioncontainers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appstarts\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appstarts\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\datalayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -42,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 22,
           "Children": [
             {
               "$type": "Bookmark",
@@ -109,70 +121,128 @@
               "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SwaggerConfig.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\AppStarts\\SwaggerConfig.cs",
-              "RelativeDocumentMoniker": "SWD392_FA24_SportShop\\AppStarts\\SwaggerConfig.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\AppStarts\\SwaggerConfig.cs",
-              "RelativeToolTip": "SWD392_FA24_SportShop\\AppStarts\\SwaggerConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T06:35:35.333Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\UnitOfWork\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "DataLayer\\UnitOfWork\\UnitOfWork.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\UnitOfWork\\UnitOfWork.cs",
-              "RelativeToolTip": "DataLayer\\UnitOfWork\\UnitOfWork.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAiwFAAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T06:11:15.409Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\UnitOfWork\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "DataLayer\\UnitOfWork\\IUnitOfWork.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\UnitOfWork\\IUnitOfWork.cs",
-              "RelativeToolTip": "DataLayer\\UnitOfWork\\IUnitOfWork.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T06:11:14.626Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Repository\\GenericRepository.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\GenericRepository.cs",
-              "RelativeToolTip": "DataLayer\\Repository\\GenericRepository.cs",
-              "ViewState": "AQIAAJcAAAAAAAAAAAAUwKgAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T06:10:29.418Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ValuesController.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\Controllers\\ValuesController.cs",
-              "RelativeDocumentMoniker": "SWD392_FA24_SportShop\\Controllers\\ValuesController.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\Controllers\\ValuesController.cs",
-              "RelativeToolTip": "SWD392_FA24_SportShop\\Controllers\\ValuesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T06:09:35.287Z",
+              "Title": "SWD392_SportShop",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\SWD392_SportShop.csproj",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
+              "RelativeToolTip": "SWD392_SportShop\\SWD392_SportShop.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-11T09:22:39.033Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\appsettings.json",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
+              "RelativeToolTip": "SWD392_SportShop\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-11T09:06:57.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DependencyInjectionContainers.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
+              "RelativeToolTip": "SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:08:05.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthConfig.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\AuthConfig.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\AuthConfig.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\AuthConfig.cs",
+              "RelativeToolTip": "SWD392_SportShop\\AppStarts\\AuthConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:08:05.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SwaggerConfig.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
+              "RelativeToolTip": "SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:08:06.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Properties\\launchSettings.json",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SWD392_SportShop\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-11T09:08:15.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Program.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
+              "RelativeToolTip": "SWD392_SportShop\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:07:16.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ValuesController.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ValuesController.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ValuesController.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ValuesController.cs",
+              "RelativeToolTip": "SWD392_SportShop\\Controllers\\ValuesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-11T09:07:32.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SWD392_SportShop",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\SWD392_SportShop.csproj",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
+              "RelativeToolTip": "SWD392_SportShop\\SWD392_SportShop.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-11T09:06:46.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "DataLayer.csproj",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj",
               "RelativeDocumentMoniker": "DataLayer\\DataLayer.csproj",
@@ -180,31 +250,20 @@
               "RelativeToolTip": "DataLayer\\DataLayer.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-06T06:05:13.192Z"
+              "WhenOpened": "2024-09-06T06:05:13.192Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Repository\\IGenericRepository.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IGenericRepository.cs",
-              "RelativeToolTip": "DataLayer\\Repository\\IGenericRepository.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAuwDwAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T06:00:27.02Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\Program.cs",
-              "RelativeDocumentMoniker": "SWD392_FA24_SportShop\\Program.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\Program.cs",
-              "RelativeToolTip": "SWD392_FA24_SportShop\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T05:47:51.268Z"
+              "DocumentIndex": 9,
+              "Title": "staticwebassets.publish.json",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
+              "RelativeDocumentMoniker": "SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
+              "RelativeToolTip": "SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-07T09:47:51.183Z"
             }
           ]
         },

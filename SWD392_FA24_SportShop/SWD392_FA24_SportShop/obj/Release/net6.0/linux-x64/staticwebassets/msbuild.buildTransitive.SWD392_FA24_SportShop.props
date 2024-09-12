@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\SWD392_FA24_SportShop.props" />
+</Project>
