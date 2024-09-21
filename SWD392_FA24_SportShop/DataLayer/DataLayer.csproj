@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DbContext\" />
-    <Folder Include="Repository\Inteface\" />
+    <Compile Remove="Repository\Inteface\**" />
+    <EmbeddedResource Remove="Repository\Inteface\**" />
+    <None Remove="Repository\Inteface\**" />
   </ItemGroup>
 
   <ItemGroup>
