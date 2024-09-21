@@ -196,14 +196,14 @@ namespace BusinessLayer.Service.Interface
             }
         }
 
-        public async Task<BaseResponse<LoginResponseModel>> RegisterUser(LoginRequestModel model)
+        public async Task<BaseResponse<RegisterResponseModel>> RegisterUser(RegisterRequestModel model)
         {
             try
             {
                 User checkExit = await _userRepository.GetUserByEmail(model.Email);
                 if (checkExit != null) 
                 {
-                    return new BaseResponse<LoginResponseModel>()
+                    return new BaseResponse<RegisterResponseModel>()
                     {
                         Code = 409,
                         Success = false,
@@ -211,17 +211,16 @@ namespace BusinessLayer.Service.Interface
                     };
                 }
                 string password = GeneratePassword();
-                string haskPassword = HashPassword(password);
+                string hashPassword = HashPassword(password);
                 var User = _mapper.Map<User>(model);
                 User.Status = false;
                 User.CreatedDate = DateTime.Now;
-                User.UserName = model.Email;
-                User.Password = haskPassword;
+                User.Password = hashPassword;
                 User.RoleName = "User";
                 bool check = await _userRepository.CreateUser(User);
                 if (!check) 
                 {
-                    return new BaseResponse<LoginResponseModel>()
+                    return new BaseResponse<RegisterResponseModel>()
                     {
                         Code = 500,
                         Success = false,
@@ -230,8 +229,8 @@ namespace BusinessLayer.Service.Interface
                 }
                 await SendMailAccount(model.Email , password);
 
-                var response = _mapper.Map<LoginResponseModel>(User);
-                return new BaseResponse<LoginResponseModel>(){
+                var response = _mapper.Map<RegisterResponseModel>(User);
+                return new BaseResponse<RegisterResponseModel>(){
                     Code = 201,
                     Success = true,
                     Message = "Register success. Please go to mail and verify account!",
@@ -278,6 +277,206 @@ namespace BusinessLayer.Service.Interface
                         Success = false,
                         Message = "Server Error!"
                                     
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<BaseResponse<LoginResponseModel>> Login(LoginRequestModel model)
+        {
+            var user = await _userRepository.GetUserByEmail(model.Email);
+            if(user.Status == false)
+            {
+                return new BaseResponse<LoginResponseModel>()
+                {
+                    Code = 401,
+                    Success = false,
+                    Message = "Email not verified!.",
+                    Data = null,
+                };
+            }
+
+            if (user != null && VerifyPassword(model.Password, user.Password))
+            {
+                string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
+
+                return new BaseResponse<LoginResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Login success!",
+                    Data = new LoginResponseModel()
+                    {
+                        token = token,
+                        user = _mapper.Map<RegisterResponseModel>(user)
+                    },
+                };
+            }
+            return new BaseResponse<LoginResponseModel>()
+            {
+                Code = 404,
+                Success = false,
+                Message = "Username or Password incorrect",
+                Data = null,
+            };
+        }
+
+        public async Task<BaseResponse<LoginResponseModel>> LoginMail(string mail)
+        {
+            var user = await _userRepository.GetUserByEmail(mail);
+            if (user.Status == false)
+            {
+                return new BaseResponse<LoginResponseModel>()
+                {
+                    Code = 401,
+                    Success = false,
+                    Message = "Email not verified!.",
+                    Data = null,
+                };
+            }
+            if (user != null)
+            {
+                string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
+
+                return new BaseResponse<LoginResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Login success!",
+                    Data = new LoginResponseModel()
+                    {
+                        token = token,
+                        user = _mapper.Map<RegisterResponseModel>(user)
+                    },
+                };
+            }
+            return new BaseResponse<LoginResponseModel>()
+            {
+                Code = 404,
+                Success = false,
+                Message = "Email is not registered.",
+                Data = null,
+            };
+        }
+
+        public async Task<BaseResponse<List<RegisterResponseModel>>> GetListUser()
+        {
+            try
+            {
+                var listUser = await _userRepository.GetAllUser();
+                var result = _mapper.Map<List<RegisterResponseModel>>(listUser);
+                return new BaseResponse<List<RegisterResponseModel>>(){
+                    Code = 204,
+                    Success= true,
+                    Message = null,
+                    Data = result
+                };
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<BaseResponse<RegisterResponseModel>> GetUserById(int id)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserById(id);
+                if (user != null)
+                {
+                    var result = _mapper.Map<RegisterResponseModel>(user);
+                    return new BaseResponse<RegisterResponseModel>()
+                    {
+                        Code = 204,
+                        Success = true,
+                        Message = null,
+                        Data = result
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<RegisterResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found User!.",
+                        Data = null
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<BaseResponse<RegisterResponseModel>> UpdateUser(int id, UpdateRequestModel model)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserById(id);
+                if (user != null)
+                {
+                    var result = _mapper.Map(model,user);
+                    result.ModifiedDate = DateTime.Now;
+                    await _userRepository.UpdateUser(result);
+                    return new BaseResponse<RegisterResponseModel>()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Update success!.",
+                        Data = _mapper.Map<RegisterResponseModel>(result)
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<RegisterResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found User!.",
+                        Data = null
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<BaseResponse<RegisterResponseModel>> DeleteUser(int id)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserById(id);
+                if (user != null)
+                {
+                    user.ModifiedDate = DateTime.Now;
+                    user.Status = false;
+                    await _userRepository.UpdateUser(user);
+                    return new BaseResponse<RegisterResponseModel>()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Delete success!.",
+                        Data = _mapper.Map<RegisterResponseModel>(user)
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<RegisterResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found User!.",
+                        Data = null
                     };
                 }
             }

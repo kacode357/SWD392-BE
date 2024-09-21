@@ -12,7 +12,6 @@
     {
         public int? Code { get; set; }
         public bool Success { get; set; }
-        public string? SystemCode { get; set; }
         public string? Message { get; set; }
     }
 
