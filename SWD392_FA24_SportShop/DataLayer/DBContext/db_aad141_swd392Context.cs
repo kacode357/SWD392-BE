@@ -261,10 +261,10 @@ namespace DataLayer.DBContext
                 entity.ToTable("User");
 
                 entity.Property(e => e.Address)
-                    .IsRequired()
                     .HasMaxLength(100);
 
                 entity.Property(e => e.CreatedDate)
+                    .IsRequired()
                     .HasColumnType("date")
                     .HasColumnName("Created_Date");
 
@@ -277,11 +277,9 @@ namespace DataLayer.DBContext
                     .HasMaxLength(100);
 
                 entity.Property(e => e.Gender)
-                    .IsRequired()
                     .HasMaxLength(50);
 
                 entity.Property(e => e.ImgUrl)
-                    .IsRequired()
                     .HasColumnName("ImgURL");
 
                 entity.Property(e => e.ModifiedDate)
@@ -293,7 +291,6 @@ namespace DataLayer.DBContext
                     .HasMaxLength(100);
 
                 entity.Property(e => e.PhoneNumber)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("Phone_Number");
 

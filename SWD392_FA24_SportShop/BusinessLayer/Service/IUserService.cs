@@ -12,8 +12,11 @@ namespace BusinessLayer.Service
 {
     public interface IUserService
     {
+        public Task<BaseResponse<RegisterResponseModel>> RegisterUserByEmail(string googleId);
+        public Task<BaseResponse<RegisterResponseModel>> CreateAccountAdmin(string email, string password, string name);
         public Task<BaseResponse<RegisterResponseModel>> RegisterUser(RegisterRequestModel model);
-        Task<BaseResponse> SendMailAccount(string email, string password);
+        Task<BaseResponse> SendMailWithoutPassword(string email);
+        Task<BaseResponse> SendMailWithPassword(string email, string password);
         Task<BaseResponse> VerifyAcccount(string email);
         Task<BaseResponse<LoginResponseModel>> Login(LoginRequestModel model);
         Task<BaseResponse<LoginResponseModel>> LoginMail(string mail);

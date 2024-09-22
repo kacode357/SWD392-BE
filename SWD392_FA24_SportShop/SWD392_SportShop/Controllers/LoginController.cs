@@ -6,6 +6,7 @@ using BusinessLayer.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using System.Security.Claims;
 
 namespace SWDProject_BE.Controllers
 {
@@ -19,13 +20,26 @@ namespace SWDProject_BE.Controllers
 		{
             _service = services;
 		}
-
-        [HttpPost("VerifyEmail/{email}")]
-        public async Task<BaseResponse> VerifyAccount(string email)
+        [HttpPost("CreateAdminAccount")]
+        public async Task<BaseResponse<RegisterResponseModel>> Register(string email, string password, string name)
         {
             try
             {
-                var result = await _service.VerifyAcccount(email);
+                var result = await _service.CreateAccountAdmin(email,password, name);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPost("RegisterEmail")]
+        public async Task<BaseResponse<RegisterResponseModel>> RegisterEmail(string googleId)
+        {
+            try
+            {
+                var result = await _service.RegisterUserByEmail(googleId);
                 return result;
             }
             catch (Exception ex)
@@ -47,6 +61,21 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpPatch("VerifyEmail/{email}")]
+        public async Task<BaseResponse> VerifyAccount(string email)
+        {
+            try
+            {
+                var result = await _service.VerifyAcccount(email);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         [HttpPost("Login")]
         public async Task<BaseResponse<LoginResponseModel>> Login(LoginRequestModel model)
@@ -75,12 +104,13 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
-        [HttpGet("GetAllUser")]
+        [Authorize(Roles = "Admin")]
+        [HttpPost("GetAllUser")]
         public async Task<BaseResponse<List<RegisterResponseModel>>> GetAllUser()
         {
             try
-            {
+            { 
+            
                 var result = await _service.GetListUser();
                 return result;
             }
@@ -89,7 +119,7 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetUserById/{id}")]
         public async Task<BaseResponse<RegisterResponseModel>> GetUserById(int id)
         {
@@ -103,7 +133,7 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPut("UpdateUser/{id}")]
         public async Task<BaseResponse<RegisterResponseModel>> UpdateUser(int id, UpdateRequestModel model)
         {
@@ -117,8 +147,8 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
-        [HttpPut("DeleteUser/{id}")]
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("DeleteUser/{id}")]
         public async Task<BaseResponse<RegisterResponseModel>> DeleteUser(int id)
         {
             try

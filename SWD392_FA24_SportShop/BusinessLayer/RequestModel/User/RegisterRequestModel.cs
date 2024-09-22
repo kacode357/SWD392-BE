@@ -9,6 +9,7 @@ namespace BusinessLayer.RequestModel.User
     public class RegisterRequestModel
     {
         public string Email { get; set; }
+        public string Password { get; set; }
         public string UserName { get; set; }
         public DateTime? Dob { get; set; }
         public string? Address { get; set; }
