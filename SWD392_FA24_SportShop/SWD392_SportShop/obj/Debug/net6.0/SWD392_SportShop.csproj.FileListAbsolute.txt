@@ -85,3 +85,4 @@ F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debu
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\System.CodeDom.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\System.Management.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Management.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\X.PagedList.dll

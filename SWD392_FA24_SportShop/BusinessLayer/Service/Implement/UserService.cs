@@ -18,6 +18,7 @@ using DataLayer.Repository;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
 using Google.Apis.Auth;
+using X.PagedList;
 
 namespace BusinessLayer.Service.Interface
 {
@@ -532,28 +533,43 @@ namespace BusinessLayer.Service.Interface
             
         }
 
-        public async Task<BaseResponse<List<UserResponseModel>>> GetListUser()
+        public async Task<DynamicResponse<UserResponseModel>> GetListUser(int pageNumber , int pageSize)
         {
             try
             {
                 var listUser = await _userRepository.GetAllUser();
-                var result = _mapper.Map<List<UserResponseModel>>(listUser);
-                return new BaseResponse<List<UserResponseModel>>(){
-                    Code = 200,
-                    Success= true,
-                    Message = null,
-                    Data = result
-                };
 
+                var result = _mapper.Map<List<UserResponseModel>>(listUser);
+                // Nếu không có lỗi, thực hiện phân trang
+                var pagedUsers = result// Giả sử result là danh sách người dùng
+                    .OrderBy(u => u.Id) // Sắp xếp theo Id tăng dần
+                    .ToPagedList(pageNumber, pageSize); // Phân trang với X.PagedList
+                return new DynamicResponse<UserResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+                    PageInfor = new PagingMetaData()
+                    {
+                        Page = pagedUsers.PageNumber,
+                        Size = pagedUsers.PageSize,
+                        Sort = "Ascending",
+                        Order = "Id",
+                        TotalPage = pagedUsers.PageCount,
+                        TotalItem = pagedUsers.TotalItemCount,
+                    },
+                    Data = pagedUsers.ToList(),
+                };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<List<UserResponseModel>>()
+                return new DynamicResponse<UserResponseModel>()
                 {
                     Code = 500,
                     Success = false,
-                    Message = "Server Error!"
-
+                    Message = null,
+                    PageInfor = null,                  
+                    Data = null,
                 };
             }
         }

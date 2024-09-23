@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Security.Claims;
+using X.PagedList;
 
 namespace SWDProject_BE.Controllers
 {
@@ -184,23 +185,24 @@ namespace SWDProject_BE.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPost("GetAllUser")]
-        public async Task<IActionResult> GetAllUser()
+        public async Task<IActionResult> GetAllUser(int pageNumber, int pageSize) // Thêm tham số pageNumber và pageSize
         {
             try
-            { 
-                var result = await _service.GetListUser();
+            {
+                // Gọi dịch vụ để lấy danh sách người dùng
+                var result = await _service.GetListUser(pageNumber,pageSize);
+
+                // Kiểm tra nếu kết quả trả về mã lỗi 500
                 if (result.Code == 500)
                 {
                     return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(200, result);
-                }
+                }     
+                return Ok(result);
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                // Xử lý ngoại lệ
+                return StatusCode(500, new { Message = ex.Message });
             }
         }
         [Authorize(Roles = "Admin")]
