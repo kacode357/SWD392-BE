@@ -1,4 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BusinessLayer.Service;
+using BusinessLayer.Service.Interface;
+using DataLayer.DBContext;
+using DataLayer.Repository;
+using DataLayer.Repository.Implement;
+using Microsoft.EntityFrameworkCore;
 
 namespace SWD392_FA24_SportShop.AppStarts
 {
@@ -12,13 +17,16 @@ namespace SWD392_FA24_SportShop.AppStarts
                 options.LowercaseQueryStrings = true;
             });
             //Add_DbContext
-
+            services.AddDbContext<db_aad141_swd392Context>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("hosting"));
+            });
 
             //AddService
-
+            services.AddScoped<IUserService, UserService>();
 
             //AddRepository
-
+            services.AddScoped<IUserRepositoty, UserRepository>();
 
         }
     }

@@ -1,4 +1,6 @@
+using Microsoft.Extensions.Configuration;
 using SWD392_FA24_SportShop.AppStarts;
+using SWD392_SportShop.AppStarts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,13 @@ builder.Services.AddControllers();
 
 builder.Services.ConfigureSwaggerServices();
 
+builder.Services.ConfigureAuthService(builder.Configuration);
+
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.ConfigureAutoMapper();
+
+builder.Services.ServiceContainer(builder.Configuration);
 
 builder.Services.AddCors(options =>
 {

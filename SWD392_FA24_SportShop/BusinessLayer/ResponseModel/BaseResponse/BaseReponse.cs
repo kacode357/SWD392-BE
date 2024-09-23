@@ -3,21 +3,15 @@
     public class BaseResponse<T>
     {
         public int? Code { get; set; }
-        public string? SystemCode { get; set; }
+        public bool Success { get; set; }
         public string? Message { get; set; }
         public T Data { get; set; }
-    }
-
-    public class BaseResponseForLogin<T> : BaseResponse<T>
-    {
-        public bool IsBanned { get; set; }
-        public int BannedAccountId { get; set; }
     }
 
     public class BaseResponse
     {
         public int? Code { get; set; }
-        public string? SystemCode { get; set; }
+        public bool Success { get; set; }
         public string? Message { get; set; }
     }
 
