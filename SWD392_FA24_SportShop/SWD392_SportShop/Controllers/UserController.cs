@@ -99,7 +99,7 @@ namespace SWDProject_BE.Controllers
             }
         }
 
-        [HttpPatch("VerifyEmail/{email}")]
+        [HttpPost("VerifyEmail/{email}")]
         public async Task<IActionResult> VerifyAccount(string email)
         {
             try
@@ -254,7 +254,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpDelete("DeleteUser/{id}")]
+        [HttpPatch("DeleteUser/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             try
