@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ResponseModel.User
 {
-    public class RegisterResponseModel
+    public class UserResponseModel
     {
         public int Id { get; set; }
         public string UserName { get; set; }

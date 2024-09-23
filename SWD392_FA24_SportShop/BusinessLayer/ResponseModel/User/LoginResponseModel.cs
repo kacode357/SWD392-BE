@@ -9,6 +9,6 @@ namespace BusinessLayer.ResponseModel.User
     public class LoginResponseModel
     {
         public string token { get; set; }
-        public RegisterResponseModel user { get; set; }
+        public UserResponseModel user { get; set; }
     }
 }

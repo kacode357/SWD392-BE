@@ -79,3 +79,9 @@ F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Rele
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\SWD392_SportShop.pdb
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\SWD392_SportShop.genruntimeconfig.cache
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\ref\SWD392_SportShop.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Release\net6.0\Google.Apis.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Release\net6.0\Google.Apis.Auth.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Release\net6.0\Google.Apis.Core.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Release\net6.0\System.CodeDom.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Release\net6.0\System.Management.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Management.dll

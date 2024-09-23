@@ -12,8 +12,8 @@ namespace SWDProject_BE.AppStarts
 
             //Users
             CreateMap<RegisterRequestModel, User>().ReverseMap();
-            CreateMap<RegisterResponseModel, User>().ReverseMap();
-            CreateMap<RegisterRequestModel, RegisterResponseModel>().ReverseMap();
+            CreateMap<UserResponseModel, User>().ReverseMap();
+            CreateMap<RegisterRequestModel, UserResponseModel>().ReverseMap();
             CreateMap<UpdateRequestModel, User>().ReverseMap();
 
 

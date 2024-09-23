@@ -12,18 +12,18 @@ namespace BusinessLayer.Service
 {
     public interface IUserService
     {
-        public Task<BaseResponse<RegisterResponseModel>> RegisterUserByEmail(string googleId);
-        public Task<BaseResponse<RegisterResponseModel>> CreateAccountAdmin(string email, string password, string name);
-        public Task<BaseResponse<RegisterResponseModel>> RegisterUser(RegisterRequestModel model);
+        public Task<BaseResponse<UserResponseModel>> RegisterUserByEmail(string googleId);
+        public Task<BaseResponse<UserResponseModel>> CreateAccountAdmin(string email, string password, string name);
+        public Task<BaseResponse<UserResponseModel>> RegisterUser(RegisterRequestModel model);
         Task<BaseResponse> SendMailWithoutPassword(string email);
         Task<BaseResponse> SendMailWithPassword(string email, string password);
         Task<BaseResponse> VerifyAcccount(string email);
         Task<BaseResponse<LoginResponseModel>> Login(LoginRequestModel model);
-        Task<BaseResponse<LoginResponseModel>> LoginMail(string mail);
-        Task<BaseResponse<List<RegisterResponseModel>>> GetListUser();
-        Task<BaseResponse<RegisterResponseModel>> GetUserById(int id);
-        Task<BaseResponse<RegisterResponseModel>> UpdateUser(int id, UpdateRequestModel model);
-        Task<BaseResponse<RegisterResponseModel>> DeleteUser(int id);
+        Task<BaseResponse<LoginResponseModel>> LoginMail(string googleId);
+        Task<BaseResponse<List<UserResponseModel>>> GetListUser();
+        Task<BaseResponse<UserResponseModel>> GetUserById(int id);
+        Task<BaseResponse<UserResponseModel>> UpdateUser(int id, UpdateRequestModel model);
+        Task<BaseResponse<UserResponseModel>> DeleteUser(int id);
         string HashPassword(string password);
         bool VerifyPassword(string password, string hashedPassword);
 
