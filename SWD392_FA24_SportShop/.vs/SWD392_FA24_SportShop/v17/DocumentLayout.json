@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\iuserrepositoty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\iuserrepositoty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\responsemodel\\baseresponse\\basereponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -138,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 23,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -210,13 +210,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\UserController.cs",
               "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
               "RelativeToolTip": "SWD392_SportShop\\Controllers\\UserController.cs",
-              "ViewState": "AQIAALYAAAAAAAAAAAAUwMgAAAANAAAA",
+              "ViewState": "AQIAAK0AAAAAAAAAAAAUwLsAAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-20T18:50:05.789Z",
               "EditorCaption": ""
@@ -231,8 +231,7 @@
               "RelativeToolTip": "SWD392_SportShop\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-11T09:06:57.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:06:57.398Z"
             },
             {
               "$type": "Document",
@@ -244,8 +243,7 @@
               "RelativeToolTip": "BusinessLayer\\ResponseModel\\User\\UserResponseModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:26:33.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:26:33.448Z"
             },
             {
               "$type": "Document",
@@ -257,8 +255,7 @@
               "RelativeToolTip": "SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:08:06.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:08:06.158Z"
             },
             {
               "$type": "Document",
@@ -270,8 +267,7 @@
               "RelativeToolTip": "BusinessLayer\\ResponseModel\\User\\LoginResponseModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T16:11:38.565Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T16:11:38.565Z"
             },
             {
               "$type": "Document",
@@ -283,18 +279,17 @@
               "RelativeToolTip": "BusinessLayer\\ResponseModel\\BaseResponse\\BaseReponse.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAuwBcAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:43:23.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:43:23.109Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UserService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\UserService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\UserService.cs",
               "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\UserService.cs",
               "RelativeToolTip": "BusinessLayer\\Service\\Implement\\UserService.cs",
-              "ViewState": "AQIAAB4CAAAAAAAAAAAAADoCAAAdAAAA",
+              "ViewState": "AQIAABICAAAAAAAAAAAqwCYCAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-20T18:34:43.843Z",
               "EditorCaption": ""
@@ -309,12 +304,11 @@
               "RelativeToolTip": "BusinessLayer\\Service\\IUserService.cs",
               "ViewState": "AQIAAA0AAAAAAAAAAAAcwBcAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:36:29.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:36:29.185Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\UserRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\Implement\\UserRepository.cs",
@@ -322,12 +316,11 @@
               "RelativeToolTip": "DataLayer\\Repository\\Implement\\UserRepository.cs",
               "ViewState": "AQIAACwAAAAAAAAAAAAwwDwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:40:27.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:40:27.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IUserRepositoty.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IUserRepositoty.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\IUserRepositoty.cs",
@@ -335,8 +328,7 @@
               "RelativeToolTip": "DataLayer\\Repository\\IUserRepositoty.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:40:00.386Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:40:00.386Z"
             },
             {
               "$type": "Document",
@@ -348,8 +340,7 @@
               "RelativeToolTip": "SWD392_SportShop\\AppStarts\\MappingProfile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T06:23:06.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T06:23:06.646Z"
             },
             {
               "$type": "Document",
@@ -361,8 +352,7 @@
               "RelativeToolTip": "BusinessLayer\\RequestModel\\User\\RegisterRequestModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:25:29.799Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:25:29.799Z"
             },
             {
               "$type": "Document",
@@ -374,8 +364,7 @@
               "RelativeToolTip": "BusinessLayer\\RequestModel\\User\\UpdateRequestModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T17:30:20.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T17:30:20.192Z"
             },
             {
               "$type": "Document",
@@ -387,8 +376,7 @@
               "RelativeToolTip": "DataLayer\\DBContext\\db_aad141_swd392Context.cs",
               "ViewState": "AQIAAJgAAAAAAAAAAAAkwK0AAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:06:10.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:06:10.892Z"
             },
             {
               "$type": "Document",
@@ -400,8 +388,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\User.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAgwBsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:20:46.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:20:46.717Z"
             },
             {
               "$type": "Document",
@@ -413,8 +400,7 @@
               "RelativeToolTip": "SWD392_SportShop\\AppStarts\\AuthConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:08:05.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:08:05.3Z"
             },
             {
               "$type": "Document",
@@ -426,8 +412,7 @@
               "RelativeToolTip": "BusinessLayer\\BusinessLayer.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-21T03:36:57.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T03:36:57.403Z"
             },
             {
               "$type": "Document",
@@ -439,8 +424,7 @@
               "RelativeToolTip": "BusinessLayer\\RequestModel\\User\\LoginRequestModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T16:11:18.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T16:11:18.579Z"
             },
             {
               "$type": "Document",
@@ -452,8 +436,7 @@
               "RelativeToolTip": "SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:08:05.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:08:05.778Z"
             },
             {
               "$type": "Document",
@@ -465,8 +448,7 @@
               "RelativeToolTip": "SWD392_SportShop\\AppStarts\\AutoMapperConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T06:21:39.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T06:21:39.056Z"
             },
             {
               "$type": "Document",
@@ -478,8 +460,7 @@
               "RelativeToolTip": "SWD392_SportShop\\Program.cs",
               "ViewState": "AQIAAB8AAAAAAAAAAAAAwDIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:07:16.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:07:16.88Z"
             },
             {
               "$type": "Document",
@@ -491,8 +472,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\OrderDetail.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T09:33:41.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T09:33:41.875Z"
             },
             {
               "$type": "Document",
@@ -504,8 +484,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\Player.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T08:53:49.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T08:53:49.898Z"
             },
             {
               "$type": "Document",
@@ -517,8 +496,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\Notification.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T08:53:51.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T08:53:51.994Z"
             },
             {
               "$type": "Document",
@@ -530,8 +508,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\Shirt.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T06:25:09.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T06:25:09.318Z"
             },
             {
               "$type": "Document",
@@ -543,8 +520,7 @@
               "RelativeToolTip": "SWD392_SportShop\\SWD392_SportShop.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-11T09:06:46.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:06:46.973Z"
             },
             {
               "$type": "Document",
@@ -556,8 +532,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\TypeShirt.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T06:25:09.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T06:25:09.764Z"
             },
             {
               "$type": "Document",
@@ -569,8 +544,7 @@
               "RelativeToolTip": "DataLayer\\DataLayer.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-06T06:05:13.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T06:05:13.192Z"
             },
             {
               "$type": "Document",
@@ -582,8 +556,7 @@
               "RelativeToolTip": "DataLayer\\Entities\\Club.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:17:12.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:17:12.915Z"
             },
             {
               "$type": "Document",
@@ -595,8 +568,7 @@
               "RelativeToolTip": "SWD392_SportShop\\Properties\\launchSettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-11T09:08:15.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:08:15.708Z"
             },
             {
               "$type": "Document",
@@ -607,8 +579,7 @@
               "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
               "RelativeToolTip": "SWD392_SportShop\\SWD392_SportShop.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-11T09:22:39.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-11T09:22:39.033Z"
             },
             {
               "$type": "Document",
@@ -620,8 +591,7 @@
               "RelativeToolTip": "SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-07T09:47:51.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T09:47:51.183Z"
             }
           ]
         },

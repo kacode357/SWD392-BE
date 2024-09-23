@@ -185,14 +185,11 @@ namespace SWDProject_BE.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPost("GetAllUser")]
-        public async Task<IActionResult> GetAllUser(int pageNumber, int pageSize) // Thêm tham số pageNumber và pageSize
+        public async Task<IActionResult> GetAllUser(int pageNumber = 1, int pageSize = 1)
         {
             try
             {
-                // Gọi dịch vụ để lấy danh sách người dùng
                 var result = await _service.GetListUser(pageNumber,pageSize);
-
-                // Kiểm tra nếu kết quả trả về mã lỗi 500
                 if (result.Code == 500)
                 {
                     return StatusCode(500, result);
@@ -201,7 +198,6 @@ namespace SWDProject_BE.Controllers
             }
             catch (Exception ex)
             {
-                // Xử lý ngoại lệ
                 return StatusCode(500, new { Message = ex.Message });
             }
         }
