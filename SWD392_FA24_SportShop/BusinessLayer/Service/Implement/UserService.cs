@@ -19,6 +19,7 @@ using AutoMapper;
 using Newtonsoft.Json.Linq;
 using Google.Apis.Auth;
 using X.PagedList;
+using System.Linq;
 
 namespace BusinessLayer.Service.Interface
 {
@@ -572,17 +573,48 @@ namespace BusinessLayer.Service.Interface
             
         }
 
-        public async Task<DynamicResponse<UserResponseModel>> GetListUser(int pageNumber , int pageSize)
+        public async Task<DynamicResponse<UserResponseModel>> GetListUser(GetAllUserRequestModel model)
         {
             try
             {
                 var listUser = await _userRepository.GetAllUser();
+                if(model.keyWord != null)
+                {
+                    List<User> listUserByName = listUser.Where(u => u.UserName.Contains(model.keyWord)).ToList();
 
-                var result = _mapper.Map<List<UserResponseModel>>(listUser);
+                    List<User> listUserByEmail = listUser.Where(u => u.Email.Contains(model.keyWord)).ToList();
+
+                    listUser = listUserByName
+                               .Concat(listUserByEmail)
+                               .GroupBy(u => u.Id)
+                               .Select(g => g.First())
+                               .ToList();
+                }
+                if (model.role != null)
+                {
+                    if((!model.role.Equals("ALL") || !model.role.Equals("all")) || (!model.role.Equals("all") || !model.role.Equals("All")))
+                    {
+                        listUser = listUser.Where(u => u.RoleName.Equals(model.role)).ToList();
+                    }          
+                }
+                if (model.status != null)
+                {
+                    listUser = listUser.Where(u => u.Status == model.status).ToList();
+                }
+                if (model.is_Verify != null)
+                {
+                    listUser = listUser.Where(u => u.IsVerify == model.is_Verify).ToList();
+                }
+                if (model.is_Delete != null)
+                {
+                    listUser = listUser.Where(u => u.IsDelete == model.is_Delete).ToList();
+                }
+                    var result = _mapper.Map<List<UserResponseModel>>(listUser);
+
                 // Nếu không có lỗi, thực hiện phân trang
                 var pagedUsers = result// Giả sử result là danh sách người dùng
                     .OrderBy(u => u.Id) // Sắp xếp theo Id tăng dần
-                    .ToPagedList(pageNumber, pageSize); // Phân trang với X.PagedList
+                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
                 return new DynamicResponse<UserResponseModel>()
                 {
                     Code = 200,

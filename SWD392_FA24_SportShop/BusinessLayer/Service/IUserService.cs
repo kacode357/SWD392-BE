@@ -20,7 +20,7 @@ namespace BusinessLayer.Service
         Task<BaseResponse> VerifyAcccount(string email);
         Task<BaseResponse<LoginResponseModel>> Login(LoginRequestModel model);
         Task<BaseResponse<LoginResponseModel>> LoginMail(string googleId);
-        Task<DynamicResponse<UserResponseModel>> GetListUser(int pageNumber, int pageSize);
+        Task<DynamicResponse<UserResponseModel>> GetListUser(GetAllUserRequestModel model);
         Task<BaseResponse<UserResponseModel>> GetUserById(int id);
         Task<BaseResponse<UserResponseModel>> UpdateUser(int id, UpdateRequestModel model);
         Task<BaseResponse<UserResponseModel>> DeleteUser(int id);

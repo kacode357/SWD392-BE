@@ -110,11 +110,11 @@ namespace SWDProject_BE.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPost("GetAllUser")]
-        public async Task<IActionResult> GetAllUser(int pageNumber = 1, int pageSize = 1)
+        public async Task<IActionResult> GetAllUser(GetAllUserRequestModel model)
         {
             try
             {
-                var result = await _service.GetListUser(pageNumber,pageSize);
+                var result = await _service.GetListUser(model);
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)
