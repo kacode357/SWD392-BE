@@ -12,7 +12,7 @@ namespace SWD392_FA24_SportShop.AppStarts
                 //c.OperationFilter<SnakecasingParameOperationFilter>();
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "FUES API",
+                    Title = "ChoiXinh API",
                     Version = "v1"
                 });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());

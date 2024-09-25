@@ -46,6 +46,7 @@ F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Rele
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll
+F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\X.PagedList.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll

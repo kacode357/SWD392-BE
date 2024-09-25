@@ -20,6 +20,8 @@ namespace BusinessLayer.ResponseModel.User
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public int? RatingCount { get; set; }
+        public bool IsDelete { get; set; }
+        public bool IsVerify { get; set; }
         public bool Status { get; set; }
     }
 }

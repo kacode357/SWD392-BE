@@ -355,7 +355,9 @@ namespace BusinessLayer.Service.Interface
                     Password = hashPassword,
                     CreatedDate = DateTime.UtcNow,
                     RoleName = "User",
-                    Status = false,
+                    IsDelete = false,
+                    IsVerify = false,
+                    Status = true,
                 };
                 bool check = await _userRepository.CreateUser(user);
                 if (!check) 
@@ -388,7 +390,7 @@ namespace BusinessLayer.Service.Interface
             try
             {
                 User user = await _userRepository.GetUserByEmail(email);
-                user.Status = true;
+                user.IsVerify = true;
                 user.ModifiedDate = DateTime.Now;
                 if (user == null)
                 {
@@ -431,40 +433,64 @@ namespace BusinessLayer.Service.Interface
             try
             {
                 var user = await _userRepository.GetUserByEmail(model.Email);
-                if (user.Status == false)
+                if (user != null)
                 {
-                    return new BaseResponse<LoginResponseModel>()
+                    if (VerifyPassword(model.Password, user.Password))
                     {
-                        Code = 401,
-                        Success = false,
-                        Message = "Email not verified!.",
-                        Data = null,
-                    };
-                }
-
-                if (user != null && VerifyPassword(model.Password, user.Password))
-                {
-                    string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
-
-                    return new BaseResponse<LoginResponseModel>()
-                    {
-                        Code = 200,
-                        Success = true,
-                        Message = "Login success!",
-                        Data = new LoginResponseModel()
+                        if (user.IsVerify == false)
                         {
-                            token = token,
-                            user = _mapper.Map<UserResponseModel>(user)
-                        },
+                            return new BaseResponse<LoginResponseModel>()
+                            {
+                                Code = 401,
+                                Success = false,
+                                Message = "Email not verified!.",
+                                Data = null,
+                            };
+                        }
+
+                        if (user.IsDelete == true)
+                        {
+                            return new BaseResponse<LoginResponseModel>()
+                            {
+                                Code = 401,
+                                Success = false,
+                                Message = "User has been delete!.",
+                                Data = null,
+                            };
+                        }
+
+                        string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
+                        return new BaseResponse<LoginResponseModel>()
+                        {
+                            Code = 200,
+                            Success = true,
+                            Message = "Login success!",
+                            Data = new LoginResponseModel()
+                            {
+                                token = token,
+                                user = _mapper.Map<UserResponseModel>(user)
+                            },
+                        };
+                    }
+                    else
+                    {
+                        return new BaseResponse<LoginResponseModel>()
+                        {
+                            Code = 404,
+                            Success = false,
+                            Message = "Incorrect User or password!"
+                        };
+                    }
+                }
+                else
+                {
+                    return new BaseResponse<LoginResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Incorrect User or password!"
                     };
                 }
-                return new BaseResponse<LoginResponseModel>()
-                {
-                    Code = 404,
-                    Success = false,
-                    Message = "Username or Password incorrect",
-                    Data = null,
-                };
             }
             catch (Exception ex)
             {
@@ -485,40 +511,53 @@ namespace BusinessLayer.Service.Interface
                 var payload = await GoogleJsonWebSignature.ValidateAsync(googleId);
                 var email = payload.Email;
                 var user = await _userRepository.GetUserByEmail(email);
-
-                if (user.Status == false)
-                {
-                    return new BaseResponse<LoginResponseModel>()
-                    {
-                        Code = 401,
-                        Success = false,
-                        Message = "Email not verified!.",
-                        Data = null,
-                    };
-                }
                 if (user != null)
                 {
-                    string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
+                    if (user.IsVerify == false)
+                    {
+                        return new BaseResponse<LoginResponseModel>()
+                        {
+                            Code = 401,
+                            Success = false,
+                            Message = "Email not verified!.",
+                            Data = null,
+                        };
+                    }
 
+                    if (user.IsDelete == true)
+                    {
+                        return new BaseResponse<LoginResponseModel>()
+                        {
+                            Code = 401,
+                            Success = false,
+                            Message = "User has been delete!.",
+                            Data = null,
+                        };
+                    }
+
+                    string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
                     return new BaseResponse<LoginResponseModel>()
                     {
-                        Code = 200,
-                        Success = true,
-                        Message = "Login success!",
-                        Data = new LoginResponseModel()
-                        {
-                            token = token,
-                            user = _mapper.Map<UserResponseModel>(user)
-                        },
+                         Code = 200,
+                         Success = true,
+                         Message = "Login success!",
+                         Data = new LoginResponseModel()
+                         {
+                             token = token,
+                             user = _mapper.Map<UserResponseModel>(user)
+                         },
                     };
                 }
-                return new BaseResponse<LoginResponseModel>()
+                else
                 {
-                    Code = 404,
-                    Success = false,
-                    Message = "Email is not registered.",
-                    Data = null,
-                };
+                    return new BaseResponse<LoginResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Email is not registered.",
+                        Data = null,
+                    };
+                }       
             }
             catch (Exception ex)
             {
@@ -659,7 +698,7 @@ namespace BusinessLayer.Service.Interface
             try
             {
                 var user = await _userRepository.GetUserById(id);
-                if (!user.Status)
+                if (user.IsDelete)
                 {
                     return new BaseResponse<UserResponseModel>()
                     {
@@ -672,7 +711,7 @@ namespace BusinessLayer.Service.Interface
                 if (user != null)
                 {
                     user.ModifiedDate = DateTime.Now;
-                    user.Status = false;
+                    user.IsDelete = true;
                     await _userRepository.UpdateUser(user);
                     return new BaseResponse<UserResponseModel>()
                     {
@@ -721,7 +760,9 @@ namespace BusinessLayer.Service.Interface
                 }
                 string hashPassword = HashPassword(model.Password);
                 var User = _mapper.Map<User>(model);
-                User.Status = false;
+                User.Status = true;
+                User.IsDelete = false;
+                User.IsVerify = false;
                 User.CreatedDate = DateTime.Now;
                 User.Password = hashPassword;
                 User.RoleName = "User";

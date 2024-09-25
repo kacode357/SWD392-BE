@@ -27,18 +27,8 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.CreateAccountAdmin(email,password, name);
-                if (result.Code == 409)
-                {
-                    return StatusCode(409, result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(201, result);
-                }
+                return StatusCode(result.Code, result);
+
             }
             catch (Exception ex)
             {
@@ -52,22 +42,8 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.RegisterUserByEmail(googleId);
-                if (result.Code == 401)
-                {
-                    return StatusCode(401, result);
-                }
-                else if (result.Code == 404)
-                {
-                    return NotFound(result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(201, result);
-                }
+                return StatusCode(result.Code, result);
+
             }
             catch (Exception ex)
             {
@@ -81,18 +57,8 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.RegisterUser(model);
-                if (result.Code == 409)
-                {
-                    return StatusCode(409, result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(201, result);
-                }
+                return StatusCode(result.Code, result);
+
             }
             catch (Exception ex)
             {
@@ -106,18 +72,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.VerifyAcccount(email);
-                if (result.Code == 404)
-                {
-                    return NotFound(result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(200, result);
-                }
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
@@ -132,22 +87,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.Login(model);
-                if(result.Code == 401)
-                {
-                    return StatusCode(401, result);
-                }
-                else if(result.Code == 404)
-                {
-                    return NotFound(result);
-                }else if(result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return Ok(result);
-                }
-                
+                return StatusCode(result.Code, result);          
             }
             catch (Exception ex)
             {
@@ -161,22 +101,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.LoginMail(googleId);
-                if (result.Code == 401)
-                {
-                    return StatusCode(401, result);
-                }
-                else if (result.Code == 404)
-                {
-                    return NotFound(result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return Ok(result);
-                }
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
@@ -190,11 +115,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.GetListUser(pageNumber,pageSize);
-                if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }     
-                return Ok(result);
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
@@ -208,18 +129,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.GetUserById(id);
-                if (result.Code == 404)
-                {
-                    return NotFound(result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(200, result);
-                }
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
@@ -233,18 +143,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.UpdateUser(id, model);
-                if (result.Code == 404)
-                {
-                    return NotFound(result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return StatusCode(200, result);
-                }
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
@@ -258,22 +157,7 @@ namespace SWDProject_BE.Controllers
             try
             {
                 var result = await _service.DeleteUser(id);
-                if (result.Code == 409)
-                {
-                    return StatusCode(401, result);
-                }
-                else if (result.Code == 404)
-                {
-                    return NotFound(result);
-                }
-                else if (result.Code == 500)
-                {
-                    return StatusCode(500, result);
-                }
-                else
-                {
-                    return Ok(result);
-                }
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
@@ -299,18 +183,7 @@ namespace SWDProject_BE.Controllers
                 else
                 {
                     var result = await _service.GetUserById(int.Parse(userId));
-                    if (result.Code == 404)
-                    {
-                        return NotFound(result);
-                    }
-                    else if (result.Code == 500)
-                    {
-                        return StatusCode(500, result);
-                    }
-                    else
-                    {
-                        return StatusCode(200, result);
-                    }
+                    return StatusCode(result.Code, result);
                 }
                 
             }

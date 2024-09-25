@@ -303,6 +303,12 @@ namespace DataLayer.DBContext
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasMaxLength(50);
+                entity.Property(e => e.IsVerify)
+                .HasColumnName("IsVerify")
+                .IsRequired();
+                entity.Property(e => e.IsDelete)
+                .HasColumnName("IsDelete")
+                .IsRequired();
             });
 
             OnModelCreatingPartial(modelBuilder);
