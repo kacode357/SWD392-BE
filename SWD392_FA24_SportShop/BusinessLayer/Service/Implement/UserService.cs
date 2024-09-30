@@ -150,7 +150,6 @@ namespace BusinessLayer.Service.Interface
                 smtpClient.Credentials = new NetworkCredential("luuhiep16092002@gmail.com", "ljdx zvbn zljh xopr");
 
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("SportShop@gmail.com");
                 mailMessage.To.Add(email);
                 mailMessage.Subject = "VERIFY YOUR ACCOUNT";
 
@@ -194,7 +193,7 @@ namespace BusinessLayer.Service.Interface
 </head>
 <body>
   <div class='container'>
-    <div class='header'>Welcome to our Exchange Web!</div>
+    <div class='header'>Welcome to our Sport Shop Web!</div>
     <div class='content'>
       <p>Please click on the link to verify your account.</p>
 <a href=""https://t-shirt-football.vercel.app/" + email + @""">click here</a>
@@ -578,7 +577,7 @@ namespace BusinessLayer.Service.Interface
             try
             {
                 var listUser = await _userRepository.GetAllUser();
-                if(model.keyWord != null)
+                if(!string.IsNullOrEmpty(model.keyWord))
                 {
                     List<User> listUserByName = listUser.Where(u => u.UserName.Contains(model.keyWord)).ToList();
 
@@ -590,9 +589,9 @@ namespace BusinessLayer.Service.Interface
                                .Select(g => g.First())
                                .ToList();
                 }
-                if (model.role != null)
+                if (!string.IsNullOrEmpty(model.role))
                 {
-                    if((!model.role.Equals("ALL") || !model.role.Equals("all")) || (!model.role.Equals("all") || !model.role.Equals("All")))
+                    if(!model.role.Equals("ALL") && !model.role.Equals("all") && !model.role.Equals("All"))
                     {
                         listUser = listUser.Where(u => u.RoleName.Equals(model.role)).ToList();
                     }          
@@ -628,6 +627,14 @@ namespace BusinessLayer.Service.Interface
                         Order = "Id",
                         TotalPage = pagedUsers.PageCount,
                         TotalItem = pagedUsers.TotalItemCount,
+                    },
+                    SearchInfor = new SearchCondition()
+                    {
+                        keyWord = model.keyWord,
+                        role = model.role,
+                        status = model.status,
+                        is_Verify = model.is_Verify,
+                        is_Delete = model.is_Delete,
                     },
                     Data = pagedUsers.ToList(),
                 };

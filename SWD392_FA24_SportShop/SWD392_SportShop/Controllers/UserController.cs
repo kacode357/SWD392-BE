@@ -21,7 +21,7 @@ namespace SWDProject_BE.Controllers
 		{
             _service = services;
 		}
-        [HttpPost("CreateAdminAccount")]
+        [HttpPost("Admin")]
         public async Task<IActionResult> Register(string email, string password, string name)
         {
             try
@@ -36,7 +36,7 @@ namespace SWDProject_BE.Controllers
             }
         }
 
-        [HttpPost("RegisterEmail")]
+        [HttpPost("Email")]
         public async Task<IActionResult> RegisterEmail(string googleId)
         {
             try
@@ -51,7 +51,7 @@ namespace SWDProject_BE.Controllers
             }
         }
 
-        [HttpPost("Register")]
+        [HttpPost()]
         public async Task<IActionResult> Register(RegisterRequestModel model)
         {
             try
@@ -66,7 +66,7 @@ namespace SWDProject_BE.Controllers
             }
         }
 
-        [HttpPost("VerifyEmail/{email}")]
+        [HttpPut("VerifyEmail/{email}")]
         public async Task<IActionResult> VerifyAccount(string email)
         {
             try
@@ -108,8 +108,8 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize(Roles = "Admin")]
-        [HttpPost("GetAllUser")]
+        //[Authorize(Roles = "Admin")]
+        [HttpPost("Search")]
         public async Task<IActionResult> GetAllUser(GetAllUserRequestModel model)
         {
             try
@@ -122,8 +122,8 @@ namespace SWDProject_BE.Controllers
                 return StatusCode(500, new { Message = ex.Message });
             }
         }
-        [Authorize(Roles = "Admin")]
-        [HttpGet("GetUserById/{id}")]
+        [Authorize]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
             try
@@ -137,7 +137,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpPut("UpdateUser/{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UpdateRequestModel model)
         {
             try
@@ -151,7 +151,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpPatch("DeleteUser/{id}")]
+        [HttpPatch("Delete/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             try
@@ -165,7 +165,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize]
-        [HttpGet("GetCurrentUser")]
+        [HttpGet("CurrentUser")]
         public async Task<IActionResult> GetCurrentUser()
         {
             try

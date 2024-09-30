@@ -21,6 +21,7 @@
         public bool Success { get; set; }
         public string? Message { get; set; }
         public PagingMetaData PageInfor { get; set; }
+        public SearchCondition SearchInfor { get; set; }
         public List<T> Data { get; set; }
     }
 
@@ -40,5 +41,13 @@
         public int Size { get; set; }
         public string? Sort { get; set; }
         public string? Order { get; set; }
+    }
+    public class SearchCondition
+    {
+        public string? keyWord { get; set; }
+        public string? role { get; set; }
+        public bool? status { get; set; }
+        public bool? is_Verify { get; set; }
+        public bool? is_Delete { get; set; }
     }
 }
