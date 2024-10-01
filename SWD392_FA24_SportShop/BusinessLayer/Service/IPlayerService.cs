@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.Repository
+namespace BusinessLayer.Service
 {
-    public interface IPlayerRepository
+    public interface IPlayerService
     {
         Task<Player> CreatePlayerAsync(Player player);
         Task<Player> UpdatePlayerAsync(Player player);

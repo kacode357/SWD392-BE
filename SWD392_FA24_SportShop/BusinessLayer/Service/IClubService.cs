@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.Repository
+namespace BusinessLayer.Service
 {
-    public interface IClubRepository
+    public interface IClubService
     {
         Task<Club> CreateClubAsync(Club club);
         Task<Club> UpdateClubAsync(Club club);

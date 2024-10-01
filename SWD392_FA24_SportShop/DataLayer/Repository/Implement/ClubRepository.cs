@@ -17,25 +17,32 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task CreateClubAsync(Club club)
+        public async Task<Club> CreateClubAsync(Club club)
         {
             try
             {
-                await _swd392Context.Clubs.AddAsync(club);
+                _swd392Context.Clubs.AddAsync(club);
+                await _swd392Context.SaveChangesAsync();
+                return club;
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found" + ex);
+                throw new Exception("Not found" + ex.Message);
             }
         }
 
-        public async Task<bool> DeleteClubAsync(Club club)
+        public async Task<bool> DeleteClubAsync(int clubId)
         {
             try
             {
+                var club = await _swd392Context.Clubs.FindAsync(clubId);
+                if (club == null)
+                {
+                    return false;
+                }
+
                 _swd392Context.Clubs.Remove(club);
-                await _swd392Context.SaveChangesAsync();
-                return true;
+                return await _swd392Context.SaveChangesAsync() > 0;
             }
             catch(Exception ex)
             {
@@ -43,7 +50,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<Club>> GetAllClubs()
+        public async Task<IEnumerable<Club>> GetAllClubs()
         {
             return await _swd392Context.Clubs.ToListAsync();
         }
@@ -56,7 +63,7 @@ namespace DataLayer.Repository.Implement
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw new Exception("Not found!" + ex.Message);
             }
         }
 
@@ -70,7 +77,7 @@ namespace DataLayer.Repository.Implement
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw new Exception("Not found!" + ex.Message);
             }
         }
     }

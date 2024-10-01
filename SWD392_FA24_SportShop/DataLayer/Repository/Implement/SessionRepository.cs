@@ -17,12 +17,13 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task CreateSessionAsync(Session session)
+        public async Task<Session> CreateSessionAsync(Session session)
         {
             try
             {
-                await _swd392Context.Sessions.AddAsync(session);
+                _swd392Context.Sessions.AddAsync(session);
                 await _swd392Context.SaveChangesAsync();
+                return session;
             }
             catch(Exception ex)
             {
@@ -34,9 +35,14 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                _swd392Context.Remove(sessionId);
-                await _swd392Context.SaveChangesAsync();
-                return true;
+                var session = await _swd392Context.Sessions.FindAsync(sessionId);
+                if (session == null)
+                {
+                    return false;
+                }
+
+                _swd392Context.Sessions.Remove(session);
+                return await _swd392Context.SaveChangesAsync() > 0;
             }
             catch(Exception ex)
             {
@@ -56,7 +62,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<Session>> GetSessions()
+        public async Task<IEnumerable<Session>> GetSessions()
         {
             try
             {

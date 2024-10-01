@@ -1,5 +1,6 @@
 ﻿using DataLayer.DBContext;
 using DataLayer.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,13 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task CreatePlayerAsync(Player player)
+        public async Task<Player> CreatePlayerAsync(Player player)
         {
             try
             {
                 _swd392Context.Players.AddAsync(player);
                 await _swd392Context.SaveChangesAsync();
+                return player;
             }
             catch(Exception ex)
             {
@@ -29,13 +31,18 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<bool> DeletePlayerAsync(Player playerId)
+        public async Task<bool> DeletePlayerAsync(int playerId)
         {
             try
             {
-                _swd392Context.Players.Remove(playerId);
-                await _swd392Context.SaveChangesAsync();
-                return true; 
+                var player = await _swd392Context.Players.FindAsync(playerId);
+                if (player == null)
+                {
+                    return false;
+                }
+
+                _swd392Context.Players.Remove(player);
+                return await _swd392Context.SaveChangesAsync() > 0;
             }
             catch(Exception ex)
             {
@@ -43,19 +50,42 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public Task<Player> GetPlayerById(int playerId)
+        public async Task<Player> GetPlayerById(int playerId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _swd392Context.Players.FindAsync(playerId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Not found!" + ex.Message);
+            }
         }
 
-        public Task<List<Player>> GetPlayers()
+        public async Task<IEnumerable<Player>> GetPlayers()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _swd392Context.Players.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Not found" + ex.Message);
+            }
         }
 
-        public Task<Player> UpdatePlayerAsync(Player player)
+        public async Task<Player> UpdatePlayerAsync(Player player)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _swd392Context.Players.Update(player);
+                await _swd392Context.SaveChangesAsync();
+                return player;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Not found!" + ex.Message);
+            }
         }
     }
 }

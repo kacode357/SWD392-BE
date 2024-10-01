@@ -18,17 +18,24 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task CreateShirtAsync(Shirt shirt)
+        public async Task<Shirt> CreateShirtAsync(Shirt shirt)
         {
-            await _swd392Context.Shirts.AddAsync(shirt);
+            _swd392Context.Shirts.AddAsync(shirt);
             await _swd392Context.SaveChangesAsync();
+            return shirt;
         }
 
-        public async Task<bool> DeleteShirtAsync(Shirt shirtId)
+        public async Task<bool> DeleteShirtAsync(int shirtId)
         {
             try
             {
-                _swd392Context.Shirts.Remove(shirtId);
+                var shirt = await _swd392Context.Shirts.FindAsync(shirtId);
+                if (shirt == null)
+                {
+                    return false;
+                }
+
+                _swd392Context.Shirts.Remove(shirt);
                 await _swd392Context.SaveChangesAsync();
                 return true;
             }
@@ -38,7 +45,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<Shirt>> GetAllShirts()
+        public async Task<IEnumerable<Shirt>> GetAllShirts()
         {
             return await _swd392Context.Shirts.ToListAsync();
         }
