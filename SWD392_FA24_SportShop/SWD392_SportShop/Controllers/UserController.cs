@@ -181,12 +181,12 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpPost("Delete/{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        [HttpPost("ChangeStatus/{id}")]
+        public async Task<IActionResult> DeleteUser(int id, bool status)
         {
             try
             {
-                var result = await _service.DeleteUser(id);
+                var result = await _service.DeleteUser(id, status);
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)

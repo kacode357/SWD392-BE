@@ -25,7 +25,7 @@ namespace BusinessLayer.Service
         Task<DynamicResponse<UserResponseModel>> GetListUser(GetAllUserRequestModel model);
         Task<BaseResponse<UserResponseModel>> GetUserById(int id);
         Task<BaseResponse<UserResponseModel>> UpdateUser(int id, UpdateRequestModel model);
-        Task<BaseResponse<UserResponseModel>> DeleteUser(int id);
+        Task<BaseResponse<UserResponseModel>> DeleteUser(int id, bool status);
         string HashPassword(string password);
         bool VerifyPassword(string password, string hashedPassword);
 

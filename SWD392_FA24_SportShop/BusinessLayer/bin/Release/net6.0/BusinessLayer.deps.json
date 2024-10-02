@@ -1873,10 +1873,7 @@
           "X.PagedList": "10.2.1"
         },
         "runtime": {
-          "DataLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "DataLayer.dll": {}
         }
       }
     }

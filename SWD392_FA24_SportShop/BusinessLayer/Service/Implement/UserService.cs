@@ -620,24 +620,28 @@ namespace BusinessLayer.Service.Interface
                     Code = 200,
                     Success = true,
                     Message = null,
-                    PageInfor = new PagingMetaData()
+
+                    Data = new MegaData<UserResponseModel>()
                     {
-                        Page = pagedUsers.PageNumber,
-                        Size = pagedUsers.PageSize,
-                        Sort = "Ascending",
-                        Order = "Id",
-                        TotalPage = pagedUsers.PageCount,
-                        TotalItem = pagedUsers.TotalItemCount,
+                        PageInfor = new PagingMetaData()
+                        {
+                            Page = pagedUsers.PageNumber,
+                            Size = pagedUsers.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pagedUsers.PageCount,
+                            TotalItem = pagedUsers.TotalItemCount,
+                        },
+                        SearchInfor = new SearchCondition()
+                        {
+                            keyWord = model.keyWord,
+                            role = model.role,
+                            status = model.status,
+                            is_Verify = model.is_Verify,
+                            is_Delete = model.is_Delete,
+                        },
+                        PageData = pagedUsers.ToList(),
                     },
-                    SearchInfor = new SearchCondition()
-                    {
-                        keyWord = model.keyWord,
-                        role = model.role,
-                        status = model.status,
-                        is_Verify = model.is_Verify,
-                        is_Delete = model.is_Delete,
-                    },
-                    Data = pagedUsers.ToList(),
                 };
             }
             catch (Exception ex)
@@ -647,7 +651,6 @@ namespace BusinessLayer.Service.Interface
                     Code = 500,
                     Success = false,
                     Message = null,
-                    PageInfor = null,                  
                     Data = null,
                 };
             }
@@ -733,25 +736,15 @@ namespace BusinessLayer.Service.Interface
             }
         }
 
-        public async Task<BaseResponse<UserResponseModel>> DeleteUser(int id)
+        public async Task<BaseResponse<UserResponseModel>> DeleteUser(int id, bool status)
         {
             try
             {
                 var user = await _userRepository.GetUserById(id);
-                if (user.IsDelete)
-                {
-                    return new BaseResponse<UserResponseModel>()
-                    {
-                        Code = 409,
-                        Success = false,
-                        Message = "This user has been deleted!.",
-                        Data = null
-                    };
-                }
                 if (user != null)
                 {
                     user.ModifiedDate = DateTime.Now;
-                    user.IsDelete = true;
+                    user.IsDelete = status;
                     await _userRepository.UpdateUser(user);
                     return new BaseResponse<UserResponseModel>()
                     {

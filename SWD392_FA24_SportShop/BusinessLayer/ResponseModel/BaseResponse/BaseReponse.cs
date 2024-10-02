@@ -20,9 +20,8 @@
         public int Code { get; set; }
         public bool Success { get; set; }
         public string? Message { get; set; }
-        public PagingMetaData PageInfor { get; set; }
-        public SearchCondition SearchInfor { get; set; }
-        public List<T> Data { get; set; }
+        public MegaData<T> Data { get; set; }
+
     }
 
     public class PagingMetaData
@@ -49,5 +48,12 @@
         public bool? status { get; set; }
         public bool? is_Verify { get; set; }
         public bool? is_Delete { get; set; }
+    }
+
+    public class MegaData<T>
+    {
+        public PagingMetaData PageInfor { get; set; }
+        public SearchCondition SearchInfor { get; set; }
+        public List<T> PageData { get; set; }
     }
 }
