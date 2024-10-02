@@ -14,10 +14,12 @@ namespace BusinessLayer.Service
     {
         public Task<BaseResponse<UserResponseModel>> RegisterUserByEmail(string googleId);
         public Task<BaseResponse<UserResponseModel>> CreateAccountAdmin(string email, string password, string name);
+        public Task<BaseResponse<UserResponseModel>> CreateAccountStaff(string email, string password, string name);
+        public Task<BaseResponse<UserResponseModel>> CreateAccountManager(string email, string password, string name);
         public Task<BaseResponse<UserResponseModel>> RegisterUser(RegisterRequestModel model);
         Task<BaseResponse> SendMailWithoutPassword(string email);
         Task<BaseResponse> SendMailWithPassword(string email, string password);
-        Task<BaseResponse> VerifyAcccount(string email);
+        Task<BaseResponse> VerifyAcccount(int id);
         Task<BaseResponse<LoginResponseModel>> Login(LoginRequestModel model);
         Task<BaseResponse<LoginResponseModel>> LoginMail(string googleId);
         Task<DynamicResponse<UserResponseModel>> GetListUser(GetAllUserRequestModel model);

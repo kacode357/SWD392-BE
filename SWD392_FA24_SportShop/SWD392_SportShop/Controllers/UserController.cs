@@ -22,11 +22,41 @@ namespace SWDProject_BE.Controllers
             _service = services;
 		}
         [HttpPost("Admin")]
-        public async Task<IActionResult> Register(string email, string password, string name)
+        public async Task<IActionResult> RegisterAdmin(string email, string password, string name)
         {
             try
             {
                 var result = await _service.CreateAccountAdmin(email,password, name);
+                return StatusCode(result.Code, result);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost("Staff")]
+        public async Task<IActionResult> RegisterStaff(string email, string password, string name)
+        {
+            try
+            {
+                var result = await _service.CreateAccountStaff(email, password, name);
+                return StatusCode(result.Code, result);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost("Manager")]
+        public async Task<IActionResult> RegisterManager(string email, string password, string name)
+        {
+            try
+            {
+                var result = await _service.CreateAccountManager(email, password, name);
                 return StatusCode(result.Code, result);
 
             }
@@ -66,12 +96,12 @@ namespace SWDProject_BE.Controllers
             }
         }
 
-        [HttpPut("VerifyEmail/{email}")]
-        public async Task<IActionResult> VerifyAccount(string email)
+        [HttpPut("Verify/{id}")]
+        public async Task<IActionResult> VerifyAccount(int id)
         {
             try
             {
-                var result = await _service.VerifyAcccount(email);
+                var result = await _service.VerifyAcccount(id);
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)
@@ -108,7 +138,7 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllUser(GetAllUserRequestModel model)
         {
@@ -136,7 +166,7 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UpdateRequestModel model)
         {
@@ -151,7 +181,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpPatch("Delete/{id}")]
+        [HttpPost("Delete/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             try

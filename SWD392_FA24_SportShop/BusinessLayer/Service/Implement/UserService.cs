@@ -142,7 +142,7 @@ namespace BusinessLayer.Service.Interface
         {
             try
             {
-
+                User user = await _userRepository.GetUserByEmail(email);
                 var smtpClient = new SmtpClient("smtp.gmail.com");
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
@@ -196,7 +196,7 @@ namespace BusinessLayer.Service.Interface
     <div class='header'>Welcome to our Sport Shop Web!</div>
     <div class='content'>
       <p>Please click on the link to verify your account.</p>
-<a href=""https://t-shirt-football.vercel.app/" + email + @""">click here</a>
+<a href=""https://t-shirt-football.vercel.app/" + user.Id + @""">click here</a>
       <p>This is the login account and password if you need to login with userId and password.</p>
       <p>Email: <span class='highlight'>" + email + @"</span></p>
       <p>Password: <span class='highlight'>" + password + @"</span></p>
@@ -232,6 +232,7 @@ namespace BusinessLayer.Service.Interface
         {
             try
             {
+                User user = await _userRepository.GetUserByEmail(email);
 
                 var smtpClient = new SmtpClient("smtp.gmail.com");
                 smtpClient.Port = 587;
@@ -287,7 +288,7 @@ namespace BusinessLayer.Service.Interface
     <div class='header'>Welcome to our Exchange Web!</div>
     <div class='content'>
       <p>Please click on the link to verify your account.</p>
-<a href=""https://t-shirt-football.vercel.app/" + email + @""">click here</a>
+<a href=""https://t-shirt-football.vercel.app/" + user.Id + @""">click here</a>
     </div>
     <div class='footer'>
       &copy; 2024 Sport Shop. All rights reserved.
@@ -385,11 +386,11 @@ namespace BusinessLayer.Service.Interface
             }
         }
 
-        public async Task<BaseResponse> VerifyAcccount(string email)
+        public async Task<BaseResponse> VerifyAcccount(int id)
         {
             try
             {
-                User user = await _userRepository.GetUserByEmail(email);
+                User user = await _userRepository.GetUserById(id);
                 user.IsVerify = true;
                 user.ModifiedDate = DateTime.Now;
                 if (user == null)
@@ -861,6 +862,8 @@ namespace BusinessLayer.Service.Interface
                     CreatedDate = DateTime.Now,
                     Password = hashPassword,
                     RoleName = "Admin",
+                    IsVerify = true,
+                    IsDelete = false,
                 };
                 bool check = await _userRepository.CreateUser(user);
                 if (!check)
@@ -882,6 +885,118 @@ namespace BusinessLayer.Service.Interface
                 };
             }
             catch(Exception ex)
+            {
+                return new BaseResponse<UserResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!"
+
+                };
+            }
+        }
+        public async Task<BaseResponse<UserResponseModel>> CreateAccountStaff(string email, string password, string name)
+        {
+            try
+            {
+                User checkExit = await _userRepository.GetUserByEmail(email);
+                if (checkExit != null)
+                {
+                    return new BaseResponse<UserResponseModel>()
+                    {
+                        Code = 409,
+                        Success = false,
+                        Message = "User has been exits!"
+                    };
+                }
+                string hashPassword = HashPassword(password);
+                User user = new User()
+                {
+                    Email = email,
+                    UserName = name,
+                    Status = true,
+                    CreatedDate = DateTime.Now,
+                    Password = hashPassword,
+                    RoleName = "Staff",
+                    IsVerify = true,
+                    IsDelete = false,
+                };
+                bool check = await _userRepository.CreateUser(user);
+                if (!check)
+                {
+                    return new BaseResponse<UserResponseModel>()
+                    {
+                        Code = 500,
+                        Success = false,
+                        Message = "Server Error!"
+                    };
+                }
+                var response = _mapper.Map<UserResponseModel>(user);
+                return new BaseResponse<UserResponseModel>()
+                {
+                    Code = 201,
+                    Success = true,
+                    Message = "Register admin success!.",
+                    Data = response
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<UserResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!"
+
+                };
+            }
+        }
+        public async Task<BaseResponse<UserResponseModel>> CreateAccountManager(string email, string password, string name)
+        {
+            try
+            {
+                User checkExit = await _userRepository.GetUserByEmail(email);
+                if (checkExit != null)
+                {
+                    return new BaseResponse<UserResponseModel>()
+                    {
+                        Code = 409,
+                        Success = false,
+                        Message = "User has been exits!"
+                    };
+                }
+                string hashPassword = HashPassword(password);
+                User user = new User()
+                {
+                    Email = email,
+                    UserName = name,
+                    Status = true,
+                    CreatedDate = DateTime.Now,
+                    Password = hashPassword,
+                    RoleName = "Manager",
+                    IsVerify = true,
+                    IsDelete = false,
+                };
+                bool check = await _userRepository.CreateUser(user);
+                if (!check)
+                {
+                    return new BaseResponse<UserResponseModel>()
+                    {
+                        Code = 500,
+                        Success = false,
+                        Message = "Server Error!"
+                    };
+                }
+                var response = _mapper.Map<UserResponseModel>(user);
+                return new BaseResponse<UserResponseModel>()
+                {
+                    Code = 201,
+                    Success = true,
+                    Message = "Register admin success!.",
+                    Data = response
+                };
+            }
+            catch (Exception ex)
             {
                 return new BaseResponse<UserResponseModel>()
                 {
