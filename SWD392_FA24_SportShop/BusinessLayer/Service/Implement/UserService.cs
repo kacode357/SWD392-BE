@@ -150,6 +150,7 @@ namespace BusinessLayer.Service.Interface
                 smtpClient.Credentials = new NetworkCredential("luuhiep16092002@gmail.com", "ljdx zvbn zljh xopr");
 
                 MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("luuhiep16092002@gmail.com");
                 mailMessage.To.Add(email);
                 mailMessage.Subject = "VERIFY YOUR ACCOUNT";
 
@@ -196,7 +197,7 @@ namespace BusinessLayer.Service.Interface
     <div class='header'>Welcome to our Sport Shop Web!</div>
     <div class='content'>
       <p>Please click on the link to verify your account.</p>
-<a href=""https://t-shirt-football.vercel.app/" + user.Id + @""">click here</a>
+<a href=""https://t-shirt-football.vercel.app/verifyemail/" + user.Id + @""">click here</a>
       <p>This is the login account and password if you need to login with userId and password.</p>
       <p>Email: <span class='highlight'>" + email + @"</span></p>
       <p>Password: <span class='highlight'>" + password + @"</span></p>
@@ -241,7 +242,7 @@ namespace BusinessLayer.Service.Interface
                 smtpClient.Credentials = new NetworkCredential("luuhiep16092002@gmail.com", "ljdx zvbn zljh xopr");
 
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("SportShop@gmail.com");
+                mailMessage.From = new MailAddress("luuhiep16092002@gmail.com");
                 mailMessage.To.Add(email);
                 mailMessage.Subject = "VERIFY YOUR ACCOUNT";
 
@@ -288,7 +289,7 @@ namespace BusinessLayer.Service.Interface
     <div class='header'>Welcome to our Exchange Web!</div>
     <div class='content'>
       <p>Please click on the link to verify your account.</p>
-<a href=""https://t-shirt-football.vercel.app/" + user.Id + @""">click here</a>
+<a href=""https://t-shirt-football.vercel.app/verifyemail/" + user.Id + @""">click here</a>
     </div>
     <div class='footer'>
       &copy; 2024 Sport Shop. All rights reserved.
