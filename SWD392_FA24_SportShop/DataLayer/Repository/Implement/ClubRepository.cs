@@ -58,7 +58,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Clubs.FindAsync(clubId);
+                return await _swd392Context.Clubs.FirstOrDefaultAsync(c => c.Id == clubId);
             }
             catch(Exception ex)
             {
