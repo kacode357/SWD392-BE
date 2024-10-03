@@ -181,7 +181,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpPost("ChangeStatus/{id}")]
+        [HttpPost("Change-Status/{id}")]
         public async Task<IActionResult> DeleteUser(int id, bool status)
         {
             try
@@ -195,7 +195,7 @@ namespace SWDProject_BE.Controllers
             }
         }
         [Authorize]
-        [HttpGet("CurrentUser")]
+        [HttpGet("Current-User")]
         public async Task<IActionResult> GetCurrentUser()
         {
             try

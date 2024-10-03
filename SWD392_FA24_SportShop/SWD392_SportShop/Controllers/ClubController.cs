@@ -74,7 +74,7 @@ namespace SWD392_SportShop.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost("ChangeStatus/{id}")]
+        [HttpPost("Change-Status/{id}")]
         public async Task<IActionResult> DeleteClub(int id)
         {
             try
