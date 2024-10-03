@@ -52,8 +52,8 @@
 
     public class MegaData<T>
     {
-        public PagingMetaData PageInfor { get; set; }
-        public SearchCondition SearchInfor { get; set; }
+        public PagingMetaData PageInfo { get; set; }
+        public SearchCondition SearchInfo { get; set; }
         public List<T> PageData { get; set; }
     }
 }

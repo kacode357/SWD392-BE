@@ -123,7 +123,7 @@ namespace BusinessLayer.Service.Implement
 
                     Data = new MegaData<ClubResponseModel>()
                     {
-                        PageInfor = new PagingMetaData()
+                        PageInfo = new PagingMetaData()
                         {
                             Page = pageClub.PageNumber,
                             Size = pageClub.PageSize,
@@ -132,7 +132,7 @@ namespace BusinessLayer.Service.Implement
                             TotalPage = pageClub.PageCount,
                             TotalItem = pageClub.TotalItemCount,
                         },
-                        SearchInfor = new SearchCondition()
+                        SearchInfo = new SearchCondition()
                         {
                             keyWord = model.keyWord,
                             role = null,

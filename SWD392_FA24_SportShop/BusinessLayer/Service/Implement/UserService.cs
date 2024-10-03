@@ -624,7 +624,7 @@ namespace BusinessLayer.Service.Interface
 
                     Data = new MegaData<UserResponseModel>()
                     {
-                        PageInfor = new PagingMetaData()
+                        PageInfo = new PagingMetaData()
                         {
                             Page = pagedUsers.PageNumber,
                             Size = pagedUsers.PageSize,
@@ -633,7 +633,7 @@ namespace BusinessLayer.Service.Interface
                             TotalPage = pagedUsers.PageCount,
                             TotalItem = pagedUsers.TotalItemCount,
                         },
-                        SearchInfor = new SearchCondition()
+                        SearchInfo = new SearchCondition()
                         {
                             keyWord = model.keyWord,
                             role = model.role,
