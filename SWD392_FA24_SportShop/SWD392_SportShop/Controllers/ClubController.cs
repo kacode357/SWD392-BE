@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Service;
+﻿using BusinessLayer.RequestModel.Club;
+using BusinessLayer.Service;
 using DataLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SWD392_SportShop.Controllers
@@ -14,74 +16,76 @@ namespace SWD392_SportShop.Controllers
         {
             _clubService = clubService;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetClubs()
+        [Authorize(Roles = "Admin,Manage")]
+        [HttpPost("Search")]
+        public async Task<IActionResult> GetAllClubs(GetAllClubRequestModel model)
         {
-            var clubs = await _clubService.GetAllClubs();
-            return Ok(clubs);
-        }
+            try
+            {
+                var result = await _clubService.GetAllClubs(model);
+                return StatusCode(result.Code, result);
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Admin,Manage")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClubById(int id)
         {
-            var club = await _clubService.GetClubById(id);
-            if (club == null)
+            try
             {
-                return NotFound();
+                var result = await _clubService.GetClubById(id);
+                return StatusCode(result.Code, result);
             }
-            return Ok(club);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateClub([FromBody] Club club)
+        public async Task<IActionResult> CreateClub(CreateClubRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _clubService.CreateClubAsync(model);
+                return StatusCode(result.Code, result);
             }
-
-            var createdClub = await _clubService.CreateClubAsync(club);
-            return CreatedAtAction(nameof(GetClubById), new { id = createdClub.Id }, createdClub);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClub(int id, [FromBody] Club club)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateClub([FromBody]CreateClubRequestModel model, int id)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _clubService.UpdateClubAsync(model, id);
+                return StatusCode(result.Code, result);
             }
-
-            var existingClub = await _clubService.GetClubById(id);
-            if (existingClub == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                throw new Exception(ex.Message);
             }
-
-            existingClub.Name = club.Name;
-            existingClub.Country = club.Country;
-            existingClub.EstablishedYear = club.EstablishedYear;
-            existingClub.StadiumName = club.StadiumName;
-            existingClub.ClubLogo = club.ClubLogo;
-            existingClub.Description = club.Description;
-            existingClub.Status = club.Status;
-
-            await _clubService.UpdateClubAsync(existingClub);
-            return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteClub(int id)
         {
-            var isDeleted = await _clubService.DeleteClubAsync(id); 
-
-            if (!isDeleted)
+            try
             {
-                return NotFound(); 
+                var result = await _clubService.DeleteClubAsync(id);
+                return StatusCode(result.Code, result);
             }
-
-            return Ok(new { success = isDeleted }); 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

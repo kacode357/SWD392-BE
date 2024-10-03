@@ -1,4 +1,7 @@
-﻿using DataLayer.Entities;
+﻿using BusinessLayer.RequestModel.Club;
+using BusinessLayer.ResponseModel.Club;
+using BusinessLayer.ResponseModels;
+using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +12,10 @@ namespace BusinessLayer.Service
 {
     public interface IClubService
     {
-        Task<Club> CreateClubAsync(Club club);
-        Task<Club> UpdateClubAsync(Club club);
-        Task<bool> DeleteClubAsync(int clubId);
-        Task<Club> GetClubById(int clubId);
-        Task<IEnumerable<Club>> GetAllClubs();
+        Task<BaseResponse<ClubResponseModel>> CreateClubAsync(CreateClubRequestModel model);
+        Task<BaseResponse<ClubResponseModel>> UpdateClubAsync(CreateClubRequestModel model, int id);
+        Task<BaseResponse<ClubResponseModel>> DeleteClubAsync(int clubId);
+        Task<BaseResponse<ClubResponseModel>> GetClubById(int clubId);
+        Task<DynamicResponse<ClubResponseModel>> GetAllClubs(GetAllClubRequestModel model);
     }
 }

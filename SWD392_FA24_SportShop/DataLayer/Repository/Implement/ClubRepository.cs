@@ -17,13 +17,13 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<Club> CreateClubAsync(Club club)
+        public async Task<bool> CreateClubAsync(Club club)
         {
             try
             {
                 _swd392Context.Clubs.AddAsync(club);
                 await _swd392Context.SaveChangesAsync();
-                return club;
+                return true;
             }
             catch(Exception ex)
             {
@@ -40,7 +40,6 @@ namespace DataLayer.Repository.Implement
                 {
                     return false;
                 }
-
                 _swd392Context.Clubs.Remove(club);
                 return await _swd392Context.SaveChangesAsync() > 0;
             }
@@ -50,7 +49,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<IEnumerable<Club>> GetAllClubs()
+        public async Task<List<Club>> GetAllClubs()
         {
             return await _swd392Context.Clubs.ToListAsync();
         }
@@ -63,21 +62,21 @@ namespace DataLayer.Repository.Implement
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex.Message);
+                throw ex;
             }
         }
 
-        public async Task<Club> UpdateClubAsync(Club club)
+        public async Task<bool> UpdateClubAsync(Club club)
         {
             try
             {
                 _swd392Context.Clubs.Update(club);
                 await _swd392Context.SaveChangesAsync();
-                return club;
+                return true;
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex.Message);
+                throw ex;
             }
         }
     }

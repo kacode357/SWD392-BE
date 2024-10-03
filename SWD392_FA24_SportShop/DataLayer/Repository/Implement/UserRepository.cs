@@ -28,7 +28,7 @@ namespace DataLayer.Repository.Implement
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
 
@@ -42,7 +42,7 @@ namespace DataLayer.Repository.Implement
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
 
@@ -92,7 +92,7 @@ namespace DataLayer.Repository.Implement
             }
             catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using BusinessLayer.RequestModel.Club;
 using BusinessLayer.RequestModel.User;
+using BusinessLayer.ResponseModel.Club;
 using BusinessLayer.ResponseModel.User;
 using DataLayer.Entities;
 
@@ -16,6 +18,11 @@ namespace SWDProject_BE.AppStarts
             CreateMap<RegisterRequestModel, UserResponseModel>().ReverseMap();
             CreateMap<UpdateRequestModel, User>().ReverseMap();
 
+            //Club
+            CreateMap<CreateClubRequestModel, Club>().ReverseMap();
+            CreateMap<CreateClubRequestModel, ClubResponseModel>().ReverseMap();
+            CreateMap<CreateClubRequestModel, Club>().ReverseMap();
+            CreateMap<ClubResponseModel, Club>().ReverseMap();
 
         }
     }

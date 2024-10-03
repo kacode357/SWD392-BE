@@ -9,10 +9,10 @@ namespace DataLayer.Repository
 {
     public interface IClubRepository
     {
-        Task<Club> CreateClubAsync(Club club);
-        Task<Club> UpdateClubAsync(Club club);
+        Task<bool> CreateClubAsync(Club club);
+        Task<bool> UpdateClubAsync(Club club);
         Task<bool> DeleteClubAsync(int clubId);
         Task<Club> GetClubById(int clubId);
-        Task<IEnumerable<Club>> GetAllClubs();
+        Task<List<Club>> GetAllClubs();
     }
 }

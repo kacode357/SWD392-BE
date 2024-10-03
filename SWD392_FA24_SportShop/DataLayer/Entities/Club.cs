@@ -16,8 +16,8 @@ namespace DataLayer.Entities
         public string Country { get; set; }
         public DateTime EstablishedYear { get; set; }
         public string StadiumName { get; set; }
-        public string ClubLogo { get; set; }
-        public string Description { get; set; }
+        public string? ClubLogo { get; set; }
+        public string? Description { get; set; }
         public bool Status { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }

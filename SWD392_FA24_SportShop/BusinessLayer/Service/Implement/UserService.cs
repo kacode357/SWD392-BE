@@ -344,7 +344,7 @@ namespace BusinessLayer.Service.Interface
                     {
                         Code = 409,
                         Success = false,
-                        Message = "User has been exits!"
+                        Message = "User has been exit!.",
                     };
                 }
                 string password = GeneratePassword();
@@ -556,7 +556,7 @@ namespace BusinessLayer.Service.Interface
                     {
                         Code = 404,
                         Success = false,
-                        Message = "Email is not registered.",
+                        Message = null,
                         Data = null,
                     };
                 }       

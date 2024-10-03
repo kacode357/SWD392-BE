@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Service;
+using BusinessLayer.Service.Implement;
 using BusinessLayer.Service.Interface;
 using DataLayer.DBContext;
 using DataLayer.Repository;
@@ -24,9 +25,11 @@ namespace SWD392_FA24_SportShop.AppStarts
 
             //AddService
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IClubService, ClubService>();
 
             //AddRepository
             services.AddScoped<IUserRepositoty, UserRepository>();
+            services.AddScoped<IClubRepository, ClubRepository>();
 
         }
     }
