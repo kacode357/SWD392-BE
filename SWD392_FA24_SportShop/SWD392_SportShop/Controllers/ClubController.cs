@@ -16,7 +16,6 @@ namespace SWD392_SportShop.Controllers
         {
             _clubService = clubService;
         }
-        [Authorize(Roles = "Admin,Manage")]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllClubs(GetAllClubRequestModel model)
         {
@@ -31,7 +30,6 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize(Roles = "Admin,Manage")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClubById(int id)
         {
@@ -61,6 +59,7 @@ namespace SWD392_SportShop.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpPut]
         public async Task<IActionResult> UpdateClub([FromBody]CreateClubRequestModel model, int id)
         {
             try
@@ -75,6 +74,7 @@ namespace SWD392_SportShop.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpPost("ChangeStatus/{id}")]
         public async Task<IActionResult> DeleteClub(int id)
         {
             try
