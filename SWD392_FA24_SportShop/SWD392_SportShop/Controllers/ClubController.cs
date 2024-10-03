@@ -75,11 +75,11 @@ namespace SWD392_SportShop.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost("Change-Status/{id}")]
-        public async Task<IActionResult> DeleteClub(int id)
+        public async Task<IActionResult> DeleteClub(int id, bool status)
         {
             try
             {
-                var result = await _clubService.DeleteClubAsync(id);
+                var result = await _clubService.DeleteClubAsync(id, status);
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)

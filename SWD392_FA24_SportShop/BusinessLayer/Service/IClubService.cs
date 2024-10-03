@@ -14,7 +14,7 @@ namespace BusinessLayer.Service
     {
         Task<BaseResponse<ClubResponseModel>> CreateClubAsync(CreateClubRequestModel model);
         Task<BaseResponse<ClubResponseModel>> UpdateClubAsync(CreateClubRequestModel model, int id);
-        Task<BaseResponse<ClubResponseModel>> DeleteClubAsync(int clubId);
+        Task<BaseResponse<ClubResponseModel>> DeleteClubAsync(int clubId, bool status);
         Task<BaseResponse<ClubResponseModel>> GetClubById(int clubId);
         Task<DynamicResponse<ClubResponseModel>> GetAllClubs(GetAllClubRequestModel model);
     }

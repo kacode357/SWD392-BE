@@ -51,7 +51,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<ClubResponseModel>> DeleteClubAsync(int clubId)
+        public async Task<BaseResponse<ClubResponseModel>> DeleteClubAsync(int clubId, bool status)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
-                club.Status = false;
+                club.Status = status;
                 await _clubRepository.UpdateClubAsync(club);
                 return new BaseResponse<ClubResponseModel>
                 {
@@ -160,7 +160,7 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
-                var club = _clubRepository.GetClubById(clubId);
+                var club = await _clubRepository.GetClubById(clubId);
                 if(club == null)
                 {
                     return new BaseResponse<ClubResponseModel>()

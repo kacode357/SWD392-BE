@@ -27,7 +27,7 @@ namespace DataLayer.Repository.Implement
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found" + ex.Message);
+                throw ex;
             }
         }
 
@@ -54,7 +54,7 @@ namespace DataLayer.Repository.Implement
             return await _swd392Context.Clubs.ToListAsync();
         }
 
-        public async Task<Club> GetClubById(int clubId)
+        public  async Task<Club> GetClubById(int clubId)
         {
             try
             {
