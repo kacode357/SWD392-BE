@@ -18,11 +18,18 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task<Shirt> CreateShirtAsync(Shirt shirt)
+        public async Task<bool> CreateShirtAsync(Shirt shirt)
         {
-            _swd392Context.Shirts.AddAsync(shirt);
-            await _swd392Context.SaveChangesAsync();
-            return shirt;
+            try
+            {
+                _swd392Context.Shirts.AddAsync(shirt);
+                await _swd392Context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<bool> DeleteShirtAsync(int shirtId)
@@ -36,8 +43,7 @@ namespace DataLayer.Repository.Implement
                 }
 
                 _swd392Context.Shirts.Remove(shirt);
-                await _swd392Context.SaveChangesAsync();
-                return true;
+                return await _swd392Context.SaveChangesAsync() > 0;
             }
             catch (Exception ex)
             {
@@ -45,7 +51,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<IEnumerable<Shirt>> GetAllShirts()
+        public async Task<List<Shirt>> GetAllShirts()
         {
             return await _swd392Context.Shirts.ToListAsync();
         }
@@ -58,18 +64,18 @@ namespace DataLayer.Repository.Implement
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw ex;
             }
             
         }
 
-        public async Task<Shirt> UpdateShirtAsync(Shirt shirt)
+        public async Task<bool> UpdateShirtAsync(Shirt shirt)
         {
             try
             {
                 _swd392Context.Shirts.Update(shirt);
                 await _swd392Context.SaveChangesAsync();
-                return shirt;
+                return true;
             }
             catch(Exception ex)
             {

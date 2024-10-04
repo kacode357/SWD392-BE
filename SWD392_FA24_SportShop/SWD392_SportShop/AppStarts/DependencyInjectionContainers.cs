@@ -26,10 +26,17 @@ namespace SWD392_FA24_SportShop.AppStarts
             //AddService
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IClubService, ClubService>();
+            services.AddScoped<ISessionService, SessionService>();
+            services.AddScoped<IShirtService, ShirtService>();
+            services.AddScoped<IPlayerService, PlayerService>();
 
             //AddRepository
             services.AddScoped<IUserRepositoty, UserRepository>();
             services.AddScoped<IClubRepository, ClubRepository>();
+            services.AddScoped<ISessionRepository, SessionRepository>();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<IShirtRepository, ShirtRepository>();
+
 
         }
     }

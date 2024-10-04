@@ -63,7 +63,7 @@ namespace BusinessLayer.Service.Implement
                     {
                         Code = 404,
                         Success = false,
-                        Message = "Not found Club!.",
+                        Message = "Not found Session!.",
                         Data = null
                     };
                 }

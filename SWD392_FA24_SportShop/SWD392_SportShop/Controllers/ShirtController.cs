@@ -1,5 +1,8 @@
-﻿using BusinessLayer.Service;
+﻿using BusinessLayer.RequestModel.Shirt;
+using BusinessLayer.Service;
+using BusinessLayer.Service.Implement;
 using DataLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SWD392_SportShop.Controllers
@@ -15,69 +18,71 @@ namespace SWD392_SportShop.Controllers
             _shirtService = shirtService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetShirts()
+        [HttpPost("Search")]
+        public async Task<IActionResult> GetShirts(GetAllShirtRequestModel model)
         {
-            var shirts = await _shirtService.GetShirtsAsync();
-            return Ok(shirts);
+            try
+            {
+                var result = await _shirtService.GetShirtsAsync(model);
+                return StatusCode(result.Code, result);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetShirtById(int shirtId)
         {
-            var shirt = await _shirtService.GetShirtById(shirtId);
-            return Ok(shirt);
+            var result = await _shirtService.GetShirtById(shirtId);
+            return StatusCode(result.Code, result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateShirt([FromBody] Shirt shirt)
+        public async Task<IActionResult> CreateShirt([FromBody] CreateShirtRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _shirtService.CreateShirtAsync(model);
+                return StatusCode(result.Code, result);
             }
-
-            var createdShirt = await _shirtService.CreateShirtAsync(shirt);
-            return CreatedAtAction(nameof(GetShirts), new { id = createdShirt.Id }, createdShirt);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateShirt(int id, [FromBody] Shirt shirt)
+        public async Task<IActionResult> UpdateShirt(int id, [FromBody] CreateShirtRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _shirtService.UpdateShirtAsync(model, id);
+                return StatusCode(result.Code, result);
             }
-
-            var existingShirt = await _shirtService.GetShirtById(id);
-            if (existingShirt == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                throw new Exception(ex.Message);
             }
-
-            existingShirt.TypeShirt = shirt.TypeShirt;
-            existingShirt.PlayerId = shirt.PlayerId;
-            existingShirt.Name = shirt.Name;
-            existingShirt.Number = shirt.Number;
-            existingShirt.Price = shirt.Price;
-            existingShirt.Date = shirt.Date;
-            existingShirt.Description = shirt.Description;
-            existingShirt.UrlImg = shirt.UrlImg;
-            existingShirt.Status = shirt.Status;
-
-            await _shirtService.UpdateShirtAsync(existingShirt);
-            return NoContent();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteShirt(int shirtId)
+        public async Task<IActionResult> DeleteShirt(int shirtId, int status)
         {
-            var isDeleted = await _shirtService.DeleteShirtAsync(shirtId);
-            if (!isDeleted)
+            try
             {
-                return NotFound(); 
+                var result = await _shirtService.DeleteShirtAsync(shirtId, status);
+                return StatusCode(result.Code, result);
             }
-            return Ok(isDeleted);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

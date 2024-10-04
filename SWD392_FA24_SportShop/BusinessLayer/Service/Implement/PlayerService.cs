@@ -1,42 +1,224 @@
-﻿using DataLayer.Entities;
+﻿using AutoMapper;
+using BusinessLayer.RequestModel.Player;
+using BusinessLayer.ResponseModel.Club;
+using BusinessLayer.ResponseModel.Player;
+using BusinessLayer.ResponseModels;
+using DataLayer.Entities;
+using DataLayer.Repository;
+using DataLayer.Repository.Implement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace BusinessLayer.Service.Implement
 {
     public class PlayerService : IPlayerService
     {
-        private readonly IPlayerService _playerService;
-        public PlayerService(IPlayerService playerService)
+        private readonly IPlayerRepository _playerRepository;
+        private readonly IMapper _mapper;
+        public PlayerService(IPlayerRepository playerRepository, IMapper mapper)
         {
-            _playerService = playerService;
-        }
-        public async Task<Player> CreatePlayerAsync(Player player)
-        {
-            return await _playerService.CreatePlayerAsync(player);
+            _playerRepository = playerRepository;
+            _mapper = mapper;
         }
 
-        public async Task<bool> DeletePlayerAsync(int playerId)
+        public async Task<BaseResponse<PlayerResponseModel>> CreatePlayerAsync(CreatePlayerRequestModel model)
         {
-            return await _playerService.DeletePlayerAsync(playerId);
+            try
+            {
+                var player = _mapper.Map<Player>(model);
+                await _playerRepository.CreatePlayerAsync(player);
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 201,
+                    Success = true,
+                    Message = "Create Player success!.",
+                    Data = _mapper.Map<PlayerResponseModel>(player)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
         }
 
-        public async Task<Player> GetPlayerById(int playerId)
+        public async Task<BaseResponse<PlayerResponseModel>> DeletePlayerAsync(int playerId)
         {
-            return await _playerService.GetPlayerById(playerId);
+            try
+            {
+                var player = await _playerRepository.GetPlayerById(playerId);
+                if (player == null)
+                {
+                    return new BaseResponse<PlayerResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found Player!.",
+                        Data = null
+                    };
+                }
+                await _playerRepository.UpdatePlayerAsync(player);
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+                    Data = _mapper.Map<PlayerResponseModel>(player)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
         }
 
-        public async Task<IEnumerable<Player>> GetPlayers()
+        public async Task<BaseResponse<PlayerResponseModel>> GetPlayerById(int playerId)
         {
-            return await _playerService.GetPlayers();
+            try
+            {
+                var player = await _playerRepository.GetPlayerById(playerId);
+                if (player == null)
+                {
+                    return new BaseResponse<PlayerResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found Player!.",
+                        Data = null
+                    };
+                }
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+                    Data = _mapper.Map<PlayerResponseModel>(player)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
         }
 
-        public async Task<Player> UpdatePlayerAsync(Player player)
+        public async Task<DynamicResponse<PlayerResponseModel>> GetPlayers(GetAllPlayerRequestModel model)
         {
-            return await _playerService.UpdatePlayerAsync(player);
+            try
+            {
+                var listPlayer = await _playerRepository.GetPlayers();
+
+                if (!string.IsNullOrEmpty(model.keyWord))
+                {
+                    List<Player> listPlayerByName = listPlayer.Where(c => c.FullName.Contains(model.keyWord)).ToList();
+
+
+                    listPlayer = listPlayerByName
+                               .GroupBy(c => c.Id)
+                               .Select(g => g.First())
+                               .ToList();
+                }
+                
+                var result = _mapper.Map<List<PlayerResponseModel>>(listPlayer);
+                // Nếu không có lỗi, thực hiện phân trang
+                var pagePlayer = result// Giả sử result là danh sách người dùng
+                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
+                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
+                return new DynamicResponse<PlayerResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+
+                    Data = new MegaData<PlayerResponseModel>()
+                    {
+                        PageInfo = new PagingMetaData()
+                        {
+                            Page = pagePlayer.PageNumber,
+                            Size = pagePlayer.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pagePlayer.PageCount,
+                            TotalItem = pagePlayer.TotalItemCount,
+                        },
+                        SearchInfo = new SearchCondition()
+                        {
+                            keyWord = model.keyWord,
+                            role = null,
+                            status = model.Status,
+                            is_Verify = null,
+                            is_Delete = null
+                        },
+                        PageData = pagePlayer.ToList()
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<PlayerResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<PlayerResponseModel>> UpdatePlayerAsync(CreatePlayerRequestModel model, int id)
+        {
+            try
+            {
+                var player = await _playerRepository.GetPlayerById(id);
+                if (player == null)
+                {
+                    return new BaseResponse<PlayerResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not fount Player!.",
+                        Data = null
+                    };
+                }
+                await _playerRepository.UpdatePlayerAsync(_mapper.Map<Player>(model));
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Update Player Success!.",
+                    Data = _mapper.Map<PlayerResponseModel>(player)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<PlayerResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
         }
     }
 }

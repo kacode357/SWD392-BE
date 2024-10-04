@@ -1,4 +1,7 @@
-﻿using DataLayer.Entities;
+﻿using BusinessLayer.RequestModel.Player;
+using BusinessLayer.ResponseModel.Player;
+using BusinessLayer.ResponseModels;
+using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +12,10 @@ namespace BusinessLayer.Service
 {
     public interface IPlayerService
     {
-        Task<Player> CreatePlayerAsync(Player player);
-        Task<Player> UpdatePlayerAsync(Player player);
-        Task<bool> DeletePlayerAsync(int playerId);
-        Task<Player> GetPlayerById(int playerId);
-        Task<IEnumerable<Player>> GetPlayers();
+        Task<BaseResponse<PlayerResponseModel>> CreatePlayerAsync(CreatePlayerRequestModel model);
+        Task<BaseResponse<PlayerResponseModel>> UpdatePlayerAsync(CreatePlayerRequestModel model, int id);
+        Task<BaseResponse<PlayerResponseModel>> DeletePlayerAsync(int playerId);
+        Task<BaseResponse<PlayerResponseModel>> GetPlayerById(int playerId);
+        Task<DynamicResponse<PlayerResponseModel>> GetPlayers(GetAllPlayerRequestModel model);
     }
 }

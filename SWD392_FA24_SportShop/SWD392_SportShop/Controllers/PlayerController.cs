@@ -1,5 +1,8 @@
-﻿using BusinessLayer.Service;
+﻿using BusinessLayer.RequestModel.Player;
+using BusinessLayer.Service;
+using BusinessLayer.Service.Implement;
 using DataLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SWD392_SportShop.Controllers
@@ -15,72 +18,78 @@ namespace SWD392_SportShop.Controllers
             _playerService = playerService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetPlayers()
+        [HttpPost("Search")]
+        public async Task<IActionResult> GetPlayers(GetAllPlayerRequestModel model)
         {
-            var players = await _playerService.GetPlayers();
-            return Ok(players);
+            try
+            {
+                var result = await _playerService.GetPlayers(model);
+                return StatusCode(result.Code, result);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPlayerById(int id)
         {
-            var player = await _playerService.GetPlayerById(id);
-            if (player == null)
+            try
             {
-                return NotFound();
+                var result = await _playerService.GetPlayerById(id);
+                return StatusCode(result.Code, result);
             }
-            return Ok(player);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreatePlayer([FromBody] Player player)
+        public async Task<IActionResult> CreatePlayer([FromBody] CreatePlayerRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _playerService.CreatePlayerAsync(model);
+                return StatusCode(result.Code, result);
             }
-
-            var createdPlayer = await _playerService.CreatePlayerAsync(player);
-            return CreatedAtAction(nameof(GetPlayerById), new { id = createdPlayer.Id }, createdPlayer);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePlayer(int id, [FromBody] Player player)
+        public async Task<IActionResult> UpdatePlayer(int id, [FromBody] CreatePlayerRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _playerService.UpdatePlayerAsync(model, id);
+                return StatusCode(result.Code, result);
             }
-
-            var existingPlayer = await _playerService.GetPlayerById(id);
-            if (existingPlayer == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                throw new Exception(ex.Message);
             }
-
-            existingPlayer.ClubId = player.ClubId;
-            existingPlayer.FullName = player.FullName;
-            existingPlayer.Height = player.Height;
-            existingPlayer.Weight = player.Weight;
-            existingPlayer.Birthday = player.Birthday;
-            existingPlayer.Nationality = player.Nationality;
-
-            await _playerService.UpdatePlayerAsync(existingPlayer);
-            return NoContent();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlayer(int id)
         {
-            var isDeleted = await _playerService.DeletePlayerAsync(id);
-
-            if (!isDeleted)
+            try
             {
-                return NotFound();
+                var result = await _playerService.DeletePlayerAsync(id);
+                return StatusCode(result.Code, result);
             }
-
-            return Ok(new { success = isDeleted });
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

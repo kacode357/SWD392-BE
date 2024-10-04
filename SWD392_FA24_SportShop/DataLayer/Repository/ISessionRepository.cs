@@ -9,10 +9,10 @@ namespace DataLayer.Repository
 {
     public interface ISessionRepository
     {
-        Task<Session> CreateSessionAsync(Session session);
-        Task<Session> UpdateSessionAsync(Session session);
+        Task<bool> CreateSessionAsync(Session session);
+        Task<bool> UpdateSessionAsync(Session session);
         Task<bool> DeleteSessionAsync(int sessionId);
         Task<Session>GetSessionById(int sessionId);
-        Task<IEnumerable<Session>> GetSessions();
+        Task<List<Session>> GetSessions();
     }
 }

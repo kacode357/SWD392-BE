@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Repository.Implement
 {
-    internal class SessionRepository : ISessionRepository
+    public class SessionRepository : ISessionRepository
     {
         private readonly db_aad141_swd392Context _swd392Context;
 
@@ -17,17 +17,17 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<Session> CreateSessionAsync(Session session)
+        public async Task<bool> CreateSessionAsync(Session session)
         {
             try
             {
                 _swd392Context.Sessions.AddAsync(session);
                 await _swd392Context.SaveChangesAsync();
-                return session;
+                return true;
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw ex;
             }
         }
 
@@ -58,11 +58,11 @@ namespace DataLayer.Repository.Implement
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw ex;
             }
         }
 
-        public async Task<IEnumerable<Session>> GetSessions()
+        public async Task<List<Session>> GetSessions()
         {
             try
             {
@@ -74,17 +74,17 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<Session> UpdateSessionAsync(Session session)
+        public async Task<bool> UpdateSessionAsync(Session session)
         {
             try
             {
                 _swd392Context.Sessions.Update(session);
                 await _swd392Context.SaveChangesAsync();
-                return session;
+                return true;
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw ex;
             }
         }
     }

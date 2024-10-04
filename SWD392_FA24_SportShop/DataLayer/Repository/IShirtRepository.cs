@@ -9,10 +9,10 @@ namespace DataLayer.Repository
 {
     public interface IShirtRepository
     {
-        Task <Shirt>CreateShirtAsync(Shirt shirt);
-        Task <Shirt> UpdateShirtAsync(Shirt shirt);
+        Task <bool>CreateShirtAsync(Shirt shirt);
+        Task <bool> UpdateShirtAsync(Shirt shirt);
         Task <bool> DeleteShirtAsync(int shirtId);
         Task <Shirt> GetShirtById(int shirtId);
-        Task<IEnumerable<Shirt>> GetAllShirts();
+        Task<List<Shirt>> GetAllShirts();
     }
 }

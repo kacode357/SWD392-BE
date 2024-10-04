@@ -18,7 +18,7 @@ namespace SWD392_SportShop.Controllers
             _sessionService = sessionService;
         }
 
-        [HttpGet("Search")]
+        [HttpPost("Search")]
         public async Task<IActionResult> GetSessions(GetAllSessionRequestModel model)
         {
             try

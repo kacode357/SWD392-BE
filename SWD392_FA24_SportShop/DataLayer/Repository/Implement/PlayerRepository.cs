@@ -17,17 +17,17 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<Player> CreatePlayerAsync(Player player)
+        public async Task<bool> CreatePlayerAsync(Player player)
         {
             try
             {
                 _swd392Context.Players.AddAsync(player);
                 await _swd392Context.SaveChangesAsync();
-                return player;
+                return true;
             }
             catch(Exception ex)
             {
-                throw new Exception("Not found!" + ex);
+                throw ex;
             }
         }
 
@@ -58,11 +58,11 @@ namespace DataLayer.Repository.Implement
             }
             catch (Exception ex)
             {
-                throw new Exception("Not found!" + ex.Message);
+                throw ex;
             }
         }
 
-        public async Task<IEnumerable<Player>> GetPlayers()
+        public async Task<List<Player>> GetPlayers()
         {
             try
             {
@@ -70,21 +70,21 @@ namespace DataLayer.Repository.Implement
             }
             catch (Exception ex)
             {
-                throw new Exception("Not found" + ex.Message);
+                throw ex;
             }
         }
 
-        public async Task<Player> UpdatePlayerAsync(Player player)
+        public async Task<bool> UpdatePlayerAsync(Player player)
         {
             try
             {
                 _swd392Context.Players.Update(player);
                 await _swd392Context.SaveChangesAsync();
-                return player;
+                return true;
             }
             catch (Exception ex)
             {
-                throw new Exception("Not found!" + ex.Message);
+                throw ex;
             }
         }
     }
