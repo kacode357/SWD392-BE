@@ -1,5 +1,8 @@
-﻿using BusinessLayer.Service;
+﻿using BusinessLayer.RequestModel.Session;
+using BusinessLayer.Service;
+using BusinessLayer.Service.Implement;
 using DataLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SWD392_SportShop.Controllers
@@ -15,71 +18,78 @@ namespace SWD392_SportShop.Controllers
             _sessionService = sessionService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetSessions()
+        [HttpGet("Search")]
+        public async Task<IActionResult> GetSessions(GetAllSessionRequestModel model)
         {
-            var sessions = await _sessionService.GetSessions();
-            return Ok(sessions);
+            try
+            {
+                var result = await _sessionService.GetSessions(model);
+                return StatusCode(result.Code, result);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSessionById(int id)
         {
-            var session = await _sessionService.GetSessionById(id);
-            if (session == null)
+            try
             {
-                return NotFound();
+                var result = await _sessionService.GetSessionById(id);
+                return StatusCode(result.Code, result);
             }
-            return Ok(session);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public async Task<IActionResult> CreateSession([FromBody] Session session)
+        public async Task<IActionResult> CreateSession([FromBody] CreateSessionRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _sessionService.CreateSessionAsync(model);
+                return StatusCode(result.Code, result);
             }
-
-            var createdSession = await _sessionService.CreateSessionAsync(session);
-            return CreatedAtAction(nameof(GetSessionById), new { id = createdSession.Id }, createdSession);
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSession(int id, [FromBody] Session session)
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public async Task<IActionResult> UpdateSession(int id, [FromBody] CreateSessionRequestModel model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                var result = await _sessionService.UpdateSessionAsync(model, id);
+                return StatusCode(result.Code, result);
             }
-
-            var existingSession = await _sessionService.GetSessionById(id);
-            if (existingSession == null)
+            catch (Exception ex)
             {
-                return NotFound();
+                throw new Exception(ex.Message);
             }
-
-            existingSession.Name = session.Name;
-            existingSession.StartDdate = session.StartDdate;
-            existingSession.EndDdate = session.EndDdate;
-            existingSession.Description = session.Description;
-            existingSession.Status = session.Status;
-
-            await _sessionService.UpdateSessionAsync(existingSession);
-            return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSession(int id)
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("Change-Status/{id}")]
+        public async Task<IActionResult> DeleteSession(int id, bool status)
         {
-            var isDeleted = await _sessionService.DeleteSessionAsync(id); 
-
-            if (!isDeleted)
+            try
             {
-                return NotFound(); 
+                var result = await _sessionService.DeleteSessionAsync(id, status);
+                return StatusCode(result.Code, result);
             }
-
-            return Ok(new { success = isDeleted }); 
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
