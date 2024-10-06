@@ -96,9 +96,9 @@ namespace BusinessLayer.Service.Implement
 
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
-                    List<Club> listClubByName = listClub.Where(c => c.Name.Contains(model.keyWord)).ToList();
+                    List<Club> listClubByName = listClub.Where(c => c.Name.ToLower().Contains(model.keyWord)).ToList();
 
-                    List<Club> listClubByCountry = listClub.Where(u => u.Country.Contains(model.keyWord)).ToList();
+                    List<Club> listClubByCountry = listClub.Where(u => u.Country.ToLower().Contains(model.keyWord)).ToList();
 
                     listClub = listClubByName
                                .Concat(listClubByCountry)

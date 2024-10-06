@@ -133,7 +133,7 @@ namespace BusinessLayer.Service.Implement
 
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
-                    List<Shirt> listShirtByName = listShirt.Where(c => c.Name.Contains(model.keyWord)).ToList();
+                    List<Shirt> listShirtByName = listShirt.Where(c => c.Name.ToLower().Contains(model.keyWord)).ToList();
 
                     listShirt = listShirtByName
                                .GroupBy(c => c.Id)

@@ -133,7 +133,7 @@ namespace BusinessLayer.Service.Implement
 
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
-                    List<Session> listSessionByName = listSession.Where(c => c.Name.Contains(model.keyWord)).ToList();
+                    List<Session> listSessionByName = listSession.Where(c => c.Name.ToLower().Contains(model.keyWord)).ToList();
 
                     listSession = listSessionByName
                                .GroupBy(c => c.Id)

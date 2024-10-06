@@ -87,5 +87,20 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteClubAsync(int id, bool status)
+        {
+            try
+            {
+                var result = await _clubService.DeleteClubAsync(id, status);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

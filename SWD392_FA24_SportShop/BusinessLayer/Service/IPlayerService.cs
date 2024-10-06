@@ -14,7 +14,7 @@ namespace BusinessLayer.Service
     {
         Task<BaseResponse<PlayerResponseModel>> CreatePlayerAsync(CreatePlayerRequestModel model);
         Task<BaseResponse<PlayerResponseModel>> UpdatePlayerAsync(CreatePlayerRequestModel model, int id);
-        Task<BaseResponse<PlayerResponseModel>> DeletePlayerAsync(int playerId);
+        Task<BaseResponse<PlayerResponseModel>> DeletePlayerAsync(int playerId, bool status);
         Task<BaseResponse<PlayerResponseModel>> GetPlayerById(int playerId);
         Task<DynamicResponse<PlayerResponseModel>> GetPlayers(GetAllPlayerRequestModel model);
     }

@@ -51,7 +51,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<PlayerResponseModel>> DeletePlayerAsync(int playerId)
+        public async Task<BaseResponse<PlayerResponseModel>> DeletePlayerAsync(int playerId, bool status)
         {
             try
             {
@@ -66,6 +66,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
+                player.Status = status;
                 await _playerRepository.UpdatePlayerAsync(player);
                 return new BaseResponse<PlayerResponseModel>()
                 {
@@ -130,7 +131,7 @@ namespace BusinessLayer.Service.Implement
 
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
-                    List<Player> listPlayerByName = listPlayer.Where(c => c.FullName.Contains(model.keyWord)).ToList();
+                    List<Player> listPlayerByName = listPlayer.Where(c => c.FullName.ToLower().Contains(model.keyWord)).ToList();
 
 
                     listPlayer = listPlayerByName
