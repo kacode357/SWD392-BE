@@ -20,7 +20,7 @@ namespace DataLayer.Entities
         public bool RefundStatus { get; set; }
         public int Status { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User User { get; set; } = null!;
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual ICollection<Payment> Payments { get; set; }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
@@ -17,17 +18,18 @@ namespace DataLayer.DBContext
         {
         }
 
-        public virtual DbSet<Entities.Club> Clubs { get; set; }
-        public virtual DbSet<Entities.Inventory> Inventories { get; set; }
-        public virtual DbSet<Entities.Notification> Notifications { get; set; }
-        public virtual DbSet<Entities.Order> Orders { get; set; }
-        public virtual DbSet<Entities.OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Entities.Payment> Payments { get; set; }
-        public virtual DbSet<Entities.Player> Players { get; set; }
-        public virtual DbSet<Entities.Session> Sessions { get; set; }
-        public virtual DbSet<Entities.Shirt> Shirts { get; set; }
-        public virtual DbSet<Entities.TypeShirt> TypeShirts { get; set; }
-        public virtual DbSet<Entities.User> Users { get; set; }
+        public virtual DbSet<Club> Clubs { get; set; } = null!;
+        public virtual DbSet<ClubPlayer> ClubPlayers { get; set; } = null!;
+        public virtual DbSet<Inventory> Inventories { get; set; } = null!;
+        public virtual DbSet<Notification> Notifications { get; set; } = null!;
+        public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
+        public virtual DbSet<Payment> Payments { get; set; } = null!;
+        public virtual DbSet<Player> Players { get; set; } = null!;
+        public virtual DbSet<Session> Sessions { get; set; } = null!;
+        public virtual DbSet<Shirt> Shirts { get; set; } = null!;
+        public virtual DbSet<TypeShirt> TypeShirts { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,6 +38,7 @@ namespace DataLayer.DBContext
                 optionsBuilder.UseSqlServer(GetConnectionString());
             }
         }
+
         string GetConnectionString()
         {
             IConfiguration builder = new ConfigurationBuilder()
@@ -44,33 +47,43 @@ namespace DataLayer.DBContext
                 .Build();
             return builder["ConnectionStrings:hosting"];
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Entities.Club>(entity =>
+            modelBuilder.Entity<Club>(entity =>
             {
                 entity.ToTable("Club");
 
-                entity.Property(e => e.ClubLogo)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Country)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Country).HasMaxLength(100);
 
                 entity.Property(e => e.EstablishedYear).HasColumnType("datetime");
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Name).HasMaxLength(100);
 
-                entity.Property(e => e.StadiumName)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.StadiumName).HasMaxLength(100);
             });
 
-            modelBuilder.Entity<Entities.Inventory>(entity =>
+            modelBuilder.Entity<ClubPlayer>(entity =>
+            {
+                entity.ToTable("ClubPlayer");
+
+                entity.Property(e => e.ClubId).HasColumnName("Club_Id");
+
+                entity.Property(e => e.PlayerId).HasColumnName("Player_Id");
+
+                entity.HasOne(d => d.Club)
+                    .WithMany(p => p.ClubPlayers)
+                    .HasForeignKey(d => d.ClubId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__ClubPlaye__Club___5CD6CB2B");
+
+                entity.HasOne(d => d.Player)
+                    .WithMany(p => p.ClubPlayers)
+                    .HasForeignKey(d => d.PlayerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__ClubPlaye__Playe__5DCAEF64");
+            });
+
+            modelBuilder.Entity<Inventory>(entity =>
             {
                 entity.ToTable("Inventory");
 
@@ -85,11 +98,9 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__Inventory__Shirt__34C8D9D1");
             });
 
-            modelBuilder.Entity<Entities.Notification>(entity =>
+            modelBuilder.Entity<Notification>(entity =>
             {
                 entity.ToTable("Notification");
-
-                entity.Property(e => e.Content).IsRequired();
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 
@@ -100,7 +111,7 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__Notificat__User___37A5467C");
             });
 
-            modelBuilder.Entity<Entities.Order>(entity =>
+            modelBuilder.Entity<Order>(entity =>
             {
                 entity.ToTable("Order");
 
@@ -117,7 +128,7 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__Order__User_Id__3A81B327");
             });
 
-            modelBuilder.Entity<Entities.OrderDetail>(entity =>
+            modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.Property(e => e.OrderId).HasColumnName("Order_Id");
 
@@ -138,15 +149,11 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__OrderDeta__Shirt__412EB0B6");
             });
 
-            modelBuilder.Entity<Entities.Payment>(entity =>
+            modelBuilder.Entity<Payment>(entity =>
             {
                 entity.ToTable("Payment");
 
-                entity.Property(e => e.Date).IsRequired();
-
-                entity.Property(e => e.Method)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.Method).HasMaxLength(50);
 
                 entity.Property(e => e.OrderId).HasColumnName("Order_Id");
 
@@ -165,7 +172,7 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__Payment__User_Id__3D5E1FD2");
             });
 
-            modelBuilder.Entity<Entities.Player>(entity =>
+            modelBuilder.Entity<Player>(entity =>
             {
                 entity.ToTable("Player");
 
@@ -173,9 +180,7 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.ClubId).HasColumnName("Club_Id");
 
-                entity.Property(e => e.FullName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.FullName).HasMaxLength(50);
 
                 entity.Property(e => e.Height).HasColumnName("height");
 
@@ -189,28 +194,24 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__Player__Club_Id__286302EC");
             });
 
-            modelBuilder.Entity<Entities.Session>(entity =>
+            modelBuilder.Entity<Session>(entity =>
             {
                 entity.ToTable("Session");
 
                 entity.Property(e => e.EndDdate).HasColumnType("datetime");
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Name).HasMaxLength(100);
 
                 entity.Property(e => e.StartDdate).HasColumnType("datetime");
             });
 
-            modelBuilder.Entity<Entities.Shirt>(entity =>
+            modelBuilder.Entity<Shirt>(entity =>
             {
                 entity.ToTable("Shirt");
 
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Name).HasMaxLength(100);
 
                 entity.Property(e => e.PlayerId).HasColumnName("Player_Id");
 
@@ -231,15 +232,13 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__Shirt__TypeShirt__31EC6D26");
             });
 
-            modelBuilder.Entity<Entities.TypeShirt>(entity =>
+            modelBuilder.Entity<TypeShirt>(entity =>
             {
                 entity.ToTable("TypeShirt");
 
                 entity.Property(e => e.ClubId).HasColumnName("Club_Id");
 
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Name).HasMaxLength(100);
 
                 entity.Property(e => e.SessionId).HasColumnName("Session_Id");
 
@@ -256,15 +255,13 @@ namespace DataLayer.DBContext
                     .HasConstraintName("FK__TypeShirt__Sessi__2D27B809");
             });
 
-            modelBuilder.Entity<Entities.User>(entity =>
+            modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User");
 
-                entity.Property(e => e.Address)
-                    .HasMaxLength(100);
+                entity.Property(e => e.Address).HasMaxLength(100);
 
                 entity.Property(e => e.CreatedDate)
-                    .IsRequired()
                     .HasColumnType("date")
                     .HasColumnName("Created_Date");
 
@@ -272,23 +269,17 @@ namespace DataLayer.DBContext
                     .HasColumnType("date")
                     .HasColumnName("DOB");
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Email).HasMaxLength(100);
 
-                entity.Property(e => e.Gender)
-                    .HasMaxLength(50);
+                entity.Property(e => e.Gender).HasMaxLength(50);
 
-                entity.Property(e => e.ImgUrl)
-                    .HasColumnName("ImgURL");
+                entity.Property(e => e.ImgUrl).HasColumnName("ImgURL");
 
                 entity.Property(e => e.ModifiedDate)
                     .HasColumnType("date")
                     .HasColumnName("Modified_Date");
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Password).HasMaxLength(100);
 
                 entity.Property(e => e.PhoneNumber)
                     .HasMaxLength(50)
@@ -296,19 +287,9 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.RatingCount).HasColumnName("Rating_Count");
 
-                entity.Property(e => e.RoleName)
-                    .IsRequired()
-                    .HasMaxLength(50);
+                entity.Property(e => e.RoleName).HasMaxLength(50);
 
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-                entity.Property(e => e.IsVerify)
-                .HasColumnName("IsVerify")
-                .IsRequired();
-                entity.Property(e => e.IsDelete)
-                .HasColumnName("IsDelete")
-                .IsRequired();
+                entity.Property(e => e.UserName).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -11,11 +11,11 @@ namespace DataLayer.Entities
         public int Quantity { get; set; }
         public double Price { get; set; }
         public bool StatusRating { get; set; }
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
         public int? Score { get; set; }
         public bool Status { get; set; }
 
-        public virtual Order Order { get; set; }
-        public virtual Shirt Shirt { get; set; }
+        public virtual Order Order { get; set; } = null!;
+        public virtual Shirt Shirt { get; set; } = null!;
     }
 }
