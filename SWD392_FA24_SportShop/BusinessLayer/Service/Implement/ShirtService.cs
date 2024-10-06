@@ -9,6 +9,7 @@ using DataLayer.Repository.Implement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using X.PagedList;
@@ -206,7 +207,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
-                await _shirtRepository.UpdateShirtAsync(_mapper.Map<Shirt>(model));
+                await _shirtRepository.UpdateShirtAsync(_mapper.Map(model, shirt));
                 return new BaseResponse<ShirtResponseModel>()
                 {
                     Code = 200,

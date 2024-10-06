@@ -9,6 +9,7 @@ using DataLayer.Repository.Implement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using X.PagedList;
@@ -206,7 +207,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
-                await _clubRepository.UpdateClubAsync(_mapper.Map<Club>(model));
+                await _clubRepository.UpdateClubAsync(_mapper.Map(model, club));
                 return new BaseResponse<ClubResponseModel>()
                 {
                     Code = 200,

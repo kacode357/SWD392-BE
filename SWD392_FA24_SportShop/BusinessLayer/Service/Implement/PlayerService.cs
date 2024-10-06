@@ -201,7 +201,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
-                await _playerRepository.UpdatePlayerAsync(_mapper.Map<Player>(model));
+                await _playerRepository.UpdatePlayerAsync(_mapper.Map(model, player));
                 return new BaseResponse<PlayerResponseModel>()
                 {
                     Code = 200,

@@ -9,6 +9,7 @@ using DataLayer.Repository.Implement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using X.PagedList;
@@ -204,7 +205,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
-                await _sessionRepository.UpdateSessionAsync(_mapper.Map<Session>(model));
+                await _sessionRepository.UpdateSessionAsync(_mapper.Map(model, session));
                 return new BaseResponse<SessionResponseModel>()
                 {
                     Code = 200,
