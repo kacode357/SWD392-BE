@@ -201,7 +201,7 @@ namespace BusinessLayer.Service.Implement
                     {
                         Code = 404,
                         Success = false,
-                        Message = "Not fount Session!.",
+                        Message = "Not found Session!.",
                         Data = null
                     };
                 }
