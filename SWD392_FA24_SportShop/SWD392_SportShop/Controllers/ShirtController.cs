@@ -72,11 +72,11 @@ namespace SWD392_SportShop.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteShirt(int shirtId, int status)
+        public async Task<IActionResult> DeleteShirt(int id, int status)
         {
             try
             {
-                var result = await _shirtService.DeleteShirtAsync(shirtId, status);
+                var result = await _shirtService.DeleteShirtAsync(id, status);
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)
