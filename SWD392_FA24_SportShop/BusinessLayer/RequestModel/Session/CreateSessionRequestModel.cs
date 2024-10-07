@@ -12,5 +12,6 @@ namespace BusinessLayer.RequestModel.Session
         public DateTime StartDdate { get; set; }
         public DateTime EndDdate { get; set; }
         public string Description { get; set; }
+        public bool Status { get; set; }
     }
 }

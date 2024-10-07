@@ -14,5 +14,6 @@ namespace BusinessLayer.RequestModel.Club
         public string StadiumName { get; set; }
         public string? ClubLogo { get; set; }
         public string? Description { get; set; }
+        public bool Status { get; set; }
     }
 }
