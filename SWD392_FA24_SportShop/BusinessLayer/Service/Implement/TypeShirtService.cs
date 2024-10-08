@@ -94,6 +94,73 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
+                var listTypeShirtDto = await _typeShirtRepository.GetAllTypeShirtAsync();
+
+                
+                if (!string.IsNullOrEmpty(model.keyWord))
+                {
+                    listTypeShirtDto = listTypeShirtDto
+                        .Where(c => c.Name.ToLower().Contains(model.keyWord.ToLower()))
+                        .ToList();
+                }
+
+                
+                if (model.Status != null)
+                {
+                    listTypeShirtDto = listTypeShirtDto
+                        .Where(c => c.Status == model.Status)
+                        .ToList();
+                }
+
+                
+                var result = _mapper.Map<List<TypeShirtResponseModel>>(listTypeShirtDto);
+
+                
+                var pageTypeShirt = result
+                    .OrderBy(c => c.Id)
+                    .ToPagedList(model.pageNum, model.pageSize);
+
+                return new DynamicResponse<TypeShirtResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+                    Data = new MegaData<TypeShirtResponseModel>()
+                    {
+                        PageInfo = new PagingMetaData()
+                        {
+                            Page = pageTypeShirt.PageNumber,
+                            Size = pageTypeShirt.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pageTypeShirt.PageCount,
+                            TotalItem = pageTypeShirt.TotalItemCount,
+                        },
+                        SearchInfo = new SearchCondition()
+                        {
+                            keyWord = model.keyWord,
+                            role = null,
+                            status = model.Status,
+                            is_Verify = null,
+                            is_Delete = null
+                        },
+                        PageData = pageTypeShirt.ToList()
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<TypeShirtResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+
+            /*try
+            {
                 var listTypeShirt = await _typeShirtRepository.GetAllTypeShirtAsync();
 
                 if (!string.IsNullOrEmpty(model.keyWord))
@@ -152,7 +219,7 @@ namespace BusinessLayer.Service.Implement
                     Message = "Server Error!",
                     Data = null
                 };
-            }
+            }*/
         }
 
         public async Task<BaseResponse<TypeShirtResponseModel>> GetTypeShirtById(int typeShirtId)

@@ -1,4 +1,5 @@
 ﻿using DataLayer.DBContext;
+using DataLayer.DTO;
 using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -50,11 +51,27 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<TypeShirt>> GetAllTypeShirtAsync()
+        public async Task<List<TypeShirtDto>> GetAllTypeShirtAsync()
         {
             try
             {
-                return await _swd392Context.TypeShirts.ToListAsync();
+                var query = from typeShirt in _swd392Context.TypeShirts
+                            join session in _swd392Context.Sessions on typeShirt.SessionId equals session.Id
+                            join club in _swd392Context.Clubs on typeShirt.ClubId equals club.Id
+                            select new TypeShirtDto
+                            {
+                                Id = typeShirt.Id,
+                                Name = typeShirt.Name,
+                                Description = typeShirt.Description,
+                                Status = typeShirt.Status,
+                                SessionId = typeShirt.SessionId,
+                                SessionName = session.Name,  
+                                ClubId = typeShirt.ClubId,
+                                ClubName = club.Name     
+                            };
+
+                return await query.ToListAsync();
+
             }
             catch (Exception ex)
             {

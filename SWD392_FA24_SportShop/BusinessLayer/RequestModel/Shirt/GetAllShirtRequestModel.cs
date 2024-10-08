@@ -11,6 +11,6 @@ namespace BusinessLayer.RequestModel.Shirt
         public int pageNum { get; set; } = 1;
         public int pageSize { get; set; } = 1;
         public string? keyWord { get; set; }
-        public bool? Status { get; set; }
+        public int? Status { get; set; }
     }
 }

@@ -127,24 +127,20 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
-                var listPlayer = await _playerRepository.GetPlayers();
+                var listPlayerDto = await _playerRepository.GetPlayers();
 
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
-                    List<Player> listPlayerByName = listPlayer.Where(c => c.FullName.ToLower().Contains(model.keyWord)).ToList();
-
-
-                    listPlayer = listPlayerByName
-                               .GroupBy(c => c.Id)
-                               .Select(g => g.First())
-                               .ToList();
+                    listPlayerDto = listPlayerDto
+                        .Where(c => c.FullName.ToLower().Contains(model.keyWord.ToLower()))
+                        .ToList();
                 }
+
+                var result = _mapper.Map<List<PlayerResponseModel>>(listPlayerDto);
                 
-                var result = _mapper.Map<List<PlayerResponseModel>>(listPlayer);
-                // Nếu không có lỗi, thực hiện phân trang
-                var pagePlayer = result// Giả sử result là danh sách người dùng
-                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
-                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
+                var pagePlayer = result
+                    .OrderBy(c => c.Id) 
+                    .ToPagedList(model.pageNum, model.pageSize);
                 return new DynamicResponse<PlayerResponseModel>()
                 {
                     Code = 200,

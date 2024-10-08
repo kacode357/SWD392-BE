@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using DataLayer.DTO;
+using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace DataLayer.Repository
         Task<bool> DeleteTypeShirtAsync(int typeShirtId);
         Task<bool> UpdateTypeShirtAsync(TypeShirt typeShirtId);
         Task<TypeShirt> GetTypeShirtById(int typeShirtId);
-        Task<List<TypeShirt>> GetAllTypeShirtAsync();
+        Task<List<TypeShirtDto>> GetAllTypeShirtAsync();
     }
 }

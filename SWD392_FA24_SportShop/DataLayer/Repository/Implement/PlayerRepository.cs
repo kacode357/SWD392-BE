@@ -1,4 +1,5 @@
 ﻿using DataLayer.DBContext;
+using DataLayer.DTO;
 using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -62,11 +63,25 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<Player>> GetPlayers()
+        public async Task<List<PlayerDto>> GetPlayers()
         {
             try
             {
-                return await _swd392Context.Players.ToListAsync();
+                var query = from player in _swd392Context.Players
+                            join club in _swd392Context.Clubs on player.ClubId equals club.Id
+                            select new PlayerDto
+                            {
+                                Id = player.Id,
+                                FullName = player.FullName,
+                                Height = player.Height,
+                                Weight = player.Weight,
+                                Birthday = player.Birthday,
+                                Nationality = player.Nationality,
+                                Status = player.Status,
+                                ClubId = player.ClubId,
+                                ClubName = club.Name
+                            };
+                return await query.ToListAsync();
             }
             catch (Exception ex)
             {

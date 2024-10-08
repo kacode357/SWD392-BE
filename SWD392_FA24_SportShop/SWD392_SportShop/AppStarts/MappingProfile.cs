@@ -11,6 +11,7 @@ using BusinessLayer.ResponseModel.Session;
 using BusinessLayer.ResponseModel.Shirt;
 using BusinessLayer.ResponseModel.TypeShirt;
 using BusinessLayer.ResponseModel.User;
+using DataLayer.DTO;
 using DataLayer.Entities;
 
 namespace SWDProject_BE.AppStarts
@@ -43,18 +44,22 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreateShirtRequestModel, ShirtResponseModel>().ReverseMap();
             CreateMap<CreateShirtRequestModel, Shirt>().ReverseMap();
             CreateMap<ShirtResponseModel, Shirt>().ReverseMap();
+            CreateMap<ShirtDto, ShirtResponseModel>();
 
             //Player
             CreateMap<CreatePlayerRequestModel, Player>().ReverseMap();
             CreateMap<CreatePlayerRequestModel, PlayerResponseModel>().ReverseMap();
             CreateMap<CreatePlayerRequestModel, Player>().ReverseMap();
             CreateMap<PlayerResponseModel, Player>().ReverseMap();
+            CreateMap<PlayerDto, PlayerResponseModel>();
 
             //TypeShirt
             CreateMap<CreateTypeShirtRequestModel, TypeShirt>().ReverseMap();
             CreateMap<CreateTypeShirtRequestModel, TypeShirtResponseModel>().ReverseMap();
             CreateMap<CreateTypeShirtRequestModel, TypeShirt>().ReverseMap();
-            CreateMap<TypeShirtResponseModel, TypeShirt>().ReverseMap();    
+            CreateMap<TypeShirtResponseModel, TypeShirt>().ReverseMap();
+            CreateMap<TypeShirtDto, TypeShirtResponseModel>();
+
 
 
         }

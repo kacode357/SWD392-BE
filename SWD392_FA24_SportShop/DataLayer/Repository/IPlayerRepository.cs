@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using DataLayer.DTO;
+using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace DataLayer.Repository
         Task<bool> UpdatePlayerAsync(Player player);
         Task<bool> DeletePlayerAsync(int playerId);
         Task<Player> GetPlayerById(int playerId);
-        Task<List<Player>> GetPlayers();
+        Task<List<PlayerDto>> GetPlayers();
     }
 }

@@ -130,23 +130,22 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
-                var listShirt = await _shirtRepository.GetAllShirts();
+                var listShirtDto = await _shirtRepository.GetAllShirts();
 
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
-                    List<Shirt> listShirtByName = listShirt.Where(c => c.Name.ToLower().Contains(model.keyWord)).ToList();
-
-                    listShirt = listShirtByName
-                               .GroupBy(c => c.Id)
-                               .Select(g => g.First())
-                               .ToList();
+                    listShirtDto = listShirtDto
+                        .Where(c => c.Name.ToLower().Contains(model.keyWord.ToLower()))
+                        .ToList();
                 }
-                if (model.Status.HasValue)
+                if (model.Status.HasValue) 
                 {
-                    // So sánh 1 với true và 0 với false
-                    listShirt = listShirt.Where(c => c.Status == (model.Status.Value ? 1 : 0)).ToList();
+                    bool statusBool = model.Status.Value == 1; 
+                    listShirtDto = listShirtDto
+                        .Where(c => (c.Status == 1) == statusBool) 
+                        .ToList();
                 }
-                var result = _mapper.Map<List<ShirtResponseModel>>(listShirt);
+                var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
                 // Nếu không có lỗi, thực hiện phân trang
                 var pageShirt = result// Giả sử result là danh sách người dùng
                     .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
@@ -172,7 +171,7 @@ namespace BusinessLayer.Service.Implement
                         {
                             keyWord = model.keyWord,
                             role = null,
-                            status = model.Status,
+                            status = model.Status.HasValue ? (model.Status.Value == 1) : (bool?)null,
                             is_Verify = null,
                             is_Delete = null
                         },
