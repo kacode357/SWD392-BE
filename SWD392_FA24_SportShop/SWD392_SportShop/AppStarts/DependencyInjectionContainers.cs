@@ -29,6 +29,7 @@ namespace SWD392_FA24_SportShop.AppStarts
             services.AddScoped<ISessionService, SessionService>();
             services.AddScoped<IShirtService, ShirtService>();
             services.AddScoped<IPlayerService, PlayerService>();
+            services.AddScoped<ITypeShirtService, TypeShirtService>();
 
             //AddRepository
             services.AddScoped<IUserRepositoty, UserRepository>();
@@ -36,6 +37,7 @@ namespace SWD392_FA24_SportShop.AppStarts
             services.AddScoped<ISessionRepository, SessionRepository>();
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<IShirtRepository, ShirtRepository>();
+            services.AddScoped<ITypeShirtRepository, TypeShirtRepository>();
 
 
         }

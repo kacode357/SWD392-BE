@@ -31,7 +31,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<bool> DeleteTypeShirtAsync(TypeShirt typeShirtId)
+        public async Task<bool> DeleteTypeShirtAsync(int typeShirtId)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<TypeShirt>> GetAllShirtAsync()
+        public async Task<List<TypeShirt>> GetAllTypeShirtAsync()
         {
             try
             {

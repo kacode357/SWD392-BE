@@ -3,11 +3,13 @@ using BusinessLayer.RequestModel.Club;
 using BusinessLayer.RequestModel.Player;
 using BusinessLayer.RequestModel.Session;
 using BusinessLayer.RequestModel.Shirt;
+using BusinessLayer.RequestModel.TypeShirt;
 using BusinessLayer.RequestModel.User;
 using BusinessLayer.ResponseModel.Club;
 using BusinessLayer.ResponseModel.Player;
 using BusinessLayer.ResponseModel.Session;
 using BusinessLayer.ResponseModel.Shirt;
+using BusinessLayer.ResponseModel.TypeShirt;
 using BusinessLayer.ResponseModel.User;
 using DataLayer.Entities;
 
@@ -47,6 +49,13 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreatePlayerRequestModel, PlayerResponseModel>().ReverseMap();
             CreateMap<CreatePlayerRequestModel, Player>().ReverseMap();
             CreateMap<PlayerResponseModel, Player>().ReverseMap();
+
+            //TypeShirt
+            CreateMap<CreateTypeShirtRequestModel, TypeShirt>().ReverseMap();
+            CreateMap<CreateTypeShirtRequestModel, TypeShirtResponseModel>().ReverseMap();
+            CreateMap<CreateTypeShirtRequestModel, TypeShirt>().ReverseMap();
+            CreateMap<TypeShirtResponseModel, TypeShirt>().ReverseMap();    
+
 
         }
     }
