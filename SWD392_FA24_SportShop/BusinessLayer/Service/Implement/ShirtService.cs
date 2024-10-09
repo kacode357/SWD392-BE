@@ -138,11 +138,11 @@ namespace BusinessLayer.Service.Implement
                         .Where(c => c.Name.ToLower().Contains(model.keyWord.ToLower()))
                         .ToList();
                 }
-                if (model.Status.HasValue) 
+                if (model.Status.HasValue)
                 {
-                    bool statusBool = model.Status.Value == 1; 
+                    int statusInt = model.Status.Value; // model.Status đã là kiểu int? nên chỉ cần lấy giá trị
                     listShirtDto = listShirtDto
-                        .Where(c => (c.Status == 1) == statusBool) 
+                        .Where(c => c.Status == statusInt) // So sánh trực tiếp với giá trị int
                         .ToList();
                 }
                 var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
