@@ -10,4 +10,11 @@
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Service\PaymentService\Momo\Config\" />
+    <Folder Include="Service\PaymentService\Momo\lib\" />
+    <Folder Include="Service\PaymentService\Momo\Response\" />
+    <Folder Include="Service\PaymentService\Momo\Request\" />
+  </ItemGroup>
+
 </Project>

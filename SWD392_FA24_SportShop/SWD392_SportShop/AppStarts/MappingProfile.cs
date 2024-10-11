@@ -1,11 +1,17 @@
 ﻿using AutoMapper;
 using BusinessLayer.RequestModel.Club;
+using BusinessLayer.RequestModel.Order;
+using BusinessLayer.RequestModel.OrderDetail;
+using BusinessLayer.RequestModel.Payment;
 using BusinessLayer.RequestModel.Player;
 using BusinessLayer.RequestModel.Session;
 using BusinessLayer.RequestModel.Shirt;
 using BusinessLayer.RequestModel.TypeShirt;
 using BusinessLayer.RequestModel.User;
 using BusinessLayer.ResponseModel.Club;
+using BusinessLayer.ResponseModel.Order;
+using BusinessLayer.ResponseModel.OrderDetail;
+using BusinessLayer.ResponseModel.Payment;
 using BusinessLayer.ResponseModel.Player;
 using BusinessLayer.ResponseModel.Session;
 using BusinessLayer.ResponseModel.Shirt;
@@ -60,8 +66,26 @@ namespace SWDProject_BE.AppStarts
             CreateMap<TypeShirtResponseModel, TypeShirt>().ReverseMap();
             CreateMap<TypeShirtDto, TypeShirtResponseModel>();
 
+            //Order
+            CreateMap<CreateOrderRequestModel, Order>().ReverseMap();
+            CreateMap<CreateOrderRequestModel, OrderResponseModel>().ReverseMap();
+            CreateMap<CreateOrderRequestModel, Order>().ReverseMap();
+            CreateMap<OrderResponseModel, Order>().ReverseMap();
+            CreateMap<OrderDto, OrderResponseModel>();
 
+            //OrderDetail
+            CreateMap<CreateOrderDetailRequestModel, OrderDetail>().ReverseMap();
+            CreateMap<CreateOrderDetailRequestModel, OrderDetailResponseModel>().ReverseMap();
+            CreateMap<CreateOrderRequestModel, OrderDetail>().ReverseMap();
+            CreateMap<OrderDetailResponseModel, OrderDetail>().ReverseMap();
+            CreateMap<OrderDetailDto, OrderDetailResponseModel>();
 
+            //Payment
+            CreateMap<CreatePaymentRequestModel, Payment>().ReverseMap();
+            CreateMap<CreatePaymentRequestModel, PaymentResponseModel>().ReverseMap();
+            CreateMap<CreatePaymentRequestModel, Payment>().ReverseMap();
+            CreateMap<PaymentResponseModel, Payment>().ReverseMap();
+            CreateMap<PaymentDto, PaymentResponseModel>();
         }
     }
 }
