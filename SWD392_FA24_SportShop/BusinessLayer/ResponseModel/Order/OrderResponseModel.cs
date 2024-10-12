@@ -8,7 +8,7 @@ namespace BusinessLayer.ResponseModel.Order
 {
     public class OrderResponseModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
         public double TotalPrice { get; set; }

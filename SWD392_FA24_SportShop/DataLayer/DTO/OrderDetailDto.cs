@@ -9,7 +9,7 @@ namespace DataLayer.DTO
     public class OrderDetailDto
     {
         public int Id { get; set; }
-        public int OrderId { get; set; }
+        public string OrderId { get; set; }
         public int ShirtId { get; set; }
         public string ShirtName { get; set; }
         public int Quantity { get; set; }

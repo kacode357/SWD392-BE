@@ -12,14 +12,14 @@ namespace BusinessLayer.Service
     public interface IOrderService
     {
         Task<BaseResponse<OrderResponseModel>> CreateOrderAsync(CreateOrderRequestModel model);
-        Task<BaseResponse<OrderResponseModel>> UpdateOrderAsync(CreateOrderRequestModel model, int id);
-        Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(int orderId, int status);
-        Task<BaseResponse<OrderResponseModel>> GetOrderById(int orderId);
+        Task<BaseResponse<OrderResponseModel>> UpdateOrderAsync(CreateOrderRequestModel model, string id);
+        Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(string orderId, int status);
+        Task<BaseResponse<OrderResponseModel>> GetOrderById(string orderId);
         Task<DynamicResponse<OrderResponseModel>> GetAllOrders(GetAllOrderRequestModel model);
         //Task<BaseResponse<OrderResponseModel>> CalculatePrice (int orderId);
         //Task<BaseResponse<OrderResponseModel>> GetOrdersByUserIdAsync (int userId);
         //Task<BaseResponse<OrderResponseModel>> GetOrderDetailsByOrderIdAsync (int orderId);
-        Task<BaseResponse<OrderResponseModel>> ChangeOrderStatusAsync (int orderId, string jwtToken, int newStatus);
-        Task<BaseResponse<OrderResponseModel>> ProcessRefundAsync (int orderId);
+        Task<BaseResponse<OrderResponseModel>> ChangeOrderStatusAsync (string orderId, string jwtToken, int newStatus);
+        Task<BaseResponse<OrderResponseModel>> ProcessRefundAsync (string orderId);
     }
 }

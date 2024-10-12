@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DataLayer
-build_property.ProjectDir = F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\DataLayer\
+build_property.ProjectDir = E:\Git\SWD392-BE\SWD392_FA24_SportShop\DataLayer\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

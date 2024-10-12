@@ -12,13 +12,13 @@ namespace DataLayer.Repository
     {
         Task<bool> CreateOrderAsync (Order order);
         Task<bool> UpdateOrderAsync (Order orderId);
-        Task<bool> DeleteOrderAsync (int orderId);
-        Task<Order> GetOrderByIdAsync (int orderId);
+        Task<bool> DeleteOrderAsync (string orderId);
+        Task<Order> GetOrderByIdAsync (string orderId);
         Task<List<OrderDto>> GetAllOrders();
-        Task<bool> CalculatePriceAsync (int orderId);
-        Task<bool> ProcessRefundAsync (int orderId);
-        Task<bool> ChangeOrderStatusAsync (int orderId, int newStatus);
+        Task<bool> CalculatePriceAsync (string orderId);
+        Task<bool> ProcessRefundAsync (string orderId);
+        Task<bool> ChangeOrderStatusAsync (string orderId, int newStatus);
         Task<List<OrderDto>> GetOrdersByUserIdAsync (int userId);
-        Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync (int orderId);
+        Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync (string orderId);
     }
 }

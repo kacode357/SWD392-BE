@@ -19,7 +19,7 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task<bool> CalculatePriceAsync(int orderId)
+        public async Task<bool> CalculatePriceAsync(string orderId)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace DataLayer.Repository.Implement
             
         }
 
-        public async Task<bool> ChangeOrderStatusAsync(int orderId, int newStatus)
+        public async Task<bool> ChangeOrderStatusAsync(string orderId, int newStatus)
         {
             var order = await _swd392Context.Orders.FindAsync(orderId);
             if (order == null)
@@ -67,7 +67,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<bool> DeleteOrderAsync(int orderId)
+        public async Task<bool> DeleteOrderAsync(string orderId)
         {
             try
             {
@@ -111,7 +111,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<Order> GetOrderByIdAsync(int orderId)
+        public async Task<Order> GetOrderByIdAsync(string orderId)
         {
             try
             {
@@ -123,7 +123,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync(int orderId)
+        public async Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync(string orderId)
         {
             try
             {
@@ -169,7 +169,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<bool> ProcessRefundAsync(int orderId)
+        public async Task<bool> ProcessRefundAsync(string orderId)
         {
             try
             {

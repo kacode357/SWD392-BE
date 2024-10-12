@@ -91,7 +91,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 */        
-        public async Task<BaseResponse<OrderResponseModel>> ChangeOrderStatusAsync(int orderId, string jwtToken, int newStatus)
+        public async Task<BaseResponse<OrderResponseModel>> ChangeOrderStatusAsync(string orderId, string jwtToken, int newStatus)
         {
             try
             {
@@ -249,40 +249,28 @@ namespace BusinessLayer.Service.Implement
 
                 var order = new Order
                 {
+                    Id = Guid.NewGuid().ToString(),
                     UserId = model.UserId,
                     ShipPrice = model.ShipPrice,
                     Deposit = model.Deposit,
                     Date = model.Date,
-                    Status = 1,
-                    OrderDetails = model.OrderDetails.Select(od => new OrderDetail
-                    {
-                        ShirtId = od.ShirtId,
-                        Quantity = od.Quantity,
-                        Price = od.Price,
-                        Status = od.Status,
-                        Comment = od.Comment,
-                    }).ToList()
+                    Status = 1, //1: Pending
+                    TotalPrice = 0
                 };
 
+                double totalPrice = 0;
 
-                var totalPrice = order.OrderDetails.Sum(d =>
-                {
-                    if (d.Quantity < 0 || d.Price < 0)
-                    {
-                        throw new InvalidOperationException("Quantity and price must be non-negative.");
-                    }
-                    return d.Quantity * d.Price;
-                });
-                
-                //If order has shipping fee
-                if (order.ShipPrice > 0)
-                {
-                    totalPrice += order.ShipPrice;
-                }
-                //If user deposit for order
                 if (order.Deposit > 0)
                 {
-                    totalPrice -= order.Deposit;
+                    // Không cho phép trừ nhiều hơn tổng giá trị hiện có (bao gồm phí ship)
+                    if (totalPrice - order.Deposit >= 0)
+                    {
+                        totalPrice -= order.Deposit;
+                    }
+                    else
+                    {
+                        totalPrice = 0; // Nếu đặt cọc lớn hơn tổng hiện có, thì đặt tổng là 0
+                    }
                 }
 
                 if (totalPrice < 0)
@@ -321,7 +309,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(int orderId, int status)
+        public async Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(string orderId, int status)
         {
             try
             {
@@ -336,7 +324,7 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
-                order.Status = status;
+                order.Status = 6;
                 await _orderRepository.UpdateOrderAsync(order);
                 return new BaseResponse<OrderResponseModel>
                 {
@@ -418,7 +406,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<OrderResponseModel>> GetOrderById(int orderId)
+        public async Task<BaseResponse<OrderResponseModel>> GetOrderById(string orderId)
         {
             try
             {
@@ -526,7 +514,7 @@ namespace BusinessLayer.Service.Implement
             }
         }*/
 
-        public async Task<BaseResponse<OrderResponseModel>> ProcessRefundAsync(int orderId)
+        public async Task<BaseResponse<OrderResponseModel>> ProcessRefundAsync(string orderId)
         {
             try
             {
@@ -578,7 +566,7 @@ namespace BusinessLayer.Service.Implement
             
         }
 
-        public async Task<BaseResponse<OrderResponseModel>> UpdateOrderAsync(CreateOrderRequestModel model, int id)
+        public async Task<BaseResponse<OrderResponseModel>> UpdateOrderAsync(CreateOrderRequestModel model, string id)
         {
             try
             {

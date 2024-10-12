@@ -31,7 +31,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetOrderById(int id)
+        public async Task<IActionResult> GetOrderById(string id)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace SWD392_SportShop.Controllers
         }
         [Authorize(Roles = "User")]
         [HttpPut]
-        public async Task<IActionResult> UpdateOrder([FromBody]CreateOrderRequestModel model, int id)
+        public async Task<IActionResult> UpdateOrder([FromBody]CreateOrderRequestModel model, string id)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace SWD392_SportShop.Controllers
         }*/
         [Authorize(Roles = "User")]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrderAsync(int id, int status)
+        public async Task<IActionResult> DeleteOrderAsync(string id, int status)
         {
             try
             {
@@ -128,7 +128,7 @@ namespace SWD392_SportShop.Controllers
         }
         [Authorize]
         [HttpPut("Change-Status/{id}")]
-        public async Task<IActionResult> ChangeOrderStatus (int id, [FromBody] ChangeOrderStatusRequestModel model)
+        public async Task<IActionResult> ChangeOrderStatus (string id, [FromBody] ChangeOrderStatusRequestModel model)
         {
             try
             {
@@ -165,7 +165,7 @@ namespace SWD392_SportShop.Controllers
         }
         [Authorize(Roles = "Manager")]
         [HttpPost("Process-Refund/{id}")]
-        public async Task<IActionResult> ProcessRefund(int id)
+        public async Task<IActionResult> ProcessRefund(string id)
         {
             try
             {
