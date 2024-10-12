@@ -18,18 +18,18 @@ namespace DataLayer.DBContext
         {
         }
 
-        public virtual DbSet<Club> Clubs { get; set; } = null!;
-        public virtual DbSet<ClubPlayer> ClubPlayers { get; set; } = null!;
-        public virtual DbSet<Inventory> Inventories { get; set; } = null!;
-        public virtual DbSet<Notification> Notifications { get; set; } = null!;
-        public virtual DbSet<Order> Orders { get; set; } = null!;
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
-        public virtual DbSet<Payment> Payments { get; set; } = null!;
-        public virtual DbSet<Player> Players { get; set; } = null!;
-        public virtual DbSet<Session> Sessions { get; set; } = null!;
-        public virtual DbSet<Shirt> Shirts { get; set; } = null!;
-        public virtual DbSet<TypeShirt> TypeShirts { get; set; } = null!;
-        public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<Club> Clubs { get; set; }
+        public virtual DbSet<ClubPlayer> ClubPlayers { get; set; }
+        public virtual DbSet<Inventory> Inventories { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
+        public virtual DbSet<Shirt> Shirts { get; set; }
+        public virtual DbSet<TypeShirt> TypeShirts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -47,19 +47,26 @@ namespace DataLayer.DBContext
                 .Build();
             return builder["ConnectionStrings:hosting"];
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Club>(entity =>
             {
                 entity.ToTable("Club");
 
-                entity.Property(e => e.Country).HasMaxLength(100);
+                entity.Property(e => e.Country)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.EstablishedYear).HasColumnType("datetime");
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
-                entity.Property(e => e.StadiumName).HasMaxLength(100);
+                entity.Property(e => e.StadiumName)
+                    .IsRequired()
+                    .HasMaxLength(100);
             });
 
             modelBuilder.Entity<ClubPlayer>(entity =>
@@ -102,6 +109,8 @@ namespace DataLayer.DBContext
             {
                 entity.ToTable("Notification");
 
+                entity.Property(e => e.Content).IsRequired();
+
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 
                 entity.HasOne(d => d.User)
@@ -114,6 +123,8 @@ namespace DataLayer.DBContext
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.ToTable("Order");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
 
                 entity.Property(e => e.Date).HasColumnType("date");
 
@@ -130,7 +141,10 @@ namespace DataLayer.DBContext
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
-                entity.Property(e => e.OrderId).HasColumnName("Order_Id");
+                entity.Property(e => e.OrderId)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Order_Id");
 
                 entity.Property(e => e.ShirtId).HasColumnName("Shirt_Id");
 
@@ -140,7 +154,7 @@ namespace DataLayer.DBContext
                     .WithMany(p => p.OrderDetails)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderDeta__Order__4222D4EF");
+                    .HasConstraintName("FK_OrderDetails_Order");
 
                 entity.HasOne(d => d.Shirt)
                     .WithMany(p => p.OrderDetails)
@@ -153,9 +167,16 @@ namespace DataLayer.DBContext
             {
                 entity.ToTable("Payment");
 
-                entity.Property(e => e.Method).HasMaxLength(50);
+                entity.Property(e => e.Date).IsRequired();
 
-                entity.Property(e => e.OrderId).HasColumnName("Order_Id");
+                entity.Property(e => e.Method)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.OrderId)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("Order_Id");
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 
@@ -163,7 +184,7 @@ namespace DataLayer.DBContext
                     .WithMany(p => p.Payments)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Payment__Order_I__3E52440B");
+                    .HasConstraintName("FK_Payment_Order");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Payments)
@@ -180,11 +201,17 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.ClubId).HasColumnName("Club_Id");
 
-                entity.Property(e => e.FullName).HasMaxLength(50);
+                entity.Property(e => e.FullName)
+                    .IsRequired()
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Height).HasColumnName("height");
 
                 entity.Property(e => e.Nationality).HasMaxLength(50);
+
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Weight).HasColumnName("weight");
 
@@ -200,7 +227,9 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.EndDdate).HasColumnType("datetime");
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.StartDdate).HasColumnType("datetime");
             });
@@ -211,7 +240,9 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.PlayerId).HasColumnName("Player_Id");
 
@@ -238,7 +269,9 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.ClubId).HasColumnName("Club_Id");
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.SessionId).HasColumnName("Session_Id");
 
@@ -269,7 +302,9 @@ namespace DataLayer.DBContext
                     .HasColumnType("date")
                     .HasColumnName("DOB");
 
-                entity.Property(e => e.Email).HasMaxLength(100);
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Gender).HasMaxLength(50);
 
@@ -279,7 +314,9 @@ namespace DataLayer.DBContext
                     .HasColumnType("date")
                     .HasColumnName("Modified_Date");
 
-                entity.Property(e => e.Password).HasMaxLength(100);
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.PhoneNumber)
                     .HasMaxLength(50)
@@ -287,9 +324,13 @@ namespace DataLayer.DBContext
 
                 entity.Property(e => e.RatingCount).HasColumnName("Rating_Count");
 
-                entity.Property(e => e.RoleName).HasMaxLength(50);
+                entity.Property(e => e.RoleName)
+                    .IsRequired()
+                    .HasMaxLength(50);
 
-                entity.Property(e => e.UserName).HasMaxLength(50);
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

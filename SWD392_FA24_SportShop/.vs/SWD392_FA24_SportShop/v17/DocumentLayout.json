@@ -3,6 +3,66 @@
   "WorkspaceRootPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\dbcontext\\db_aad141_swd392context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\dbcontext\\db_aad141_swd392context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\typeshirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\typeshirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\shirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\shirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\club.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\club.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\clubplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\clubplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\shirtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\shirtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,14 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\implement\\clubrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\implement\\clubrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\clubservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -63,18 +115,6 @@
       "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\shirtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\shirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\shirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -95,16 +135,8 @@
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appstarts\\authconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appstarts\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appstarts\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\club.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\club.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\requestmodel\\club\\createclubrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -159,36 +191,8 @@
       "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\requestmodel\\user\\registerrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\requestmodel\\user\\loginrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\requestmodel\\user\\loginrequestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\entities\\typeshirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\entities\\typeshirt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\datalayer\\dbcontext\\db_aad141_swd392context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\dbcontext\\db_aad141_swd392context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\responsemodel\\user\\userresponsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -234,8 +238,164 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 25,
+          "SelectedChildIndex": 10,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\User.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\User.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:11:53.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TypeShirt.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\TypeShirt.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\TypeShirt.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\TypeShirt.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\TypeShirt.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAcwBIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:11:42.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Shirt.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Shirt.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Shirt.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Shirt.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Shirt.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA0wBYAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:11:23.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Player.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Player.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Player.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Player.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Player.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA9wBkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:10:53.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Payment.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Payment.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Payment.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Payment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:10:53.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\OrderDetail.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\OrderDetail.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\OrderDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:10:51.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Order.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Order.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Order.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Order.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:10:47.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Notification.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Notification.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Notification.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Notification.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAwAgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:10:15.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Club.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Club.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Club.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Club.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Club.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAmwBIAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:09:41.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ClubPlayer.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\ClubPlayer.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\ClubPlayer.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\ClubPlayer.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\ClubPlayer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAmwAwAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:09:27.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "db_aad141_swd392Context.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DBContext\\db_aad141_swd392Context.cs",
+              "RelativeDocumentMoniker": "DataLayer\\DBContext\\db_aad141_swd392Context.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DBContext\\db_aad141_swd392Context.cs",
+              "RelativeToolTip": "DataLayer\\DBContext\\db_aad141_swd392Context.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:09:12.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Inventory.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Inventory.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Inventory.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Inventory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:09:30.77Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -306,7 +466,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
+              "Title": "Session.cs",
+              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Session.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Entities\\Session.cs",
+              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Session.cs",
+              "RelativeToolTip": "DataLayer\\Entities\\Session.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA8wA0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-12T14:09:07.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "UserService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\UserService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\UserService.cs",
@@ -318,7 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 22,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\UserRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\Implement\\UserRepository.cs",
@@ -326,11 +499,12 @@
               "RelativeToolTip": "DataLayer\\Repository\\Implement\\UserRepository.cs",
               "ViewState": "AQIAAC8AAAAAAAAAAAAwwEwAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:40:27.997Z"
+              "WhenOpened": "2024-09-20T18:40:27.997Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "ClubRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\ClubRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\Implement\\ClubRepository.cs",
@@ -343,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 21,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\MappingProfile.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\MappingProfile.cs",
@@ -355,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 20,
               "Title": "IClubRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IClubRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\IClubRepository.cs",
@@ -363,35 +537,38 @@
               "RelativeToolTip": "DataLayer\\Repository\\IClubRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T03:32:27.712Z"
+              "WhenOpened": "2024-10-03T03:32:27.712Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Program.cs",
               "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
               "RelativeToolTip": "SWD392_SportShop\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA9AAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T09:07:16.88Z"
+              "WhenOpened": "2024-09-11T09:07:16.88Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
               "RelativeDocumentMoniker": "SWD392_SportShop\\appsettings.json",
               "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
               "RelativeToolTip": "SWD392_SportShop\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAACFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-11T09:06:57.398Z"
+              "WhenOpened": "2024-09-11T09:06:57.398Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 17,
               "Title": "SessionController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\SessionController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\SessionController.cs",
@@ -399,12 +576,11 @@
               "RelativeToolTip": "SWD392_SportShop\\Controllers\\SessionController.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAcwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T03:55:37.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T03:55:37.213Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 15,
               "Title": "ShirtController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ShirtController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ShirtController.cs",
@@ -417,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "UserController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\UserController.cs",
@@ -425,12 +601,11 @@
               "RelativeToolTip": "SWD392_SportShop\\Controllers\\UserController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAMUAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:50:05.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T18:50:05.789Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 24,
               "Title": "ClubController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ClubController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ClubController.cs",
@@ -442,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 19,
               "Title": "ClubService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\ClubService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\ClubService.cs",
@@ -454,19 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\OrderDetail.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\OrderDetail.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\OrderDetail.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T09:33:41.875Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "PlayerService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\PlayerService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\PlayerService.cs",
@@ -478,19 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Player.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Player.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Player.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Player.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T08:53:49.898Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "SessionService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\SessionService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\SessionService.cs",
@@ -502,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 25,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\PlayerController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\PlayerController.cs",
@@ -514,7 +665,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 30,
               "Title": "SwaggerConfig.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\SwaggerConfig.cs",
@@ -526,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 26,
               "Title": "BaseReponse.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\ResponseModel\\BaseResponse\\BaseReponse.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\ResponseModel\\BaseResponse\\BaseReponse.cs",
@@ -538,7 +689,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 27,
               "Title": "ShirtService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\ShirtService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\ShirtService.cs",
@@ -550,19 +701,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Shirt.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Shirt.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Shirt.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Shirt.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Shirt.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T06:25:09.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 31,
               "Title": "DependencyInjectionContainers.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\DependencyInjectionContainers.cs",
@@ -574,7 +713,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 32,
               "Title": "AuthConfig.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\AuthConfig.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\AuthConfig.cs",
@@ -586,31 +725,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "User.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\User.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\User.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:20:46.717Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Club.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Club.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Club.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Club.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Club.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:17:12.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 33,
               "Title": "AutoMapperConfig.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\AutoMapperConfig.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\AutoMapperConfig.cs",
@@ -622,7 +737,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 35,
               "Title": "IClubService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\IClubService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\IClubService.cs",
@@ -634,7 +749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "CreateClubRequestModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\RequestModel\\Club\\CreateClubRequestModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\RequestModel\\Club\\CreateClubRequestModel.cs",
@@ -646,7 +761,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 36,
               "Title": "GetAllClubRequestModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\RequestModel\\Club\\GetAllClubRequestModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\RequestModel\\Club\\GetAllClubRequestModel.cs",
@@ -658,7 +773,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 38,
               "Title": "ClubResponseModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\ResponseModel\\Club\\ClubResponseModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\ResponseModel\\Club\\ClubResponseModel.cs",
@@ -670,7 +785,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 37,
               "Title": "GetAllUserRequestModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\RequestModel\\User\\GetAllUserRequestModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\RequestModel\\User\\GetAllUserRequestModel.cs",
@@ -682,7 +797,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 39,
               "Title": "IUserRepositoty.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IUserRepositoty.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\IUserRepositoty.cs",
@@ -690,11 +805,12 @@
               "RelativeToolTip": "DataLayer\\Repository\\IUserRepositoty.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:40:00.386Z"
+              "WhenOpened": "2024-09-20T18:40:00.386Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 40,
               "Title": "IShirtRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IShirtRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\IShirtRepository.cs",
@@ -702,11 +818,12 @@
               "RelativeToolTip": "DataLayer\\Repository\\IShirtRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:30:51.802Z"
+              "WhenOpened": "2024-10-03T09:30:51.802Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 41,
               "Title": "IPlayerRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IPlayerRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\IPlayerRepository.cs",
@@ -714,11 +831,12 @@
               "RelativeToolTip": "DataLayer\\Repository\\IPlayerRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:30:25.073Z"
+              "WhenOpened": "2024-10-03T09:30:25.073Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 42,
               "Title": "ISessionRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\ISessionRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\ISessionRepository.cs",
@@ -726,11 +844,12 @@
               "RelativeToolTip": "DataLayer\\Repository\\ISessionRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:30:51.362Z"
+              "WhenOpened": "2024-10-03T09:30:51.362Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 43,
               "Title": "ITypeShirtRepository.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\ITypeShirtRepository.cs",
               "RelativeDocumentMoniker": "DataLayer\\Repository\\ITypeShirtRepository.cs",
@@ -738,11 +857,12 @@
               "RelativeToolTip": "DataLayer\\Repository\\ITypeShirtRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:30:52.769Z"
+              "WhenOpened": "2024-10-03T09:30:52.769Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 45,
               "Title": "ISessionService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\ISessionService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\ISessionService.cs",
@@ -754,7 +874,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 44,
               "Title": "IUserService.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\IUserService.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\IUserService.cs",
@@ -766,7 +886,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 47,
               "Title": "LoginRequestModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\RequestModel\\User\\LoginRequestModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\RequestModel\\User\\LoginRequestModel.cs",
@@ -778,19 +898,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "Notification.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Notification.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Notification.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Notification.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Notification.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T08:53:51.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 46,
               "Title": "RegisterRequestModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\RequestModel\\User\\RegisterRequestModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\RequestModel\\User\\RegisterRequestModel.cs",
@@ -802,79 +910,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Session.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Session.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Session.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Session.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Session.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T05:08:44.436Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "db_aad141_swd392Context.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DBContext\\db_aad141_swd392Context.cs",
-              "RelativeDocumentMoniker": "DataLayer\\DBContext\\db_aad141_swd392Context.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DBContext\\db_aad141_swd392Context.cs",
-              "RelativeToolTip": "DataLayer\\DBContext\\db_aad141_swd392Context.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAA3wCwAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T18:06:10.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Order.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Order.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Order.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Order.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Order.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T19:24:08.233Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Payment.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Payment.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Payment.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Payment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T19:31:04.6Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Inventory.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Inventory.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\Inventory.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\Inventory.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\Inventory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T19:31:07.668Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "TypeShirt.cs",
-              "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\TypeShirt.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Entities\\TypeShirt.cs",
-              "ToolTip": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Entities\\TypeShirt.cs",
-              "RelativeToolTip": "DataLayer\\Entities\\TypeShirt.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T06:25:09.764Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "UpdateRequestModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\RequestModel\\User\\UpdateRequestModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\RequestModel\\User\\UpdateRequestModel.cs",
@@ -886,7 +922,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "LoginResponseModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\ResponseModel\\User\\LoginResponseModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\ResponseModel\\User\\LoginResponseModel.cs",
@@ -898,7 +934,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "UserResponseModel.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\ResponseModel\\User\\UserResponseModel.cs",
               "RelativeDocumentMoniker": "BusinessLayer\\ResponseModel\\User\\UserResponseModel.cs",
@@ -910,7 +946,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "BusinessLayer.csproj",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\BusinessLayer.csproj",
               "RelativeDocumentMoniker": "BusinessLayer\\BusinessLayer.csproj",
@@ -922,7 +958,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "SWD392_SportShop.csproj",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
               "RelativeDocumentMoniker": "SWD392_SportShop\\SWD392_SportShop.csproj",
@@ -934,7 +970,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "DataLayer.csproj",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj",
               "RelativeDocumentMoniker": "DataLayer\\DataLayer.csproj",
@@ -946,7 +982,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "launchSettings.json",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Properties\\launchSettings.json",
@@ -958,7 +994,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "SWD392_SportShop",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\SWD392_SportShop.csproj",
               "RelativeDocumentMoniker": "SWD392_SportShop\\SWD392_SportShop.csproj",
@@ -969,7 +1005,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 56,
               "Title": "staticwebassets.publish.json",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
               "RelativeDocumentMoniker": "SWD392_FA24_SportShop\\obj\\Release\\net6.0\\staticwebassets.publish.json",
