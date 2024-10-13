@@ -34,9 +34,9 @@ namespace SWD392_SportShop.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetShirtById(int shirtId)
+        public async Task<IActionResult> GetShirtById(int id)
         {
-            var result = await _shirtService.GetShirtById(shirtId);
+            var result = await _shirtService.GetShirtById(id);
             return StatusCode(result.Code, result);
         }
 
