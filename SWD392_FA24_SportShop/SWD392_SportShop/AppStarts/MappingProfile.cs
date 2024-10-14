@@ -6,6 +6,8 @@ using BusinessLayer.RequestModel.Payment;
 using BusinessLayer.RequestModel.Player;
 using BusinessLayer.RequestModel.Session;
 using BusinessLayer.RequestModel.Shirt;
+using BusinessLayer.RequestModel.ShirtSize;
+using BusinessLayer.RequestModel.Size;
 using BusinessLayer.RequestModel.TypeShirt;
 using BusinessLayer.RequestModel.User;
 using BusinessLayer.ResponseModel.Club;
@@ -15,6 +17,8 @@ using BusinessLayer.ResponseModel.Payment;
 using BusinessLayer.ResponseModel.Player;
 using BusinessLayer.ResponseModel.Session;
 using BusinessLayer.ResponseModel.Shirt;
+using BusinessLayer.ResponseModel.ShirtSize;
+using BusinessLayer.ResponseModel.Size;
 using BusinessLayer.ResponseModel.TypeShirt;
 using BusinessLayer.ResponseModel.User;
 using DataLayer.DTO;
@@ -86,6 +90,18 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreatePaymentRequestModel, Payment>().ReverseMap();
             CreateMap<PaymentResponseModel, Payment>().ReverseMap();
             CreateMap<PaymentDto, PaymentResponseModel>();
+
+            //Size
+            CreateMap<CreateSizeRequestModel, Size>().ReverseMap();
+            CreateMap<CreateSizeRequestModel, SizeResponseModel>().ReverseMap();
+            CreateMap<CreateSizeRequestModel, Size>().ReverseMap();
+            CreateMap<SizeResponseModel, Size>().ReverseMap();
+
+            //ShirtSize
+            CreateMap<CreateShirtSizeRequestModel, ShirtSize>().ReverseMap();
+            CreateMap<CreateShirtSizeRequestModel, ShirtSizeResponseModel>().ReverseMap();
+            CreateMap<CreateShirtSizeRequestModel, ShirtSize>().ReverseMap();
+            CreateMap<ShirtResponseModel, ShirtSize>().ReverseMap();
         }
     }
 }

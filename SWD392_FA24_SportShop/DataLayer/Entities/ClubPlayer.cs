@@ -10,7 +10,7 @@ namespace DataLayer.Entities
         public int PlayerId { get; set; }
         public string? Description { get; set; }
 
-        public virtual Club Club { get; set; } = null!;
-        public virtual Player Player { get; set; } = null!;
+        public virtual Club Club { get; set; } 
+        public virtual Player Player { get; set; } 
     }
 }

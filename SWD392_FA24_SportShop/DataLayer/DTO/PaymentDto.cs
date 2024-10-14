@@ -12,9 +12,9 @@ namespace DataLayer.DTO
         public int UserId { get; set; }
         public string FullName { get; set; }
         public string OrderId { get; set; }
-        public string Date { get; set; } = null!;
+        public string Date { get; set; } 
         public double Amount { get; set; }
-        public string Method { get; set; } = null!;
+        public string Method { get; set; } 
         public string? Description { get; set; }
         public bool Status { get; set; }
     }

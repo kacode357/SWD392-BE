@@ -11,7 +11,7 @@ namespace DataLayer.DTO
         public int Id { get; set; }
         public int? ClubId { get; set; }
         public string ClubName { get; set; }
-        public string FullName { get; set; } = null!;
+        public string FullName { get; set; } 
         public double? Height { get; set; }
         public double? Weight { get; set; }
         public DateTime? Birthday { get; set; }

@@ -13,7 +13,7 @@ namespace DataLayer.DTO
         public string TypeShirtName { get; set; }
         public int PlayerId { get; set; }
         public string PlayerName { get; set; }
-        public string Name { get; set; } = null!;
+        public string Name { get; set; } 
         public int? Number { get; set; }
         public double Price { get; set; }
         public DateTime Date { get; set; }
