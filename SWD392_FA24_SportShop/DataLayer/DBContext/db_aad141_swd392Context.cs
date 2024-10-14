@@ -28,6 +28,8 @@ namespace DataLayer.DBContext
         public virtual DbSet<Player> Players { get; set; }
         public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<Shirt> Shirts { get; set; }
+        public virtual DbSet<ShirtSize> ShirtSizes { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<TypeShirt> TypeShirts { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -261,6 +263,36 @@ namespace DataLayer.DBContext
                     .HasForeignKey(d => d.TypeShirtId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Shirt__TypeShirt__31EC6D26");
+            });
+
+            modelBuilder.Entity<ShirtSize>(entity =>
+            {
+                entity.ToTable("Shirt_Size");
+
+                entity.Property(e => e.ShirtId).HasColumnName("Shirt_Id");
+
+                entity.Property(e => e.SizeId).HasColumnName("Size_Id");
+
+                entity.HasOne(d => d.Shirt)
+                    .WithMany(p => p.ShirtSizes)
+                    .HasForeignKey(d => d.ShirtId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Shirt_Siz__Shirt__68487DD7");
+
+                entity.HasOne(d => d.Size)
+                    .WithMany(p => p.ShirtSizes)
+                    .HasForeignKey(d => d.SizeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Shirt_Siz__Size___693CA210");
+            });
+
+            modelBuilder.Entity<Size>(entity =>
+            {
+                entity.ToTable("Size");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(100);
             });
 
             modelBuilder.Entity<TypeShirt>(entity =>

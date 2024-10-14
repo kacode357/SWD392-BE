@@ -9,6 +9,7 @@ namespace DataLayer.Entities
         {
             Inventories = new HashSet<Inventory>();
             OrderDetails = new HashSet<OrderDetail>();
+            ShirtSizes = new HashSet<ShirtSize>();
         }
 
         public int Id { get; set; }
@@ -26,5 +27,6 @@ namespace DataLayer.Entities
         public virtual TypeShirt TypeShirt { get; set; } = null!;
         public virtual ICollection<Inventory> Inventories { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<ShirtSize> ShirtSizes { get; set; }
     }
 }
