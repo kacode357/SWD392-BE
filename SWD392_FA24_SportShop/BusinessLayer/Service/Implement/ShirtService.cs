@@ -95,7 +95,7 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
-                var shirt = await _shirtRepository.GetShirtById(shirtId);
+                var shirt = await _shirtRepository.GetShirtByIdFull(shirtId);
                 if (shirt == null)
                 {
                     return new BaseResponse<ShirtResponseModel>()
@@ -106,12 +106,15 @@ namespace BusinessLayer.Service.Implement
                         Data = null
                     };
                 }
+                var shirtResponse = _mapper.Map<ShirtResponseModel>(shirt);
+                shirtResponse.PlayerName = shirt.Player.FullName;
+                shirtResponse.TypeShirtName = shirt.TypeShirt.Name;
                 return new BaseResponse<ShirtResponseModel>()
                 {
                     Code = 200,
                     Success = true,
                     Message = null,
-                    Data = _mapper.Map<ShirtResponseModel>(shirt)
+                    Data = shirtResponse
                 };
             }
             catch (Exception ex)

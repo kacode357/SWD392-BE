@@ -95,6 +95,23 @@ namespace DataLayer.Repository.Implement
             
         }
 
+        public async Task<Shirt> GetShirtByIdFull(int shirtId)
+        {
+            try
+            {
+                var shirt = await _swd392Context.Shirts
+                    .Include(s => s.Player)
+                    .Include(s => s.TypeShirt)
+                    .Where(s => s.Id == shirtId)
+                    .FirstOrDefaultAsync();
+                return shirt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<bool> UpdateShirtAsync(Shirt shirt)
         {
             try

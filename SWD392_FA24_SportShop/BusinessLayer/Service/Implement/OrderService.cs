@@ -667,6 +667,7 @@ namespace BusinessLayer.Service.Implement
                         Data = new CartResponseModel()
                         {
                             Id = orderFull.Id,
+                            UserId = orderFull.UserId,
                             TotalPrice = orderFull.TotalPrice,
                             ShipPrice = orderFull.ShipPrice,
                             Deposit = orderFull.Deposit,
@@ -697,7 +698,6 @@ namespace BusinessLayer.Service.Implement
 
                         await _orderRepository.UpdateOrderAsync(cart);
 
-                        var orderFull = await _orderRepository.GetOrderByIdAsync(cart.Id);
                         var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(cart.Id);
 
                         return new BaseResponse<CartResponseModel>()
@@ -708,6 +708,7 @@ namespace BusinessLayer.Service.Implement
                             Data = new CartResponseModel()
                             {
                                 Id = cart.Id,
+                                UserId = cart.UserId,
                                 TotalPrice = cart.TotalPrice,
                                 ShipPrice = cart.ShipPrice,
                                 Deposit = cart.Deposit,
@@ -734,7 +735,8 @@ namespace BusinessLayer.Service.Implement
                             Message = "Add to Cart successfull!.",
                             Data = new CartResponseModel()
                             {
-                                Id = orderFull.Id,
+                                Id = cart.Id,
+                                UserId= cart.UserId,
                                 TotalPrice = cart.TotalPrice,
                                 ShipPrice = cart.ShipPrice,
                                 Deposit = cart.Deposit,
