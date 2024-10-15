@@ -83,7 +83,7 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreateOrderDetailRequestModel, OrderDetailResponseModel>().ReverseMap();
             CreateMap<CreateOrderRequestModel, OrderDetail>().ReverseMap();
             CreateMap<OrderDetailResponseModel, OrderDetail>().ReverseMap();
-            CreateMap<OrderDetailDto, OrderDetailResponseModel>();
+            CreateMap<OrderDetailDto, OrderDetailResponseModel>().ReverseMap();
 
             //Payment
             CreateMap<CreatePaymentRequestModel, Payment>().ReverseMap();

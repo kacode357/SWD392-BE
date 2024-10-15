@@ -17,5 +17,6 @@ namespace DataLayer.Repository
         Task<OrderDetail> GetOrderDetailByIdAsync(int orderDetailId);
         Task<OrderDetail> GetOrderDetailAsync(string orderId, int shirtId);
         Task<List<OrderDetailDto>> GetAllOrderDetails();
+        Task<List<OrderDetail>> GetAllOrderDetailsByOrderId(string orderId);
     }
 }

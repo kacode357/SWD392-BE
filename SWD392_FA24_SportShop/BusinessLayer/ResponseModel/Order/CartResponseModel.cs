@@ -1,4 +1,5 @@
-﻿using DataLayer.Entities;
+﻿using BusinessLayer.ResponseModel.OrderDetail;
+using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace BusinessLayer.ResponseModel.Order
     {
         public CartResponseModel()
         {
-            OrderDetails = new HashSet<DataLayer.Entities.OrderDetail>();
+            OrderDetails = new List<OrderDetailResponseModel>();
         }
 
         public int UserId { get; set; }
@@ -23,6 +24,6 @@ namespace BusinessLayer.ResponseModel.Order
         public int Status { get; set; }
         public string Id { get; set; }
 
-        public virtual ICollection<DataLayer.Entities.OrderDetail> OrderDetails { get; set; }
+        public  List<OrderDetailResponseModel> OrderDetails { get; set; }
     }
 }

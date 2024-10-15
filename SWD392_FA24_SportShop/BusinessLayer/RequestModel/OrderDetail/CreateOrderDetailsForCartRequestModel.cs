@@ -10,6 +10,5 @@ namespace BusinessLayer.RequestModel.OrderDetail
     {
         public int ShirtId { get; set; }
         public int Quantity { get; set; }
-        public double Price { get; set; }
     }
 }

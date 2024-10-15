@@ -15,6 +15,7 @@ using BusinessLayer.RequestModel.OrderDetail;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using BusinessLayer.ResponseModel.OrderDetail;
 
 
 namespace BusinessLayer.Service.Implement
@@ -22,6 +23,7 @@ namespace BusinessLayer.Service.Implement
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IShirtRepository _shirtRepository;
         private readonly IOrderDetailRepository _orderDetailsRepository;
         private readonly IMapper _mapper;
         public enum UserRole
@@ -30,11 +32,12 @@ namespace BusinessLayer.Service.Implement
             Staff = 2,
             Manager = 3
         }
-        public OrderService(IOrderDetailRepository orderDetailsRepository, IOrderRepository orderRepository, IMapper mapper)
+        public OrderService(IOrderDetailRepository orderDetailsRepository, IOrderRepository orderRepository, IShirtRepository shirtRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
             _orderDetailsRepository = orderDetailsRepository;
+            _shirtRepository = shirtRepository;
         }
 
         private UserRole GetCurrentUserRole(string jwtToken)
@@ -614,6 +617,7 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
+                var shirt = await _shirtRepository.GetShirtById(model.ShirtId);
                 Guid uuid = Guid.NewGuid();
                 if(userId == null)
                 {
@@ -634,7 +638,7 @@ namespace BusinessLayer.Service.Implement
                     {
                         Id = uuid.ToString(),
                         UserId = int.Parse(userId),
-                        TotalPrice = model.Price * model.Quantity,
+                        TotalPrice = shirt.Price * model.Quantity,
                         RefundStatus = false,
                         Status = 1
                     };
@@ -646,7 +650,7 @@ namespace BusinessLayer.Service.Implement
                         OrderId = uuid.ToString(),
                         ShirtId = model.ShirtId,
                         Quantity = model.Quantity,
-                        Price = model.Price,
+                        Price = shirt.Price,
                         StatusRating = false,
                         Status = true
 
@@ -654,12 +658,22 @@ namespace BusinessLayer.Service.Implement
                     await _orderDetailsRepository.AddOrderDetailAsync(orderDetails);
 
                     var orderFull = await _orderRepository.GetOrderByIdAsync(uuid.ToString());
+                    var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(uuid.ToString());
                     return new BaseResponse<CartResponseModel>()
                     {
                         Code = 200,
                         Success = true,
                         Message = "Add to Cart successfull!.",
-                        Data = _mapper.Map<CartResponseModel>(orderFull)
+                        Data = new CartResponseModel()
+                        {
+                            Id = orderFull.Id,
+                            TotalPrice = orderFull.TotalPrice,
+                            ShipPrice = orderFull.ShipPrice,
+                            Deposit = orderFull.Deposit,
+                            RefundStatus = orderFull.RefundStatus,
+                            Status = orderFull.Status,
+                            OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
+                        }
                     };
                 }
                 else
@@ -672,7 +686,7 @@ namespace BusinessLayer.Service.Implement
                             OrderId = cart.Id,
                             ShirtId = model.ShirtId,
                             Quantity = model.Quantity,
-                            Price = model.Price,
+                            Price = shirt.Price,
                             StatusRating = false,
                             Status = true
                         };
@@ -683,24 +697,9 @@ namespace BusinessLayer.Service.Implement
 
                         await _orderRepository.UpdateOrderAsync(cart);
 
-                        var orderFull = _orderRepository.GetOrderByIdAsync(uuid.ToString());
-                        return new BaseResponse<CartResponseModel>()
-                        {
-                            Code = 200,
-                            Success = true,
-                            Message = "Add to Cart successfull!.",
-                            Data = _mapper.Map<CartResponseModel>(orderFull)
-                        };
-                    }
-                    else
-                    {
-                        oldOrderDetails.Quantity = oldOrderDetails.Quantity + model.Quantity;
-                        await _orderDetailsRepository.UpdateOrderDetailAsync(oldOrderDetails);
+                        var orderFull = await _orderRepository.GetOrderByIdAsync(cart.Id);
+                        var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(cart.Id);
 
-                        cart.TotalPrice = cart.TotalPrice + (model.Quantity * model.Price);
-                        await _orderRepository.UpdateOrderAsync(cart);
-
-                        var orderFull = await _orderRepository.GetOrderByIdAsync(uuid.ToString());
                         return new BaseResponse<CartResponseModel>()
                         {
                             Code = 200,
@@ -708,13 +707,40 @@ namespace BusinessLayer.Service.Implement
                             Message = "Add to Cart successfull!.",
                             Data = new CartResponseModel()
                             {
-                                Id = uuid.ToString(),
+                                Id = cart.Id,
                                 TotalPrice = cart.TotalPrice,
                                 ShipPrice = cart.ShipPrice,
                                 Deposit = cart.Deposit,
                                 RefundStatus = cart.RefundStatus,
                                 Status = cart.Status,
-                                OrderDetails = orderFull.OrderDetails,
+                                OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
+                            }
+                        };
+                    }
+                    else
+                    {
+                        oldOrderDetails.Quantity = oldOrderDetails.Quantity + model.Quantity;
+                        await _orderDetailsRepository.UpdateOrderDetailAsync(oldOrderDetails);
+
+                        cart.TotalPrice = cart.TotalPrice + (model.Quantity * shirt.Price);
+                        await _orderRepository.UpdateOrderAsync(cart);
+
+                        var orderFull = await _orderRepository.GetOrderByIdAsync(cart.Id);
+                        var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(cart.Id);
+                        return new BaseResponse<CartResponseModel>()
+                        {
+                            Code = 200,
+                            Success = true,
+                            Message = "Add to Cart successfull!.",
+                            Data = new CartResponseModel()
+                            {
+                                Id = orderFull.Id,
+                                TotalPrice = cart.TotalPrice,
+                                ShipPrice = cart.ShipPrice,
+                                Deposit = cart.Deposit,
+                                RefundStatus = cart.RefundStatus,
+                                Status = cart.Status,
+                                OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
                             }
                         };
                     }

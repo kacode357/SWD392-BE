@@ -79,6 +79,18 @@ namespace DataLayer.Repository.Implement
             }
         }
 
+        public async Task<List<OrderDetail>> GetAllOrderDetailsByOrderId(string orderId)
+        {
+            try
+            {
+                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<OrderDetail> GetOrderDetailAsync(string orderId, int shirtId)
         {
             try

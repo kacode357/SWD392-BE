@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.RequestModel.OrderDetail;
 using BusinessLayer.ResponseModel.OrderDetail;
 using BusinessLayer.ResponseModels;
+using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<OrderDetailResponseModel>> DeleteOrderDetailASync(int orderDetailId, int status);
         Task<BaseResponse<OrderDetailResponseModel>> GetOrderDetailById(int orderDetailId);
         Task<DynamicResponse<OrderDetailResponseModel>> GetAllOrderDetails(GetAllOrderDetailRequestModel model);
+        
     }
 }
