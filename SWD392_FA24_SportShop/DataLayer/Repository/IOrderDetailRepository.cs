@@ -1,4 +1,5 @@
-﻿using DataLayer.DTO;
+﻿using AutoMapper.Configuration.Conventions;
+using DataLayer.DTO;
 using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace DataLayer.Repository
         Task<bool> UpdateOrderDetailAsync(OrderDetail orderDetailId);
         Task<bool> DeleteOrderDetailAsync (int orderDetailId);
         Task<OrderDetail> GetOrderDetailByIdAsync(int orderDetailId);
+        Task<OrderDetail> GetOrderDetailAsync(string orderId, int shirtId);
         Task<List<OrderDetailDto>> GetAllOrderDetails();
     }
 }

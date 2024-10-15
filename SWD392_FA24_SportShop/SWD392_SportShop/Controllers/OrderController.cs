@@ -1,8 +1,12 @@
 ﻿using BusinessLayer.RequestModel.Order;
+using BusinessLayer.RequestModel.OrderDetail;
 using BusinessLayer.Service;
+using DataLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace SWD392_SportShop.Controllers
 {
@@ -70,6 +74,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }*/
+       /*
         [Authorize(Roles = "User")]
         [HttpPost]
         public async Task<IActionResult> CreateOrder(CreateOrderRequestModel model)
@@ -84,6 +89,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+       */
         [Authorize(Roles = "User")]
         [HttpPut]
         public async Task<IActionResult> UpdateOrder([FromBody]CreateOrderRequestModel model, string id)
@@ -178,6 +184,22 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
-        
+
+        [HttpPost("Order/AddToCart")]
+        public async Task<IActionResult> AddToCart(CreateOrderDetailsForCartRequestModel model)
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var result = await _orderService.AddToCart(model, userId);
+
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+            }
+        }
+
     }
 }

@@ -14,6 +14,8 @@ namespace DataLayer.Repository
         Task<bool> UpdateOrderAsync (Order orderId);
         Task<bool> DeleteOrderAsync (string orderId);
         Task<Order> GetOrderByIdAsync (string orderId);
+        Task<Order> GetCart(int userId);
+        Task<List<Order>> GetOrderByUserIdAsync(int userId);
         Task<List<OrderDto>> GetAllOrders();
         Task<bool> CalculatePriceAsync (string orderId);
         Task<bool> ProcessRefundAsync (string orderId);

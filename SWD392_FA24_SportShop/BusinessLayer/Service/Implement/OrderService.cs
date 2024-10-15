@@ -11,12 +11,18 @@ using System.Text;
 using System.Threading.Tasks;
 using X.PagedList;
 using System.IdentityModel.Tokens.Jwt;
+using BusinessLayer.RequestModel.OrderDetail;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 
 namespace BusinessLayer.Service.Implement
 {
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IOrderDetailRepository _orderDetailsRepository;
         private readonly IMapper _mapper;
         public enum UserRole
         {
@@ -24,10 +30,11 @@ namespace BusinessLayer.Service.Implement
             Staff = 2,
             Manager = 3
         }
-        public OrderService(IOrderRepository orderRepository, IMapper mapper)
+        public OrderService(IOrderDetailRepository orderDetailsRepository, IOrderRepository orderRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
+            _orderDetailsRepository = orderDetailsRepository;
         }
 
         private UserRole GetCurrentUserRole(string jwtToken)
@@ -232,7 +239,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<OrderResponseModel>> CreateOrderAsync(CreateOrderRequestModel model)
+       /* public async Task<BaseResponse<OrderResponseModel>> CreateOrderAsync(CreateOrderRequestModel model)
         {
             try
             {
@@ -308,6 +315,7 @@ namespace BusinessLayer.Service.Implement
                 };
             }
         }
+       */
 
         public async Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(string orderId, int status)
         {
@@ -593,6 +601,128 @@ namespace BusinessLayer.Service.Implement
             catch (Exception ex)
             {
                 return new BaseResponse<OrderResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, string? userId)
+        {
+            try
+            {
+                Guid uuid = Guid.NewGuid();
+                if(userId == null)
+                {
+                    return new BaseResponse<CartResponseModel>(){
+                        Code = 404,
+                        Success = false,
+                        Message = "User not found!.",
+                        Data = null
+                    };
+                }
+
+                var cart = await _orderRepository.GetCart(int.Parse(userId));
+
+                if (cart == null)
+                {
+
+                    var order = new Order()
+                    {
+                        Id = uuid.ToString(),
+                        UserId = int.Parse(userId),
+                        TotalPrice = model.Price * model.Quantity,
+                        RefundStatus = false,
+                        Status = 1
+                    };
+
+                    await _orderRepository.CreateOrderAsync(order);
+
+                    var orderDetails = new OrderDetail()
+                    {
+                        OrderId = uuid.ToString(),
+                        ShirtId = model.ShirtId,
+                        Quantity = model.Quantity,
+                        Price = model.Price,
+                        StatusRating = false,
+                        Status = true
+
+                    };
+                    await _orderDetailsRepository.AddOrderDetailAsync(orderDetails);
+
+                    var orderFull = await _orderRepository.GetOrderByIdAsync(uuid.ToString());
+                    return new BaseResponse<CartResponseModel>()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Add to Cart successfull!.",
+                        Data = _mapper.Map<CartResponseModel>(orderFull)
+                    };
+                }
+                else
+                {
+                    var oldOrderDetails = await _orderDetailsRepository.GetOrderDetailAsync(cart.Id,model.ShirtId);
+                    if (oldOrderDetails == null)
+                    {
+                        var newOrderDetails = new OrderDetail()
+                        {
+                            OrderId = cart.Id,
+                            ShirtId = model.ShirtId,
+                            Quantity = model.Quantity,
+                            Price = model.Price,
+                            StatusRating = false,
+                            Status = true
+                        };
+
+                        await _orderDetailsRepository.AddOrderDetailAsync(newOrderDetails);
+
+                        cart.TotalPrice = cart.TotalPrice + (newOrderDetails.Quantity * newOrderDetails.Price);
+
+                        await _orderRepository.UpdateOrderAsync(cart);
+
+                        var orderFull = _orderRepository.GetOrderByIdAsync(uuid.ToString());
+                        return new BaseResponse<CartResponseModel>()
+                        {
+                            Code = 200,
+                            Success = true,
+                            Message = "Add to Cart successfull!.",
+                            Data = _mapper.Map<CartResponseModel>(orderFull)
+                        };
+                    }
+                    else
+                    {
+                        oldOrderDetails.Quantity = oldOrderDetails.Quantity + model.Quantity;
+                        await _orderDetailsRepository.UpdateOrderDetailAsync(oldOrderDetails);
+
+                        cart.TotalPrice = cart.TotalPrice + (model.Quantity * model.Price);
+                        await _orderRepository.UpdateOrderAsync(cart);
+
+                        var orderFull = await _orderRepository.GetOrderByIdAsync(uuid.ToString());
+                        return new BaseResponse<CartResponseModel>()
+                        {
+                            Code = 200,
+                            Success = true,
+                            Message = "Add to Cart successfull!.",
+                            Data = new CartResponseModel()
+                            {
+                                Id = uuid.ToString(),
+                                TotalPrice = cart.TotalPrice,
+                                ShipPrice = cart.ShipPrice,
+                                Deposit = cart.Deposit,
+                                RefundStatus = cart.RefundStatus,
+                                Status = cart.Status,
+                                OrderDetails = orderFull.OrderDetails,
+                            }
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<CartResponseModel>()
                 {
                     Code = 500,
                     Success = false,

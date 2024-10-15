@@ -111,11 +111,37 @@ namespace DataLayer.Repository.Implement
             }
         }
 
+        public async Task<Order> GetCart(int userId)
+        {
+            try
+            {
+                return await _swd392Context.Orders.Where(o => o.UserId == userId && o.Status == 1).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Order> GetOrderByIdAsync(string orderId)
         {
             try
             {
-                return await _swd392Context.Orders.FirstOrDefaultAsync(o => o.Id == orderId);
+                return await _swd392Context.Orders
+                    .Include(o => o.OrderDetails)
+                    .FirstOrDefaultAsync(o => o.Id == orderId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<List<Order>> GetOrderByUserIdAsync(int userId)
+        {
+            try
+            {
+                return await _swd392Context.Orders.Where(o => o.UserId == userId).ToListAsync();
             }
             catch (Exception ex)
             {
