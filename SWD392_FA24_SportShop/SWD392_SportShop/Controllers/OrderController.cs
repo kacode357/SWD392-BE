@@ -184,14 +184,30 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
-
-        [HttpPost("Order/AddToCart")]
+        [Authorize]
+        [HttpPost("AddToCart")]
         public async Task<IActionResult> AddToCart(CreateOrderDetailsForCartRequestModel model)
         {
             try
             {
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 var result = await _orderService.AddToCart(model, userId);
+
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+            }
+        }
+        [Authorize]
+        [HttpGet("Cart")]
+        public async Task<IActionResult> GetCardByCurrentUser()
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var result = await _orderService.GetCartByCurrentUser(userId);
 
                 return StatusCode(result.Code, result);
             }

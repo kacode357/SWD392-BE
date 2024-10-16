@@ -2,6 +2,7 @@
 using BusinessLayer.RequestModel.Shirt;
 using BusinessLayer.ResponseModel.Session;
 using BusinessLayer.ResponseModel.Shirt;
+using BusinessLayer.ResponseModel.ShirtSize;
 using BusinessLayer.ResponseModels;
 using DataLayer.Entities;
 using DataLayer.Repository;
@@ -19,11 +20,13 @@ namespace BusinessLayer.Service.Implement
     public class ShirtService : IShirtService
     {
         private readonly IShirtRepository _shirtRepository;
+        private readonly IShirtSizeRepository _shirtSizeRepository;
         private readonly IMapper _mapper;
 
-        public ShirtService(IShirtRepository shirtRepository, IMapper mapper)
+        public ShirtService(IShirtRepository shirtRepository, IShirtSizeRepository shirtSizeRepository, IMapper mapper)
         {
             _shirtRepository = shirtRepository;
+            _shirtSizeRepository = shirtSizeRepository;
             _mapper = mapper;
         }
 
@@ -107,8 +110,8 @@ namespace BusinessLayer.Service.Implement
                     };
                 }
                 var shirtResponse = _mapper.Map<ShirtResponseModel>(shirt);
-                shirtResponse.PlayerName = shirt.Player.FullName;
-                shirtResponse.TypeShirtName = shirt.TypeShirt.Name;
+                var listShirtSizeResponse = await _shirtSizeRepository.GetAllTypeShirtByShirtId(shirt.Id);
+                shirtResponse.ListSize = _mapper.Map<List<ShirtSizeResponseModel>>(listShirtSizeResponse);
                 return new BaseResponse<ShirtResponseModel>()
                 {
                     Code = 200,

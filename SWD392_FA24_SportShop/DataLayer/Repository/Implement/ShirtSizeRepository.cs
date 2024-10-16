@@ -61,6 +61,22 @@ namespace DataLayer.Repository.Implement
             }
         }
 
+        public async Task<List<ShirtSize>> GetAllTypeShirtByShirtId(int shirtId)
+        {
+            try
+            {
+                return await _swd392Context.ShirtSizes
+                    .Include(ss => ss.Shirt)
+                    .Include(ss => ss.Size)
+                    .Where(ss => ss.ShirtId == shirtId)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<ShirtSize> GetShirtSizeByIdAsync(int shirtSizeId)
         {
             try

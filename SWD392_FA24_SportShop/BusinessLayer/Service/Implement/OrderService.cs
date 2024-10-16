@@ -759,5 +759,66 @@ namespace BusinessLayer.Service.Implement
                 };
             }
         }
+
+        public async Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(string? userId)
+        {
+            try
+            {
+                if (userId == null)
+                {
+                    return new BaseResponse<CartResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "User not found!.",
+                        Data = null
+                    };
+                }
+
+                var cart = await _orderRepository.GetCart(int.Parse(userId));
+
+                if (cart == null)
+                {
+                    return new BaseResponse<CartResponseModel>()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Cart null!.",
+                        Data = null
+                    };
+                }
+                else
+                {
+                    var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(cart.Id);
+                    return new BaseResponse<CartResponseModel>()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = null,
+                        Data = new CartResponseModel()
+                        {
+                            Id = cart.Id,
+                            UserId = cart.UserId,
+                            TotalPrice = cart.TotalPrice,
+                            ShipPrice = cart.ShipPrice,
+                            Deposit = cart.Deposit,
+                            RefundStatus = cart.RefundStatus,
+                            Status = cart.Status,
+                            OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
+                        }
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<CartResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
     }
 }

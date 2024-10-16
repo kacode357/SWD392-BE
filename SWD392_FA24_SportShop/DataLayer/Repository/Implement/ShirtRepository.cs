@@ -100,9 +100,11 @@ namespace DataLayer.Repository.Implement
             try
             {
                 var shirt = await _swd392Context.Shirts
-                    .Include(s => s.Player)
-                    .Include(s => s.TypeShirt)
                     .Where(s => s.Id == shirtId)
+                    .Include(s => s.Player)
+                        .ThenInclude(p => p.Club)
+                    .Include(s => s.TypeShirt)
+                        .ThenInclude(ts => ts.Session)        
                     .FirstOrDefaultAsync();
                 return shirt;
             }

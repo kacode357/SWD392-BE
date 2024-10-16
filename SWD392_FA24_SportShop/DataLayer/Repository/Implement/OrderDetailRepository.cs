@@ -83,7 +83,10 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId).ToListAsync();
+                return await _swd392Context.OrderDetails
+                    .Include(od => od.Shirt)
+                    .Where(od => od.OrderId == orderId)
+                    .ToListAsync();
             }
             catch (Exception ex)
             {

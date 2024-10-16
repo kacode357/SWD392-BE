@@ -12,6 +12,9 @@ namespace BusinessLayer.ResponseModel.OrderDetail
         public string OrderId { get; set; }
         public int ShirtId { get; set; }
         public string ShirtName { get; set; }
+        public string ShirtUrlImg { get; set; }
+        public double ShirtPrice { get; set; }
+        public string ShirtDescription { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
         public bool StatusRating { get; set; }

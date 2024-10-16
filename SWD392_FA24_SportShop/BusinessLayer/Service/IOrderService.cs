@@ -24,5 +24,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<OrderResponseModel>> ChangeOrderStatusAsync (string orderId, string jwtToken, int newStatus);
         Task<BaseResponse<OrderResponseModel>> ProcessRefundAsync (string orderId);
         Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, string? userId);
+        Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(string? userId);
     }
 }
