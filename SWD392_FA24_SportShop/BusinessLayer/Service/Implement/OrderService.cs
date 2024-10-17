@@ -25,6 +25,7 @@ namespace BusinessLayer.Service.Implement
         private readonly IOrderRepository _orderRepository;
         private readonly IShirtRepository _shirtRepository;
         private readonly IOrderDetailRepository _orderDetailsRepository;
+        private readonly IShirtSizeRepository _shirtSizeRepository;
         private readonly IMapper _mapper;
         public enum UserRole
         {
@@ -32,12 +33,13 @@ namespace BusinessLayer.Service.Implement
             Staff = 2,
             Manager = 3
         }
-        public OrderService(IOrderDetailRepository orderDetailsRepository, IOrderRepository orderRepository, IShirtRepository shirtRepository, IMapper mapper)
+        public OrderService(IOrderDetailRepository orderDetailsRepository, IOrderRepository orderRepository, IShirtRepository shirtRepository, IShirtSizeRepository shirtSizeRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
             _orderDetailsRepository = orderDetailsRepository;
             _shirtRepository = shirtRepository;
+            _shirtSizeRepository = shirtSizeRepository;
         }
 
         private UserRole GetCurrentUserRole(string jwtToken)
@@ -617,6 +619,7 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
+                var shirtSize = await _shirtSizeRepository.GetShirtSizeByShirtIdAndSizeId(model.ShirtId, model.SizeId);
                 var shirt = await _shirtRepository.GetShirtById(model.ShirtId);
                 Guid uuid = Guid.NewGuid();
                 if(userId == null)
@@ -648,7 +651,7 @@ namespace BusinessLayer.Service.Implement
                     var orderDetails = new OrderDetail()
                     {
                         OrderId = uuid.ToString(),
-                        ShirtId = model.ShirtId,
+                        ShirtSizeId = shirtSize.Id,
                         Quantity = model.Quantity,
                         Price = shirt.Price,
                         StatusRating = false,
@@ -679,13 +682,13 @@ namespace BusinessLayer.Service.Implement
                 }
                 else
                 {
-                    var oldOrderDetails = await _orderDetailsRepository.GetOrderDetailAsync(cart.Id,model.ShirtId);
+                    var oldOrderDetails = await _orderDetailsRepository.GetOrderDetailAsync(cart.Id,shirtSize.Id);
                     if (oldOrderDetails == null)
                     {
                         var newOrderDetails = new OrderDetail()
                         {
                             OrderId = cart.Id,
-                            ShirtId = model.ShirtId,
+                            ShirtSizeId = shirtSize.Id,
                             Quantity = model.Quantity,
                             Price = shirt.Price,
                             StatusRating = false,

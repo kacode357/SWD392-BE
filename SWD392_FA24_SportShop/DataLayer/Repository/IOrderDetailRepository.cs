@@ -16,7 +16,7 @@ namespace DataLayer.Repository
         Task<bool> DeleteOrderDetailAsync (int orderDetailId);
         Task<OrderDetail> GetOrderDetailByIdAsync(int orderDetailId);
         Task<OrderDetail> GetOrderDetailAsync(string orderId, int shirtId);
-        Task<List<OrderDetailDto>> GetAllOrderDetails();
+        //Task<List<OrderDetailDto>> GetAllOrderDetails();
         Task<List<OrderDetail>> GetAllOrderDetailsByOrderId(string orderId);
     }
 }

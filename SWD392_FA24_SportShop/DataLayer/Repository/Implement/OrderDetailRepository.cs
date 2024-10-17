@@ -51,40 +51,43 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<OrderDetailDto>> GetAllOrderDetails()
-        {
-            try
-            {
-                var query = from orderDetail in _swd392Context.OrderDetails
-                            join order in _swd392Context.Orders on orderDetail.OrderId equals order.Id
-                            join shirt in _swd392Context.Shirts on orderDetail.ShirtId equals shirt.Id
-                            select new OrderDetailDto
-                            {
-                                Id = orderDetail.Id,
-                                OrderId = orderDetail.OrderId,
-                                ShirtId = shirt.Id,
-                                ShirtName = shirt.Name,
-                                Price = shirt.Price,
-                                Quantity = orderDetail.Quantity,
-                                Comment = orderDetail.Comment,
-                                Score = orderDetail.Score,
-                                StatusRating = orderDetail.StatusRating,
-                                Status = orderDetail.Status,
-                            };
-                return await query.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public async Task<List<OrderDetailDto>> GetAllOrderDetails()
+        //{
+        //    try
+        //    {
+        //        var query = from orderDetail in _swd392Context.OrderDetails
+        //                    join order in _swd392Context.Orders on orderDetail.OrderId equals order.Id
+        //                    join ShirtSize in _swd392Context.ShirtSizes on orderDetail.ShirtSizeId equals ShirtSize.Id
+        //                    select new OrderDetailDto
+        //                    {
+        //                        Id = orderDetail.Id,
+        //                        OrderId = orderDetail.OrderId,
+        //                        ShirtId = shirt.Id,
+        //                        ShirtName = shirt.Name,
+        //                        Price = shirt.Price,
+        //                        Quantity = orderDetail.Quantity,
+        //                        Comment = orderDetail.Comment,
+        //                        Score = orderDetail.Score,
+        //                        StatusRating = orderDetail.StatusRating,
+        //                        Status = orderDetail.Status,
+        //                    };
+        //        return await query.ToListAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         public async Task<List<OrderDetail>> GetAllOrderDetailsByOrderId(string orderId)
         {
             try
             {
                 return await _swd392Context.OrderDetails
-                    .Include(od => od.Shirt)
+                    .Include(od => od.ShirtSize)
+                        .ThenInclude(ss => ss.Shirt)
+                    .Include(od => od.ShirtSize)
+                        .ThenInclude(ss => ss.Size)
                     .Where(od => od.OrderId == orderId)
                     .ToListAsync();
             }
@@ -94,11 +97,11 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<OrderDetail> GetOrderDetailAsync(string orderId, int shirtId)
+        public async Task<OrderDetail> GetOrderDetailAsync(string orderId, int shirtSizeId)
         {
             try
             {
-                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId && od.ShirtId == shirtId).FirstOrDefaultAsync();
+                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId && od.ShirtSizeId == shirtSizeId).FirstOrDefaultAsync();
             }
             catch(Exception ex) 
             {

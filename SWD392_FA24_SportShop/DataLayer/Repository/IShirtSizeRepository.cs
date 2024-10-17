@@ -13,6 +13,7 @@ namespace DataLayer.Repository
         Task<bool> UpdateShirtSizeAsync(ShirtSize shirtSize);
         Task<bool> DeleteShirtSizeAsync(int shirtSizeId);
         Task<ShirtSize> GetShirtSizeByIdAsync(int shirtSizeId);
+        Task<ShirtSize> GetShirtSizeByShirtIdAndSizeId(int shirtId, int sizeId);
         Task<List<ShirtSize>> GetAllShirtSizeAsync();
         Task<List<ShirtSize>> GetAllTypeShirtByShirtId(int shirtId);
     }

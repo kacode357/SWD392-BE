@@ -149,30 +149,30 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync(string orderId)
-        {
-            try
-            {
-                var query = from orderDetail in _swd392Context.OrderDetails
-                            join order in _swd392Context.Orders on orderDetail.OrderId equals orderId
-                            select new OrderDetailDto
-                            {
-                                ShirtId = orderDetail.ShirtId,
-                                ShirtName = orderDetail.Shirt.Name,
-                                Quantity = orderDetail.Quantity,
-                                Price = orderDetail.Price,
-                                StatusRating = orderDetail.StatusRating,
-                                Score = orderDetail.Score,
-                                Status = orderDetail.Status,
-                                Comment = orderDetail.Comment,
-                            };
-                return await query.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public async Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync(string orderId)
+        //{
+        //    try
+        //    {
+        //        var query = from orderDetail in _swd392Context.OrderDetails
+        //                    join order in _swd392Context.Orders on orderDetail.OrderId equals orderId
+        //                    select new OrderDetailDto
+        //                    {
+        //                        ShirtId = orderDetail.ShirtId,
+        //                        ShirtName = orderDetail.Shirt.Name,
+        //                        Quantity = orderDetail.Quantity,
+        //                        Price = orderDetail.Price,
+        //                        StatusRating = orderDetail.StatusRating,
+        //                        Score = orderDetail.Score,
+        //                        Status = orderDetail.Status,
+        //                        Comment = orderDetail.Comment,
+        //                    };
+        //        return await query.ToListAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         public async Task<List<OrderDto>> GetOrdersByUserIdAsync(int userId)
         {

@@ -87,7 +87,15 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreateOrderDetailRequestModel, OrderDetail>().ReverseMap();
             CreateMap<CreateOrderDetailRequestModel, OrderDetailResponseModel>().ReverseMap();
             CreateMap<CreateOrderRequestModel, OrderDetail>().ReverseMap();
-            CreateMap<OrderDetailResponseModel, OrderDetail>().ReverseMap();
+            CreateMap<OrderDetail, OrderDetailResponseModel>()
+                .ForMember(dest => dest.ShirtId, opt => opt.MapFrom(src => src.ShirtSize.Shirt.Id))
+                .ForMember(dest => dest.ShirtDescription, opt => opt.MapFrom(src => src.ShirtSize.Shirt.Description))
+                .ForMember(dest => dest.ShirtPrice, opt => opt.MapFrom(src => src.ShirtSize.Shirt.Price))
+                .ForMember(dest => dest.ShirtName, opt => opt.MapFrom(src => src.ShirtSize.Shirt.Name))
+                .ForMember(dest => dest.ShirtUrlImg, opt => opt.MapFrom(src => src.ShirtSize.Shirt.UrlImg))
+                .ForMember(dest => dest.SizeId, opt => opt.MapFrom(src => src.ShirtSize.Size.Id))
+                .ForMember(dest => dest.SizeName, opt => opt.MapFrom(src => src.ShirtSize.Size.Name))
+                .ForMember(dest => dest.SizeDescription, opt => opt.MapFrom(src => src.ShirtSize.Size.Description));
             CreateMap<OrderDetailDto, OrderDetailResponseModel>().ReverseMap();
 
             //Payment

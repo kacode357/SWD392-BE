@@ -81,7 +81,23 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.ShirtSizes.FindAsync(shirtSizeId);
+                return await _swd392Context.ShirtSizes
+                    .Include (ss => ss.Shirt)
+                    .Include(ss => ss.Size)
+                    .Where(ss => ss.Id == shirtSizeId)
+                    .FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<ShirtSize> GetShirtSizeByShirtIdAndSizeId(int shirtId, int sizeId)
+        {
+            try
+            {
+                return await _swd392Context.ShirtSizes.Where(ss => ss.ShirtId == shirtId && ss.SizeId == sizeId).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

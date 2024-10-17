@@ -9,6 +9,8 @@ namespace BusinessLayer.RequestModel.OrderDetail
     public class CreateOrderDetailsForCartRequestModel
     {
         public int ShirtId { get; set; }
+        public int SizeId { get; set; }
+
         public int Quantity { get; set; }
     }
 }

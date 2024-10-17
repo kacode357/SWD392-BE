@@ -148,7 +148,7 @@ namespace DataLayer.DBContext
                     .HasMaxLength(50)
                     .HasColumnName("Order_Id");
 
-                entity.Property(e => e.ShirtId).HasColumnName("Shirt_Id");
+                entity.Property(e => e.ShirtSizeId).HasColumnName("ShirtSize_Id");
 
                 entity.Property(e => e.StatusRating).HasColumnName("Status_Rating");
 
@@ -158,11 +158,11 @@ namespace DataLayer.DBContext
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_OrderDetails_Order");
 
-                entity.HasOne(d => d.Shirt)
+                entity.HasOne(d => d.ShirtSize)
                     .WithMany(p => p.OrderDetails)
-                    .HasForeignKey(d => d.ShirtId)
+                    .HasForeignKey(d => d.ShirtSizeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderDeta__Shirt__412EB0B6");
+                    .HasConstraintName("FK_OrderDetails_ShirtSize");
             });
 
             modelBuilder.Entity<Payment>(entity =>

@@ -11,7 +11,7 @@ namespace DataLayer.Entities
         }
 
         public int Id { get; set; }
-        public string Name { get; set; } 
+        public string Name { get; set; }
         public DateTime StartDdate { get; set; }
         public DateTime EndDdate { get; set; }
         public string? Description { get; set; }

@@ -93,61 +93,61 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<DynamicResponse<OrderDetailResponseModel>> GetAllOrderDetails(GetAllOrderDetailRequestModel model)
-        {
-            try
-            {
-                var listOrderDetail = await _orderDetailRepository.GetAllOrderDetails();
+        //public async Task<DynamicResponse<OrderDetailResponseModel>> GetAllOrderDetails(GetAllOrderDetailRequestModel model)
+        //{
+        //    try
+        //    {
+        //        var listOrderDetail = await _orderDetailRepository.GetAllOrderDetails();
 
-                if (model.Status != null)
-                {
-                    listOrderDetail = listOrderDetail.Where(o => o.Status == model.Status).ToList();
-                }
+        //        if (model.Status != null)
+        //        {
+        //            listOrderDetail = listOrderDetail.Where(o => o.Status == model.Status).ToList();
+        //        }
             
-                var result = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetail);
+        //        var result = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetail);
 
-                //If don't have error => Pagination
-                var pageOrderDetail = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);
+        //        //If don't have error => Pagination
+        //        var pageOrderDetail = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);
 
-                return new DynamicResponse<OrderDetailResponseModel>()
-                {
-                    Code = 200,
-                    Success = true,
-                    Message = null,
+        //        return new DynamicResponse<OrderDetailResponseModel>()
+        //        {
+        //            Code = 200,
+        //            Success = true,
+        //            Message = null,
 
-                    Data = new MegaData<OrderDetailResponseModel>()
-                    {
-                        PageInfo = new PagingMetaData()
-                        {
-                            Page = pageOrderDetail.PageNumber,
-                            Size = pageOrderDetail.PageSize,
-                            Sort = "Ascending",
-                            Order = "Id",
-                            TotalPage = pageOrderDetail.Count,
-                            TotalItem = pageOrderDetail.TotalItemCount,
-                        },
-                        SearchInfo = new SearchCondition()
-                        {
-                            role = null,
-                            status = model.Status,
-                            is_Verify = null,
-                            is_Delete = null,
-                        },
-                        PageData = pageOrderDetail.ToList(),
-                    },
-                };
-            }
-            catch (Exception ex)
-            {
-                return new DynamicResponse<OrderDetailResponseModel>
-                {
-                    Code = 500,
-                    Success = false,
-                    Message = "Server Error1",
-                    Data = null,
-                };
-            }
-        }
+        //            Data = new MegaData<OrderDetailResponseModel>()
+        //            {
+        //                PageInfo = new PagingMetaData()
+        //                {
+        //                    Page = pageOrderDetail.PageNumber,
+        //                    Size = pageOrderDetail.PageSize,
+        //                    Sort = "Ascending",
+        //                    Order = "Id",
+        //                    TotalPage = pageOrderDetail.Count,
+        //                    TotalItem = pageOrderDetail.TotalItemCount,
+        //                },
+        //                SearchInfo = new SearchCondition()
+        //                {
+        //                    role = null,
+        //                    status = model.Status,
+        //                    is_Verify = null,
+        //                    is_Delete = null,
+        //                },
+        //                PageData = pageOrderDetail.ToList(),
+        //            },
+        //        };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new DynamicResponse<OrderDetailResponseModel>
+        //        {
+        //            Code = 500,
+        //            Success = false,
+        //            Message = "Server Error1",
+        //            Data = null,
+        //        };
+        //    }
+        //}
 
         public async Task<BaseResponse<OrderDetailResponseModel>> GetOrderDetailById(int orderDetailId)
         {

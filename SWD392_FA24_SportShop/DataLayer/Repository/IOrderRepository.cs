@@ -21,6 +21,6 @@ namespace DataLayer.Repository
         Task<bool> ProcessRefundAsync (string orderId);
         Task<bool> ChangeOrderStatusAsync (string orderId, int newStatus);
         Task<List<OrderDto>> GetOrdersByUserIdAsync (int userId);
-        Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync (string orderId);
+        //Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync (string orderId);
     }
 }
