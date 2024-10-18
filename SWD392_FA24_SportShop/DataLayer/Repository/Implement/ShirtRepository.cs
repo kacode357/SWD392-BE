@@ -52,29 +52,18 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<List<ShirtDto>> GetAllShirts()
+        public async Task<List<Shirt>> GetAllShirts()
         {
             try
             {
-                var query = from shirt in _swd392Context.Shirts
-                            join typeShirt in _swd392Context.TypeShirts on shirt.TypeShirtId equals typeShirt.Id
-                            join player in _swd392Context.Players on shirt.PlayerId equals player.Id
-                            select new ShirtDto
-                            {
-                                Id = shirt.Id,
-                                Name = shirt.Name,
-                                Number = shirt.Number,
-                                Price = shirt.Price,
-                                Date = shirt.Date,
-                                Description = shirt.Description,
-                                Status = shirt.Status,
-                                UrlImg = shirt.UrlImg,
-                                TypeShirtId = shirt.TypeShirtId,
-                                TypeShirtName = typeShirt.Name,
-                                PlayerId = shirt.PlayerId,
-                                PlayerName = player.FullName
-                            };
-                return await query.ToListAsync();
+                return await _swd392Context.Shirts
+                    .Include(s => s.TypeShirt)
+                        .ThenInclude(ts => ts.Session)
+                    .Include(s => s.ShirtSizes)
+                        .ThenInclude(ss => ss.Size)
+                    .Include(s => s.Player)
+                        .ThenInclude(p => p.Club)
+                    .ToListAsync();
             }
             catch (Exception ex)
             {
@@ -128,6 +117,5 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        
     }
 }

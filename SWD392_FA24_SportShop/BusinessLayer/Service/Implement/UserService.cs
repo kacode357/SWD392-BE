@@ -470,7 +470,7 @@ namespace BusinessLayer.Service.Interface
                             Data = new LoginResponseModel()
                             {
                                 token = token,
-                                user = _mapper.Map<UserResponseModel>(user)
+                                user = null
                             },
                         };
                     }

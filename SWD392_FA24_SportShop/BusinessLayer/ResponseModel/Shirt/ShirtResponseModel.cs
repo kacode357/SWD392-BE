@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.ResponseModel.ShirtSize;
+using BusinessLayer.ResponseModels;
 using DataLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -29,5 +30,10 @@ namespace BusinessLayer.ResponseModel.Shirt
         public string UrlImg { get; set; }
         public int Status { get; set; }
         public List<ShirtSizeResponseModel> ListSize { get; set; }
+
+        public static implicit operator ShirtResponseModel(MegaData<ShirtResponseModel> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

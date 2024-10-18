@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="hieplxse160641-001-site1" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\CN8\\SWD392\\Project\\BE\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

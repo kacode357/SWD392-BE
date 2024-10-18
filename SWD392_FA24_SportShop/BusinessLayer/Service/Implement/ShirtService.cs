@@ -94,6 +94,37 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
+        public async Task<DynamicResponse<ShirtResponseModel>> GetAllShirt()
+        {
+            try
+            {
+                var listShirtDto = await _shirtRepository.GetAllShirts();
+                var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
+                return new DynamicResponse<ShirtResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+                    Data = new MegaData<ShirtResponseModel>()
+                    {
+                        PageInfo = null,
+                        SearchInfo = null,
+                        PageData = result
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<ShirtResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
         public async Task<BaseResponse<ShirtResponseModel>> GetShirtById(int shirtId)
         {
             try

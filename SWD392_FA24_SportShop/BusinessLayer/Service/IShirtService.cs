@@ -18,5 +18,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<ShirtResponseModel>> UpdateShirtAsync(CreateShirtRequestModel model, int id);
         Task<BaseResponse<ShirtResponseModel>> DeleteShirtAsync(int shirtId, int status);
         Task<BaseResponse<ShirtResponseModel>> GetShirtById(int shirtId);
+        Task<DynamicResponse<ShirtResponseModel>> GetAllShirt();
     }
 }

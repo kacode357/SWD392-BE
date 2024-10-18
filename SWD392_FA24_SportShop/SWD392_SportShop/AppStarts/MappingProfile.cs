@@ -54,11 +54,13 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreateShirtRequestModel, ShirtResponseModel>().ReverseMap();
             CreateMap<Shirt, ShirtResponseModel>()
                 .ForMember(dest => dest.SessionId, opt => opt.MapFrom(src => src.TypeShirt.Session.Id))
+                .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.Player.FullName))
                 .ForMember(dest => dest.SessionName, opt => opt.MapFrom(src => src.TypeShirt.Session.Name))
                 .ForMember(dest => dest.ClubId, opt => opt.MapFrom(src => src.Player.Club.Id))
                 .ForMember(dest => dest.ClubName, opt => opt.MapFrom(src => src.Player.Club.Name))
                 .ForMember(dest => dest.ClubEstablishedYear, opt => opt.MapFrom(src => src.Player.Club.EstablishedYear))
-                .ForMember(dest => dest.ClubLogo, opt => opt.MapFrom(src => src.Player.Club.ClubLogo));
+                .ForMember(dest => dest.ClubLogo, opt => opt.MapFrom(src => src.Player.Club.ClubLogo))
+                .ForMember(dest => dest.ListSize, opt => opt.MapFrom(src => src.ShirtSizes));
             CreateMap<ShirtDto, ShirtResponseModel>();
 
             //Player

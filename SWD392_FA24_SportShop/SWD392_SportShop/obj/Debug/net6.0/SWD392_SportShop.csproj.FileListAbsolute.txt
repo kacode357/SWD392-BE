@@ -167,7 +167,6 @@ E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\De
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\staticwebassets.build.json
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\staticwebassets.development.json
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\scopedcss\bundle\SWD392_SportShop.styles.css
-E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.csproj.CopyComplete
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\refint\SWD392_SportShop.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.pdb
@@ -261,3 +260,5 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\refint\
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.pdb
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.genruntimeconfig.cache
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\ref\SWD392_SportShop.dll
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.sourcelink.json
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_S.859E6854.Up2Date

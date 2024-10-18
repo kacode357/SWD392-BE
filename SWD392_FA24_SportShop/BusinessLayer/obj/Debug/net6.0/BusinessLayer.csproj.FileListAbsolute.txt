@@ -39,7 +39,6 @@ E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.AssemblyInfoInputs.cache
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.AssemblyInfo.cs
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.csproj.CoreCompileInputs.cache
-E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.csproj.CopyComplete
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\refint\BusinessLayer.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.pdb
@@ -60,3 +59,5 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLa
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\refint\BusinessLayer.dll
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.pdb
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\ref\BusinessLayer.dll
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.sourcelink.json
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\Business.EA331CBA.Up2Date
