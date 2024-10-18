@@ -823,5 +823,59 @@ namespace BusinessLayer.Service.Implement
                 };
             }
         }
+
+        public async Task<BaseResponse<CartResponseModel>> UpdateCart(UpdateCartRequestModel model)
+        {
+            try
+            {
+                var order = await _orderRepository.GetOrderByIdAsync(model.orderId);
+                var orderdetails = await _orderDetailsRepository.GetOrderDetailAsync(model.orderId, model.shirtSizeId);
+                var shirtsize = await _shirtSizeRepository.GetShirtSizeByIdAsync(model.shirtSizeId);
+                var shirt = await _shirtRepository.GetShirtByIdFull(shirtsize.ShirtId);
+
+                var newPirce = model.quantity * shirt.Price;
+                var oldPrice = shirt.Price * orderdetails.Quantity;
+
+                var price = newPirce - oldPrice;
+
+                order.TotalPrice = order.TotalPrice + price;
+                await _orderRepository.UpdateOrderAsync(order);
+
+                orderdetails.Quantity = model.quantity;
+                await _orderDetailsRepository.UpdateOrderDetailAsync(orderdetails);
+
+                var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(model.orderId);
+
+                return new BaseResponse<CartResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Update Cart successfull!.",
+                    Data = new CartResponseModel()
+                    {
+                        Id = order.Id,
+                        UserId = order.UserId,
+                        TotalPrice = order.TotalPrice,
+                        ShipPrice = order.ShipPrice,
+                        Deposit = order.Deposit,
+                        RefundStatus = order.RefundStatus,
+                        Status = order.Status,
+                        OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
+                    }
+                };
+
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<CartResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
     }
 }

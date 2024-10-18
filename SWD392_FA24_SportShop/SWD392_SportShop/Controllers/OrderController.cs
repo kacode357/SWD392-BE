@@ -201,6 +201,21 @@ namespace SWD392_SportShop.Controllers
             }
         }
         [Authorize]
+        [HttpPost("UpdateCart")]
+        public async Task<IActionResult> UpdateCart(UpdateCartRequestModel model)
+        {
+            try
+            {
+                var result = await _orderService.UpdateCart(model);
+
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+            }
+        }
+        [Authorize]
         [HttpGet("Cart")]
         public async Task<IActionResult> GetCardByCurrentUser()
         {
