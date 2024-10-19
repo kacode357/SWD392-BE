@@ -62,5 +62,7 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTm
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\BusinessLayer.dll
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\DataLayer.dll
+E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\UtilityLayer.dll
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\BusinessLayer.pdb
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\DataLayer.pdb
+E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\UtilityLayer.pdb

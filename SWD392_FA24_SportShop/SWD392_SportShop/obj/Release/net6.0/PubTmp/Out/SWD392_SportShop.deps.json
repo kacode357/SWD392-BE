@@ -1860,13 +1860,11 @@
       },
       "BusinessLayer/1.0.0": {
         "dependencies": {
-          "DataLayer": "1.0.0"
+          "DataLayer": "1.0.0",
+          "UtilityLayer": "1.0.0"
         },
         "runtime": {
-          "BusinessLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BusinessLayer.dll": {}
         }
       },
       "DataLayer/1.0.0": {
@@ -1885,10 +1883,12 @@
           "X.PagedList": "10.2.1"
         },
         "runtime": {
-          "DataLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "DataLayer.dll": {}
+        }
+      },
+      "UtilityLayer/1.0.0": {
+        "runtime": {
+          "UtilityLayer.dll": {}
         }
       }
     }
@@ -3354,6 +3354,11 @@
       "sha512": ""
     },
     "DataLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UtilityLayer/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

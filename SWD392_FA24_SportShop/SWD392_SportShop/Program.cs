@@ -1,3 +1,5 @@
+using BusinessLayer.Service;
+using BusinessLayer.Service.Implement;
 using Microsoft.Extensions.Configuration;
 using SWD392_FA24_SportShop.AppStarts;
 using SWD392_SportShop.AppStarts;
@@ -29,7 +31,7 @@ builder.Services.AddCors(options =>
         );
 });
 
-
+builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 var app = builder.Build();
 

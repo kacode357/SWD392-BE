@@ -7,14 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <Compile Remove="Service\PaymentService\Application\**" />
+    <Compile Remove="Service\PaymentService\Domain\**" />
+    <EmbeddedResource Remove="Service\PaymentService\Application\**" />
+    <EmbeddedResource Remove="Service\PaymentService\Domain\**" />
+    <None Remove="Service\PaymentService\Application\**" />
+    <None Remove="Service\PaymentService\Domain\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Service\PaymentService\Momo\Config\" />
-    <Folder Include="Service\PaymentService\Momo\lib\" />
-    <Folder Include="Service\PaymentService\Momo\Response\" />
-    <Folder Include="Service\PaymentService\Momo\Request\" />
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\UtilityLayer\UtilityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Service\PaymentService\VnPay\Config\" />
   </ItemGroup>
 
 </Project>

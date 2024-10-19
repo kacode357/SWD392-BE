@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.RequestModel.Order;
 using BusinessLayer.RequestModel.OrderDetail;
 using BusinessLayer.Service;
+using BusinessLayer.Service.PaymentService.VnPay.Request;
 using DataLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
@@ -231,6 +232,5 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
-
     }
 }

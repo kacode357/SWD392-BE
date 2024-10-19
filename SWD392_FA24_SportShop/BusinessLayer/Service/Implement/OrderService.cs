@@ -364,12 +364,12 @@ namespace BusinessLayer.Service.Implement
             try
             {
                 var listOrder = await _orderRepository.GetAllOrders();
-                /*//Filtering by status
+                //Filtering by status
                 if (model.Status != null)
                 {
                     listOrder = listOrder.Where(o => o.Status == model.Status).ToList();
                 }
-                //Filtering by User Id
+                /*//Filtering by User Id
                 if (model.UserId != null)
                 {
                     listOrder = listOrder.Where(o => o.UserId == model.UserId).ToList();
@@ -669,7 +669,7 @@ namespace BusinessLayer.Service.Implement
                         Message = "Add to Cart successfull!.",
                         Data = new CartResponseModel()
                         {
-                            Id = orderFull.Id,
+                            Id = order.Id,
                             UserId = orderFull.UserId,
                             TotalPrice = orderFull.TotalPrice,
                             ShipPrice = orderFull.ShipPrice,
