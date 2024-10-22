@@ -833,6 +833,20 @@ namespace BusinessLayer.Service.Implement
                 var shirtsize = await _shirtSizeRepository.GetShirtSizeByIdAsync(model.shirtSizeId);
                 var shirt = await _shirtRepository.GetShirtByIdFull(shirtsize.ShirtId);
 
+                if (model.quantity <= 0)
+                {
+                    var requestDeteleItem = new DeteleItemInCartRequestModel()
+                    {
+                        orderId = model.orderId,
+                        shirtSizeId = model.shirtSizeId,
+                    };
+                    if (requestDeteleItem != null)
+                    {
+                        var response = await DeteteItemInCart(requestDeteleItem);
+                        return response;
+                    }
+                }
+
                 var newPirce = model.quantity * shirt.Price;
                 var oldPrice = shirt.Price * orderdetails.Quantity;
 
@@ -865,6 +879,60 @@ namespace BusinessLayer.Service.Implement
                 };
 
 
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<CartResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<CartResponseModel>> DeteteItemInCart(DeteleItemInCartRequestModel model)
+        {
+            try
+            {
+                var orderDetails = await _orderDetailsRepository.GetOrderDetailAsync(model.orderId, model.shirtSizeId);
+                if (orderDetails != null)
+                {
+                    await _orderDetailsRepository.DeleteOrderDetailAsync(orderDetails.Id);
+                    var priceOrderdetails = orderDetails.Price * orderDetails.Quantity;
+                    var order = await _orderRepository.GetOrderByIdAsync(model.orderId);
+                    order.TotalPrice = order.TotalPrice - priceOrderdetails;
+                    await _orderRepository.UpdateOrderAsync(order);
+                    var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(model.orderId);
+                    return new BaseResponse<CartResponseModel>()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Detele Item in Cart successfull!.",
+                        Data = new CartResponseModel()
+                        {
+                            Id = order.Id,
+                            UserId = order.UserId,
+                            TotalPrice = order.TotalPrice,
+                            ShipPrice = order.ShipPrice,
+                            Deposit = order.Deposit,
+                            RefundStatus = order.RefundStatus,
+                            Status = order.Status,
+                            OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
+                        }
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<CartResponseModel>()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found Item in Cart!.",
+                        Data = null
+                    };
+                }
             }
             catch (Exception ex)
             {

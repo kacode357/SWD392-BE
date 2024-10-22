@@ -216,6 +216,19 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+        [HttpPost("DeteleItemInCart")]
+        public async Task<IActionResult> DeteleItemInCart(DeteleItemInCartRequestModel model)
+        {
+            try
+            {
+                var result = await _orderService.DeteteItemInCart(model);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+            }
+        }
         [Authorize]
         [HttpGet("Cart")]
         public async Task<IActionResult> GetCardByCurrentUser()

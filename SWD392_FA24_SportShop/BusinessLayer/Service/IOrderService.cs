@@ -26,5 +26,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, string? userId);
         Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(string? userId);
         Task<BaseResponse<CartResponseModel>> UpdateCart(UpdateCartRequestModel model);
+        Task<BaseResponse<CartResponseModel>> DeteteItemInCart(DeteleItemInCartRequestModel model);
     }
 }
