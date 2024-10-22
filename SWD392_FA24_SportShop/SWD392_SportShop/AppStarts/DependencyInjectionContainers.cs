@@ -34,6 +34,7 @@ namespace SWD392_FA24_SportShop.AppStarts
             services.AddScoped<IOrderDetailService, OrderDetailService>();
             services.AddScoped<ISizeService, SizeService>();
             services.AddScoped<IShirtSizeService, ShirtSizeService>();
+            services.AddScoped<IVnPayService, VnPayService>();
 
             //AddRepository
             services.AddScoped<IUserRepositoty, UserRepository>();
@@ -46,6 +47,7 @@ namespace SWD392_FA24_SportShop.AppStarts
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IShirtSizeRepository, ShirtSizeRepository>();
             services.AddScoped<ISizeRepository, SizeRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
         }
     }
 }

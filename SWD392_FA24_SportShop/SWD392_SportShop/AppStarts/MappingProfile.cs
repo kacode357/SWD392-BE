@@ -21,6 +21,8 @@ using BusinessLayer.ResponseModel.ShirtSize;
 using BusinessLayer.ResponseModel.Size;
 using BusinessLayer.ResponseModel.TypeShirt;
 using BusinessLayer.ResponseModel.User;
+using BusinessLayer.Service.PaymentService.VnPay.Request;
+using BusinessLayer.Service.PaymentService.VnPay.Response;
 using DataLayer.DTO;
 using DataLayer.Entities;
 
@@ -101,11 +103,11 @@ namespace SWDProject_BE.AppStarts
             CreateMap<OrderDetailDto, OrderDetailResponseModel>().ReverseMap();
 
             //Payment
-            CreateMap<CreatePaymentRequestModel, Payment>().ReverseMap();
-            CreateMap<CreatePaymentRequestModel, PaymentResponseModel>().ReverseMap();
-            CreateMap<CreatePaymentRequestModel, Payment>().ReverseMap();
-            CreateMap<PaymentResponseModel, Payment>().ReverseMap();
-            CreateMap<PaymentDto, PaymentResponseModel>();
+            CreateMap<VnPayPaymentRequestModel, Payment>().ReverseMap();
+            CreateMap<VnPayPaymentRequestModel, VnPayPaymentResponseModel>().ReverseMap();
+            CreateMap<VnPayPaymentRequestModel, Payment>().ReverseMap();
+            CreateMap<VnPayPaymentResponseModel, Payment>().ReverseMap();
+            CreateMap<Payment, VnPayPaymentResponseModel>();
 
             //Size
             CreateMap<CreateSizeRequestModel, Size>().ReverseMap();
