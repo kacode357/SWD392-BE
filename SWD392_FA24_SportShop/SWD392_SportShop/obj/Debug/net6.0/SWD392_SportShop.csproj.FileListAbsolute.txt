@@ -254,7 +254,6 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\staticw
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SWD392_SportShop.props
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\staticwebassets.pack.json
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\scopedcss\bundle\SWD392_SportShop.styles.css
-E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.csproj.CopyComplete
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.dll
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\refint\SWD392_SportShop.dll
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.pdb
@@ -266,3 +265,4 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\Utility
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.pdb
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.pdb
+E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_S.859E6854.Up2Date

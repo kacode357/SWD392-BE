@@ -249,6 +249,22 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "DeteleItemInCart",
+    "RelativePath": "api/order/deteleitemincart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Order.DeteleItemInCartRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "ProcessRefund",
     "RelativePath": "api/order/process-refund/{id}",
     "HttpMethod": "POST",
@@ -289,10 +305,36 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "BusinessLayer.RequestModel.OrderDetail.UpdateCartRequestModel",
+        "Type": "BusinessLayer.RequestModel.Order.UpdateCartRequestModel",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "api/payment/createpayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.Service.PaymentService.VnPay.Request.VnPayPaymentRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
+    "Method": "ExecutePayment",
+    "RelativePath": "api/payment/executepayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -557,6 +599,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.ShirtController",
+    "Method": "GetAllByName",
+    "RelativePath": "api/shirt/getallbyname",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
