@@ -682,6 +682,16 @@ namespace BusinessLayer.Service.Implement
                 }
                 else
                 {
+                    if(shirtSize == null)
+                    {
+                        return new BaseResponse<CartResponseModel>()
+                        {
+                            Code = 404,
+                            Success = false,
+                            Message = "Not found Shirt!.",
+                            Data = null
+                        };
+                    }
                     var oldOrderDetails = await _orderDetailsRepository.GetOrderDetailAsync(cart.Id,shirtSize.Id);
                     if (oldOrderDetails == null)
                     {

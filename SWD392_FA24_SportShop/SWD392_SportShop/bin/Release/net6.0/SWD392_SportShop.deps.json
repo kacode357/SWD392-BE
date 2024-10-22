@@ -1864,7 +1864,10 @@
           "UtilityLayer": "1.0.0"
         },
         "runtime": {
-          "BusinessLayer.dll": {}
+          "BusinessLayer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "DataLayer/1.0.0": {
@@ -1883,12 +1886,18 @@
           "X.PagedList": "10.2.1"
         },
         "runtime": {
-          "DataLayer.dll": {}
+          "DataLayer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "UtilityLayer/1.0.0": {
         "runtime": {
-          "UtilityLayer.dll": {}
+          "UtilityLayer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
