@@ -31,7 +31,7 @@ builder.Services.AddCors(options =>
         );
 });
 
-builder.Services.AddScoped<IVnPayService, VnPayService>();
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 
 var app = builder.Build();
 
@@ -50,4 +50,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.Run();
