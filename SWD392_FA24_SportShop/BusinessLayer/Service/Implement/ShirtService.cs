@@ -263,5 +263,63 @@ namespace BusinessLayer.Service.Implement
                 };
             }
         }
+
+        public async Task<DynamicResponse<ShirtResponseModel>> GetAllShirtsByName(string name)
+        {
+            try
+            {
+                var listShirtDto = await _shirtRepository.GetAllShirts();
+
+                if (!string.IsNullOrEmpty(name))
+                {
+                    listShirtDto = listShirtDto
+                        .Where(c => c.Name.ToLower().Contains(name.ToLower()))
+                        .ToList();
+                }
+                var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
+                // Nếu không có lỗi, thực hiện phân trang
+                var pageShirt = result// Giả sử result là danh sách người dùng
+                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
+                    .ToPagedList(1, 1); // Phân trang với X.PagedList
+                return new DynamicResponse<ShirtResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+
+                    Data = new MegaData<ShirtResponseModel>()
+                    {
+                        PageInfo = new PagingMetaData()
+                        {
+                            Page = pageShirt.PageNumber,
+                            Size = pageShirt.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pageShirt.PageCount,
+                            TotalItem = pageShirt.TotalItemCount,
+                        },
+                        SearchInfo = new SearchCondition()
+                        {
+                            keyWord = name,
+                            role = null,
+                            status = true,
+                            is_Verify = null,
+                            is_Delete = null
+                        },
+                        PageData = pageShirt.ToList()
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<ShirtResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
     }
 }

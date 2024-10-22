@@ -18,6 +18,21 @@ namespace SWD392_SportShop.Controllers
             _shirtService = shirtService;
         }
         [Authorize]
+        [HttpPost("GetAllByName")]
+        public async Task<IActionResult> GetAllByName(string name)
+        {
+            try
+            {
+                var result = await _shirtService.GetAllShirtsByName(name);
+                return StatusCode(result.Code, result);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize]
         [HttpPost("GetAll")]
         public async Task<IActionResult> GetAll()
         {

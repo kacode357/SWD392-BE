@@ -15,6 +15,7 @@ namespace BusinessLayer.Service
     {
         Task<BaseResponse<ShirtResponseModel>> CreateShirtAsync(CreateShirtRequestModel model);
         Task<DynamicResponse<ShirtResponseModel>> GetShirtsAsync(GetAllShirtRequestModel model);
+        Task<DynamicResponse<ShirtResponseModel>> GetAllShirtsByName(string name);
         Task<BaseResponse<ShirtResponseModel>> UpdateShirtAsync(CreateShirtRequestModel model, int id);
         Task<BaseResponse<ShirtResponseModel>> DeleteShirtAsync(int shirtId, int status);
         Task<BaseResponse<ShirtResponseModel>> GetShirtById(int shirtId);
