@@ -47,7 +47,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize]
+
         [HttpPost("Search")]
         public async Task<IActionResult> GetShirts(GetAllShirtRequestModel model)
         {
@@ -62,7 +62,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize]
+
         [HttpPost("SearchByMutilName")]
         public async Task<IActionResult> SearchByMutilName(SearchShirtByMutilName model)
         {

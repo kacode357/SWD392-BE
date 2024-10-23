@@ -17,7 +17,7 @@ namespace SWD392_SportShop.Controllers
         {
             _sessionService = sessionService;
         }
-        [Authorize]
+
         [HttpPost("Search")]
         public async Task<IActionResult> GetSessions(GetAllSessionRequestModel model)
         {
@@ -32,7 +32,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize]
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSessionById(int id)
         {

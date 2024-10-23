@@ -16,7 +16,7 @@ namespace SWD392_SportShop.Controllers
         {
             _shirtSizeService = shirtSizeService;
         }
-        [Authorize]
+
         [HttpPost("Search")]
         public async Task<IActionResult> GetShirtSizes(GetAllShirtSizeRequestModel model)
         {
@@ -31,7 +31,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize]
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetShirtSizeById(int id)
         {

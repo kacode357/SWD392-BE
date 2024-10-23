@@ -19,7 +19,7 @@ namespace SWD392_SportShop.Controllers
             _typeShirtService = typeShirtService;
         }
 
-        [Authorize]
+
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllTypeShirt(GetAllTypeShirtRequestModel model)
         {
@@ -33,7 +33,7 @@ namespace SWD392_SportShop.Controllers
                 throw ex;
             }
         }
-        [Authorize]
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTypeShirtById(int id)
         {

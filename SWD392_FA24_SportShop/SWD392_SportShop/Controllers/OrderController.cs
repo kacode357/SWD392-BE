@@ -21,7 +21,7 @@ namespace SWD392_SportShop.Controllers
         {
             _orderService = orderService;
         }
-        [Authorize]
+
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllOrders(GetAllOrderRequestModel model)
         {
@@ -35,7 +35,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
-        [Authorize]
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderById(string id)
         {

@@ -16,7 +16,7 @@ namespace SWD392_SportShop.Controllers
         {
             _clubService = clubService;
         }
-        [Authorize]
+
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllClubs(GetAllClubRequestModel model)
         {
@@ -31,7 +31,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize]
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClubById(int id)
         {
