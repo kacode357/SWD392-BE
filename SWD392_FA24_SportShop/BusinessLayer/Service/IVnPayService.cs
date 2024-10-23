@@ -1,4 +1,7 @@
-﻿using BusinessLayer.Service.PaymentService.VnPay.Request;
+﻿using BusinessLayer.RequestModel.Payment;
+using BusinessLayer.ResponseModel.Payment;
+using BusinessLayer.ResponseModels;
+using BusinessLayer.Service.PaymentService.VnPay.Request;
 using BusinessLayer.Service.PaymentService.VnPay.Response;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -13,5 +16,6 @@ namespace BusinessLayer.Service
     {
         string CreatePaymentUrl(VnPayPaymentRequestModel model, HttpContext context);
         VnPayPaymentResponseModel PaymentExecute(IQueryCollection collections);
+        Task<BaseResponse<PaymentResponseModel>> AddPayment(VnPayCallBackModel model);
     }
 }

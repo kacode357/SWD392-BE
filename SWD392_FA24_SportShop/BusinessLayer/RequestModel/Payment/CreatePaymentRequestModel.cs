@@ -8,7 +8,6 @@ namespace BusinessLayer.RequestModel.Payment
 {
     public class CreatePaymentRequestModel
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public string OrderId { get; set; }
         public string Date { get; set; } = null!;

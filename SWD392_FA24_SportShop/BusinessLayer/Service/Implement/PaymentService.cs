@@ -32,7 +32,6 @@ namespace BusinessLayer.Service.Implement
                 var payment = new Payment
                 {
                     OrderId = model.OrderId,
-                    Id = model.Id,
                     Amount = model.Amount,
                     Method = model.Method,
                     UserId = model.UserId,

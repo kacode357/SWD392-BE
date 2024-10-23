@@ -19,11 +19,11 @@ namespace SWD392_SportShop.Controllers
         }
         [Authorize]
         [HttpPost("GetAllByName")]
-        public async Task<IActionResult> GetAllByName(string? name)
+        public async Task<IActionResult> GetAllByName(SearchShirtByNameRequestModel model)
         {
             try
             {
-                var result = await _shirtService.GetAllShirtsByName(name);
+                var result = await _shirtService.GetAllShirtsByName(model.Name);
                 return StatusCode(result.Code, result);
 
             }

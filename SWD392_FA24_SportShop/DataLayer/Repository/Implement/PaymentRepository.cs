@@ -82,7 +82,10 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Payments.FindAsync(paymentId);
+                return await _swd392Context.Payments
+                    .Include(p => p.User)
+                    .Where(p => p.Id == paymentId)
+                    .FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

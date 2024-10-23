@@ -10,7 +10,7 @@ namespace BusinessLayer.ResponseModel.Payment
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public string UserName { get; set; }
+        public string UserUserName { get; set; }
         public string OrderId { get; set; }
         public string Date { get; set; } = null!;
         public double Amount { get; set; }
