@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\appstarts\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\appstarts\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -99,53 +95,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\Properties\\launchSettings.json",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
-              "RelativeToolTip": "SWD392_SportShop\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-22T18:28:33.219Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\appsettings.json",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
-              "RelativeToolTip": "SWD392_SportShop\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-22T18:21:13.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Program.cs",
               "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
               "RelativeToolTip": "SWD392_SportShop\\Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T18:16:03.49Z",
+              "WhenOpened": "2024-10-23T10:00:57.723Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\AppStarts\\MappingProfile.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\AppStarts\\MappingProfile.cs",
-              "RelativeToolTip": "SWD392_SportShop\\AppStarts\\MappingProfile.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAAG0AAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T18:11:01.582Z",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SWD392_SportShop\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-23T09:53:56.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\appsettings.json",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
+              "RelativeToolTip": "SWD392_SportShop\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-23T09:53:51.655Z",
               "EditorCaption": ""
             }
           ]

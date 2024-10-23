@@ -192,16 +192,24 @@ namespace SWD392_SportShop.Controllers
         {
             try
             {
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                var result = await _orderService.AddToCart(model, userId);
+                var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                return StatusCode(result.Code, result);
+                if (int.TryParse(userIdString, out int userId)) // Convert userId to int
+                {
+                    var result = await _orderService.AddToCart(model, userId);
+                    return StatusCode(result.Code, result);
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Invalid user ID." });
+                }
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+
         [Authorize]
         [HttpPost("UpdateCart")]
         public async Task<IActionResult> UpdateCart(UpdateCartRequestModel model)
@@ -237,15 +245,23 @@ namespace SWD392_SportShop.Controllers
         {
             try
             {
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                var result = await _orderService.GetCartByCurrentUser(userId);
+                var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                return StatusCode(result.Code, result);
+                if (int.TryParse(userIdString, out int userId)) // Convert userId to int
+                {
+                    var result = await _orderService.GetCartByCurrentUser(userId);
+                    return StatusCode(result.Code, result);
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Invalid user ID." });
+                }
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+
     }
 }

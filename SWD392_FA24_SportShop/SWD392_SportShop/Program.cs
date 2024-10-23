@@ -31,7 +31,6 @@ builder.Services.AddCors(options =>
         );
 });
 
-builder.Services.AddSingleton<IVnPayService, VnPayService>();
 
 var app = builder.Build();
 

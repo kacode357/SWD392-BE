@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -53,6 +54,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\paypalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\paypalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\shirtsizeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -147,7 +152,15 @@
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|f:\\fa24\\swd392\\project\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\vnpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -158,8 +171,38 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 21,
+=======
+          "SelectedChildIndex": 0,
+>>>>>>> Stashed changes
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PayPalService.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\PayPalService.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\PayPalService.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\PayPalService.cs",
+              "RelativeToolTip": "BusinessLayer\\Service\\Implement\\PayPalService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T10:18:13.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VnPayService.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\VnPayService.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\VnPayService.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\VnPayService.cs",
+              "RelativeToolTip": "BusinessLayer\\Service\\Implement\\VnPayService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwC4AAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T10:06:49.171Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -230,6 +273,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 5,
               "Title": "ShirtController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ShirtController.cs",
@@ -239,10 +283,22 @@
               "ViewState": "AQIAAB4AAAAAAAAAAAAowEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T04:12:17.996Z",
+=======
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Program.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Program.cs",
+              "RelativeToolTip": "SWD392_SportShop\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T10:00:57.723Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 6,
               "Title": "SessionController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\SessionController.cs",
@@ -317,11 +373,23 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T04:14:14.128Z",
+=======
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SWD392_SportShop\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-23T09:53:56.555Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< Updated upstream
               "Title": "UserController.cs",
               "DocumentMoniker": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\UserController.cs",
@@ -539,6 +607,16 @@
               "ViewState": "AQIAAB4AAAAAAAAAAAAAAEEAAABdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T18:11:01.582Z",
+=======
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\appsettings.json",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\appsettings.json",
+              "RelativeToolTip": "SWD392_SportShop\\appsettings.json",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAUwB4AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-23T09:53:51.655Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
             },
             {

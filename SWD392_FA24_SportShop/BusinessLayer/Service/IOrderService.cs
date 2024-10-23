@@ -2,6 +2,7 @@
 using BusinessLayer.RequestModel.OrderDetail;
 using BusinessLayer.ResponseModel.Order;
 using BusinessLayer.ResponseModels;
+using DataLayer.Entities;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,10 @@ namespace BusinessLayer.Service
         //Task<BaseResponse<OrderResponseModel>> GetOrderDetailsByOrderIdAsync (int orderId);
         Task<BaseResponse<OrderResponseModel>> ChangeOrderStatusAsync (string orderId, string jwtToken, int newStatus);
         Task<BaseResponse<OrderResponseModel>> ProcessRefundAsync (string orderId);
-        Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, string? userId);
-        Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(string? userId);
+        Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, int userId);
+        Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(int userId);
         Task<BaseResponse<CartResponseModel>> UpdateCart(UpdateCartRequestModel model);
         Task<BaseResponse<CartResponseModel>> DeteteItemInCart(DeteleItemInCartRequestModel model);
+        Task<BaseResponse<OrderResponseModel>> AddOrder(int userId);
     }
 }

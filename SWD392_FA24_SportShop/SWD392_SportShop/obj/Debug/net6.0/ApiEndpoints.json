@@ -331,7 +331,7 @@
     "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
     "Method": "ExecutePayment",
     "RelativePath": "api/payment/executepayment",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],

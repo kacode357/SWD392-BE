@@ -16,6 +16,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using BusinessLayer.ResponseModel.OrderDetail;
+using BusinessLayer.ResponseModel.Payment;
 
 
 namespace BusinessLayer.Service.Implement
@@ -26,6 +27,7 @@ namespace BusinessLayer.Service.Implement
         private readonly IShirtRepository _shirtRepository;
         private readonly IOrderDetailRepository _orderDetailsRepository;
         private readonly IShirtSizeRepository _shirtSizeRepository;
+        private readonly IUserRepositoty _userRepositoty;
         private readonly IMapper _mapper;
         public enum UserRole
         {
@@ -244,83 +246,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-       /* public async Task<BaseResponse<OrderResponseModel>> CreateOrderAsync(CreateOrderRequestModel model)
-        {
-            try
-            {
-                if (model == null || model.UserId <= 0)
-                {
-                    return new BaseResponse<OrderResponseModel>
-                    {
-                        Code = 400,
-                        Success = false,
-                        Message = "Invalid order data. Order details are required.",
-                        Data = null
-                    };
-                }
 
-                var order = new Order
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    UserId = model.UserId,
-                    ShipPrice = model.ShipPrice,
-                    Deposit = model.Deposit,
-                    Date = model.Date,
-                    Status = 1, //1: Pending
-                    TotalPrice = 0
-                };
-
-                double totalPrice = 0;
-
-                if (order.Deposit > 0)
-                {
-                    // Không cho phép trừ nhiều hơn tổng giá trị hiện có (bao gồm phí ship)
-                    if (totalPrice - order.Deposit >= 0)
-                    {
-                        totalPrice -= order.Deposit;
-                    }
-                    else
-                    {
-                        totalPrice = 0; // Nếu đặt cọc lớn hơn tổng hiện có, thì đặt tổng là 0
-                    }
-                }
-
-                if (totalPrice < 0)
-                {
-                    return new BaseResponse<OrderResponseModel>
-                    {
-                        Code = 400,
-                        Success = false,
-                        Message = "Total price cannot be less than zero.",
-                        Data = null
-                    };
-                }
-
-                order.TotalPrice = totalPrice;
-                order.Status = 1; //Default is 1: Pending
-
-                await _orderRepository.CreateOrderAsync(order);
-
-                return new BaseResponse<OrderResponseModel>
-                {
-                    Code = 201,
-                    Success = true,
-                    Message = "Order created successfully!",
-                    Data = _mapper.Map<OrderResponseModel>(order)
-                };
-            }
-            catch (Exception ex)
-            {
-                return new BaseResponse<OrderResponseModel>()
-                {
-                    Code = 500,
-                    Success = false,
-                    Message = "Server Error!",
-                    Data = null
-                };
-            }
-        }
-       */
 
         public async Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(string orderId, int status)
         {
@@ -615,7 +541,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, string? userId)
+        public async Task<BaseResponse<CartResponseModel>> AddToCart(CreateOrderDetailsForCartRequestModel model, int userId)
         {
             try
             {
@@ -632,7 +558,7 @@ namespace BusinessLayer.Service.Implement
                     };
                 }
 
-                var cart = await _orderRepository.GetCart(int.Parse(userId));
+                var cart = await _orderRepository.GetCart(userId);
 
                 if (cart == null)
                 {
@@ -640,7 +566,7 @@ namespace BusinessLayer.Service.Implement
                     var order = new Order()
                     {
                         Id = uuid.ToString(),
-                        UserId = int.Parse(userId),
+                        UserId = userId,
                         TotalPrice = shirt.Price * model.Quantity,
                         RefundStatus = false,
                         Status = 1
@@ -773,7 +699,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(string? userId)
+        public async Task<BaseResponse<CartResponseModel>> GetCartByCurrentUser(int userId)
         {
             try
             {
@@ -788,7 +714,7 @@ namespace BusinessLayer.Service.Implement
                     };
                 }
 
-                var cart = await _orderRepository.GetCart(int.Parse(userId));
+                var cart = await _orderRepository.GetCart(userId);
 
                 if (cart == null)
                 {
@@ -953,6 +879,36 @@ namespace BusinessLayer.Service.Implement
                     Message = "Server Error!",
                     Data = null
                 };
+            }
+        }
+
+        public async Task<BaseResponse<OrderResponseModel>> AddOrder(int userId)
+        {
+            try
+            {
+                var check = await _userRepositoty.GetUserById(userId);
+                if (check != null)
+                {
+                    var order = new Order
+                    {
+                        UserId = userId,
+                        Id = Guid.NewGuid().ToString(),
+                        Status = 1
+                    };
+                    await _orderRepository.CreateOrderAsync(order);
+                    return new BaseResponse<OrderResponseModel>
+                    {
+                        Code = 201,
+                        Success = true,
+                        Message = "Add Order success!.",
+                        Data = _mapper.Map<OrderResponseModel>(order)
+                    };
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

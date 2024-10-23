@@ -33,7 +33,7 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<bool> DeletePaymentAsync(int paymentId)
+        /*public async Task<bool> DeletePaymentAsync(int paymentId)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace DataLayer.Repository.Implement
             {
                 throw ex;
             }
-        }
+        }*/
 
         public async Task<List<PaymentDto>> GetAllPayments()
         {
@@ -83,6 +83,21 @@ namespace DataLayer.Repository.Implement
             try
             {
                 return await _swd392Context.Payments.FindAsync(paymentId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> HasSuccessFullPayment(int userId, int shirtSizeId)
+        {
+            try
+            {
+                return await _swd392Context.Payments
+                    .Include(p => p.Order)
+                    .AnyAsync(p => p.Order.UserId == userId && p.Order.OrderDetails.Any(od => od.ShirtSizeId == shirtSizeId) && 
+                    p.Status == true);
             }
             catch (Exception ex)
             {

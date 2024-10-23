@@ -35,6 +35,8 @@ namespace SWD392_FA24_SportShop.AppStarts
             services.AddScoped<ISizeService, SizeService>();
             services.AddScoped<IShirtSizeService, ShirtSizeService>();
             services.AddScoped<IVnPayService, VnPayService>();
+            services.AddScoped<IPaymentService, PaymentService>(); 
+
 
             //AddRepository
             services.AddScoped<IUserRepositoty, UserRepository>();
