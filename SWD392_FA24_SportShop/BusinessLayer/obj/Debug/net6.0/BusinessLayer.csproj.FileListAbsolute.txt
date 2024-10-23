@@ -60,8 +60,4 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLa
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\ref\BusinessLayer.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\BusinessLayer.sourcelink.json
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\Business.EA331CBA.Up2Date
-E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\bin\Debug\net6.0\UtilityLayer.dll
-E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\bin\Debug\net6.0\UtilityLayer.pdb
-F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\bin\Debug\net6.0\UtilityLayer.dll
-F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\bin\Debug\net6.0\UtilityLayer.pdb
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\BusinessLayer\obj\Debug\net6.0\Business.EA331CBA.Up2Date
