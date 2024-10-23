@@ -313,6 +313,22 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/payment/create-order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
     "Method": "CreatePaymentUrl",
     "RelativePath": "api/payment/createpayment",
     "HttpMethod": "POST",
@@ -628,6 +644,22 @@
       {
         "Name": "model",
         "Type": "BusinessLayer.RequestModel.Shirt.GetAllShirtRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.ShirtController",
+    "Method": "SearchByMutilName",
+    "RelativePath": "api/shirt/searchbymutilname",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Shirt.SearchShirtByMutilName",
         "IsRequired": true
       }
     ],

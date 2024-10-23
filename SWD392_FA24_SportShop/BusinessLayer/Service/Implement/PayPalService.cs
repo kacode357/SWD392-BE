@@ -4,34 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PayPalCheckoutSdk.Core;
 
 namespace BusinessLayer.Service.Implement
 {
     public class PayPalService
     {
-        private readonly IConfiguration _configuration;
-        public PayPalService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        public PayPalEnvironment GetEnvironment()
-        {
-            var clientId = _configuration["PayPal:ClientId"];
-            var clientSecret = _configuration["PayPal:ClientSecret"];
-            var environment = _configuration["PayPal:Environment"];
+        private readonly PayPalHttpClient _client;
 
-            if (environment.Equals("live"))
-            {
-                return new PayPalEnvironment.Live(clientId, clientSecret);
-            }
-            return new PayPalEnvironment.Sandbox(clientId, clientSecret);
+        public PayPalService(string clientId, string clientSecret)
+        {
+            var environment = new SandboxEnvironment(clientId, clientSecret); // Sử dụng LiveEnvironment cho môi trường thực
+            _client = new PayPalHttpClient(environment);
         }
 
         public PayPalHttpClient GetHttpClient()
         {
-            var environment = GetEnvironment();
-            return new PayPalHttpClient(environment);
+            return _client;
         }
     }
-}
 }

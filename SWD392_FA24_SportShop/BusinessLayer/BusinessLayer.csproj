@@ -17,11 +17,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
-    <ProjectReference Include="..\UtilityLayer\UtilityLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Service\PaymentService\VnPay\Config\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PayPalCheckoutSdk" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

@@ -261,8 +261,8 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\ref\SWD392_SportShop.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_SportShop.sourcelink.json
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_S.859E6854.Up2Date
-E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.dll
-E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.pdb
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\UtilityLayer.pdb
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Debug\net6.0\SWD392_S.859E6854.Up2Date
+E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalCheckoutSdk.dll
+E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalHttp-Dotnet.dll
