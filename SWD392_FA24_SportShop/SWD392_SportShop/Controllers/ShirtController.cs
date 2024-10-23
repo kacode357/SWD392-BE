@@ -19,7 +19,7 @@ namespace SWD392_SportShop.Controllers
         }
         [Authorize]
         [HttpPost("GetAllByName")]
-        public async Task<IActionResult> GetAllByName(string name)
+        public async Task<IActionResult> GetAllByName(string? name)
         {
             try
             {
@@ -77,7 +77,6 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetShirtById(int id)
         {

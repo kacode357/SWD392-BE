@@ -354,9 +354,6 @@ namespace BusinessLayer.Service.Implement
                 }
                 var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
                 // Nếu không có lỗi, thực hiện phân trang
-                var pageShirt = result// Giả sử result là danh sách người dùng
-                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
-                    .ToPagedList(1, 1); // Phân trang với X.PagedList
                 return new DynamicResponse<ShirtResponseModel>()
                 {
                     Code = 200,
@@ -365,15 +362,7 @@ namespace BusinessLayer.Service.Implement
 
                     Data = new MegaData<ShirtResponseModel>()
                     {
-                        PageInfo = new PagingMetaData()
-                        {
-                            Page = pageShirt.PageNumber,
-                            Size = pageShirt.PageSize,
-                            Sort = "Ascending",
-                            Order = "Id",
-                            TotalPage = pageShirt.PageCount,
-                            TotalItem = pageShirt.TotalItemCount,
-                        },
+                        PageInfo = null,
                         SearchInfo = new SearchCondition()
                         {
                             keyWord = name,
@@ -382,7 +371,7 @@ namespace BusinessLayer.Service.Implement
                             is_Verify = null,
                             is_Delete = null
                         },
-                        PageData = pageShirt.ToList()
+                        PageData = result
                     },
                 };
             }
