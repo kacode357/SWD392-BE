@@ -17,7 +17,7 @@ namespace SWD392_SportShop.Controllers
         {
             _sessionService = sessionService;
         }
-
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetSessions(GetAllSessionRequestModel model)
         {
@@ -32,7 +32,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSessionById(int id)
         {
@@ -47,7 +47,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         public async Task<IActionResult> CreateSession([FromBody] CreateSessionRequestModel model)
         {
@@ -62,7 +62,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPut]
         public async Task<IActionResult> UpdateSession(int id, [FromBody] CreateSessionRequestModel model)
         {
@@ -77,7 +77,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpDelete("Change-Status/{id}")]
         public async Task<IActionResult> DeleteSession(int id, bool status)
         {

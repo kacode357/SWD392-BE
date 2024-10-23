@@ -17,7 +17,7 @@ namespace SWD392_SportShop.Controllers
         {
             _playerService = playerService;
         }
-
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetPlayers(GetAllPlayerRequestModel model)
         {
@@ -32,7 +32,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPlayerById(int id)
         {
@@ -47,7 +47,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         public async Task<IActionResult> CreatePlayer([FromBody] CreatePlayerRequestModel model)
         {
@@ -62,7 +62,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePlayer(int id, [FromBody] CreatePlayerRequestModel model)
         {
@@ -77,7 +77,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlayer(int id,bool status)
         {

@@ -30,7 +30,7 @@ namespace SWD392_SportShop.Controllers
 
         //    }
         //}
-        [Authorize(Roles = "User")]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddOrderDetails(CreateOrderDetailRequestModel model)
         {
@@ -44,6 +44,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderDetailsById(int id)
         {

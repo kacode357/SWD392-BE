@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj": {}
+    "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj": {
+    "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\hungv\\.nuget\\packages\\",
-        "outputPath": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\obj\\",
+        "projectPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hungv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

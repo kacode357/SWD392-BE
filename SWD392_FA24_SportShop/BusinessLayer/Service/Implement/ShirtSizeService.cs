@@ -131,14 +131,7 @@ namespace BusinessLayer.Service.Implement
                             TotalPage = pageShirtSize.PageCount,
                             TotalItem = pageShirtSize.TotalItemCount,
                         },
-                        SearchInfo = new SearchCondition()
-                        {
-                            keyWord = model.keyWord,
-                            role = null,
-                            status = model.Status,
-                            is_Verify = null,
-                            is_Delete = null
-                        },
+                        SearchInfo = null,
                         PageData = pageShirtSize.ToList()
                     },
                 };

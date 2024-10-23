@@ -21,7 +21,7 @@ namespace SWD392_SportShop.Controllers
         {
             _orderService = orderService;
         }
-
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllOrders(GetAllOrderRequestModel model)
         {
@@ -35,6 +35,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderById(string id)
         {
@@ -91,7 +92,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
        */
-        [Authorize(Roles = "User")]
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> UpdateOrder([FromBody]CreateOrderRequestModel model, string id)
         {
@@ -119,7 +120,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }*/
-        [Authorize(Roles = "User")]
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrderAsync(string id, int status)
         {
@@ -216,6 +217,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
+        [Authorize]
         [HttpPost("DeteleItemInCart")]
         public async Task<IActionResult> DeteleItemInCart(DeteleItemInCartRequestModel model)
         {

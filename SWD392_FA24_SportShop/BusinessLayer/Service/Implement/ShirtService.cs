@@ -228,6 +228,82 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
+        public async Task<DynamicResponse<ShirtResponseModel>> SearchShirtBySessionClubPlayerShirtName(SearchShirtByMutilName model)
+        {
+            try
+            {
+                var listShirtDto = await _shirtRepository.GetAllShirts();
+
+                if (!string.IsNullOrEmpty(model.nameClub))
+                {
+                    listShirtDto = listShirtDto
+                        .Where(c => c.Player.Club.Name.ToLower().Contains(model.nameClub.ToLower()))
+                        .ToList();
+                }
+                if (!string.IsNullOrEmpty(model.nameSeason))
+                {
+                    listShirtDto = listShirtDto
+                        .Where(c => c.TypeShirt.Session.Name.ToLower().Contains(model.nameSeason.ToLower()))
+                        .ToList();
+                }
+                if (!string.IsNullOrEmpty(model.nameShirt))
+                {
+                    listShirtDto = listShirtDto
+                        .Where(c => c.Name.ToLower().Contains(model.nameShirt.ToLower()))
+                        .ToList();
+                }
+                if (!string.IsNullOrEmpty(model.namePlayer))
+                {
+                    listShirtDto = listShirtDto
+                        .Where(c => c.Player.FullName.ToLower().Contains(model.namePlayer.ToLower()))
+                        .ToList();
+                }
+                if (model.status.HasValue)
+                {
+                    int statusInt = model.status.Value; // model.Status đã là kiểu int? nên chỉ cần lấy giá trị
+                    listShirtDto = listShirtDto
+                        .Where(c => c.Status == statusInt) // So sánh trực tiếp với giá trị int
+                        .ToList();
+                }
+                var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
+                // Nếu không có lỗi, thực hiện phân trang
+                var pageShirt = result// Giả sử result là danh sách người dùng
+                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
+                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
+                return new DynamicResponse<ShirtResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+
+                    Data = new MegaData<ShirtResponseModel>()
+                    {
+                        PageInfo = new PagingMetaData()
+                        {
+                            Page = pageShirt.PageNumber,
+                            Size = pageShirt.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pageShirt.PageCount,
+                            TotalItem = pageShirt.TotalItemCount,
+                        },
+                        SearchInfo = null,
+                        PageData = pageShirt.ToList()
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<ShirtResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
         public async Task<BaseResponse<ShirtResponseModel>> UpdateShirtAsync(CreateShirtRequestModel model, int id)
         {
             try

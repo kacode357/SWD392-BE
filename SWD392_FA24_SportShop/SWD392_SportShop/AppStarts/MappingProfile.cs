@@ -62,6 +62,7 @@ namespace SWDProject_BE.AppStarts
                 .ForMember(dest => dest.ClubName, opt => opt.MapFrom(src => src.Player.Club.Name))
                 .ForMember(dest => dest.ClubEstablishedYear, opt => opt.MapFrom(src => src.Player.Club.EstablishedYear))
                 .ForMember(dest => dest.ClubLogo, opt => opt.MapFrom(src => src.Player.Club.ClubLogo))
+                .ForMember(dest => dest.ClubCountry, opt => opt.MapFrom(src => src.Player.Club.Country))
                 .ForMember(dest => dest.ListSize, opt => opt.MapFrom(src => src.ShirtSizes));
             CreateMap<ShirtDto, ShirtResponseModel>();
 

@@ -16,7 +16,7 @@ namespace SWD392_SportShop.Controllers
         {
             _shirtSizeService = shirtSizeService;
         }
-
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetShirtSizes(GetAllShirtSizeRequestModel model)
         {
@@ -31,7 +31,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetShirtSizeById(int id)
         {
@@ -47,7 +47,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         public async Task<IActionResult> CreateShirtSize([FromBody] CreateShirtSizeRequestModel model)
         {
@@ -63,7 +63,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPut]
         public async Task<IActionResult> UpdateShirtSize(int id,[FromBody] CreateShirtSizeRequestModel model)
         {
@@ -79,7 +79,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpDelete]
         public async Task<IActionResult> DeleteShirtSize(int id, bool status)
         {

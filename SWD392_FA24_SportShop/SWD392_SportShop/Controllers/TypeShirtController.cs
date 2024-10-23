@@ -19,7 +19,7 @@ namespace SWD392_SportShop.Controllers
             _typeShirtService = typeShirtService;
         }
 
-
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllTypeShirt(GetAllTypeShirtRequestModel model)
         {
@@ -33,7 +33,7 @@ namespace SWD392_SportShop.Controllers
                 throw ex;
             }
         }
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTypeShirtById(int id)
         {
@@ -48,7 +48,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         public async Task<IActionResult> CreateTypeShirt([FromBody] CreateTypeShirtRequestModel model)
         {
@@ -63,7 +63,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPut]
         public async Task<IActionResult> UpdateTypeShirt(int id, [FromBody] CreateTypeShirtRequestModel model)
         {
@@ -78,7 +78,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpDelete("Change-Status/{id}")]
         public async Task<IActionResult> DeleteTypeShirt(int id, bool status)
         {

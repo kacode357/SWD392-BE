@@ -20,7 +20,7 @@ namespace SWD392_SportShop.Controllers
             _orderService = orderService;
         }
 
-        [Authorize(Roles = "User ")]
+        [Authorize]
         [HttpPost("CreatePayment")]
         public IActionResult CreatePaymentUrl([FromBody] VnPayPaymentRequestModel model)
         {
@@ -40,7 +40,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "User ")]
+        [Authorize]
         [HttpPost("ExecutePayment")]
         public IActionResult ExecutePayment()
         {

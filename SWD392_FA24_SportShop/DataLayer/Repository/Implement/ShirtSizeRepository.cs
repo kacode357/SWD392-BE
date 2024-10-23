@@ -53,7 +53,10 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.ShirtSizes.ToListAsync();
+                return await _swd392Context.ShirtSizes
+                    .Include(ss => ss.Shirt)
+                    .Include(ss => ss.Size)
+                    .ToListAsync();
             }
             catch (Exception ex)
             {

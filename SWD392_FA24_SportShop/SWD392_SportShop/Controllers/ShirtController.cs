@@ -47,7 +47,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetShirts(GetAllShirtRequestModel model)
         {
@@ -62,7 +62,22 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        [Authorize]
+        [HttpPost("SearchByMutilName")]
+        public async Task<IActionResult> SearchByMutilName(SearchShirtByMutilName model)
+        {
+            try
+            {
+                var result = await _shirtService.SearchShirtBySessionClubPlayerShirtName(model);
+                return StatusCode(result.Code, result);
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetShirtById(int id)
         {
@@ -70,7 +85,7 @@ namespace SWD392_SportShop.Controllers
             return StatusCode(result.Code, result);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         public async Task<IActionResult> CreateShirt([FromBody] CreateShirtRequestModel model)
         {
@@ -85,7 +100,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateShirt(int id, [FromBody] CreateShirtRequestModel model)
         {
@@ -100,7 +115,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteShirt(int id, int status)
         {

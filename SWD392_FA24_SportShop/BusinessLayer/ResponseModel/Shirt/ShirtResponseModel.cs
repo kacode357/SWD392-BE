@@ -22,6 +22,7 @@ namespace BusinessLayer.ResponseModel.Shirt
         public string ClubName { get; set; }
         public DateTime ClubEstablishedYear { get; set; }
         public string ClubLogo { get; set; }
+        public string ClubCountry { get; set; }
         public string Name { get; set; }
         public int? Number { get; set; }
         public double Price { get; set; }

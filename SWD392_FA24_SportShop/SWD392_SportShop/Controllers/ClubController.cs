@@ -16,6 +16,7 @@ namespace SWD392_SportShop.Controllers
         {
             _clubService = clubService;
         }
+        [Authorize]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllClubs(GetAllClubRequestModel model)
         {
@@ -30,6 +31,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetClubById(int id)
         {
@@ -43,7 +45,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost]
         public async Task<IActionResult> CreateClub(CreateClubRequestModel model)
         {
@@ -58,7 +60,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPut]
         public async Task<IActionResult> UpdateClub([FromBody]CreateClubRequestModel model, int id)
         {
@@ -73,7 +75,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpPost("Change-Status/{id}")]
         public async Task<IActionResult> DeleteClub(int id, bool status)
         {
@@ -88,7 +90,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Manager")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClubAsync(int id, bool status)
         {
