@@ -84,29 +84,12 @@ namespace SWD392_SportShop.Controllers
 
         [Authorize]
         [HttpPost("GetUrlPayment")]
-        public async Task<IActionResult> GetUrlPayment([FromBody] VnPayPaymentRequestModel model)
+        public async Task<IActionResult> GetUrlPayment([FromBody] VnPayPaymentRequestModel model )
         {
             try
             {
-                if (model == null || string.IsNullOrEmpty(model.OrderId) || model.Amount <= 0)
-                {
-                    return BadRequest(new { Message = "Invalid payment request." });
-                }
-
-                var order = await _orderService.GetOrderById(model.OrderId);
-                if (order == null || order.Data == null)
-                {
-                    return NotFound(new { Message = "Order not found." });
-                }
-
-                // Tạo URL thanh toán VnPay
-                var paymentUrl = _vnPayService.CreatePaymentUrl(model, HttpContext);
-                if (string.IsNullOrEmpty(paymentUrl))
-                {
-                    return StatusCode(500, new { Message = "Failed to create payment URL." });
-                }
-
-                return Ok(paymentUrl); // Redirect tới URL thanh toán
+                var result = await _vnPayService.CreatePaymentUrl(model, HttpContext);
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {

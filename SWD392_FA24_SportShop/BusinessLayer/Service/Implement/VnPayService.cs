@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.RequestModel.Payment;
+using BusinessLayer.ResponseModel;
 using BusinessLayer.ResponseModel.Payment;
 using BusinessLayer.ResponseModels;
 using BusinessLayer.Service.PaymentService.VnPay.lib;
@@ -14,6 +15,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Security.Policy;
 
 namespace BusinessLayer.Service.Implement
 {
@@ -30,30 +33,51 @@ namespace BusinessLayer.Service.Implement
             _orderRepository = orderRepository;
         }
 
-        public string CreatePaymentUrl( VnPayPaymentRequestModel model, HttpContext context)
+        public async Task<BaseResponse<UrlResponseModel>> CreatePaymentUrl(VnPayPaymentRequestModel model, HttpContext context)
         {
-            //var timeZoneById = TimeZoneInfo.FindSystemTimeZoneById(_configuration["TimeZoneId"]);
-            //var timeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZoneById);
-            var tick = DateTime.Now.Ticks.ToString();
-            var pay = new VnPayLibrary();
-            var urlCallBack = _configuration["Vnpay:ReturnUrl"];
-            pay.AddRequestData("vnp_Version", _configuration["Vnpay:Version"]);
-            pay.AddRequestData("vnp_Command", _configuration["Vnpay:Command"]);
-            pay.AddRequestData("vnp_TmnCode", _configuration["Vnpay:TmnCode"]);
-            pay.AddRequestData("vnp_Amount", (model.Amount * 100).ToString());
-            pay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
-            pay.AddRequestData("vnp_CurrCode", _configuration["Vnpay:CurrCode"]);
-            pay.AddRequestData("vnp_IpAddr", pay.GetIpAddress(context));
-            pay.AddRequestData("vnp_Locale", _configuration["Vnpay:Locale"]);
-            pay.AddRequestData("vnp_OrderInfo", model.OrderId);
-            pay.AddRequestData("vnp_OrderType", "order");
-            pay.AddRequestData("vnp_ReturnUrl", urlCallBack);
-            pay.AddRequestData("vnp_TxnRef", tick);
+            try
+            {
+                //var timeZoneById = TimeZoneInfo.FindSystemTimeZoneById(_configuration["TimeZoneId"]);
+                //var timeNow = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZoneById);
+                var tick = DateTime.Now.Ticks.ToString();
+                var pay = new VnPayLibrary();
+                var urlCallBack = _configuration["Vnpay:ReturnUrl"];
+                pay.AddRequestData("vnp_Version", _configuration["Vnpay:Version"]);
+                pay.AddRequestData("vnp_Command", _configuration["Vnpay:Command"]);
+                pay.AddRequestData("vnp_TmnCode", _configuration["Vnpay:TmnCode"]);
+                pay.AddRequestData("vnp_Amount", (model.Amount * 100).ToString());
+                pay.AddRequestData("vnp_CreateDate", model.CreateDate.ToString("yyyyMMddHHmmss"));
+                pay.AddRequestData("vnp_CurrCode", _configuration["Vnpay:CurrCode"]);
+                pay.AddRequestData("vnp_IpAddr", pay.GetIpAddress(context));
+                pay.AddRequestData("vnp_Locale", _configuration["Vnpay:Locale"]);
+                pay.AddRequestData("vnp_OrderInfo", model.OrderId);
+                pay.AddRequestData("vnp_OrderType", "order");
+                pay.AddRequestData("vnp_ReturnUrl", urlCallBack);
+                pay.AddRequestData("vnp_TxnRef", tick);
 
-            var paymentUrl =
-                pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
-
-            return paymentUrl;
+                var paymentUrl =
+                    pay.CreateRequestUrl(_configuration["Vnpay:BaseUrl"], _configuration["Vnpay:HashSecret"]);
+                return new BaseResponse<UrlResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Create Url payment VnPay with order = " + model.OrderId + " success!.",
+                    Data = new UrlResponseModel()
+                    {
+                        Url = paymentUrl
+                    }
+                };        
+            } 
+            catch (Exception ex)
+            {
+                return new BaseResponse<UrlResponseModel>()
+                {
+                    Code = 500,
+                    Success = true,
+                    Message = "Server Error!.",
+                    Data = null,
+                };
+            }
         }
 
         public VnPayPaymentResponseModel PaymentExecute(IQueryCollection collections)
@@ -94,43 +118,114 @@ namespace BusinessLayer.Service.Implement
             };
         }
 
-        public async Task<BaseResponse<PaymentResponseModel>> AddPayment(VnPayCallBackModel model)
+        public async Task<BaseResponse> AddPayment(VnPayCallBackModel model)
         {
             try
             {
-                bool status = false;
-                if (model.vnp_ResponseCode.ToString().Equals("00")){
-                    status = true;
-                }
-                var order = await _orderRepository.GetOrderByIdAsync(model.vnp_OrderInfo);
-                    var payment = new Payment()
-                {
-                    UserId = order.UserId,
-                    OrderId = model.vnp_OrderInfo.ToString(),
-                    Date = model.vnp_PayDate.ToString(),
-                    Amount = double.Parse(model.vnp_Amount.ToString()) / 100,
-                    Method = "VnPay",
-                    Description = model.vnp_OrderInfo.ToString(),
-                    Status = status,
-                };
-                await _paymentRepository.CreatePaymentAsync(payment);
+                //string myHashSecure;
+                //string rawData = _configuration["Vnpay:HashSecret"] 
+                //    + "&" + "vnp_Amount=" + model.vnp_Amount.ToString()
+                //    + "&" + "vnp_BankCode=" + model.vnp_BankCode.ToString()
+                //    + "&" + "vnp_BankTranNo=" + model.vnp_BankTranNo.ToString()
+                //    + "&" + "vnp_CardType=" + model.vnp_CardType.ToString()
+                //    + "&" + "vnp_OrderInfo=" + model.vnp_OrderInfo.ToString()
+                //    + "&" + "vnp_PayDate=" + model.vnp_PayDate.ToString()
+                //    + "&" + "vnp_ResponseCode=" + model.vnp_ResponseCode.ToString()
+                //    + "&" + "vnp_TmnCode=" + model.vnp_TmnCode.ToString()
+                //    + "&" + "vnp_TransactionNo=" + model.vnp_TransactionNo.ToString()
+                //    + "&" + "vnp_TransactionStatus=" + model.vnp_TransactionStatus.ToString()
+                //    + "&" + "vnp_TxnRef=" + model.vnp_TxnRef.ToString() ;
 
-                return new BaseResponse<PaymentResponseModel>()
+                //using (SHA256 sha256 = SHA256.Create())
+                //{
+                //    byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+                //    StringBuilder hashBuilder = new StringBuilder();
+                //    foreach (var b in bytes)
+                //    {
+                //        hashBuilder.Append(b.ToString("x2")); // Chuyển đổi thành chuỗi hexa
+                //    }
+
+                //    myHashSecure =  hashBuilder.ToString(); // Trả về mã hash dạng chuỗi hexa
+                //}
+                //if (!myHashSecure.Equals(model.vnp_SecureHash))
+                //{
+                //    return new BaseResponse()
+                //    {
+                //        Code = 401,
+                //        Success = false,
+                //        Message = "Data has been changed!."
+                //    };
+                //}
+                if (model.vnp_ResponseCode.Equals("00"))
                 {
-                    Code = 200,
-                    Success = true,
-                    Message = "Add Payment success!.",
-                    Data = null,
-                };
+                    var order = await _orderRepository.GetOrderByIdAsync(model.vnp_OrderInfo);
+                    var payment = new Payment()
+                    {
+                        UserId = order.UserId,
+                        OrderId = model.vnp_OrderInfo.ToString(),
+                        Date = model.vnp_PayDate.ToString(),
+                        Amount = double.Parse(model.vnp_Amount.ToString()) / 100,
+                        Method = "VnPay",
+                        Description = model.vnp_OrderInfo.ToString(),
+                        Status = true,
+                    };
+                    await _paymentRepository.CreatePaymentAsync(payment);
+                    return new BaseResponse()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Giao dịch thành công!."
+                    };
+                }
+                else
+                {
+                    string message;
+                    switch (model.vnp_ResponseCode)
+                    {
+                        case "05":
+                            message = "Giao dịch không thành công: Tài khoản không đủ tiền.";
+                            break;
+                        case "09":
+                            message = "Giao dịch đã bị hủy.";
+                            break;
+                        case "13":
+                            message = "Giao dịch thất bại: Xác thực không thành công.";
+                            break;
+                        case "24":
+                            message = "Giao dịch đã bị khách hàng hủy.";
+                            break;
+                        case "51":
+                            message = "Giao dịch không thành công: Tài khoản không đủ tiền.";
+                            break;
+                        case "65":
+                            message = "Giao dịch không thành công: Giao dịch bị giới hạn tần suất.";
+                            break;
+                        case "91":
+                            message = "Không kết nối được với ngân hàng phát hành thẻ.";
+                            break;
+                        case "99":
+                            message = "Lỗi hệ thống, vui lòng thử lại sau.";
+                            break;
+                        default:
+                            message = "Giao dịch không thành công: Mã lỗi không xác định.";
+                            break;
+                    }
+                    return new BaseResponse()
+                    {
+                        Code = 400,
+                        Success = false,
+                        Message = message
+                    };
+                }
+                
             }
             catch (Exception ex)
             {
-                return new BaseResponse<PaymentResponseModel>()
+                return new BaseResponse()
                 {
-                    Code = 400,
+                    Code = 500,
                     Success = false,
-                    Message = "Server error!.",
-                    Data = null,
+                    Message = "Server error!."
                 };
             }
         }

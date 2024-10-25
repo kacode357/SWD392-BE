@@ -10,5 +10,6 @@ namespace BusinessLayer.Service.PaymentService.VnPay.Request
     {
         public string OrderId { get; set; }
         public double Amount { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

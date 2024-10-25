@@ -446,7 +446,7 @@ namespace BusinessLayer.Service.Interface
                                 Code = 401,
                                 Success = false,
                                 Message = "Email not verified!.",
-                                Data = null,
+                                Data = null
                             };
                         }
 
@@ -470,7 +470,7 @@ namespace BusinessLayer.Service.Interface
                             Data = new LoginResponseModel()
                             {
                                 token = token,
-                                user = null
+                                user = _mapper.Map<UserResponseModel>(user)
                             },
                         };
                     }

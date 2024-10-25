@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.RequestModel.Payment;
+using BusinessLayer.ResponseModel;
 using BusinessLayer.ResponseModel.Payment;
 using BusinessLayer.ResponseModels;
 using BusinessLayer.Service.PaymentService.VnPay.Request;
@@ -14,8 +15,8 @@ namespace BusinessLayer.Service
 {
     public interface IVnPayService
     {
-        string CreatePaymentUrl(VnPayPaymentRequestModel model, HttpContext context);
+        Task<BaseResponse<UrlResponseModel>> CreatePaymentUrl(VnPayPaymentRequestModel model, HttpContext context);
         VnPayPaymentResponseModel PaymentExecute(IQueryCollection collections);
-        Task<BaseResponse<PaymentResponseModel>> AddPayment(VnPayCallBackModel model);
+        Task<BaseResponse> AddPayment(VnPayCallBackModel model);
     }
 }
