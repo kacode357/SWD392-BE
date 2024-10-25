@@ -27,6 +27,11 @@ namespace SWD392_SportShop.Controllers
         {
             try
             {
+                if (model.Status == 0)
+                {
+                    model.Status = null;
+                }
+
                 var result = await _orderService.GetAllOrders(model);
                 return StatusCode(result.Code, result);
             }

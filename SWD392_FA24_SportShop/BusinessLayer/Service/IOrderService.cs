@@ -29,5 +29,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<CartResponseModel>> UpdateCart(UpdateCartRequestModel model);
         Task<BaseResponse<CartResponseModel>> DeteteItemInCart(DeteleItemInCartRequestModel model);
         Task<BaseResponse<OrderResponseModel>> AddOrder(int userId);
+        //Task<BaseResponse<OrderResponseModel>> GetAllOrdersByStatus(GetAllOrderRequestModel model);
     }
 }

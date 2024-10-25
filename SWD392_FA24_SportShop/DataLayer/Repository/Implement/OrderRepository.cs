@@ -85,6 +85,33 @@ namespace DataLayer.Repository.Implement
             }
         }
 
+        //public async Task<List<OrderDto>> GetAllOrderByStatus()
+        //{
+        //    try
+        //    {
+        //        var query = from order in _swd392Context.Orders
+        //                    join user in _swd392Context.Users on order.UserId equals user.Id
+        //                    where order.Status != 1
+        //                    select new OrderDto
+        //                    {
+        //                        Id = order.Id,
+        //                        UserId = user.Id,
+        //                        FullName = user.UserName,
+        //                        TotalPrice = order.TotalPrice,
+        //                        ShipPrice = order.ShipPrice,
+        //                        Deposit = order.Deposit,
+        //                        Date = order.Date,
+        //                        RefundStatus = order.RefundStatus,
+        //                        Status = order.Status,
+        //                    };
+        //        return await query.ToListAsync();
+        //    } 
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+
         public async Task<List<OrderDto>> GetAllOrders()
         {
             try

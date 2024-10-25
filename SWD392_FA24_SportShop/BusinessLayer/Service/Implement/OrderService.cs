@@ -290,19 +290,16 @@ namespace BusinessLayer.Service.Implement
             try
             {
                 var listOrder = await _orderRepository.GetAllOrders();
-                //Filtering by status
-                if (model.Status != null)
+
+                // Nếu model.Status có giá trị, thực hiện lọc theo Status, nếu không thì lấy tất cả
+                if (model.Status.HasValue)
                 {
-                    listOrder = listOrder.Where(o => o.Status == model.Status).ToList();
+                    listOrder = listOrder.Where(o => o.Status == model.Status.Value).ToList();
                 }
-                /*//Filtering by User Id
-                if (model.UserId != null)
-                {
-                    listOrder = listOrder.Where(o => o.UserId == model.UserId).ToList();
-                }*/
+
                 var result = _mapper.Map<List<OrderResponseModel>>(listOrder);
 
-                //If don't have error => Pagination
+                // Thực hiện phân trang
                 var pageOrder = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);
 
                 return new DynamicResponse<OrderResponseModel>()
@@ -310,7 +307,6 @@ namespace BusinessLayer.Service.Implement
                     Code = 200,
                     Success = true,
                     Message = null,
-
                     Data = new MegaData<OrderResponseModel>()
                     {
                         PageInfo = new PagingMetaData()
@@ -344,6 +340,7 @@ namespace BusinessLayer.Service.Implement
                 };
             }
         }
+
 
         public async Task<BaseResponse<OrderResponseModel>> GetOrderById(string orderId)
         {

@@ -313,15 +313,70 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
-    "Method": "CreateOrder",
-    "RelativePath": "api/payment/create-order",
-    "HttpMethod": "POST",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "api/payment/createpayment",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "amount",
-        "Type": "System.Decimal",
+        "Name": "vnp_Amount",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_BankCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_BankTranNo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_CardType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_OrderInfo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_PayDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_ResponseCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_TmnCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_TransactionNo",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_TransactionStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_TxnRef",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "vnp_SecureHash",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
@@ -329,8 +384,8 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
-    "Method": "CreatePaymentUrl",
-    "RelativePath": "api/payment/createpayment",
+    "Method": "GetUrlPayment",
+    "RelativePath": "api/payment/geturlpayment",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -341,16 +396,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
-    "Method": "ExecutePayment",
-    "RelativePath": "api/payment/executepayment",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -626,9 +671,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Shirt.SearchShirtByNameRequestModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
