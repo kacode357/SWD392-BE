@@ -54,49 +54,85 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
         }
-/*        [HttpGet("Details/{orderId}")]
-        public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int id)
+
+        [Authorize]
+        [HttpGet("current-user")]
+        public async Task<IActionResult> GetOrderByCurentUser()
         {
             try
             {
-                var result = await _orderService.GetOrderDetailsByOrderIdAsync(id);
-                return StatusCode(result.Code, result);
+                var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+                if (int.TryParse(userIdString, out int userId)) // Convert userId to int
+                {
+                    var result = await _orderService.GetOrdersByCurrentUser(userId);
+                    return StatusCode(result.Code, result);
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Invalid user ID." });
+                }
             }
             catch (Exception ex)
             {
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
+
         }
-        [Authorize(Roles = "Staff, Manager")]
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetOrdersByUserIdAsync(int id)
-        {
-            try
-            {
-                var result = await _orderService.GetOrdersByUserIdAsync(id);
-                return StatusCode(result.Code, result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
-            }
-        }*/
-       /*
-        [Authorize(Roles = "User")]
-        [HttpPost]
-        public async Task<IActionResult> CreateOrder(CreateOrderRequestModel model)
-        {
-            try
-            {
-                var result = await _orderService.CreateOrderAsync(model);
-                return StatusCode(result.Code, result);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
-            }
-        }
-       */
+
+        //[HttpGet("Details/{orderId}")]
+        //public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int id)
+        //{
+        //    try
+        //    {
+        //        var result = await _orderService.GetOrderDetailsByOrderIdAsync(id);
+        //        return StatusCode(result.Code, result);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+        //    }
+        //}
+        //[Authorize]
+        //[HttpGet("userOrders")]
+        //public async Task<IActionResult> GetOrdersByUserIdAsync()
+        //{
+        //    try
+        //    {
+        //        var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        //        if (int.TryParse(userIdString, out var userId))
+        //        {
+        //            var result = await _orderService.GetOrdersByUserIdAsync(userId);
+        //            return StatusCode(result.Code, result);
+        //        }
+        //        else
+        //        {
+        //            return BadRequest(new { Message = "Invalid user ID." });
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+        //    }
+        //}
+        /*
+         [Authorize(Roles = "User")]
+         [HttpPost]
+         public async Task<IActionResult> CreateOrder(CreateOrderRequestModel model)
+         {
+             try
+             {
+                 var result = await _orderService.CreateOrderAsync(model);
+                 return StatusCode(result.Code, result);
+             }
+             catch (Exception ex)
+             {
+                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+             }
+         }
+        */
         [Authorize]
         [HttpPut]
         public async Task<IActionResult> UpdateOrder([FromBody]CreateOrderRequestModel model, string id)

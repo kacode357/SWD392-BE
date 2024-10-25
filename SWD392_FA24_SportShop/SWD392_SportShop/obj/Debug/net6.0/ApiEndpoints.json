@@ -249,6 +249,16 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "GetOrderByCurentUser",
+    "RelativePath": "api/order/current-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "DeteleItemInCart",
     "RelativePath": "api/order/deteleitemincart",
     "HttpMethod": "POST",

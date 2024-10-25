@@ -150,6 +150,18 @@ namespace DataLayer.Repository.Implement
             }
         }
 
+        public async Task<Order> GetOrderByCurrentUser(int userId)
+        {
+            try
+            {
+                return await _swd392Context.Orders.Where(o => o.UserId == userId).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<Order> GetOrderByIdAsync(string orderId)
         {
             try
@@ -201,26 +213,26 @@ namespace DataLayer.Repository.Implement
         //    }
         //}
 
-        public async Task<List<OrderDto>> GetOrdersByUserIdAsync(int userId)
-        {
-            try
-            {
-                return await _swd392Context.Orders.Where(o => o.UserId == userId).Select(o => new OrderDto
-                {
-                    Id = o.Id,
-                    UserId = userId,
-                    TotalPrice = o.TotalPrice,
-                    ShipPrice = o.ShipPrice,
-                    Deposit = o.Deposit,
-                    Date = o.Date,
-                    Status = o.Status,
-                }).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public async Task<List<OrderDto>> GetOrdersByUserIdAsync(int userId)
+        //{
+        //    try
+        //    {
+        //        return await _swd392Context.Orders.Where(o => o.UserId == userId).Select(o => new OrderDto
+        //        {
+        //            Id = o.Id,
+        //            UserId = userId,
+        //            TotalPrice = o.TotalPrice,
+        //            ShipPrice = o.ShipPrice,
+        //            Deposit = o.Deposit,
+        //            Date = o.Date,
+        //            Status = o.Status,
+        //        }).ToListAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         public async Task<bool> ProcessRefundAsync(string orderId)
         {

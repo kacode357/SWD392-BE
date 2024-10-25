@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.ResponseModel.OrderDetail;
+using DataLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,10 @@ namespace BusinessLayer.ResponseModel.Order
 {
     public class OrderResponseModel
     {
+        public OrderResponseModel()
+        {
+            OrderDetails = new List<OrderDetailResponseModel>();
+        }
         public string Id { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
@@ -18,5 +24,7 @@ namespace BusinessLayer.ResponseModel.Order
         public bool RefundStatus { get; set; }
         public int Status { get; set; }
         public int NewStatus { get; set; }
+        public List<OrderDetailResponseModel> OrderDetails { get; set; }
+
     }
 }
