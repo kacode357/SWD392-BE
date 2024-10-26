@@ -68,7 +68,7 @@ namespace SWD392_SportShop.Controllers
         {
             try
             {
-                var result = await _shirtService.SearchShirtBySessionClubPlayerShirtName(model);
+                var result = await _shirtService.SearchShirtBySessionClubPlayerShirtTypeShirtName(model);
                 return StatusCode(result.Code, result);
 
             }

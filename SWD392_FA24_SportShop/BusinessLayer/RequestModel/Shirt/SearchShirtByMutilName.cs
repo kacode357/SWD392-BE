@@ -14,6 +14,7 @@ namespace BusinessLayer.RequestModel.Shirt
         public string? nameClub { get; set; }
         public string? nameSeason { get; set; }
         public string? namePlayer{ get; set; }
+        public string? nameTypeShirt { get; set; }
         public int? status { get; set; }
     }
 }

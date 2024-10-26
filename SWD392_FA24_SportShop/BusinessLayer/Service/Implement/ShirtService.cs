@@ -228,12 +228,17 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<DynamicResponse<ShirtResponseModel>> SearchShirtBySessionClubPlayerShirtName(SearchShirtByMutilName model)
+        public async Task<DynamicResponse<ShirtResponseModel>> SearchShirtBySessionClubPlayerShirtTypeShirtName(SearchShirtByMutilName model)
         {
             try
             {
                 var listShirtDto = await _shirtRepository.GetAllShirts();
-
+                if (!string.IsNullOrEmpty(model.nameTypeShirt))
+                {
+                    listShirtDto = listShirtDto
+                        .Where(s => s.TypeShirt.Name.ToLower().Contains(model.nameTypeShirt.ToLower()))
+                        .ToList();
+                }
                 if (!string.IsNullOrEmpty(model.nameClub))
                 {
                     listShirtDto = listShirtDto
