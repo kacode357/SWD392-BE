@@ -170,6 +170,8 @@ namespace BusinessLayer.Service.Implement
                         Status = true,
                     };
                     await _paymentRepository.CreatePaymentAsync(payment);
+                    order.Status = 2;
+                    await _orderRepository.UpdateOrderAsync(order);
                     return new BaseResponse()
                     {
                         Code = 200,

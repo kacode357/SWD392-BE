@@ -51,26 +51,13 @@ namespace DataLayer.Repository.Implement
             }
         }*/
 
-        public async Task<List<PaymentDto>> GetAllPayments()
+        public async Task<List<Payment>> GetAllPayments()
         {
             try
             {
-                var query = from payment in _swd392Context.Payments
-                            join order in _swd392Context.Orders on payment.OrderId equals order.Id
-                            join user in _swd392Context.Users on payment.UserId equals user.Id
-                            select new PaymentDto
-                            {
-                                Id = payment.Id,
-                                UserId = payment.UserId,
-                                FullName = user.UserName,
-                                OrderId = payment.OrderId,
-                                Amount = payment.Amount,
-                                Date = payment.Date,
-                                Description = payment.Description,
-                                Method = payment.Method,
-                                Status = payment.Status,
-                            };
-                return await query.ToListAsync();
+                return await _swd392Context.Payments
+                    .Include(p => p.User)
+                    .ToListAsync(); 
             }
             catch (Exception ex)
             {

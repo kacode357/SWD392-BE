@@ -266,3 +266,5 @@ E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalC
 E:\Git\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalHttp-Dotnet.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalCheckoutSdk.dll
 F:\FA24\SWD392\Project\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalHttp-Dotnet.dll
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalCheckoutSdk.dll
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\bin\Debug\net6.0\PayPalHttp-Dotnet.dll

@@ -10079,24 +10079,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "E:\\CN8\\SWD392\\Project\\BE\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\obj\\",
+      "projectPath": "E:\\CN8\\SWD392\\Project\\BE\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\BusinessLayer.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "E:\\CN8\\SWD392\\Project\\BE\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10111,8 +10106,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "F:\\FA24\\SWD392\\Project\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj"
+            "E:\\CN8\\SWD392\\Project\\BE\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "E:\\CN8\\SWD392\\Project\\BE\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\DataLayer.csproj"
             }
           }
         }

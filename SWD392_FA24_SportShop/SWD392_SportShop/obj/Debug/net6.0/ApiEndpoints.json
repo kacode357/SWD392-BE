@@ -409,6 +409,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
+    "Method": "GetPaymentByUserId",
+    "RelativePath": "api/payment/paymentbycurrentuser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
+    "Method": "GetAllPayment",
+    "RelativePath": "api/payment/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Payment.GetAllPaymentRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SWD392_SportShop.Controllers.PlayerController",
     "Method": "CreatePlayer",
     "RelativePath": "api/player",

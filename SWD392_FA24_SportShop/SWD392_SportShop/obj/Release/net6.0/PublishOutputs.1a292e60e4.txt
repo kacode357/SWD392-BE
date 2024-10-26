@@ -34,6 +34,8 @@ E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Re
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\PayPalCheckoutSdk.dll
+E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\PayPalHttp-Dotnet.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\CN8\SWD392\Project\BE\SWD392-BE\SWD392_FA24_SportShop\SWD392_SportShop\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

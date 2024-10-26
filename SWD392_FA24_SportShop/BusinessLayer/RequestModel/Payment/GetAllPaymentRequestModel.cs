@@ -10,6 +10,7 @@ namespace BusinessLayer.RequestModel.Payment
     {
         public int pageNum { get; set; } = 1;
         public int pageSize { get; set; } = 10;
+        public string? keyWord { get; set; }
         public bool? Status { get; set; }
     }
 }

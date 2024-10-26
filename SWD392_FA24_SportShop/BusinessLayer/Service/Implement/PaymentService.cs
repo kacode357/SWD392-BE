@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLayer.RequestModel.Payment;
 using BusinessLayer.ResponseModel.Club;
+using BusinessLayer.ResponseModel.Order;
 using BusinessLayer.ResponseModel.Payment;
 using BusinessLayer.ResponseModels;
 using DataLayer.Entities;
@@ -50,7 +51,13 @@ namespace BusinessLayer.Service.Implement
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return new BaseResponse<PaymentResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
             }
         }
 
@@ -80,7 +87,13 @@ namespace BusinessLayer.Service.Implement
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return new BaseResponse<PaymentResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
             }
         }
 
@@ -89,6 +102,10 @@ namespace BusinessLayer.Service.Implement
             try
             {
                 var payment = await _paymentRepository.GetAllPayments();
+                if(!string.IsNullOrEmpty(model.keyWord))
+                {
+                    payment = payment.Where(p => p.OrderId.Equals(model.keyWord)).ToList();
+                }
                 if(model.Status != null)
                 {
                     payment = payment.Where(p => p.Status == model.Status).ToList();
@@ -116,6 +133,7 @@ namespace BusinessLayer.Service.Implement
                         },
                         SearchInfo = new SearchCondition()
                         {
+                            keyWord = model.keyWord,
                             role = null,
                             status = model.Status,
                             is_Verify = null,
@@ -128,7 +146,46 @@ namespace BusinessLayer.Service.Implement
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return new DynamicResponse<PaymentResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<DynamicResponse<PaymentResponseModel>> GetPaymentByUserId(int userId)
+        {
+            try
+            {
+                var payment = await _paymentRepository.GetAllPayments();
+                    payment = payment.Where(p => p.UserId.Equals(userId)).ToList();
+                var result = _mapper.Map<List<PaymentResponseModel>>(payment);
+                return new DynamicResponse<PaymentResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+                    Data = new MegaData<PaymentResponseModel>()
+                    {
+                        PageInfo = null,
+                        SearchInfo = null,
+                        PageData = result
+                    },
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<PaymentResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
             }
         }
 
@@ -158,7 +215,13 @@ namespace BusinessLayer.Service.Implement
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return new BaseResponse<PaymentResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
             }
         }
     }

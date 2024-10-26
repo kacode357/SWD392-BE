@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.RequestModel.Payment;
+using BusinessLayer.ResponseModels;
 using BusinessLayer.Service;
 using BusinessLayer.Service.Implement;
 using BusinessLayer.Service.PaymentService.VnPay.Request;
@@ -103,6 +104,44 @@ namespace SWD392_SportShop.Controllers
             try
             {
                 var result = await _vnPayService.AddPayment(model);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize(Roles = "Admin,Manager")]
+        [HttpPost("Search")]
+        public async Task<IActionResult> GetAllPayment(GetAllPaymentRequestModel model)
+        {
+            try
+            {
+                var result = await _paymentService.GetPaymentsAsync(model);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Authorize]
+        [HttpGet("PaymentByCurrentUser")]
+        public async Task<IActionResult> GetPaymentByUserId()
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (userId == null)
+                {
+                    return StatusCode(401, new BaseResponse()
+                    {
+                        Code = 401,
+                        Success = false,
+                        Message = "User information not found, user may not be authenticated into the system!."
+                    });
+                }
+                var result = await _paymentService.GetPaymentByUserId(int.Parse(userId));
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)

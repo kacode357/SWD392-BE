@@ -14,7 +14,7 @@ namespace DataLayer.Repository
         Task<bool> UpdatePaymentAsync (Payment paymentId);
         //Task<bool> DeletePaymentAsync (int  paymentId);
         Task<Payment> GetPaymentById (int paymentId);
-        Task<List<PaymentDto>> GetAllPayments();
+        Task<List<Payment>> GetAllPayments();
         Task<bool> HasSuccessFullPayment(int userId, int shirtSizeId);
     }
 }

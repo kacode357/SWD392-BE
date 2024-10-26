@@ -109,6 +109,7 @@ namespace SWDProject_BE.AppStarts
             CreateMap<VnPayPaymentRequestModel, Payment>().ReverseMap();
             CreateMap<VnPayPaymentResponseModel, Payment>().ReverseMap();
             CreateMap<Payment, VnPayPaymentResponseModel>();
+            CreateMap<PaymentResponseModel, Payment>().ReverseMap();
 
             //Size
             CreateMap<CreateSizeRequestModel, Size>().ReverseMap();
