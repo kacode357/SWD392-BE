@@ -18,7 +18,7 @@ namespace BusinessLayer.Service
         Task<BaseResponse<OrderResponseModel>> UpdateOrderAsync(CreateOrderRequestModel model, string id);
         Task<BaseResponse<OrderResponseModel>> DeleteOrderAsync(string orderId, int status);
         Task<BaseResponse<OrderResponseModel>> GetOrderById(string orderId);
-        Task<DynamicResponse<OrderResponseModel>> GetAllOrders(GetAllOrderRequestModel model);
+        Task<DynamicResponse<OrderResponseModel>> GetAllOrders(SearchOrderByIdRequestModel model);
         //Task<BaseResponse<OrderResponseModel>> CalculatePrice (int orderId);
         //Task<BaseResponse<OrderResponseModel>> GetOrdersByUserIdAsync (int userId);
         Task<DynamicResponse<OrderResponseModel>> GetOrdersByCurrentUser (GetAllOrderRequestModel model, int userId);

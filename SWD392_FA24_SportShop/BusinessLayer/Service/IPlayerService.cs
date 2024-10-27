@@ -1,4 +1,5 @@
-﻿using BusinessLayer.RequestModel.Player;
+﻿using BusinessLayer.RequestModel.Payment;
+using BusinessLayer.RequestModel.Player;
 using BusinessLayer.ResponseModel.Player;
 using BusinessLayer.ResponseModels;
 using DataLayer.Entities;

@@ -16,6 +16,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<PaymentResponseModel>> UpdatePaymentAsync(CreatePaymentRequestModel model, int id);
         //Task<BaseResponse<PaymentResponseModel>> DeletePaymentAsync(int paymentId, int status);
         Task<BaseResponse<PaymentResponseModel>> GetPaymentById(int paymentId);
-        Task<DynamicResponse<PaymentResponseModel>> GetPaymentByUserId(int userId);
+        Task<DynamicResponse<PaymentResponseModel>> GetPaymentByUserId(GetAllPaymentRequestModel model, int userId);
     }
 }

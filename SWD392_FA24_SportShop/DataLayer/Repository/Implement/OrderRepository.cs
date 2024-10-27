@@ -112,25 +112,13 @@ namespace DataLayer.Repository.Implement
         //    }
         //}
 
-        public async Task<List<OrderDto>> GetAllOrders()
+        public async Task<List<Order>> GetAllOrders()
         {
             try
             {
-                var query = from order in _swd392Context.Orders
-                            join user in _swd392Context.Users on order.UserId equals user.Id
-                            select new OrderDto
-                            {
-                                Id = order.Id,
-                                UserId = user.Id,
-                                FullName = user.UserName,
-                                TotalPrice = order.TotalPrice,
-                                ShipPrice = order.ShipPrice,
-                                Deposit = order.Deposit,
-                                Date = order.Date,
-                                RefundStatus = order.RefundStatus,
-                                Status = order.Status,
-                            };
-                return await query.ToListAsync();
+                return await _swd392Context.Orders
+                    .Include(o => o.User)
+                    .ToListAsync();
             }
             catch (Exception ex)
             {

@@ -23,7 +23,7 @@ namespace SWD392_SportShop.Controllers
         }
 
         [HttpPost("Search")]
-        public async Task<IActionResult> GetAllOrders(GetAllOrderRequestModel model)
+        public async Task<IActionResult> GetAllOrders(SearchOrderByIdRequestModel model)
         {
             try
             {

@@ -16,7 +16,7 @@ namespace BusinessLayer.Service
         Task<BaseResponse<OrderDetailResponseModel>> UpdateOrderDetailAsync(CreateOrderDetailRequestModel model, int id);
         Task<BaseResponse<OrderDetailResponseModel>> DeleteOrderDetailASync(int orderDetailId, int status);
         Task<BaseResponse<OrderDetailResponseModel>> GetOrderDetailById(int orderDetailId);
-        //Task<DynamicResponse<OrderDetailResponseModel>> GetAllOrderDetails(GetAllOrderDetailRequestModel model);
-        
+        Task<DynamicResponse<OrderDetailResponseModel>> GetAllOrderDetailsByOrderId(string model);
+
     }
 }

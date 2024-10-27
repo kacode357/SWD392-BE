@@ -285,12 +285,18 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<DynamicResponse<OrderResponseModel>> GetAllOrders(GetAllOrderRequestModel model)
+        public async Task<DynamicResponse<OrderResponseModel>> GetAllOrders(SearchOrderByIdRequestModel model)
         {
             try
             {
                 var listOrder = await _orderRepository.GetAllOrders();
 
+                listOrder = listOrder.Where(o => o.Status != 1).ToList();
+
+                if (!string.IsNullOrEmpty(model.orderId))
+                {
+                    listOrder = listOrder.Where(o => o.Id == model.orderId).ToList();
+                }
                 // Nếu model.Status có giá trị, thực hiện lọc theo Status, nếu không thì lấy tất cả
                 if (model.Status.HasValue)
                 {

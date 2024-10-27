@@ -156,13 +156,26 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<DynamicResponse<PaymentResponseModel>> GetPaymentByUserId(int userId)
+        public async Task<DynamicResponse<PaymentResponseModel>> GetPaymentByUserId(GetAllPaymentRequestModel model ,int userId)
         {
             try
             {
                 var payment = await _paymentRepository.GetAllPayments();
                     payment = payment.Where(p => p.UserId.Equals(userId)).ToList();
+
+                if (!string.IsNullOrEmpty(model.keyWord))
+                {
+                    payment = payment.Where(p => p.OrderId.Equals(model.keyWord)).ToList();
+                }
+                if (model.Status != null)
+                {
+                    payment = payment.Where(p => p.Status == model.Status).ToList();
+                }
                 var result = _mapper.Map<List<PaymentResponseModel>>(payment);
+
+                var pagePayment = result
+                    .OrderBy(p => p.Id) // Sắp xếp theo Id tăng dần
+                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
                 return new DynamicResponse<PaymentResponseModel>()
                 {
                     Code = 200,
@@ -170,9 +183,24 @@ namespace BusinessLayer.Service.Implement
                     Message = null,
                     Data = new MegaData<PaymentResponseModel>()
                     {
-                        PageInfo = null,
-                        SearchInfo = null,
-                        PageData = result
+                        PageInfo = new PagingMetaData()
+                        {
+                            Page = pagePayment.PageNumber,
+                            Size = pagePayment.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pagePayment.PageCount,
+                            TotalItem = pagePayment.TotalItemCount,
+                        },
+                        SearchInfo = new SearchCondition()
+                        {
+                            keyWord = model.keyWord,
+                            role = null,
+                            status = model.Status,
+                            is_Verify = null,
+                            is_Delete = null
+                        },
+                        PageData = pagePayment.ToList()
                     },
                 };
 

@@ -8,6 +8,7 @@ using DataLayer.DBContext;
 using DataLayer.Entities;
 using DataLayer.Repository;
 using DataLayer.Repository.Implement;
+using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -103,7 +104,7 @@ namespace BusinessLayer.Service.Implement
         //        {
         //            listOrderDetail = listOrderDetail.Where(o => o.Status == model.Status).ToList();
         //        }
-            
+
         //        var result = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetail);
 
         //        //If don't have error => Pagination
@@ -148,6 +149,41 @@ namespace BusinessLayer.Service.Implement
         //        };
         //    }
         //}
+
+        public async Task<DynamicResponse<OrderDetailResponseModel>> GetAllOrderDetailsByOrderId(string orderId)
+        {
+            try
+            {
+                var listOrderDetail = await _orderDetailRepository.GetAllOrderDetailsByOrderId(orderId);
+
+                var result = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetail);
+
+
+                return new DynamicResponse<OrderDetailResponseModel>()
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = null,
+
+                    Data = new MegaData<OrderDetailResponseModel>()
+                    {
+                        PageInfo = null,
+                        SearchInfo = null,
+                        PageData = result
+                    },
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DynamicResponse<OrderDetailResponseModel>
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error1",
+                    Data = null,
+                };
+            }
+        }
 
         public async Task<BaseResponse<OrderDetailResponseModel>> GetOrderDetailById(int orderDetailId)
         {
@@ -219,5 +255,6 @@ namespace BusinessLayer.Service.Implement
                 };
             }
         }
+
     }
 }

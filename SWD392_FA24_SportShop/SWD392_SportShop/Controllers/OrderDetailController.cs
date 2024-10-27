@@ -15,21 +15,22 @@ namespace SWD392_SportShop.Controllers
         {
             _orderDetailService = orderDetailService;
         }
+        [Authorize(Roles = "Admin,Manager")]
+        [HttpGet("GetAllOrderDetailsByOrderId/{orderId}")]
+        public async Task<IActionResult> GetAllOrderDetailsByOrderId(string orderId)
+        {
+            try
+            {
+                var result = await _orderDetailService.GetAllOrderDetailsByOrderId(orderId);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
 
-        //[HttpPost("Search")]
-        //public async Task<IActionResult> GetAllOrderDetails(GetAllOrderDetailRequestModel model)
-        //{
-        //    try
-        //    {
-        //        var result = await _orderDetailService.GetAllOrderDetails(model);
-        //        return StatusCode(result.Code, result);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+            }
+        }
 
-        //    }
-        //}
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddOrderDetails(CreateOrderDetailRequestModel model)

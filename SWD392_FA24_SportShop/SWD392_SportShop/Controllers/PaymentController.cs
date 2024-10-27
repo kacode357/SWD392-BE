@@ -126,8 +126,8 @@ namespace SWD392_SportShop.Controllers
             }
         }
         [Authorize]
-        [HttpGet("PaymentByCurrentUser")]
-        public async Task<IActionResult> GetPaymentByUserId()
+        [HttpPost("PaymentByCurrentUser")]
+        public async Task<IActionResult> GetPaymentByUserId(GetAllPaymentRequestModel model)
         {
             try
             {
@@ -141,7 +141,7 @@ namespace SWD392_SportShop.Controllers
                         Message = "User information not found, user may not be authenticated into the system!."
                     });
                 }
-                var result = await _paymentService.GetPaymentByUserId(int.Parse(userId));
+                var result = await _paymentService.GetPaymentByUserId(model , int.Parse(userId));
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)
