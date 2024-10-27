@@ -1001,5 +1001,129 @@ namespace BusinessLayer.Service.Interface
                 };
             }
         }
+
+        public async Task<BaseResponse> ChangePassword(int id, string currentPassword, string newPassword)
+        {
+            try
+            {
+                //Get user info by userId
+                var user = await _userRepository.GetUserById(id);
+
+                //Check null user
+                if (user == null)
+                {
+                    return new BaseResponse
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "User not found!"
+                    };
+                }
+
+                //Verify current password
+                if (!VerifyPassword(currentPassword, user.Password))
+                {
+                    return new BaseResponse
+                    {
+                        Code = 401,
+                        Success = false,
+                        Message = "Current password is incorrect!"
+                    };
+                }
+
+                //Hash new password
+                string hashedNewPassword = HashPassword(newPassword);
+
+
+                //Update new password and Update's time
+                user.Password = hashedNewPassword;
+                user.ModifiedDate = DateTime.Now;
+
+                //Save into database
+                bool updateSuccess = await _userRepository.UpdateUser(user);
+
+                if (updateSuccess)
+                {
+                    return new BaseResponse
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Password changed successfully."
+                    };
+                }
+                else
+                {
+                    return new BaseResponse
+                    {
+                        Code = 500,
+                        Success = false,
+                        Message = "Failed to update password due to a server error."
+                    };
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "An error occurred: " + ex.Message
+                };
+            }
+        }
+
+        public async Task<BaseResponse> ResendVerificationEmail(string email)
+        {
+            try
+            {
+                // Tìm người dùng theo email
+                var user = await _userRepository.GetUserByEmail(email);
+
+                // Kiểm tra nếu người dùng không tồn tại
+                if (user == null)
+                {
+                    return new BaseResponse
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "User not found!"
+                    };
+                }
+
+                // Kiểm tra nếu tài khoản đã xác thực
+                if (user.IsVerify)
+                {
+                    return new BaseResponse
+                    {
+                        Code = 400,
+                        Success = false,
+                        Message = "Account is already verified."
+                    };
+                }
+
+                // Gửi lại email xác thực
+                await SendMailWithoutPassword(user.Email);
+
+                return new BaseResponse
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Verification email has been resent successfully."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "An error occurred: " + ex.Message
+                };
+            }
+        }
+
     }
+
+
 }

@@ -28,6 +28,7 @@ namespace BusinessLayer.Service
         Task<BaseResponse<UserResponseModel>> DeleteUser(int id, bool status);
         string HashPassword(string password);
         bool VerifyPassword(string password, string hashedPassword);
-
+        public Task<BaseResponse> ChangePassword(int id, string currentPassword, string newPassword);
+        Task<BaseResponse> ResendVerificationEmail(string email);
     }
 }

@@ -1103,6 +1103,22 @@
   },
   {
     "ContainingType": "SWDProject_BE.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/user/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.User.ChangePasswordRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWDProject_BE.Controllers.UserController",
     "Method": "DeleteUser",
     "RelativePath": "api/user/change-status/{id}",
     "HttpMethod": "POST",
@@ -1202,6 +1218,22 @@
         "Name": "name",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWDProject_BE.Controllers.UserController",
+    "Method": "ResendVerificationEmail",
+    "RelativePath": "api/user/resend-verification",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

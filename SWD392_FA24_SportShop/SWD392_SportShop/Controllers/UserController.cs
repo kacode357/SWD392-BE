@@ -222,5 +222,53 @@ namespace SWDProject_BE.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [Authorize]
+        [HttpPost("Change-Password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequestModel model)
+        {
+            try
+            {
+                // Get userId form JWT
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (userIdClaim == null)
+                {
+                    return StatusCode(401, new BaseResponse()
+                    {
+                        Code = 401,
+                        Success = false,
+                        Message = "User information not found, user may not be authenticated into the system!"
+                    });
+                }
+
+                int userId = int.Parse(userIdClaim);
+
+                //Call ChangePassword service
+                var result = await _service.ChangePassword(userId, model.CurrentPassword, model.NewPassword);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
+        }
+
+        [HttpPost("Resend-Verification")]
+        public async Task<IActionResult> ResendVerificationEmail([FromBody] string email)
+        {
+            try
+            {
+                // Gọi service để gửi lại email xác thực
+                var result = await _service.ResendVerificationEmail(email);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
+        }
+
+
+
     }
 }
