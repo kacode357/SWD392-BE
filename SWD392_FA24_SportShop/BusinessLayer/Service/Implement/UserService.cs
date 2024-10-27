@@ -1006,10 +1006,8 @@ namespace BusinessLayer.Service.Interface
         {
             try
             {
-                //Get user info by userId
                 var user = await _userRepository.GetUserById(id);
 
-                //Check null user
                 if (user == null)
                 {
                     return new BaseResponse
@@ -1020,7 +1018,6 @@ namespace BusinessLayer.Service.Interface
                     };
                 }
 
-                //Verify current password
                 if (!VerifyPassword(currentPassword, user.Password))
                 {
                     return new BaseResponse
@@ -1031,15 +1028,12 @@ namespace BusinessLayer.Service.Interface
                     };
                 }
 
-                //Hash new password
                 string hashedNewPassword = HashPassword(newPassword);
 
 
-                //Update new password and Update's time
                 user.Password = hashedNewPassword;
                 user.ModifiedDate = DateTime.Now;
 
-                //Save into database
                 bool updateSuccess = await _userRepository.UpdateUser(user);
 
                 if (updateSuccess)
@@ -1077,10 +1071,8 @@ namespace BusinessLayer.Service.Interface
         {
             try
             {
-                // Tìm người dùng theo email
                 var user = await _userRepository.GetUserByEmail(email);
 
-                // Kiểm tra nếu người dùng không tồn tại
                 if (user == null)
                 {
                     return new BaseResponse
@@ -1091,7 +1083,6 @@ namespace BusinessLayer.Service.Interface
                     };
                 }
 
-                // Kiểm tra nếu tài khoản đã xác thực
                 if (user.IsVerify)
                 {
                     return new BaseResponse
@@ -1102,7 +1093,6 @@ namespace BusinessLayer.Service.Interface
                     };
                 }
 
-                // Gửi lại email xác thực
                 await SendMailWithoutPassword(user.Email);
 
                 return new BaseResponse

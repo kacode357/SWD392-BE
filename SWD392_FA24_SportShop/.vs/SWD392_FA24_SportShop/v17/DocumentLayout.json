@@ -110,8 +110,7 @@
               "RelativeToolTip": "BusinessLayer\\RequestModel\\User\\ChangePasswordRequestModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T08:26:46.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T08:26:46.635Z"
             },
             {
               "$type": "Document",
@@ -121,7 +120,7 @@
               "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\UserController.cs",
               "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
               "RelativeToolTip": "SWD392_SportShop\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAPcAAAAAAAAAAAAAAAoBAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAOgAAAAAAAAAAAAAAP0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-27T08:24:22.031Z",
               "EditorCaption": ""
@@ -136,8 +135,7 @@
               "RelativeToolTip": "DataLayer\\Repository\\IUserRepositoty.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T08:19:38.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T08:19:38.526Z"
             },
             {
               "$type": "Document",
@@ -147,7 +145,7 @@
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\UserService.cs",
               "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\UserService.cs",
               "RelativeToolTip": "BusinessLayer\\Service\\Implement\\UserService.cs",
-              "ViewState": "AgIAABMBAAAAAAAAAAAEwOcAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAALgDAAAAAAAAAAAuwPIDAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-27T08:15:27.053Z",
               "EditorCaption": ""
@@ -160,7 +158,7 @@
               "RelativeDocumentMoniker": "BusinessLayer\\Service\\IUserService.cs",
               "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\IUserService.cs",
               "RelativeToolTip": "BusinessLayer\\Service\\IUserService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA2wCAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-27T08:14:30.164Z",
               "EditorCaption": ""

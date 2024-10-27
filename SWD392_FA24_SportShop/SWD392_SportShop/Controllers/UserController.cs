@@ -258,7 +258,6 @@ namespace SWDProject_BE.Controllers
         {
             try
             {
-                // Gọi service để gửi lại email xác thực
                 var result = await _service.ResendVerificationEmail(email);
                 return StatusCode(result.Code, result);
             }
