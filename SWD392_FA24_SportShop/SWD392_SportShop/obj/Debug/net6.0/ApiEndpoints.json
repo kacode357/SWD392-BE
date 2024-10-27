@@ -249,16 +249,6 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
-    "Method": "GetOrderByCurentUser",
-    "RelativePath": "api/order/current-user",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "DeteleItemInCart",
     "RelativePath": "api/order/deteleitemincart",
     "HttpMethod": "POST",
@@ -316,6 +306,22 @@
       {
         "Name": "model",
         "Type": "BusinessLayer.RequestModel.Order.UpdateCartRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "GetOrdersByCurrentUser",
+    "RelativePath": "api/order/user/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Order.GetAllOrderRequestModel",
         "IsRequired": true
       }
     ],

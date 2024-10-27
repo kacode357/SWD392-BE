@@ -56,8 +56,8 @@ namespace SWD392_SportShop.Controllers
         }
 
         [Authorize]
-        [HttpGet("current-user")]
-        public async Task<IActionResult> GetOrderByCurentUser()
+        [HttpPost("user/Search")]
+        public async Task<IActionResult> GetOrdersByCurrentUser([FromBody] GetAllOrderRequestModel model)
         {
             try
             {
@@ -65,7 +65,12 @@ namespace SWD392_SportShop.Controllers
 
                 if (int.TryParse(userIdString, out int userId)) // Convert userId to int
                 {
-                    var result = await _orderService.GetOrdersByCurrentUser(userId);
+                    if (model.Status == 0)
+                    {
+                        model.Status = null;
+                    }
+
+                    var result = await _orderService.GetOrdersByCurrentUser(model, userId);
                     return StatusCode(result.Code, result);
                 }
                 else
@@ -77,7 +82,6 @@ namespace SWD392_SportShop.Controllers
             {
                 return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
             }
-
         }
 
         //[HttpGet("Details/{orderId}")]

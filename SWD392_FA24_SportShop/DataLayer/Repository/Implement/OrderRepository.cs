@@ -150,17 +150,6 @@ namespace DataLayer.Repository.Implement
             }
         }
 
-        public async Task<Order> GetOrderByCurrentUser(int userId)
-        {
-            try
-            {
-                return await _swd392Context.Orders.Where(o => o.UserId == userId).FirstOrDefaultAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         public async Task<Order> GetOrderByIdAsync(string orderId)
         {
@@ -267,5 +256,18 @@ namespace DataLayer.Repository.Implement
             }
         }
 
+        public async Task<List<Order>> GetOrderByCurrentUser(int userId)
+        {
+            try
+            {
+                return await _swd392Context.Orders
+                                       .Where(o => o.UserId == userId)
+                                       .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

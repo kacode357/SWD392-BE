@@ -909,91 +909,62 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<OrderResponseModel>> GetOrdersByCurrentUser(int userId)
+        public async Task<DynamicResponse<OrderResponseModel>> GetOrdersByCurrentUser(GetAllOrderRequestModel model, int userId)
         {
-            //try
-            //{
-            //    if (userId == null)
-            //    {
-            //        return new BaseResponse<OrderResponseModel>()
-            //        {
-            //            Code = 404,
-            //            Success = false,
-            //            Message = "User not found!.",
-            //            Data = null
-            //        };
-            //    }
-
-            //    var order = await _orderRepository.GetOrderByCurrentUser(userId);
-
-            //    if (order == null)
-            //    {
-            //        return new BaseResponse<OrderResponseModel>()
-            //        {
-            //            Code = 404,
-            //            Success = true,
-            //            Message = "Order null!.",
-            //            Data = null
-            //        };
-            //    }
-            //    else
-            //    {
-            //        var listOrderDetails = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(order.Id);
-            //        return new BaseResponse<OrderResponseModel>()
-            //        {
-            //            Code = 200,
-            //            Success = true,
-            //            Message = null,
-            //            Data = new OrderResponseModel()
-            //            {
-            //                Id = order.Id,
-            //                UserId = order.UserId,
-            //                UserName = order.User.UserName,
-            //                TotalPrice = order.TotalPrice ?? 0.0,
-            //                ShipPrice = order.ShipPrice ?? 0.0,
-            //                Deposit = order.Deposit,
-            //                RefundStatus = order.RefundStatus,
-            //                Status = order.Status,
-            //                OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(listOrderDetails)
-            //            }
-            //        };
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new BaseResponse<OrderResponseModel>
-            //    {
-            //        Code = 500,
-            //        Success = false,
-            //        Message = "Server Error!",
-            //        Data = null
-            //    };
-            //}
             try
             {
-                var order = await _orderRepository.GetOrderByCurrentUser(userId);
-                if (order == null)
+                if (userId == 0)
                 {
-                    return new BaseResponse<OrderResponseModel>
+                    return new DynamicResponse<OrderResponseModel>
                     {
-                        Code = 404,
+                        Code = 401,
                         Success = false,
-                        Message = "No orders found for the user.",
+                        Message = "Unauthorized access.",
                         Data = null
                     };
                 }
 
-                return new BaseResponse<OrderResponseModel>
+                var listOrder = await _orderRepository.GetOrderByCurrentUser(userId);
+
+                if (model.Status.HasValue)
+                {
+                    listOrder = listOrder.Where(o => o.Status == model.Status.Value).ToList();
+                }
+
+                var result = _mapper.Map<List<OrderResponseModel>>(listOrder);
+
+                var pageOrder = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);
+
+                return new DynamicResponse<OrderResponseModel>()
                 {
                     Code = 200,
                     Success = true,
                     Message = "Orders retrieved successfully.",
-                    Data = _mapper.Map<OrderResponseModel>(order)
+                    Data = new MegaData<OrderResponseModel>()
+                    {
+                        PageInfo = new PagingMetaData()
+                        {
+                            Page = pageOrder.PageNumber,
+                            Size = pageOrder.PageSize,
+                            Sort = "Ascending",
+                            Order = "Id",
+                            TotalPage = pageOrder.PageCount,
+                            TotalItem = pageOrder.TotalItemCount,
+                        },
+                        SearchInfo = new SearchCondition()
+                        {
+                            role = null,
+                            status = model.Status.HasValue ? (model.Status.Value == 1) : (bool?)null,
+                            is_Verify = null,
+                            is_Delete = null,
+                        },
+                        PageData = pageOrder.ToList()
+                    },
                 };
             }
             catch (Exception ex)
             {
-                return new BaseResponse<OrderResponseModel>
+                return new DynamicResponse<OrderResponseModel>()
                 {
                     Code = 500,
                     Success = false,
