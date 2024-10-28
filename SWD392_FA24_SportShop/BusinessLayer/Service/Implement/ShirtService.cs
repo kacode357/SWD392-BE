@@ -36,13 +36,13 @@ namespace BusinessLayer.Service.Implement
             {
                 var shirt = _mapper.Map<Shirt>(model);
                 shirt.Status = 1;
-                await _shirtRepository.CreateShirtAsync(shirt);
+                var createdShirt = await _shirtRepository.CreateShirtAsync(shirt);
                 return new BaseResponse<ShirtResponseModel>()
                 {
                     Code = 201,
                     Success = true,
                     Message = "Create Shirt success!.",
-                    Data = _mapper.Map<ShirtResponseModel>(shirt)
+                    Data = _mapper.Map<ShirtResponseModel>(createdShirt)
                 };
             }
             catch (Exception ex)

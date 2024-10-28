@@ -19,13 +19,18 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task<bool> CreateShirtAsync(Shirt shirt)
+        public async Task<Shirt> CreateShirtAsync(Shirt shirt)
         {
             try
             {
-                _swd392Context.Shirts.AddAsync(shirt);
+                await _swd392Context.Shirts.AddAsync(shirt);
                 await _swd392Context.SaveChangesAsync();
-                return true;
+                var fullShirt = await _swd392Context.Shirts
+            .Include(s => s.TypeShirt)
+            .Include(s => s.Player)
+            .FirstOrDefaultAsync(s => s.Id == shirt.Id);
+                return fullShirt;
+
             }
             catch (Exception ex)
             {
@@ -75,7 +80,12 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Shirts.FindAsync(shirtId);
+                var shirt = await _swd392Context.Shirts
+            .Include(s => s.TypeShirt)
+            .Include(s => s.Player)
+            .FirstOrDefaultAsync(s => s.Id == shirtId);
+
+                return shirt;
             }
             catch(Exception ex)
             {

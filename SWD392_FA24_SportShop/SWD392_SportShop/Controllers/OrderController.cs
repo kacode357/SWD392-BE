@@ -57,32 +57,30 @@ namespace SWD392_SportShop.Controllers
 
         [Authorize]
         [HttpPost("user/Search")]
-        public async Task<IActionResult> GetOrdersByCurrentUser([FromBody] GetAllOrderRequestModel model)
+        public async Task<IActionResult> GetOrdersByCurrentUser([FromBody] GetOrderByCurrentUserRequestModel model)
         {
             try
             {
                 var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                if (int.TryParse(userIdString, out int userId)) // Convert userId to int
+                if (!int.TryParse(userIdString, out int userId))
                 {
-                    if (model.Status == 0)
-                    {
-                        model.Status = null;
-                    }
+                    return BadRequest(new { Message = "Invalid or missing user ID in token." });
+                }
+                
 
-                    var result = await _orderService.GetOrdersByCurrentUser(model, userId);
-                    return StatusCode(result.Code, result);
-                }
-                else
-                {
-                    return BadRequest(new { Message = "Invalid user ID." });
-                }
+                // Gọi service để lấy danh sách đơn hàng dựa trên model mới
+                var result = await _orderService.GetOrdersByCurrentUser(model, userId);
+
+                // Trả về kết quả với mã trạng thái từ `result`
+                return StatusCode(result.Code, result);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+                return StatusCode(500, new { Message = $"An error occurred while processing your request: {ex.Message}" });
             }
         }
+
 
         //[HttpGet("Details/{orderId}")]
         //public async Task<IActionResult> GetOrderDetailsByOrderIdAsync(int id)

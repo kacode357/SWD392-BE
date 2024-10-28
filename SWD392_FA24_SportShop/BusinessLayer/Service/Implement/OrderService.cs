@@ -915,7 +915,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<DynamicResponse<OrderResponseModel>> GetOrdersByCurrentUser(GetAllOrderRequestModel model, int userId)
+        public async Task<DynamicResponse<OrderResponseModel>> GetOrdersByCurrentUser(GetOrderByCurrentUserRequestModel model, int userId)
         {
             try
             {
@@ -932,14 +932,25 @@ namespace BusinessLayer.Service.Implement
 
                 var listOrder = await _orderRepository.GetOrderByCurrentUser(userId);
 
-                if (model.Status.HasValue)
+                if (!string.IsNullOrEmpty(model.orderId))
                 {
-                    listOrder = listOrder.Where(o => o.Status == model.Status.Value).ToList();
+                    listOrder = listOrder.Where(o => o.Id.ToString() == model.orderId).ToList();
                 }
+
+                if (model.Status.HasValue && model.Status.Value != 0)
+                {
+                    listOrder = listOrder.Where(o => o.Status == model.Status.Value && o.Status != 2 && o.Status != 6).ToList();
+                }
+                else
+                {
+                    // Status is either zero or not provided, so exclude statuses 2 and 6
+                    listOrder = listOrder.Where(o => o.Status != 2 && o.Status != 6).ToList();
+                }
+
 
                 var result = _mapper.Map<List<OrderResponseModel>>(listOrder);
 
-                var pageOrder = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);
+                var pageOrder = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);   
 
                 return new DynamicResponse<OrderResponseModel>()
                 {

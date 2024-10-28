@@ -164,6 +164,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderDetailController",
+    "Method": "GetAllOrderDetailsByOrderId",
+    "RelativePath": "api/order-detail/getallorderdetailsbyorderid/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "GetOrderById",
     "RelativePath": "api/order/{id}",
@@ -289,7 +305,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "BusinessLayer.RequestModel.Order.GetAllOrderRequestModel",
+        "Type": "BusinessLayer.RequestModel.Order.SearchOrderByIdRequestModel",
         "IsRequired": true
       }
     ],
@@ -321,7 +337,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "BusinessLayer.RequestModel.Order.GetAllOrderRequestModel",
+        "Type": "BusinessLayer.RequestModel.Order.GetOrderByCurrentUserRequestModel",
         "IsRequired": true
       }
     ],
@@ -418,10 +434,16 @@
     "ContainingType": "SWD392_SportShop.Controllers.PaymentController",
     "Method": "GetPaymentByUserId",
     "RelativePath": "api/payment/paymentbycurrentuser",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Payment.GetAllPaymentRequestModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
