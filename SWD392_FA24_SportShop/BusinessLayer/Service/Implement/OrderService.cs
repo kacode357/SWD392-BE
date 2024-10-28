@@ -291,7 +291,7 @@ namespace BusinessLayer.Service.Implement
             {
                 var listOrder = await _orderRepository.GetAllOrders();
 
-                listOrder = listOrder.Where(o => o.Status != 1).ToList();
+                listOrder = listOrder.Where(o => o.Status != 1 && o.Status != 6).ToList();
 
                 if (!string.IsNullOrEmpty(model.orderId))
                 {
@@ -939,12 +939,12 @@ namespace BusinessLayer.Service.Implement
 
                 if (model.Status.HasValue && model.Status.Value != 0)
                 {
-                    listOrder = listOrder.Where(o => o.Status == model.Status.Value && o.Status != 2 && o.Status != 6).ToList();
+                    listOrder = listOrder.Where(o => o.Status == model.Status.Value && o.Status != 1 && o.Status != 6).ToList();
                 }
                 else
                 {
                     // Status is either zero or not provided, so exclude statuses 2 and 6
-                    listOrder = listOrder.Where(o => o.Status != 2 && o.Status != 6).ToList();
+                    listOrder = listOrder.Where(o => o.Status != 1 && o.Status != 6).ToList();
                 }
 
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SWD392_SportShop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c2b824a0e2a361775caec593b1e44760cbf9f09")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4d0d98c0c4ae5870b04aebf0d13fb4a2caf14eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SWD392_SportShop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SWD392_SportShop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
