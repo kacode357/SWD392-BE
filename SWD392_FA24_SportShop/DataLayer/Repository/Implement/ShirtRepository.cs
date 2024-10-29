@@ -26,9 +26,9 @@ namespace DataLayer.Repository.Implement
                 await _swd392Context.Shirts.AddAsync(shirt);
                 await _swd392Context.SaveChangesAsync();
                 var fullShirt = await _swd392Context.Shirts
-            .Include(s => s.TypeShirt)
-            .Include(s => s.Player)
-            .FirstOrDefaultAsync(s => s.Id == shirt.Id);
+                                    .Include(s => s.TypeShirt)
+                                    .Include(s => s.Player)
+                                    .FirstOrDefaultAsync(s => s.Id == shirt.Id);
                 return fullShirt;
 
             }

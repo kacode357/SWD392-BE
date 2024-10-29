@@ -10,7 +10,7 @@ namespace DataLayer.Repository
 {
     public interface ITypeShirtRepository
     {
-        Task<bool> CreateTypeShirtAsync(TypeShirt typeShirt);
+        Task<TypeShirt> CreateTypeShirtAsync(TypeShirt typeShirt);
         Task<bool> DeleteTypeShirtAsync(int typeShirtId);
         Task<bool> UpdateTypeShirtAsync(TypeShirt typeShirtId);
         Task<TypeShirt> GetTypeShirtById(int typeShirtId);

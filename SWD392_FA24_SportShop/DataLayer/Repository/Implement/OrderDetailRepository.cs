@@ -19,13 +19,17 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task<bool> AddOrderDetailAsync(OrderDetail orderDetail)
+        public async Task<OrderDetail> AddOrderDetailAsync(OrderDetail orderDetail)
         {
             try
             {
-                _swd392Context.OrderDetails.AddAsync(orderDetail);
+                await _swd392Context.OrderDetails.AddAsync(orderDetail);
                 await _swd392Context.SaveChangesAsync();
-                return true;
+                var fullorderDetail = await _swd392Context.OrderDetails
+                    .Include(od => od.Order)
+                    .Include(od => od.ShirtSize)
+                    .FirstOrDefaultAsync(od => od.Id == orderDetail.Id);
+                return fullorderDetail;
             }
             catch (Exception ex)
             {
@@ -101,7 +105,10 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId && od.ShirtSizeId == shirtSizeId).FirstOrDefaultAsync();
+                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId && od.ShirtSizeId == shirtSizeId)
+                    .Include(od => od.Order)
+                    .Include(od => od.ShirtSize)
+                    .FirstOrDefaultAsync();
             }
             catch(Exception ex) 
             {
@@ -113,7 +120,10 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.OrderDetails.FindAsync(orderDetailId);
+                return await _swd392Context.OrderDetails
+                    .Include(od => od.ShirtSize)
+                    .Include(od => od.Order)
+                    .FirstOrDefaultAsync(od => od.Id == orderDetailId);
             }
             catch (Exception ex)
             {

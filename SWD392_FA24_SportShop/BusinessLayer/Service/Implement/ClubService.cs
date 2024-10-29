@@ -112,10 +112,10 @@ namespace BusinessLayer.Service.Implement
                     listClub = listClub.Where(c => c.Status == model.Status).ToList();
                 }
                 var result = _mapper.Map<List<ClubResponseModel>>(listClub);
-                // Nếu không có lỗi, thực hiện phân trang
-                var pageClub = result// Giả sử result là danh sách người dùng
-                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
-                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
+                
+                var pageClub = result
+                    .OrderBy(c => c.Id) 
+                    .ToPagedList(model.pageNum, model.pageSize); 
                 return new DynamicResponse<ClubResponseModel>()
                 {
                     Code = 200,

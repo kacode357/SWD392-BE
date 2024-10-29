@@ -18,13 +18,18 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<bool> CreateTypeShirtAsync(TypeShirt typeShirt)
+        public async Task<TypeShirt> CreateTypeShirtAsync(TypeShirt typeShirt)
         {
             try
             {
-                _swd392Context.TypeShirts.AddAsync(typeShirt);
+                await _swd392Context.TypeShirts.AddAsync(typeShirt);
                 await _swd392Context.SaveChangesAsync();
-                return true;
+                var fullTypeShirt = await _swd392Context.TypeShirts
+                    .Include(ts => ts.Shirts)
+                    .Include(ts => ts.Club)
+                    .Include(ts => ts.Session)
+                    .FirstOrDefaultAsync(ts => ts.Id == typeShirt.Id);
+                return fullTypeShirt;
             }
             catch (Exception ex)
             {
@@ -83,7 +88,11 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.TypeShirts.FindAsync(typeShirtId);
+                return await _swd392Context.TypeShirts
+                    .Include(ts => ts.Shirts)
+                    .Include(ts => ts.Club)
+                    .Include(ts => ts.Session)
+                    .FirstOrDefaultAsync(ts => ts.Id == typeShirtId);
             }
             catch (Exception ex)
             {

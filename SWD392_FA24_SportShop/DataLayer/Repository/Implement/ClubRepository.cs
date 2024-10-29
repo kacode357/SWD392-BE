@@ -17,13 +17,19 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<bool> CreateClubAsync(Club club)
+        public async Task<Club> CreateClubAsync(Club club)
         {
             try
             {
-                _swd392Context.Clubs.AddAsync(club);
+                await _swd392Context.Clubs.AddAsync(club);
                 await _swd392Context.SaveChangesAsync();
-                return true;
+                var fullClup = await _swd392Context.Clubs
+                    .Include(c => c.ClubPlayers)
+                    .Include(c => c.Players)
+                    .Include(c => c.TypeShirts)
+                    .FirstOrDefaultAsync(s => s.Id == club.Id);
+
+                return fullClup;
             }
             catch(Exception ex)
             {
@@ -51,14 +57,24 @@ namespace DataLayer.Repository.Implement
 
         public async Task<List<Club>> GetAllClubs()
         {
-            return await _swd392Context.Clubs.ToListAsync();
+            return await _swd392Context.Clubs
+                .Include(c => c.ClubPlayers)
+                .Include(c => c.Players)
+                    .ThenInclude(p => p.Shirts)
+                .Include(c => c.TypeShirts)
+                    .ThenInclude(ts => ts.Session)
+                .ToListAsync();
         }
 
         public  async Task<Club> GetClubById(int clubId)
         {
             try
             {
-                return await _swd392Context.Clubs.FirstOrDefaultAsync(c => c.Id == clubId);
+                return await _swd392Context.Clubs
+                    .Include(c => c.ClubPlayers)
+                    .Include(c => c.Players)
+                    .Include(c => c.TypeShirts)
+                    .FirstOrDefaultAsync(c => c.Id == clubId);
             }
             catch(Exception ex)
             {

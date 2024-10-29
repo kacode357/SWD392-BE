@@ -177,16 +177,16 @@ namespace BusinessLayer.Service.Implement
                 }
                 if (model.Status.HasValue)
                 {
-                    int statusInt = model.Status.Value; // model.Status đã là kiểu int? nên chỉ cần lấy giá trị
+                    int statusInt = model.Status.Value;
                     listShirtDto = listShirtDto
-                        .Where(c => c.Status == statusInt) // So sánh trực tiếp với giá trị int
+                        .Where(c => c.Status == statusInt)
                         .ToList();
                 }
                 var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
-                // Nếu không có lỗi, thực hiện phân trang
-                var pageShirt = result// Giả sử result là danh sách người dùng
-                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
-                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
+                
+                var pageShirt = result
+                    .OrderBy(c => c.Id) 
+                    .ToPagedList(model.pageNum, model.pageSize); 
                 return new DynamicResponse<ShirtResponseModel>()
                 {
                     Code = 200,
@@ -265,16 +265,16 @@ namespace BusinessLayer.Service.Implement
                 }
                 if (model.status.HasValue)
                 {
-                    int statusInt = model.status.Value; // model.Status đã là kiểu int? nên chỉ cần lấy giá trị
+                    int statusInt = model.status.Value; 
                     listShirtDto = listShirtDto
-                        .Where(c => c.Status == statusInt) // So sánh trực tiếp với giá trị int
+                        .Where(c => c.Status == statusInt) 
                         .ToList();
                 }
                 var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
-                // Nếu không có lỗi, thực hiện phân trang
-                var pageShirt = result// Giả sử result là danh sách người dùng
-                    .OrderBy(c => c.Id) // Sắp xếp theo Id tăng dần
-                    .ToPagedList(model.pageNum, model.pageSize); // Phân trang với X.PagedList
+                
+                var pageShirt = result
+                    .OrderBy(c => c.Id)
+                    .ToPagedList(model.pageNum, model.pageSize);
                 return new DynamicResponse<ShirtResponseModel>()
                 {
                     Code = 200,
@@ -358,7 +358,7 @@ namespace BusinessLayer.Service.Implement
                         .ToList();
                 }
                 var result = _mapper.Map<List<ShirtResponseModel>>(listShirtDto);
-                // Nếu không có lỗi, thực hiện phân trang
+                
                 return new DynamicResponse<ShirtResponseModel>()
                 {
                     Code = 200,

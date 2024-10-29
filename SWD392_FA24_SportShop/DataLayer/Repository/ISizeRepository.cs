@@ -9,7 +9,7 @@ namespace DataLayer.Repository
 {
     public interface ISizeRepository
     {
-        Task<bool> CreateSizeAsync(Size size);
+        Task<Size> CreateSizeAsync(Size size);
         Task<bool> UpdateSizeAsync(Size size);
         Task<bool> DeleteSizeAsync(int sizeId);
         Task<Size> GetSizeByIdAsync(int sizeId);

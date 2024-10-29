@@ -24,6 +24,11 @@ namespace DataLayer.Repository.Implement
             {
                 await _swd392Context.Users.AddAsync(user);
                 await _swd392Context.SaveChangesAsync();
+                var fullUser = await _swd392Context.Users
+                    .Include(u => u.Orders)
+                    .Include(u => u.Payments)
+                    .Include(u => u.Notifications)
+                    .FirstOrDefaultAsync(u => u.Id == user.Id);
                 return true;
             }
             catch (Exception ex)
@@ -62,7 +67,11 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Users.FirstOrDefaultAsync(u => u.Email.Equals(email));
+                return await _swd392Context.Users
+                    .Include(u => u.Orders)
+                    .Include(u => u.Payments)
+                    .Include(u => u.Notifications)
+                    .FirstOrDefaultAsync(u => u.Email.Equals(email));
             }
             catch (Exception ex)
             {
@@ -74,7 +83,11 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Users.FirstOrDefaultAsync(u => u.Id == id);
+                return await _swd392Context.Users
+                    .Include(u => u.Orders)
+                    .Include(u => u.Payments)
+                    .Include(u => u.Notifications)
+                    .FirstOrDefaultAsync(u => u.Id == id);
             }
             catch (Exception ex)
             {

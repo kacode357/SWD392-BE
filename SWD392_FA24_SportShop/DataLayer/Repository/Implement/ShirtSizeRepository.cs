@@ -17,13 +17,19 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task<bool> CreateShirtSizeAsync(ShirtSize shirtSize)
+        public async Task<ShirtSize> CreateShirtSizeAsync(ShirtSize shirtSize)
         {
             try
             {
-                _swd392Context.ShirtSizes.AddAsync(shirtSize);
+                await _swd392Context.ShirtSizes.AddAsync(shirtSize);
                 await _swd392Context.SaveChangesAsync();
-                return true;
+                var fullShirtSize = await _swd392Context.ShirtSizes
+                    .Include(ss => ss.Shirt)
+                        .ThenInclude(s => s.Id)
+                    .Include(ss => ss.Size)
+                        .ThenInclude(sz => sz.Id)
+                    .FirstOrDefaultAsync(ss => ss.Id == shirtSize.Id);
+                return fullShirtSize;
             }
             catch (Exception ex)
             {
@@ -55,7 +61,9 @@ namespace DataLayer.Repository.Implement
             {
                 return await _swd392Context.ShirtSizes
                     .Include(ss => ss.Shirt)
+                        .ThenInclude(s => s.Id)
                     .Include(ss => ss.Size)
+                        .ThenInclude(sz => sz.Id)
                     .ToListAsync();
             }
             catch (Exception ex)
@@ -70,7 +78,9 @@ namespace DataLayer.Repository.Implement
             {
                 return await _swd392Context.ShirtSizes
                     .Include(ss => ss.Shirt)
+                        .ThenInclude(s => s.Id)
                     .Include(ss => ss.Size)
+                        .ThenInclude(sz => sz.Id)
                     .Where(ss => ss.ShirtId == shirtId)
                     .ToListAsync();
             }
@@ -85,8 +95,10 @@ namespace DataLayer.Repository.Implement
             try
             {
                 return await _swd392Context.ShirtSizes
-                    .Include (ss => ss.Shirt)
+                    .Include(ss => ss.Shirt)
+                        .ThenInclude(s => s.Id)
                     .Include(ss => ss.Size)
+                        .ThenInclude(sz => sz.Id)
                     .Where(ss => ss.Id == shirtSizeId)
                     .FirstOrDefaultAsync();
             }

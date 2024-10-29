@@ -68,11 +68,8 @@ namespace SWD392_SportShop.Controllers
                     return BadRequest(new { Message = "Invalid or missing user ID in token." });
                 }
                 
-
-                // Gọi service để lấy danh sách đơn hàng dựa trên model mới
                 var result = await _orderService.GetOrdersByCurrentUser(model, userId);
 
-                // Trả về kết quả với mã trạng thái từ `result`
                 return StatusCode(result.Code, result);
             }
             catch (Exception ex)

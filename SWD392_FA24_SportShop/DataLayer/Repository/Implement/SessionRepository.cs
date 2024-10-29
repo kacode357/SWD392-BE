@@ -17,13 +17,16 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<bool> CreateSessionAsync(Session session)
+        public async Task<Session> CreateSessionAsync(Session session)
         {
             try
             {
                 _swd392Context.Sessions.AddAsync(session);
                 await _swd392Context.SaveChangesAsync();
-                return true;
+                var season = await _swd392Context.Sessions
+                    .Include(s => s.TypeShirts)
+                    .FirstOrDefaultAsync(s => s.Id == session.Id);
+                return season;
             }
             catch(Exception ex)
             {
@@ -54,7 +57,10 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Sessions.FindAsync(sessionId);
+                var season = await _swd392Context.Sessions
+                    .Include(s => s.TypeShirts)
+                    .FirstOrDefaultAsync(s => s.Id == sessionId);
+                return season;
             }
             catch(Exception ex)
             {
@@ -66,7 +72,8 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Sessions.ToListAsync();
+                return await _swd392Context.Sessions
+                    .Include(s => s.TypeShirts).ThenInclude(s => s.Shirts).ToListAsync();
             }
             catch(Exception ex)
             {

@@ -943,7 +943,7 @@ namespace BusinessLayer.Service.Implement
                 }
                 else
                 {
-                    // Status is either zero or not provided, so exclude statuses 2 and 6
+                    // Status is either zero or not provided, so exclude statuses 1 and 6
                     listOrder = listOrder.Where(o => o.Status != 1 && o.Status != 6).ToList();
                 }
 
