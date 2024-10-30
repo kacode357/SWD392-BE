@@ -10,7 +10,7 @@ namespace DataLayer.Repository
 {
     public interface IPlayerRepository
     {
-        Task<Player> CreatePlayerAsync(Player player);
+        Task<bool> CreatePlayerAsync(Player player);
         Task<bool> UpdatePlayerAsync(Player player);
         Task<bool> DeletePlayerAsync(int playerId);
         Task<Player> GetPlayerById(int playerId);

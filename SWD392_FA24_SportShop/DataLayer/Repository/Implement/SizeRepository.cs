@@ -17,16 +17,13 @@ namespace DataLayer.Repository.Implement
             _swd392Context = swd392Context;
         }
 
-        public async Task<Size> CreateSizeAsync(Size size)
+        public async Task<bool> CreateSizeAsync(Size size)
         {
             try
             {
-                await _swd392Context.Sizes.AddAsync(size);
+                _swd392Context.Sizes.AddAsync(size);
                 await _swd392Context.SaveChangesAsync();
-                var fullSize = await _swd392Context.Sizes
-                    .Include(s => s.ShirtSizes)
-                    .FirstOrDefaultAsync(s => s.Id == size.Id);
-                return fullSize;
+                return true;
             }
             catch (Exception ex)
             {
@@ -68,9 +65,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Sizes
-                    .Include (s => s.ShirtSizes)
-                    .FirstOrDefaultAsync(s => s.Id == sizeId);
+                return await _swd392Context.Sizes.FindAsync(sizeId);
             }
             catch (Exception ex)
             {

@@ -11,7 +11,7 @@ namespace DataLayer.Repository
 {
     public interface IOrderRepository
     {
-        Task<Order> CreateOrderAsync (Order order);
+        Task<bool> CreateOrderAsync (Order order);
         Task<bool> UpdateOrderAsync (Order orderId);
         Task<bool> DeleteOrderAsync (string orderId);
         Task<Order> GetOrderByIdAsync (string orderId);

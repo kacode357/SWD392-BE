@@ -18,19 +18,15 @@ namespace DataLayer.Repository.Implement
         {
             _swd392Context = swd392Context;
         }
-        public async Task<Player> CreatePlayerAsync(Player player)
+        public async Task<bool> CreatePlayerAsync(Player player)
         {
             try
             {
-                await _swd392Context.Players.AddAsync(player);
+                _swd392Context.Players.AddAsync(player);
                 await _swd392Context.SaveChangesAsync();
-                var fullPlayer = await _swd392Context.Players
-                    .Include(p => p.ClubPlayers)
-                    .Include(p => p.Club)
-                    .FirstOrDefaultAsync(p => p.Id == player.Id);
-                return fullPlayer;
+                return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -59,11 +55,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Players
-                    .Include(p => p.ClubPlayers)
-                    .Include(p => p.Club)
-                    .Include(p => p.Shirts)
-                    .FirstOrDefaultAsync(p => p.Id == playerId);
+                return await _swd392Context.Players.FindAsync(playerId);
             }
             catch (Exception ex)
             {

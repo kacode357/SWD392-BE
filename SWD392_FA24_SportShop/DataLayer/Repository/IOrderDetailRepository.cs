@@ -11,7 +11,7 @@ namespace DataLayer.Repository
 {
     public interface IOrderDetailRepository
     {
-        Task<OrderDetail> AddOrderDetailAsync (OrderDetail orderDetail);
+        Task<bool> AddOrderDetailAsync (OrderDetail orderDetail);
         Task<bool> UpdateOrderDetailAsync(OrderDetail orderDetailId);
         Task<bool> DeleteOrderDetailAsync (int orderDetailId);
         Task<OrderDetail> GetOrderDetailByIdAsync(int orderDetailId);

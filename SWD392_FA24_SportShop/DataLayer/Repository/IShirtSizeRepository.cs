@@ -9,7 +9,7 @@ namespace DataLayer.Repository
 {
     public interface IShirtSizeRepository
     {
-        Task<ShirtSize> CreateShirtSizeAsync(ShirtSize shirtSize);
+        Task<bool> CreateShirtSizeAsync(ShirtSize shirtSize);
         Task<bool> UpdateShirtSizeAsync(ShirtSize shirtSize);
         Task<bool> DeleteShirtSizeAsync(int shirtSizeId);
         Task<ShirtSize> GetShirtSizeByIdAsync(int shirtSizeId);

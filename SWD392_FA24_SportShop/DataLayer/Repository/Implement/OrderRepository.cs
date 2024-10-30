@@ -53,19 +53,13 @@ namespace DataLayer.Repository.Implement
             return await _swd392Context.SaveChangesAsync() > 0;
         }
 
-        public async Task<Order> CreateOrderAsync(Order order)
+        public async Task<bool> CreateOrderAsync(Order order)
         {
             try
             {
-                await _swd392Context.Orders.AddAsync(order);
+                _swd392Context.Orders.AddAsync(order);
                 await _swd392Context.SaveChangesAsync();
-                var fullOrder = await _swd392Context.Orders
-                    .Include(o => o.OrderDetails)
-                    .Include(o => o.User)
-                    .Include(o => o.Payments)
-                    .FirstOrDefaultAsync(o => o.Id == order.Id);
-
-                return fullOrder;
+                return true;
             }
             catch (Exception ex)
             {
@@ -257,10 +251,6 @@ namespace DataLayer.Repository.Implement
                 return await _swd392Context.Orders
                     .Where(o => o.UserId == userId)
                     .Include(o => o.OrderDetails)
-                        .ThenInclude(od => od.ShirtSize)
-                        .ThenInclude(od => od.Size)
-                    .Include(o => o.Payments)
-                    .Include(o => o.User)
                     .ToListAsync();
             }
             catch (Exception ex)
