@@ -461,6 +461,16 @@ namespace BusinessLayer.Service.Interface
                             };
                         }
 
+                        if (user.Status == false)
+                        {
+                            return new BaseResponse<LoginResponseModel>()
+                            {
+                                Code = 401,
+                                Success = false,
+                                Message = "User has been block!.",
+                                Data = null,
+                            };
+                        }
                         string token = GenerateJwtToken(user.UserName, user.RoleName, user.Id);
                         return new BaseResponse<LoginResponseModel>()
                         {
@@ -533,6 +543,16 @@ namespace BusinessLayer.Service.Interface
                             Code = 401,
                             Success = false,
                             Message = "User has been delete!.",
+                            Data = null,
+                        };
+                    }
+                    if (user.Status == false)
+                    {
+                        return new BaseResponse<LoginResponseModel>()
+                        {
+                            Code = 401,
+                            Success = false,
+                            Message = "User has been block!.",
                             Data = null,
                         };
                     }
@@ -1113,6 +1133,43 @@ namespace BusinessLayer.Service.Interface
             }
         }
 
+        public async Task<BaseResponse> BlockUser(int userId)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserById(userId);
+                if(user == null)
+                {
+                    return new BaseResponse()
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "Not found User!."
+                    };
+                }
+                else
+                {
+                    user.Status = true;
+                    await _userRepository.UpdateUser(user);
+                    return new BaseResponse()
+                    {
+                        Code = 200,
+                        Success = true,
+                        Message = "Block User sucessful!."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server error!."
+                };
+            }
+
+        }
     }
 
 

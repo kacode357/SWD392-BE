@@ -304,7 +304,11 @@ namespace BusinessLayer.Service.Implement
                 }
 
                 var result = _mapper.Map<List<OrderResponseModel>>(listOrder);
-
+                foreach (var order in result)
+                {
+                    var orderDetailsfull = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(order.Id);
+                    order.OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(orderDetailsfull);
+                }
                 // Thực hiện phân trang
                 var pageOrder = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);
 
@@ -949,8 +953,14 @@ namespace BusinessLayer.Service.Implement
 
 
                 var result = _mapper.Map<List<OrderResponseModel>>(listOrder);
-
+                foreach (var order in result)
+                {
+                    var orderDetailsfull = await _orderDetailsRepository.GetAllOrderDetailsByOrderId(order.Id);
+                    order.OrderDetails = _mapper.Map<List<OrderDetailResponseModel>>(orderDetailsfull);
+                }
+                
                 var pageOrder = result.OrderBy(o => o.Id).ToPagedList(model.pageNum, model.pageSize);   
+
 
                 return new DynamicResponse<OrderResponseModel>()
                 {

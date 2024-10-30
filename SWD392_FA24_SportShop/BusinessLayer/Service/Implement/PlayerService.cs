@@ -132,8 +132,12 @@ namespace BusinessLayer.Service.Implement
                 if (!string.IsNullOrEmpty(model.keyWord))
                 {
                     listPlayerDto = listPlayerDto
-                        .Where(c => c.FullName.ToLower().Contains(model.keyWord.ToLower()))
+                        .Where(p => p.FullName.ToLower().Contains(model.keyWord.ToLower()))
                         .ToList();
+                }
+                if (model.Status.HasValue)
+                {
+                    listPlayerDto = listPlayerDto.Where(p => p.Status == model.Status.Value).ToList();
                 }
 
                 var result = _mapper.Map<List<PlayerResponseModel>>(listPlayerDto);

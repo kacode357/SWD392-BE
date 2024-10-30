@@ -250,6 +250,7 @@ namespace DataLayer.Repository.Implement
             {
                 return await _swd392Context.Orders
                     .Where(o => o.UserId == userId)
+                    .Include(o => o.User)
                     .Include(o => o.OrderDetails)
                     .ToListAsync();
             }

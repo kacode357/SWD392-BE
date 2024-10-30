@@ -30,5 +30,6 @@ namespace BusinessLayer.Service
         bool VerifyPassword(string password, string hashedPassword);
         public Task<BaseResponse> ChangePassword(int id, string currentPassword, string newPassword);
         Task<BaseResponse> ResendVerificationEmail(string email);
+        Task<BaseResponse> BlockUser(int userId);
     }
 }

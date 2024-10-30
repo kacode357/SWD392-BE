@@ -309,7 +309,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse<ShirtResponseModel>> UpdateShirtAsync(CreateShirtRequestModel model, int id)
+        public async Task<BaseResponse<ShirtResponseModel>> UpdateShirtAsync(UpdateShirtRequestModel model, int id)
         {
             try
             {
@@ -332,6 +332,7 @@ namespace BusinessLayer.Service.Implement
                     Message = "Update Shirt Success!.",
                     Data = _mapper.Map<ShirtResponseModel>(shirt)
                 };
+
             }
             catch (Exception ex)
             {

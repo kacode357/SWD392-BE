@@ -110,6 +110,20 @@ namespace SWDProject_BE.Controllers
             }
         }
 
+        [HttpPut("block/{id}")]
+        public async Task<IActionResult> BlockUser(int id)
+        {
+            try
+            {
+                var result = await _service.BlockUser(id);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginRequestModel model)

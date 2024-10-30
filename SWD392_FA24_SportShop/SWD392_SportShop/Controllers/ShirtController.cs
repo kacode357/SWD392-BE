@@ -101,7 +101,7 @@ namespace SWD392_SportShop.Controllers
 
         [Authorize(Roles = "Admin,Manager")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateShirt(int id, [FromBody] CreateShirtRequestModel model)
+        public async Task<IActionResult> UpdateShirt(int id, [FromBody] UpdateShirtRequestModel model)
         {
             try
             {

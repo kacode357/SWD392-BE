@@ -65,6 +65,8 @@ namespace SWDProject_BE.AppStarts
                 .ForMember(dest => dest.ClubCountry, opt => opt.MapFrom(src => src.Player.Club.Country))
                 .ForMember(dest => dest.ListSize, opt => opt.MapFrom(src => src.ShirtSizes));
             CreateMap<ShirtDto, ShirtResponseModel>();
+            CreateMap<UpdateShirtRequestModel, Shirt>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
             //Player
             CreateMap<CreatePlayerRequestModel, Player>().ReverseMap();
@@ -84,7 +86,8 @@ namespace SWDProject_BE.AppStarts
             CreateMap<CreateOrderRequestModel, Order>().ReverseMap();
             CreateMap<CreateOrderRequestModel, OrderResponseModel>().ReverseMap();
             CreateMap<CreateOrderRequestModel, Order>().ReverseMap();
-            CreateMap<OrderResponseModel, Order>().ReverseMap();
+            CreateMap<OrderResponseModel, Order>().ReverseMap()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName));
             CreateMap<OrderDto, OrderResponseModel>().ReverseMap();
             CreateMap<CartResponseModel, Order>().ReverseMap();
 

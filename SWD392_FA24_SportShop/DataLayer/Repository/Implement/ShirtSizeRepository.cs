@@ -70,9 +70,7 @@ namespace DataLayer.Repository.Implement
             {
                 return await _swd392Context.ShirtSizes
                     .Include(ss => ss.Shirt)
-                        .ThenInclude(s => s.Id)
                     .Include(ss => ss.Size)
-                        .ThenInclude(sz => sz.Id)
                     .Where(ss => ss.ShirtId == shirtId)
                     .ToListAsync();
             }
