@@ -25,12 +25,14 @@ namespace BusinessLayer.Service.Implement
         private readonly IConfiguration _configuration;
         private readonly IPaymentRepository _paymentRepository;
         private readonly IOrderRepository _orderRepository;
+        private readonly IShirtSizeRepository _shirtSizeRepository;
 
-        public VnPayService(IConfiguration configuration,IPaymentRepository paymentRepository, IOrderRepository orderRepository)
+        public VnPayService(IConfiguration configuration,IPaymentRepository paymentRepository, IOrderRepository orderRepository, IShirtSizeRepository shirtSizeRepository)
         {
             _configuration = configuration;
             _paymentRepository = paymentRepository;
             _orderRepository = orderRepository;
+            _shirtSizeRepository = shirtSizeRepository;
         }
 
         public async Task<BaseResponse<UrlResponseModel>> CreatePaymentUrl(VnPayPaymentRequestModel model, HttpContext context)
@@ -159,6 +161,16 @@ namespace BusinessLayer.Service.Implement
                 if (model.vnp_ResponseCode.Equals("00"))
                 {
                     var order = await _orderRepository.GetOrderByIdAsync(model.vnp_OrderInfo);
+                    if (order == null)
+                    {
+                        return new BaseResponse()
+                        {
+                            Code = 404,
+                            Success = false,
+                            Message = "Order not found."
+                        };
+                    }
+
                     var payment = new Payment()
                     {
                         UserId = order.UserId,
@@ -170,8 +182,28 @@ namespace BusinessLayer.Service.Implement
                         Status = true,
                     };
                     await _paymentRepository.CreatePaymentAsync(payment);
+
                     order.Status = 2;
                     await _orderRepository.UpdateOrderAsync(order);
+                    foreach (var orderDetail in order.OrderDetails)
+                    {
+                        var shirtSize = await _shirtSizeRepository.GetShirtSizeByIdAsync(orderDetail.ShirtSizeId);
+
+                        if (shirtSize != null && shirtSize.Quantity >= orderDetail.Quantity)
+                        {
+                            shirtSize.Quantity -= orderDetail.Quantity;
+                            await _shirtSizeRepository.UpdateShirtSizeAsync(shirtSize);
+                        }
+                        else
+                        {
+                            return new BaseResponse()
+                            {
+                                Code = 400,
+                                Success = false,
+                                Message = "Insufficient stock for item."
+                            };
+                        }
+                    }
                     return new BaseResponse()
                     {
                         Code = 200,

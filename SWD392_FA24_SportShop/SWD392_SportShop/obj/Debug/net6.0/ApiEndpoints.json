@@ -111,6 +111,66 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SWD392_SportShop.Controllers.DashboardController",
+    "Method": "GetDashboardForAdminManager",
+    "RelativePath": "api/dashboard/dashboard-admin-manager",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BusinessLayer.ResponseModels.BaseResponse\u00601[[DataLayer.DTO.AdminManagerDashboadDto, DataLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.DashboardController",
+    "Method": "GetDashboardForStaff",
+    "RelativePath": "api/dashboard/dashboard-staff",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BusinessLayer.ResponseModels.BaseResponse\u00601[[DataLayer.DTO.UserDashboardDto, DataLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.DashboardController",
+    "Method": "GetDashboardForUser",
+    "RelativePath": "api/dashboard/dashboard-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BusinessLayer.ResponseModels.BaseResponse\u00601[[DataLayer.DTO.UserDashboardDto, DataLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "UpdateOrder",
     "RelativePath": "api/order",
