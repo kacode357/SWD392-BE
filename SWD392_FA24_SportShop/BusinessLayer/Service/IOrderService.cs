@@ -31,5 +31,9 @@ namespace BusinessLayer.Service
         Task<BaseResponse<CartResponseModel>> DeteteItemInCart(DeteleItemInCartRequestModel model);
         Task<BaseResponse<OrderResponseModel>> AddOrder(int userId);
         //Task<BaseResponse<OrderResponseModel>> GetAllOrdersByStatus(GetAllOrderRequestModel model);
+        Task<BaseResponse<OrderResponseModel>> AddReviewAsync(AddReviewRequestModel model);
+        Task<BaseResponse<OrderResponseModel>> EditReviewAsync(int orderDetailId, int scoreRating, string comment);
+        Task<BaseResponse<OrderResponseModel>> DeleteReviewAsync(int orderDetailId);
+        Task<BaseResponse<ReviewResponseModel>> GetReviewByOrderDetailIdAsync(int orderDetailId);
     }
 }

@@ -218,6 +218,22 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "AddReview",
+    "RelativePath": "api/order/add-review",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "BusinessLayer.RequestModel.Order.AddReviewRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "AddToCart",
     "RelativePath": "api/order/addtocart",
     "HttpMethod": "POST",
@@ -265,6 +281,22 @@
   },
   {
     "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "DeleteReview",
+    "RelativePath": "api/order/delete-review",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderDetailId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
     "Method": "DeteleItemInCart",
     "RelativePath": "api/order/deteleitemincart",
     "HttpMethod": "POST",
@@ -274,6 +306,48 @@
       {
         "Name": "model",
         "Type": "BusinessLayer.RequestModel.Order.DeteleItemInCartRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "EditReview",
+    "RelativePath": "api/order/edit-review",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderDetailId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "scoreRating",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "comment",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.OrderController",
+    "Method": "GetReviewByOrderDetailId",
+    "RelativePath": "api/order/get-review/{orderDetailId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderDetailId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -689,7 +763,7 @@
       },
       {
         "Name": "model",
-        "Type": "BusinessLayer.RequestModel.Shirt.CreateShirtRequestModel",
+        "Type": "BusinessLayer.RequestModel.Shirt.UpdateShirtRequestModel",
         "IsRequired": true
       }
     ],
@@ -1119,6 +1193,22 @@
         "Name": "name",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWDProject_BE.Controllers.UserController",
+    "Method": "BlockUser",
+    "RelativePath": "api/user/block/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

@@ -24,5 +24,10 @@ namespace DataLayer.Repository
         Task<bool> ChangeOrderStatusAsync (string orderId, int newStatus);
         //Task<List<OrderDto>> GetOrdersByUserIdAsync (int userId);
         //Task<List<OrderDetailDto>> GetOrderDetailsByOrderIdAsync (string orderId);
+        Task<bool> AddReviewAsync(string orderId, int orderDetailId, int scoreRating, string comment);
+        Task<bool> EditReviewAsync(int orderDetailId, int scoreRating, string comment);
+        Task<bool> DeleteReviewAsync(int orderDetailId);
+        Task<OrderDetail> GetReviewByOrderDetailIdAsync(int orderDetailId);
+
     }
 }

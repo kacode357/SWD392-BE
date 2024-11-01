@@ -303,5 +303,57 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
+        [Authorize]
+        [HttpPost("Add-review")]
+        public async Task<IActionResult> AddReview([FromBody] AddReviewRequestModel model)
+        {
+            try
+            {
+                var result = await _orderService.AddReviewAsync(model);
+                if (!result.Success)
+                {
+                    return BadRequest(result.Message);
+                }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred: " + ex.Message });
+            }
+        }
+
+        [Authorize]
+        [HttpPut("Edit-review")]
+        public async Task<IActionResult> EditReview(int orderDetailId, int scoreRating, string comment)
+        {
+            var result = await _orderService.EditReviewAsync(orderDetailId, scoreRating, comment);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result);
+        }
+        [Authorize]
+        [HttpDelete("Delete-review")]
+        public async Task<IActionResult> DeleteReview(int orderDetailId)
+        {
+            var result = await _orderService.DeleteReviewAsync(orderDetailId);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result);
+        }
+        [Authorize]
+        [HttpGet("Get-review/{orderDetailId}")]
+        public async Task<IActionResult> GetReviewByOrderDetailId(int orderDetailId)
+        {
+            var result = await _orderService.GetReviewByOrderDetailIdAsync(orderDetailId);
+            if (!result.Success)
+            {
+                return NotFound(result.Message);
+            }
+            return Ok(result);
+        }
     }
 }

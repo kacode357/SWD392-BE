@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using BusinessLayer.ResponseModel.OrderDetail;
 using BusinessLayer.ResponseModel.Payment;
+using DataLayer.DBContext;
 
 
 namespace BusinessLayer.Service.Implement
@@ -992,6 +993,132 @@ namespace BusinessLayer.Service.Implement
             catch (Exception ex)
             {
                 return new DynamicResponse<OrderResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<OrderResponseModel>> AddReviewAsync(AddReviewRequestModel model)
+        {
+            try
+            {
+                var response = new BaseResponse<OrderResponseModel>();
+
+                var success = await _orderRepository.AddReviewAsync(model.OrderId, model.OrderDetailId, model.ScoreRating, model.Comment);
+
+                if (!success)
+                {
+                    response.Success = false;
+                    response.Message = "Failed to add review. Order not found or not eligible for review.";
+                    return response;
+                }
+
+                response.Success = true;
+                response.Message = "Review added successfully.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<OrderResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<OrderResponseModel>> EditReviewAsync(int orderDetailId, int scoreRating, string comment)
+        {
+            try
+            {
+                var response = new BaseResponse<OrderResponseModel>();
+
+                bool success = await _orderRepository.EditReviewAsync(orderDetailId, scoreRating, comment);
+                if (!success)
+                {
+                    response.Success = false;
+                    response.Message = "Failed to edit review. Order detail not found.";
+                    return response;
+                }
+
+                response.Success = true;
+                response.Message = "Review edited successfully.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<OrderResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<OrderResponseModel>> DeleteReviewAsync(int orderDetailId)
+        {
+            try
+            {
+                var response = new BaseResponse<OrderResponseModel>();
+
+                bool success = await _orderRepository.DeleteReviewAsync(orderDetailId);
+                if (!success)
+                {
+                    response.Success = false;
+                    response.Message = "Failed to delete review. Order detail not found.";
+                    return response;
+                }
+
+                response.Success = true;
+                response.Message = "Review deleted successfully.";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<OrderResponseModel>()
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "Server Error!",
+                    Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse<ReviewResponseModel>> GetReviewByOrderDetailIdAsync(int orderDetailId)
+        {
+            try
+            {
+                var response = new BaseResponse<ReviewResponseModel>();
+
+                var review = await _orderRepository.GetReviewByOrderDetailIdAsync(orderDetailId);
+                if (review == null)
+                {
+                    response.Success = false;
+                    response.Message = "Review not found for this product.";
+                    return response;
+                }
+
+                response.Success = true;
+                response.Data = new ReviewResponseModel
+                {
+                    OrderDetailId = review.Id,
+                    ScoreRating = review.Score ?? 0,
+                    Comment = review.Comment
+                };
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<ReviewResponseModel>()
                 {
                     Code = 500,
                     Success = false,

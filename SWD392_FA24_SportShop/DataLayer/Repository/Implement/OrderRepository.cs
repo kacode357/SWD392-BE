@@ -259,5 +259,94 @@ namespace DataLayer.Repository.Implement
                 throw ex;
             }
         }
+
+        public async Task<bool> AddReviewAsync(string orderId, int orderDetailId, int scoreRating, string comment)
+        {
+            try
+            {
+                var order = await _swd392Context.Orders
+                    .Include(o => o.OrderDetails)
+                    .FirstOrDefaultAsync(o => o.Id == orderId && o.Status != 1 && o.Status != 6);
+                
+                if (order == null)
+                {
+                    return false;
+                }
+
+                var orderDetail = order.OrderDetails.FirstOrDefault(od => od.Id == orderDetailId);
+
+                if (orderDetail == null)
+                {
+                    return false;
+                }
+
+                orderDetail.Score = scoreRating;
+                orderDetail.Comment = comment;
+
+                _swd392Context.OrderDetails.Update(orderDetail);
+                return await _swd392Context.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> EditReviewAsync(int orderDetailId, int scoreRating, string comment)
+        {
+            try
+            {
+                var orderDetail = await _swd392Context.OrderDetails.FindAsync(orderDetailId);
+                if (orderDetail == null)
+                {
+                    return false;
+                }
+
+                orderDetail.Score = scoreRating;
+                orderDetail.Comment = comment;
+
+                _swd392Context.OrderDetails.Update(orderDetail);
+                return await _swd392Context.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<bool> DeleteReviewAsync(int orderDetailId)
+        {
+            try
+            {
+                var orderDetail = await _swd392Context.OrderDetails.FindAsync(orderDetailId);
+                if (orderDetail == null)
+                {
+                    return false;
+                }
+
+                orderDetail.Score = null;
+                orderDetail.Comment = null;
+
+                _swd392Context.OrderDetails.Update(orderDetail);
+                return await _swd392Context.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<OrderDetail> GetReviewByOrderDetailIdAsync(int orderDetailId)
+        {
+            try
+            {
+                return await _swd392Context.OrderDetails
+                    .FirstOrDefaultAsync(od => od.Id == orderDetailId && od.Score != null && od.Comment != null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
