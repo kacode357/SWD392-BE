@@ -93,11 +93,11 @@ namespace BusinessLayer.Service.Implement
                 }
             }
 
-            var vnp_orderId = Convert.ToInt64(vnpay.GetResponseData("vnp_TxnRef"));
-            var vnp_TransactionId = Convert.ToInt64(vnpay.GetResponseData("vnp_TransactionNo"));
-            var vnp_SecureHash = collections.FirstOrDefault(p => p.Key == "vnp_SecureHash").Value;
+            var vnp_orderId = vnpay.GetResponseData("vnp_TxnRef");
+            var vnp_TransactionId = vnpay.GetResponseData("vnp_TransactionNo");
+            var vnp_SecureHash = collections["vnp_SecureHash"];
             var vnp_ResponseCode = vnpay.GetResponseData("vnp_ResponseCode");
-            var vnp_OrderInfo = vnpay.GetResponseData("vnp_OrderInfo");
+            var vnp_PayDate = vnpay.GetResponseData("vnp_PayDate");
 
             bool checkSignature = vnpay.ValidateSignature(vnp_SecureHash, _configuration["VnPay:HashSecret"]);
             if (!checkSignature)
@@ -108,17 +108,23 @@ namespace BusinessLayer.Service.Implement
                 };
             }
 
+            // Chuyển đổi vnp_PayDate sang DateTime
+            DateTime payDateTime = DateTime.ParseExact(vnp_PayDate, "yyyyMMddHHmmss", null);
+            string formattedPayDate = payDateTime.ToString("dd/MM/yyyy HH:mm:ss");
+
             return new VnPayPaymentResponseModel
             {
-                Success = true,
+                Success = vnp_ResponseCode == "00",
                 PaymentMethod = "VnPay",
-                OrderDescription = vnp_OrderInfo,
-                OrderId = vnp_orderId.ToString(),
-                TransactionId = vnp_TransactionId.ToString(),
+                OrderDescription = vnpay.GetResponseData("vnp_OrderInfo"),
+                OrderId = vnp_orderId,
+                TransactionId = vnp_TransactionId,
                 Token = vnp_SecureHash,
-                VnPayResponseCode = vnp_ResponseCode
+                VnPayResponseCode = vnp_ResponseCode,
+                PaymentDate = formattedPayDate // Trả về thời gian thanh toán đã định dạng
             };
         }
+
 
         public async Task<BaseResponse> AddPayment(VnPayCallBackModel model)
         {
@@ -171,11 +177,15 @@ namespace BusinessLayer.Service.Implement
                         };
                     }
 
+                    DateTime payDateTime = DateTime.ParseExact(model.vnp_PayDate, "yyyyMMddHHmmss", null);
+                    string formattedPayDate = payDateTime.ToString("dd/MM/yyyy HH:mm:ss");
+
+
                     var payment = new Payment()
                     {
                         UserId = order.UserId,
                         OrderId = model.vnp_OrderInfo.ToString(),
-                        Date = model.vnp_PayDate.ToString(),
+                        Date = formattedPayDate,
                         Amount = double.Parse(model.vnp_Amount.ToString()) / 100,
                         Method = "VnPay",
                         Description = model.vnp_OrderInfo.ToString(),
@@ -183,6 +193,7 @@ namespace BusinessLayer.Service.Implement
                     };
                     await _paymentRepository.CreatePaymentAsync(payment);
 
+                    order.Date = payDateTime;
                     order.Status = 2;
                     await _orderRepository.UpdateOrderAsync(order);
                     foreach (var orderDetail in order.OrderDetails)

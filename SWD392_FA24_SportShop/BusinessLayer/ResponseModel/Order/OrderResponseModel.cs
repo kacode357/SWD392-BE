@@ -21,6 +21,7 @@ namespace BusinessLayer.ResponseModel.Order
         public double ShipPrice { get; set; }
         public double? Deposit { get; set; }
         public DateTime Date { get; set; }
+        public DateTime? PaymentDate { get; set; }
         public bool RefundStatus { get; set; }
         public int Status { get; set; }
         public int NewStatus { get; set; }

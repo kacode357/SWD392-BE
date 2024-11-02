@@ -152,26 +152,34 @@ namespace SWD392_SportShop.Controllers
 
 
 
-        //[Authorize(Roles = "User ")]
-        //[HttpGet("ExecutePayment")]
+        [Authorize(Roles = "User ")]
+        [HttpGet("ExecutePayment")]
+        public IActionResult ExecutePayment()
+        {
+            try
+            {
+                var response = _vnPayService.PaymentExecute(Request.Query); // Gọi PaymentExecute từ VnPayService
 
-        //public IActionResult ExecutePayment()
-        //{
-        //    try
-        //    {
-        //        var response = _vnPayService.PaymentExecute(Request.Query);
-        //        if (!response.Success)
-        //        {
-        //            return BadRequest(new { Message = "Payment failed or signature mismatch." });
-        //        }
-        //        return Ok(response);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Error executing VnPay payment: {ex.Message}");
-        //        return StatusCode(500, new { Message = ex.Message });
-        //    }
-        //}
+                if (!response.Success)
+                {
+                    return BadRequest(new { Message = "Payment failed or signature mismatch." });
+                }
+
+                return Ok(new
+                {
+                    Message = "Payment executed successfully.",
+                    OrderId = response.OrderId,
+                    TransactionId = response.TransactionId,
+                    PaymentDate = response.PaymentDate // Thêm thời gian thanh toán vào phản hồi nếu có
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error executing VnPay payment: {ex.Message}");
+                return StatusCode(500, new { Message = "Internal server error while executing payment." });
+            }
+        }
+
 
 
 
