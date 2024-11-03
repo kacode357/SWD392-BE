@@ -52,7 +52,7 @@ namespace DataLayer.Repository.Implement
 
         public async Task<List<Club>> GetAllClubs()
         {
-            return await _swd392Context.Clubs.ToListAsync();
+            return await _swd392Context.Clubs.OrderByDescending(c => c.Id).ToListAsync();
         }
 
         public  async Task<Club> GetClubById(int clubId)

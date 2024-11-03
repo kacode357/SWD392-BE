@@ -15,7 +15,7 @@ namespace SWD392_SportShop.Controllers
         {
             _orderDetailService = orderDetailService;
         }
-        [Authorize(Roles = "Admin,Manager")]
+        [Authorize(Roles = "Admin,Manager,Staff")]
         [HttpGet("GetAllOrderDetailsByOrderId/{orderId}")]
         public async Task<IActionResult> GetAllOrderDetailsByOrderId(string orderId)
         {

@@ -66,7 +66,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Sessions.ToListAsync();
+                return await _swd392Context.Sessions.OrderByDescending(s => s.Id).ToListAsync();
             }
             catch (Exception ex)
             {

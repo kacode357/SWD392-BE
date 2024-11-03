@@ -101,7 +101,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId && od.ShirtSizeId == shirtSizeId).FirstOrDefaultAsync();
+                return await _swd392Context.OrderDetails.Where(od => od.OrderId == orderId && od.ShirtSizeId == shirtSizeId).OrderByDescending(od => od.Id).FirstOrDefaultAsync();
             }
             catch (Exception ex) 
             {

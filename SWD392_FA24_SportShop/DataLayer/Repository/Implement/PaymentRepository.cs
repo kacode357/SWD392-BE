@@ -57,6 +57,7 @@ namespace DataLayer.Repository.Implement
             {
                 return await _swd392Context.Payments
                     .Include(p => p.User)
+                    .OrderByDescending(p => p.Id)
                     .ToListAsync(); 
             }
             catch (Exception ex)

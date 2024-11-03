@@ -56,6 +56,7 @@ namespace DataLayer.Repository.Implement
                 return await _swd392Context.ShirtSizes
                     .Include(ss => ss.Shirt)
                     .Include(ss => ss.Size)
+                    .OrderByDescending(ss => ss.Id)
                     .ToListAsync();
             }
             catch (Exception ex)

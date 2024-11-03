@@ -950,7 +950,7 @@ namespace BusinessLayer.Service.Interface
                 {
                     Code = 201,
                     Success = true,
-                    Message = "Register admin success!.",
+                    Message = "Register staff success!.",
                     Data = response
                 };
             }

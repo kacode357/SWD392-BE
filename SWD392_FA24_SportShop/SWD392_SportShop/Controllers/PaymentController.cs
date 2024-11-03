@@ -111,7 +111,7 @@ namespace SWD392_SportShop.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [Authorize(Roles = "Admin,Manager")]
+        [Authorize(Roles = "Admin,Manager,Staff")]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllPayment(GetAllPaymentRequestModel model)
         {

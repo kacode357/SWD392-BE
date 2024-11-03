@@ -70,7 +70,7 @@ namespace DataLayer.Repository.Implement
                                 ClubName = club.Name     
                             };
 
-                return await query.ToListAsync();
+                return await query.OrderByDescending(ts => ts.Id).ToListAsync();
 
             }
             catch (Exception ex)

@@ -64,6 +64,7 @@ namespace DataLayer.Repository.Implement
                         .ThenInclude(ss => ss.Size)
                     .Include(s => s.Player)
                         .ThenInclude(p => p.Club)
+                    .OrderByDescending(s => s.Id)
                     .ToListAsync();
             }
             catch (Exception ex)

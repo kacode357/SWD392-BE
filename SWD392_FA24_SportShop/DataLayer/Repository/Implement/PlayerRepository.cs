@@ -81,7 +81,7 @@ namespace DataLayer.Repository.Implement
                                 ClubId = player.ClubId,
                                 ClubName = club.Name
                             };
-                return await query.ToListAsync();
+                return await query.OrderByDescending(p => p.Id).ToListAsync();
             }
             catch (Exception ex)
             {

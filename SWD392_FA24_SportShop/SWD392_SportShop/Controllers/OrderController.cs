@@ -22,6 +22,7 @@ namespace SWD392_SportShop.Controllers
             _orderService = orderService;
         }
 
+        [Authorize(Roles = "Admin,Manager,Staff")]
         [HttpPost("Search")]
         public async Task<IActionResult> GetAllOrders(SearchOrderByIdRequestModel model)
         {
@@ -41,6 +42,7 @@ namespace SWD392_SportShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Manager,Staff")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderById(string id)
         {
@@ -211,7 +213,7 @@ namespace SWD392_SportShop.Controllers
                 return StatusCode(500, new { Message = "An unexpected error occurred: " + ex.Message });
             }
         }
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Admin,Manager,Staff")]
         [HttpPost("Process-Refund/{id}")]
         public async Task<IActionResult> ProcessRefund(string id)
         {

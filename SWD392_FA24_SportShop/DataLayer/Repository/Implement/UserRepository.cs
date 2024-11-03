@@ -55,7 +55,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Users.ToListAsync();
+                return await _swd392Context.Users.OrderByDescending(u => u.Id).ToListAsync();
             }
             catch (Exception ex)
             {

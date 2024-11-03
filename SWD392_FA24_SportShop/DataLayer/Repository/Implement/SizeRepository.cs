@@ -53,7 +53,7 @@ namespace DataLayer.Repository.Implement
         {
             try
             {
-                return await _swd392Context.Sizes.ToListAsync();
+                return await _swd392Context.Sizes.OrderByDescending(s => s.Id).ToListAsync();
             }
             catch (Exception ex)
             {
