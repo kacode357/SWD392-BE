@@ -281,7 +281,32 @@ namespace SWDProject_BE.Controllers
             }
         }
 
+        [HttpPost("Forgot-Password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] string email)
+        {
+            try
+            {
+                var result = await _service.ForgotPassword(email);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
+        }
 
-
+        [HttpPost("Reset-Password")]
+        public async Task<IActionResult> ResetPassword([FromBody] PasswordResetRequestModel model)
+        {
+            try
+            {
+                var result = await _service.ResetPassword(model);
+                return StatusCode(result.Code, result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@ using Newtonsoft.Json.Linq;
 using Google.Apis.Auth;
 using X.PagedList;
 using System.Linq;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace BusinessLayer.Service.Interface
 {
@@ -28,12 +29,14 @@ namespace BusinessLayer.Service.Interface
         private readonly IUserRepositoty _userRepository;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
+        private readonly IMemoryCache _memoryCache;
 
-        public UserService(IUserRepositoty userRepository, IConfiguration configuration, IMapper mapper)
+        public UserService(IUserRepositoty userRepository, IConfiguration configuration, IMapper mapper, IMemoryCache memoryCache)
         {
             _userRepository = userRepository;
             _configuration = configuration;
             _mapper = mapper;
+            _memoryCache = memoryCache;
         }
 
 
@@ -1170,7 +1173,260 @@ namespace BusinessLayer.Service.Interface
             }
 
         }
+        public async Task<BaseResponse> ForgotPassword(string email)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserByEmail(email);
+                if (user == null)
+                {
+                    return new BaseResponse
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "User not found!"
+                    };
+                }
+
+                // Tạo mã xác nhận và thời gian hết hạn
+                var verificationCode = GenerateVerificationCode();
+                var cacheKey = $"PasswordResetCode_{user.Id}";
+
+                // Lưu mã xác nhận vào MemoryCache với thời gian hết hạn (ví dụ 1 giờ)
+                _memoryCache.Set(cacheKey, verificationCode, TimeSpan.FromHours(1));
+
+                // Gửi email chứa mã xác nhận
+                await SendForgotPasswordEmail(email, verificationCode);
+
+                return new BaseResponse
+                {
+                    Code = 200,
+                    Success = true,
+                    Message = "Verification code sent successfully. Please check your email."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "An error occurred: " + ex.Message
+                };
+            }
+        }
+
+        private string GenerateVerificationCode()
+        {
+            var random = new Random();
+            return random.Next(100000, 999999).ToString();
+        }
+
+        public async Task<BaseResponse> ResetPassword(PasswordResetRequestModel model)
+        {
+            try
+            {
+                var user = await _userRepository.GetUserByEmail(model.Email);
+                if (user == null)
+                {
+                    return new BaseResponse
+                    {
+                        Code = 404,
+                        Success = false,
+                        Message = "User not found!"
+                    };
+                }
+
+                var cacheKey = $"PasswordResetCode_{user.Id}";
+
+                // Kiểm tra mã xác nhận từ MemoryCache
+                if (_memoryCache.TryGetValue(cacheKey, out string storedCode) && storedCode == model.VerificationCode)
+                {
+                    // Xóa mã khỏi cache sau khi xác nhận
+                    _memoryCache.Remove(cacheKey);
+
+                    // Cập nhật mật khẩu mới
+                    user.Password = HashPassword(model.NewPassword);
+                    user.ModifiedDate = DateTime.Now;
+
+                    bool updateSuccess = await _userRepository.UpdateUser(user);
+
+                    if (updateSuccess)
+                    {
+                        return new BaseResponse
+                        {
+                            Code = 200,
+                            Success = true,
+                            Message = "Password has been reset successfully."
+                        };
+                    }
+                    else
+                    {
+                        return new BaseResponse
+                        {
+                            Code = 500,
+                            Success = false,
+                            Message = "Failed to reset password due to a server error."
+                        };
+                    }
+                }
+                else
+                {
+                    return new BaseResponse
+                    {
+                        Code = 400,
+                        Success = false,
+                        Message = "Invalid or expired verification code."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse
+                {
+                    Code = 500,
+                    Success = false,
+                    Message = "An error occurred: " + ex.Message
+                };
+            }
+        }
+
+        //        private async Task SendForgotPasswordEmail(string email, string verificationCode)
+        //        {
+        //            var smtpClient = new SmtpClient("smtp.gmail.com")
+        //            {
+        //                Port = 587,
+        //                EnableSsl = true,
+        //                UseDefaultCredentials = false,
+        //                Credentials = new NetworkCredential("luuhiep16092002@gmail.com", "ljdx zvbn zljh xopr")
+        //            };
+
+        //            MailMessage mailMessage = new MailMessage
+        //            {
+        //                From = new MailAddress("luuhiep16092002@gmail.com"),
+        //                Subject = "Reset Your Password",
+        //                Body = $@"
+        //<html>
+        //<head>
+        //    <style>
+        //        body {{ font-family: Arial, sans-serif; line-height: 1.6; }}
+        //        .container {{ padding: 20px; background-color: #f4f4f4; border: 1px solid #ddd; border-radius: 5px; max-width: 600px; margin: 0 auto; }}
+        //        .header {{ font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }}
+        //        .content {{ font-size: 16px; color: #333; }}
+        //        .footer {{ font-size: 12px; color: #888; text-align: center; margin-top: 20px; }}
+        //        .highlight {{ color: #007BFF; font-weight: bold; }}
+        //    </style>
+        //</head>
+        //<body>
+        //    <div class='container'>
+        //        <div class='header'>Password Reset Request</div>
+        //        <div class='content'>
+        //            <p>Use the following code to reset your password:</p>
+        //            <p class='highlight'>{verificationCode}</p>
+        //            <p>This code will expire in 1 hour.</p>
+        //        </div>
+        //        <div class='footer'>&copy; 2024 Sport Shop. All rights reserved.</div>
+        //    </div>
+        //</body>
+        //</html>",
+        //                IsBodyHtml = true
+        //            };
+
+        //            mailMessage.To.Add(email);
+        //            await smtpClient.SendMailAsync(mailMessage);
+        //        }
+
+        private async Task<BaseResponse> SendForgotPasswordEmail(string email, string verificationCode)
+        {
+            try
+            {
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    EnableSsl = true,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("luuhiep16092002@gmail.com", "ljdx zvbn zljh xopr")
+                };
+
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress("luuhiep16092002@gmail.com"),
+                    Subject = "Reset Your Password",
+                    IsBodyHtml = true,
+                    Body = $@"
+<html>
+<head>
+  <style>
+    body {{
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }}
+    .container {{
+      padding: 20px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      max-width: 600px;
+      margin: 0 auto;
+    }}
+    .header {{
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }}
+    .content {{
+      font-size: 16px;
+      color: #333;
+    }}
+    .footer {{
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 20px;
+    }}
+    .highlight {{
+      color: #007BFF;
+      font-weight: bold;
+    }}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <div class='header'>Password Reset Request</div>
+    <div class='content'>
+      <p>You requested to reset your password.</p>
+      <p>Please use the following code to reset your password:</p>
+      <p class='highlight'>{verificationCode}</p>
+      <p>This code will expire in 1 hour.</p>
+    </div>
+    <div class='footer'>
+      &copy; 2024 Sport Shop. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>"
+                };
+
+                mailMessage.To.Add(email);
+
+                await smtpClient.SendMailAsync(mailMessage);
+
+                return new BaseResponse
+                {
+                    Code = 200,
+                    Message = "Verification email sent successfully."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse
+                {
+                    Code = 500,
+                    Message = "An error occurred while sending the email: " + ex.Message
+                };
+            }
+        }
+
     }
-
-
 }

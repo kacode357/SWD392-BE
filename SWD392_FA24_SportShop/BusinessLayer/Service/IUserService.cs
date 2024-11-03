@@ -31,5 +31,7 @@ namespace BusinessLayer.Service
         public Task<BaseResponse> ChangePassword(int id, string currentPassword, string newPassword);
         Task<BaseResponse> ResendVerificationEmail(string email);
         Task<BaseResponse> BlockUser(int userId);
+        Task<BaseResponse> ForgotPassword(string email);
+        Task<BaseResponse> ResetPassword(PasswordResetRequestModel model);
     }
 }
