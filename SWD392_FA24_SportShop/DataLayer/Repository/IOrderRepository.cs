@@ -28,6 +28,7 @@ namespace DataLayer.Repository
         Task<bool> EditReviewAsync(int orderDetailId, int scoreRating, string comment);
         Task<bool> DeleteReviewAsync(int orderDetailId);
         Task<OrderDetail> GetReviewByOrderDetailIdAsync(int orderDetailId);
+        Task<List<OrderDetail>> GetReviewsByShirtIdAsync(int shirtId);
 
     }
 }

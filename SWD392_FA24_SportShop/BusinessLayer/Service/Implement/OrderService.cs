@@ -1132,43 +1132,24 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
-                var shirtSizes = await _shirtSizeRepository.GetAllTypeShirtByShirtId(shirtId);
-                if (shirtSizes == null || !shirtSizes.Any())
+                var orderDetails = await _orderRepository.GetReviewsByShirtIdAsync(shirtId);
+
+                var reviews = orderDetails.Select(od => new ReviewResponseModel
+                {
+                    UserName = od.Order.User.UserName,
+                    ScoreRating = od.Score ?? 0,
+                    Comment = od.Comment
+                }).ToList();
+
+                if (!reviews.Any())
                 {
                     return new BaseResponse<List<ReviewResponseModel>>()
                     {
                         Code = 404,
                         Success = false,
-                        Message = "No sizes found for the specified shirt ID.",
+                        Message = "No reviews found for the specified shirt ID.",
                         Data = null
                     };
-                }
-
-                var reviews = new List<ReviewResponseModel>();
-                foreach (var shirtSize in shirtSizes)
-                {
-                    // Lấy các OrderDetail theo shirtSizeId
-                    var orderDetails = await _orderDetailsRepository.GetOrderDetailsByShirtSizeIdAsync(shirtSize.Id);
-                    if (orderDetails != null && orderDetails.Any())
-                    {
-                        // Bước 3: Lấy review cho từng OrderDetail nếu có
-                        foreach (var orderDetail in orderDetails)
-                        {
-                            var review = await _orderRepository.GetReviewByOrderDetailIdAsync(orderDetail.Id);
-                            if (review != null)
-                            {
-                                // Thêm review vào danh sách trả về
-                                reviews.Add(new ReviewResponseModel
-                                {
-                                    //userId = review.Order.UserId,
-                                    UserName = review.Order.User.UserName,
-                                    OrderDetailId = review.Id,
-                                    ScoreRating = review.Score ?? 0,
-                                    Comment = review.Comment
-                                });
-                            }
-                        }
-                    }
                 }
 
                 return new BaseResponse<List<ReviewResponseModel>>()
@@ -1178,8 +1159,6 @@ namespace BusinessLayer.Service.Implement
                     Message = "Reviews retrieved successfully.",
                     Data = reviews
                 };
-
-
             }
             catch (Exception ex)
             {

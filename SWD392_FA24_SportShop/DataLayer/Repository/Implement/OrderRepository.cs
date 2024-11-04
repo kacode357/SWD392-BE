@@ -351,5 +351,24 @@ namespace DataLayer.Repository.Implement
                 throw ex;
             }
         }
+
+        public async Task<List<OrderDetail>> GetReviewsByShirtIdAsync(int shirtId)
+        {
+            try
+            {
+                var reviews = await _swd392Context.OrderDetails
+                    .Include(od => od.Order)
+                        .ThenInclude(o => o.User)
+                    .Include(od => od.ShirtSize)
+                    .Where(od => od.ShirtSize.ShirtId == shirtId && od.Score != null && od.Comment != null)
+                    .ToListAsync();
+
+                return reviews;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
