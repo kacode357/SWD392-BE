@@ -1160,6 +1160,8 @@ namespace BusinessLayer.Service.Implement
                                 // Thêm review vào danh sách trả về
                                 reviews.Add(new ReviewResponseModel
                                 {
+                                    userId = review.Order.UserId,
+                                    UserName = review.Order.User.UserName,
                                     OrderDetailId = review.Id,
                                     ScoreRating = review.Score ?? 0,
                                     Comment = review.Comment

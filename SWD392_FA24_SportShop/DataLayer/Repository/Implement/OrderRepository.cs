@@ -342,6 +342,8 @@ namespace DataLayer.Repository.Implement
             try
             {
                 return await _swd392Context.OrderDetails
+                    .Include(od => od.Order)
+                        .ThenInclude(o => o.User)
                     .FirstOrDefaultAsync(od => od.Id == orderDetailId && od.Score != null && od.Comment != null);
             }
             catch (Exception ex)
