@@ -1137,6 +1137,7 @@ namespace BusinessLayer.Service.Implement
                 var reviews = orderDetails.Select(od => new ReviewResponseModel
                 {
                     UserName = od.Order.User.UserName,
+                    ImgUrl = od.Order.User.ImgUrl,
                     ScoreRating = od.Score ?? 0,
                     Comment = od.Comment
                 }).ToList();
