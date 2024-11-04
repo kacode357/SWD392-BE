@@ -118,7 +118,7 @@ namespace DataLayer.Repository.Implement
             {
                 return await _swd392Context.Orders
                     .Include(o => o.User)
-                    .OrderByDescending(o => int.Parse(o.Id))
+                    .OrderByDescending(o => o.Id)
                     .ToListAsync();
             }
             catch (Exception ex)

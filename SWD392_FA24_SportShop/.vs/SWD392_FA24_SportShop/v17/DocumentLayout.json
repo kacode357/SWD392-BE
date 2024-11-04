@@ -3,48 +3,20 @@
   "WorkspaceRootPath": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\shirtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\shirtcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\clubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\clubcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\implement\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\implement\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\implement\\orderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\implement\\orderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\iorderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\iorderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\implement\\shirtsizerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\implement\\shirtsizerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\datalayer\\repository\\ishirtsizerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30423D6E-D1F2-4099-A3D7-EDAF5E4A8B2F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repository\\ishirtsizerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\businesslayer\\service\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCAE134A-6641-4977-9694-CD94A6F3D6A9}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|e:\\git\\swd392-be\\swd392_fa24_sportshop\\swd392_sportshop\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1FE24A2-47AE-4B20-AE66-5CF1DE80D425}|SWD392_SportShop\\SWD392_SportShop.csproj|solutionrelative:swd392_sportshop\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,49 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 19,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\OrderController.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "SWD392_SportShop\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAB0BAAAAAAAAAAAxwDIBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:41:02.381Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ReviewController.cs",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ReviewController.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ReviewController.cs",
-              "RelativeToolTip": "SWD392_SportShop\\Controllers\\ReviewController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwEQAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:42:13.004Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\UserController.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\UserController.cs",
-              "RelativeToolTip": "SWD392_SportShop\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:51:57.855Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -167,106 +98,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClubController.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ClubController.cs",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ClubController.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ClubController.cs",
-              "RelativeToolTip": "SWD392_SportShop\\Controllers\\ClubController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:47:21.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ShirtController.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ShirtController.cs",
-              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ShirtController.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ShirtController.cs",
-              "RelativeToolTip": "SWD392_SportShop\\Controllers\\ShirtController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAwwIEAAAAJAAAAAAAAAA==",
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\PaymentController.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "SWD392_SportShop\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:41:20.423Z",
+              "WhenOpened": "2024-11-04T02:52:18.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IOrderDetailRepository.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IOrderDetailRepository.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Repository\\IOrderDetailRepository.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IOrderDetailRepository.cs",
-              "RelativeToolTip": "DataLayer\\Repository\\IOrderDetailRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABTAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ReviewController.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\ReviewController.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\ReviewController.cs",
+              "RelativeToolTip": "SWD392_SportShop\\Controllers\\ReviewController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwEQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:36:27.28Z",
+              "WhenOpened": "2024-11-04T02:45:54.851Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OrderDetailRepository.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\OrderDetailRepository.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Repository\\Implement\\OrderDetailRepository.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\OrderDetailRepository.cs",
-              "RelativeToolTip": "DataLayer\\Repository\\Implement\\OrderDetailRepository.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAwIMAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Repository\\Implement\\OrderRepository.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\OrderRepository.cs",
+              "RelativeToolTip": "DataLayer\\Repository\\Implement\\OrderRepository.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAAAHgAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:37:03.848Z",
+              "WhenOpened": "2024-11-04T02:43:26.875Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IShirtSizeRepository.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IShirtSizeRepository.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Repository\\IShirtSizeRepository.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\IShirtSizeRepository.cs",
-              "RelativeToolTip": "DataLayer\\Repository\\IShirtSizeRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "SWD392_SportShop\\Controllers\\OrderController.cs",
+              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\SWD392_SportShop\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "SWD392_SportShop\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAABsBAAAAAAAAAAAcwCMAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:32:25.392Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ShirtSizeRepository.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\ShirtSizeRepository.cs",
-              "RelativeDocumentMoniker": "DataLayer\\Repository\\Implement\\ShirtSizeRepository.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\DataLayer\\Repository\\Implement\\ShirtSizeRepository.cs",
-              "RelativeToolTip": "DataLayer\\Repository\\Implement\\ShirtSizeRepository.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAowEMAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:33:52.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IOrderService.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\IOrderService.cs",
-              "RelativeDocumentMoniker": "BusinessLayer\\Service\\IOrderService.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\IOrderService.cs",
-              "RelativeToolTip": "BusinessLayer\\Service\\IOrderService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAkwCUAAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:30:30.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\OrderService.cs",
-              "RelativeDocumentMoniker": "BusinessLayer\\Service\\Implement\\OrderService.cs",
-              "ToolTip": "E:\\Git\\SWD392-BE\\SWD392_FA24_SportShop\\BusinessLayer\\Service\\Implement\\OrderService.cs",
-              "RelativeToolTip": "BusinessLayer\\Service\\Implement\\OrderService.cs",
-              "ViewState": "AgIAAF4EAAAAAAAAAAAUwGoEAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T15:25:22.068Z",
+              "WhenOpened": "2024-11-04T02:38:43.221Z",
               "EditorCaption": ""
             }
           ]

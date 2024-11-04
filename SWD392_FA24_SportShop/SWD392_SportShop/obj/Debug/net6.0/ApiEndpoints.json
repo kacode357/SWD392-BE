@@ -667,13 +667,29 @@
   {
     "ContainingType": "SWD392_SportShop.Controllers.ReviewController",
     "Method": "GetReviewByOrderDetailId",
-    "RelativePath": "api/review/{orderDetailId}",
+    "RelativePath": "api/review/by-order-detail/{orderDetailId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "orderDetailId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SWD392_SportShop.Controllers.ReviewController",
+    "Method": "GetReviewsByShirtId",
+    "RelativePath": "api/review/by-shirt/{shirtId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shirtId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -691,22 +707,6 @@
       {
         "Name": "model",
         "Type": "BusinessLayer.RequestModel.Order.AddReviewRequestModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SWD392_SportShop.Controllers.ReviewController",
-    "Method": "GetReviewsByShirtId",
-    "RelativePath": "api/review/get-reviews-by-shirt/{shirtId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "shirtId",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
