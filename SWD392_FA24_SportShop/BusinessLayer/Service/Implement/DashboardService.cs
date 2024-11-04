@@ -25,6 +25,10 @@ namespace BusinessLayer.Service.Implement
         {
             try
             {
+                var totalSalesAmount = await _swd392Context.Orders
+                                                .Where(o => o.Status != 1 && o.Status != 6)
+                                                .SumAsync(o => o.TotalPrice) ?? 0;
+
                 var statistics = new AdminManagerDashboadDto
                 {
                     UserCount = await _swd392Context.Users.CountAsync(),
@@ -33,7 +37,8 @@ namespace BusinessLayer.Service.Implement
                     PlayerCount = await _swd392Context.Players.CountAsync(),
                     ShirtCount = await _swd392Context.Shirts.CountAsync(),
                     TypeShirtCount = await _swd392Context.TypeShirts.CountAsync(),
-                    OrderCount = await _swd392Context.Orders.CountAsync()
+                    OrderCount = await _swd392Context.Orders.CountAsync(),
+                    TotalSalesAmount = totalSalesAmount
                 };
                 return new BaseResponse<AdminManagerDashboadDto>
                 {

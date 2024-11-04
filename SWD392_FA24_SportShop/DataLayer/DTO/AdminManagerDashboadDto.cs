@@ -15,5 +15,6 @@ namespace DataLayer.DTO
         public int ShirtCount { get; set; }
         public int TypeShirtCount { get; set; }
         public int OrderCount { get; set; }
+        public double TotalSalesAmount { get; set; }
     }
 }
