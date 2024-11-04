@@ -56,7 +56,7 @@ namespace SWD392_SportShop.Controllers
             return Ok(result);
         }
         [Authorize]
-        [HttpGet("{orderDetailId}")]
+        [HttpGet("by-order-detail/{orderDetailId}")]
         public async Task<IActionResult> GetReviewByOrderDetailId(int orderDetailId)
         {
             var result = await _orderService.GetReviewByOrderDetailIdAsync(orderDetailId);
@@ -66,7 +66,7 @@ namespace SWD392_SportShop.Controllers
             }
             return Ok(result);
         }
-        [HttpGet("{shirtId}")]
+        [HttpGet("by-shirt/{shirtId}")]
         public async Task<IActionResult> GetReviewsByShirtId(int shirtId)
         {
             try
