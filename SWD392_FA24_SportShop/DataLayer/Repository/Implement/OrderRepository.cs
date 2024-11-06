@@ -145,6 +145,7 @@ namespace DataLayer.Repository.Implement
             try
             {
                 return await _swd392Context.Orders
+                    .Include(o => o.User)
                     .Include(o => o.OrderDetails)
                     .FirstOrDefaultAsync(o => o.Id == orderId);
             }

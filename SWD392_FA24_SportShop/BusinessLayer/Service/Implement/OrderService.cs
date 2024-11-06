@@ -18,6 +18,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using BusinessLayer.ResponseModel.OrderDetail;
 using BusinessLayer.ResponseModel.Payment;
 using DataLayer.DBContext;
+using System.Net.Mail;
+using System.Net;
 
 
 namespace BusinessLayer.Service.Implement
@@ -529,6 +531,24 @@ namespace BusinessLayer.Service.Implement
                     };
                 }
                 await _orderRepository.UpdateOrderAsync(_mapper.Map(model, order));
+
+                if (model.Status == 7)
+                {
+                    var emailResponse = await SendRejectOrderEmail(order.User.Email);
+
+                    // Kiểm tra nếu gửi email gặp lỗi
+                    if (emailResponse.Code != 200)
+                    {
+                        return new BaseResponse<OrderResponseModel>
+                        {
+                            Code = 500,
+                            Success = false,
+                            Message = "Order updated, but failed to send rejection email.",
+                            Data = null
+                        };
+                    }
+                }
+
                 return new BaseResponse<OrderResponseModel>()
                 {
                     Code = 200,
@@ -944,12 +964,12 @@ namespace BusinessLayer.Service.Implement
 
                 if (model.Status.HasValue && model.Status.Value != 0)
                 {
-                    listOrder = listOrder.Where(o => o.Status == model.Status.Value && o.Status != 1 && o.Status != 6).ToList();
+                    listOrder = listOrder.Where(o => o.Status == model.Status.Value && o.Status != 1 && o.Status != 6 && o.Status != 7).ToList();
                 }
                 else
                 {
                     // Status is either zero or not provided, so exclude statuses 1 and 6
-                    listOrder = listOrder.Where(o => o.Status != 1 && o.Status != 6).ToList();
+                    listOrder = listOrder.Where(o => o.Status != 1 && o.Status != 6 && o.Status != 7).ToList();
                 }
 
 
@@ -1169,6 +1189,97 @@ namespace BusinessLayer.Service.Implement
                     Success = false,
                     Message = "Server Error!",
                     Data = null
+                };
+            }
+        }
+
+        public async Task<BaseResponse> SendRejectOrderEmail(string email)
+        {
+            try
+            {
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    EnableSsl = true,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("luuhiep16092002@gmail.com", "ljdx zvbn zljh xopr")
+                };
+
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress("luuhiep16092002@gmail.com"),
+                    Subject = "Order Rejection Notification",
+                    IsBodyHtml = true,
+                    Body = $@"
+<html>
+<head>
+  <style>
+    body {{
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }}
+    .container {{
+      padding: 20px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      max-width: 600px;
+      margin: 0 auto;
+    }}
+    .header {{
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }}
+    .content {{
+      font-size: 16px;
+      color: #333;
+    }}
+    .footer {{
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 20px;
+    }}
+    .highlight {{
+      color: #007BFF;
+      font-weight: bold;
+    }}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <div class='header'>Order Rejection Notification</div>
+    <div class='content'>
+      <p>We regret to inform you that your order has been rejected.</p>
+      <p>Please contact us at <span class='highlight'>luuhiep16092002@gmail.com</span> for further assistance regarding a refund.</p>
+      <p>Thank you for understanding.</p>
+    </div>
+    <div class='footer'>
+      &copy; 2024 Sport Shop. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>"
+                };
+
+                mailMessage.To.Add(email);
+
+                await smtpClient.SendMailAsync(mailMessage);
+
+                return new BaseResponse
+                {
+                    Code = 200,
+                    Message = "Rejection email sent successfully."
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse
+                {
+                    Code = 500,
+                    Message = "An error occurred while sending the email: " + ex.Message
                 };
             }
         }
