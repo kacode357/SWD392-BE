@@ -36,6 +36,6 @@ namespace BusinessLayer.Service
         Task<BaseResponse<OrderResponseModel>> DeleteReviewAsync(int orderDetailId);
         Task<BaseResponse<ReviewResponseModel>> GetReviewByOrderDetailIdAsync(int orderDetailId);
         Task<BaseResponse<List<ReviewResponseModel>>> GetReviewsByShirtIdAsync (int shirtId);
-        Task<BaseResponse> SendRejectOrderEmail(string email);
+        Task<BaseResponse> SendRejectOrderEmail(string email, string orderId);
     }
 }

@@ -20,6 +20,7 @@ using BusinessLayer.ResponseModel.Payment;
 using DataLayer.DBContext;
 using System.Net.Mail;
 using System.Net;
+using System.Drawing;
 
 
 namespace BusinessLayer.Service.Implement
@@ -534,7 +535,7 @@ namespace BusinessLayer.Service.Implement
 
                 if (model.Status == 7)
                 {
-                    var emailResponse = await SendRejectOrderEmail(order.User.Email);
+                    var emailResponse = await SendRejectOrderEmail(order.User.Email, order.Id);
 
                     // Kiểm tra nếu gửi email gặp lỗi
                     if (emailResponse.Code != 200)
@@ -1193,7 +1194,7 @@ namespace BusinessLayer.Service.Implement
             }
         }
 
-        public async Task<BaseResponse> SendRejectOrderEmail(string email)
+        public async Task<BaseResponse> SendRejectOrderEmail(string email, string orderId)
         {
             try
             {
@@ -1252,7 +1253,7 @@ namespace BusinessLayer.Service.Implement
   <div class='container'>
     <div class='header'>Order Rejection Notification</div>
     <div class='content'>
-      <p>We regret to inform you that your order has been rejected.</p>
+      <p>We regret to inform you that your order: <span style=color: red;>" + orderId + $@"</span> has been rejected.</p>
       <p>Please contact us at <span class='highlight'>luuhiep16092002@gmail.com</span> for further assistance regarding a refund.</p>
       <p>Thank you for understanding.</p>
     </div>
